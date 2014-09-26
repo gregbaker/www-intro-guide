@@ -1,0 +1,37 @@
+[
+  {
+    "chapter": ["www", "The Internet and the World Wide Web"],
+    "contents": [
+      ["internet", "The Internet"],
+      ["protocols", "The Rest of the Internet"],
+      ["http", "The Web and HTTP"],
+      ["pillars", "HTML, CSS, and JavaScript"]
+    ]
+  },
+  {
+    "chapter": ["html", "Markup and HTML"],
+    "contents": [
+      ["markup", "Text Files and Markup"],
+      ["tags", "HTML and Tags"],
+      ["semantic", "Semantic Markup"],
+      ["validation", "Validating HTML"]
+    ]
+  },
+  {
+    "chapter": ["css", "Stylesheets"],
+    "contents": [
+      ["styles", "Styles"],
+      ["basics", "CSS Basics"],
+      ["properties", "CSS Properties"],
+      ["selectors", "CSS Selectors"]
+    ]
+  },
+  {
+    "chapter": ["js", "JavaScript"],
+    "contents": [
+      ["behaviour", "Behaviour of Web Pages"],
+      ["basics", "JavaScript Basics"],
+      ["events", "Events and Behaviour"]
+    ]
+  }
+]

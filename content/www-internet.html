@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}The Internet{% endblock %}
+{% block h1 %}The Internet{% endblock %}
+
+{% block content %}
+
+<p>You probably know what <dfn>the Internet</dfn> is, at least somewhat.</p>
+
+<p>But there are more details to what &ldquo;the Internet&rdquo; is than most people know about. It makes sense to start with a little bit of an introduction into what the Internet actually <em>is</em>.</p>
+
+<p>Fundamentally, the Internet is a collection of computer that are connected: they can exchange information. Every computer &ldquo;on the Internet&rdquo; is connected to one or more other computers.</p>
+
+<p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination.</p>
+
+<p>In order for this to work, each of the computer must pass the information along in the correct &ldquo;direction&rdquo;. Since some computers might have </p>
+
+{{ 'internet'|svgfigure('Examples of how computers might be connected') }}
+
+{% endblock %}
