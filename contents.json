@@ -23,7 +23,8 @@
       ["styles", "Styles"],
       ["basics", "CSS Basics"],
       ["properties", "CSS Properties"],
-      ["selectors", "CSS Selectors"]
+      ["selectors", "CSS Selectors"],
+      ["pages", "Styling Pages with CSS"]
     ]
   },
   {

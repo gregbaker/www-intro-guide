@@ -1,6 +1,4 @@
-HTML_PAGES = $(wildcard *.html */*.html)
-MD_PAGES = $(patsubst %.md, %.html, $(wildcard *.md */*.md))
-ALL_PAGES = $(filter-out _%.html, $(HTML_PAGES) $(MD_PAGES))
+ALL_PAGES = $(filter-out _%.html, $(wildcard *.html */*.html))
 PAGES = $(foreach p,$(ALL_PAGES),_site/$(p))
 
 SVG_FIGURES = $(foreach f,$(wildcard figures/*.svg),_site/$(f))
@@ -12,7 +10,7 @@ FIGURES = \
 DIRECTORIES = assets content figures
 SITE_DIRECTORIES = $(foreach d, $(DIRECTORIES), _site/$(d))
 
-LAYOUTS = _layouts/base.html
+LAYOUTS = _layouts/base.html contents.json _markup/jinja_environment.py
 STYLES = _site/style.css
 ASSETS = _site/assets/cc-by-sa.png
 

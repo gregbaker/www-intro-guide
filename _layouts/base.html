@@ -2,12 +2,12 @@
 <html lang="en" class="{% block pageclass %}{% endblock %}">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}{% endblock %}</title>
+  <title>{% block title %}{{ ''|pagetitle }}{% endblock %}</title>
   <link rel="stylesheet" href="{{rellink}}style.css">
 </head>
 <body>
 <header>
-<h1>{% block h1 %}{% endblock %}</h1>
+<h1>{% block h1 %}{{ ''|pagetitle }}{% endblock %}</h1>
 </header>
 <main>
 {% block content %}{% endblock %}
