@@ -24,7 +24,9 @@
       ["basics", "CSS Basics"],
       ["properties", "CSS Properties"],
       ["selectors", "CSS Selectors"],
-      ["pages", "Styling Pages with CSS"]
+      ["pages", "Styling Pages with CSS"],
+      ["responsive", "Responsive Design"],
+      ["separate", "Separating Content and Appearance"]
     ]
   },
   {
@@ -33,6 +35,14 @@
       ["behaviour", "Behaviour of Web Pages"],
       ["basics", "JavaScript Basics"],
       ["events", "Events and Behaviour"]
+    ]
+  },
+  {
+    "chapter": ["graphics", "Graphics"],
+    "contents": [
+      ["img", "Using Images on Web Pages"],
+      ["formats", "Image Formats"],
+      ["design", "Designing with Images"]
     ]
   }
 ]

@@ -51,9 +51,12 @@ do-polished-build:
 
 final-site: do-polished-build site
 
+watch:
+	watch -n 1 make
+
 clean:
 	rm -rf _site/*
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.pyc" -exec rm {} \;
 
-.PHONY: all site clean
+.PHONY: all do-polished-build site final-site watch clean
