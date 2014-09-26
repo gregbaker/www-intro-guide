@@ -1,0 +1,1 @@
+This project contains the content for the Study Guide for CMPT 165 at [Simon Fraser University](http://www.sfu.ca/).
