@@ -1,6 +1,7 @@
 *~
 *.pyc
-_site/*
+_site
+_polished_site
 .sass-cache
 .idea
 .vagrant
