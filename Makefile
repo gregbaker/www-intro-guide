@@ -8,7 +8,7 @@ FIGURES = \
     $(patsubst %.svg, %.png, $(SVG_FIGURES))
 
 DIRECTORIES = assets content figures
-SITE_DIRECTORIES = $(foreach d, $(DIRECTORIES), _site/$(d))
+SITE_DIRECTORIES = _site $(foreach d, $(DIRECTORIES), _site/$(d))
 
 LAYOUTS = _layouts/base.html contents.json _markup/jinja_environment.py
 STYLES = _site/style.css
@@ -55,7 +55,7 @@ watch:
 	watch -n 1 make
 
 clean:
-	rm -rf _site/*
+	rm -rf _site
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.pyc" -exec rm {} \;
 
