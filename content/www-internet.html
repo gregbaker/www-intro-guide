@@ -5,12 +5,41 @@
 
 <p>But there are more details to what &ldquo;the Internet&rdquo; is than most people know about. It makes sense to start with a little bit of an introduction into what the Internet actually <em>is</em>.</p>
 
-<p>Fundamentally, the Internet is a collection of computer that are connected: they can exchange information. Every computer &ldquo;on the Internet&rdquo; is connected to one or more other computers.</p>
+<p>Fundamentally, the Internet is a collection of computer that are connected: they can exchange information. Every computer &ldquo;on the Internet&rdquo; is connected to one or more other computers. There are many ways to connect</p>
+
+<h2 id="connections">How Computers Are Connected</h2>
+
+<p class="draft">wifi, ethernet, 3G, LTE, cable modems, fibre optics, ...</p>
+
+<p>Computers on the Internet can be connected to each other so they can exchange information in many different ways. This is part of what makes the Internet so flexible: different devices can connect to it in different ways, but still all work together.</p>
+
+<p>Let's start with the kinds of connections you might actually deal with. On home computers, you probably have computers connected by one of two methods: Ethernet or Wi-Fi.</p>
+
+{{ 'ethernet'|floatfigure('An Ethernet cable connected to a laptop', extension='jpg') }}
+
+<p>If there is an actual cable connecting to your computer, it is probably <dfn>Ethernet</dfn>. An Ethernet connection is used over relatively short distances (up to 100 metres) but can transmit data very quickly (probably up to 100 or 1000 Mbits/s in home networks). This makes Ethernet very good for homes and offices: everything is close enough together, and its fast enough to stream video at home or move large files between computers in an office.</p>
+
+<p>If a home computer (or phone or tablet) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
+
+{{ 'router'|floatfigure('A home router', extension='jpg') }}
+
+<p>But in order to be connected <em>to the Internet</em>, a home computer must be connected to <em>another computer</em>. Most homes have a <dfn>router</dfn> which all of the computers (and phones and other devices) connect to. The router is actually a small computer whose job it is to connect to other devices and in turn connect them to the outside Internet.</p>
+
+
+
+
+<h2 id="routing">How Information Travels</h2>
+
 
 <p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination.</p>
 
+<p>Let's look at a simplified example of the way some computer might be connected:</p>
+{{ 'internet'|figure('Examples of how computers might be connected', extension='svg') }}
+
+<p>Some computers </p>
+
 <p>In order for this to work, each of the computer must pass the information along in the correct &ldquo;direction&rdquo;. Since some computers might have </p>
 
-{{ 'internet'|svgfigure('Examples of how computers might be connected') }}
+
 
 {% endblock %}
