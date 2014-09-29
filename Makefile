@@ -2,13 +2,16 @@
 # files we need to generate in _site/
 PAGES = $(filter-out _%.html, $(wildcard *.html */*.html))
 
-SVG_FIGURES = $(wildcard figures/*.svg)
+SVG_FIGURES = $(wildcard figures/*.svg) $(wildcard floats/*.svg)
+BITMAP_FIGURES = $(wildcard figures/*.png) $(wildcard floats/*.png) \
+                 $(wildcard figures/*.jpg) $(wildcard floats/*.jpg)
 FIGURES = \
     $(SVG_FIGURES) \
     $(patsubst %.svg, %.svgz, $(SVG_FIGURES)) \
-    $(patsubst %.svg, %.png, $(SVG_FIGURES))
+    $(patsubst %.svg, %.png, $(SVG_FIGURES)) \
+    $(BITMAP_FIGURES)
 
-DIRECTORIES = assets content figures
+DIRECTORIES = assets content figures floats
 STYLES = style.css
 ASSETS = assets/cc-by-sa.png
 
@@ -20,7 +23,7 @@ POLISHED_SITE_DEPS = $(foreach f, $(DEPS), _polished_site/$(f))
 SITE_DIRECTORIES = _site $(foreach d, $(DIRECTORIES), _site/$(d))
 POLISHED_SITE_DIRECTORIES = _polished_site $(foreach d, $(DIRECTORIES), _polished_site/$(d))
 
-# extradependencies to make sure we rebuild HTML files when necessary
+# extra dependencies to make sure we rebuild HTML files when necessary
 LAYOUTS = _layouts/base.html contents.json _markup/jinja_environment.py
 
 
@@ -39,8 +42,13 @@ _site/figures/%.svgz: _site/figures/%.svg _site/figures
 	gzip -c < $< > $@
 
 _site/figures/%.png: figures/%.svg
-	gm convert $< $@
-#	inkscape -y 255 -b "#fff" -d 96 -e $@ $<
+	inkscape -y 255 -b "#fff" -d 96 -e $@ $<
+#	gm convert $< $@
+
+_site/floats/%.png: floats/%.png # TODO: responsive resizes
+	cp $< $@
+_site/floats/%.jpg: floats/%.jpg
+	cp $< $@
 
 _site/%.css: %.scss
 	sass --scss --style expanded $< $@
@@ -74,7 +82,7 @@ _polished_site/%.svgz: _polished_site/%.svg
 _polished_site/%: _site/%
 	cp $< $@
 
-polished-site: $(POLISHED_SITE_DEPS)
+polished-site: validate $(POLISHED_SITE_DEPS)
 
 
 upload-draft: polished-site
@@ -83,9 +91,12 @@ upload-draft: polished-site
 watch:
 	watch -n 1 make
 
+validate: $(SITE_DEPS)
+	python _markup/validate.py $(SITE_DEPS)
+
 clean:
 	rm -rf _site _polished_site
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.pyc" -exec rm {} \;
 
-.PHONY: all do-polished-build site polished-site upload-draft watch clean
+.PHONY: all do-polished-build site polished-site upload-draft watch validate clean

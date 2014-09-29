@@ -3,6 +3,9 @@ $main-font: Helvetica, sans-serif;
 body {
   font-family: $main-font;
 }
+h2, h3 {
+  clear: both;
+}
 
 figure {
   margin: 1em auto;
@@ -12,6 +15,18 @@ figcaption {
   font-size: smaller;
   font-weight: bold;
 }
+figure.floating {
+  float: right;
+  clear: right;
+  max-width: 15%;
+  margin: 0.5em 0 ;
+  padding: 0 0 0 1em;
+}
+figure.floating img {
+  max-width: 100%;
+}
+
+
 .draft {
   color: #0b0;
   font-style: italic;

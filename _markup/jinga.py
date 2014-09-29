@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-import fileinput, sys
+import sys
 from jinja_environment import environment, get_context
 
-def main(infile, outfile):
+def jinga_process(infile, outfile):
     template = environment.get_template(infile)
     context = get_context(infile)
     output = template.render(context)
@@ -13,4 +13,4 @@ def main(infile, outfile):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    jinga_process(sys.argv[1], sys.argv[2])

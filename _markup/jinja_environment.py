@@ -7,12 +7,27 @@ def get_context(infile):
     rellink = '../' * depth
     return {'rellink': rellink, 'input_file': infile}
 
-svg_template = Template("""<figure id="fig-{{ filebase }}"><img src="../figures/{{ filebase }}.svg" alt="{{ caption }}"><figcaption>{{ caption }}</figcaption></figure>""")
-def svgfigure(filebase, caption):
+svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}</figcaption></figure>""")
+def figure(filebase, caption, figureclass='block', extension='png', directory='figures'):
     """
-    Output the markup for an SVG-based figure
+    Output the markup for an image figure
     """
-    return svg_template.render({'filebase': filebase, 'caption': caption})
+    context = {
+        'directory': directory,
+        'filebase': filebase,
+        'caption': caption,
+        'figureclass': figureclass,
+        'extension': extension,
+    }
+    return svg_template.render(context)
+
+def floatfigure(filebase, caption, figureclass=None, extension='png'):
+    cls = 'floating'
+    if figureclass:
+        cls += ' ' + figureclass
+
+    return figure(filebase=filebase, caption=caption, figureclass=cls, extension=extension,
+        directory='floats')
 
 def contents(_):
     """
@@ -79,7 +94,8 @@ def pagetitle(context, _):
 environment = Environment(
         loader=FileSystemLoader(['.', '_layouts']),
         )
-environment.filters['svgfigure'] = svgfigure
+environment.filters['figure'] = figure
+environment.filters['floatfigure'] = floatfigure
 environment.filters['contents'] = contents
 environment.filters['subcontents'] = subcontents
 environment.filters['pagetitle'] = pagetitle
