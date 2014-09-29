@@ -1,11 +1,55 @@
 $main-font: Helvetica, sans-serif;
 
+@import url("assets/reset.css");
+
 body {
   font-family: $main-font;
+  line-height: 1.5em;
+  padding: 1em 0.5em;
 }
-h2, h3 {
+h1 {
+  font-size: 200%;
+  font-weight: bold;
+  margin: 1em 0;
+}
+h2 {
   clear: both;
+  font-size: 150%;
+  font-weight: bold;
+  margin: 1.5em 0 1em 0;
 }
+h3 {
+  clear: both;
+  font-size: 125%;
+  font-style: italic;
+  margin: 1.5em 0 1em 0;
+}
+
+ol, ul {
+  margin: 1em 0 1em 3em;
+}
+ol {
+  list-style-type: decimal;
+}
+ul {
+  list-style-type: circle;
+}
+ol>li {
+  padding-left: 0.25em;
+}
+
+p {
+  margin: 1em 0;
+}
+
+em {
+  font-style: italic;
+}
+dfn {
+  font-style: italic;
+  font-weight: bold;
+}
+
 
 figure {
   margin: 1em auto;
@@ -26,6 +70,9 @@ figure.floating img {
   max-width: 100%;
 }
 
+footer {
+  margin-top: 2em;
+}
 
 .draft {
   color: #0b0;
@@ -34,6 +81,9 @@ figure.floating img {
 
 ol#toc {
   font-weight: bold;
+}
+ol#toc ol {
+  margin-top: 0;
 }
 ol#toc ol, ol.chapter-toc {
   font-weight: normal;

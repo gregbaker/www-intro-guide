@@ -13,7 +13,7 @@ FIGURES = \
 
 DIRECTORIES = assets content figures floats
 STYLES = style.css
-ASSETS = assets/cc-by-sa.png
+ASSETS = $(wildcard assets/*)
 
 # all files required in _site and _polished_site
 DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES)
