@@ -1,4 +1,5 @@
-from jinja2 import Environment, FileSystemLoader, Template, contextfilter
+from jinja2 import Environment, FileSystemLoader, Template, Markup, \
+    contextfilter, escape
 import json
 import os.path
 from collections import OrderedDict
@@ -125,8 +126,17 @@ def xref(context, chap):
     
 
 
+# from http://stackoverflow.com/questions/9767585/insert-static-files-literally-into-jinja-templates-without-parsing-them
+def include_file(name):
+    return Markup(loader.get_source(environment, name)[0])
+
+def include_escaped(name):
+    text = loader.get_source(environment, name)[0]
+    return escape(text)
+
+loader = FileSystemLoader(['.', '_layouts'])
 environment = Environment(
-        loader=FileSystemLoader(['.', '_layouts']),
+        loader=loader,
         )
 environment.filters['figure'] = figure
 environment.filters['floatfigure'] = floatfigure
@@ -134,6 +144,6 @@ environment.filters['contents'] = contents
 environment.filters['subcontents'] = subcontents
 environment.filters['pagetitle'] = pagetitle
 environment.filters['xref'] = xref
+environment.globals['include_file'] = include_file
+environment.globals['include_escaped'] = include_escaped
 
-
-  

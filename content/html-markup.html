@@ -23,22 +23,34 @@
 <p>We aren't concerned about LaTeX in this course, but it is a good example of a markup language. We are concerned about HTML, which we will start writing soon. It's not as good at formulas, but the HTML markup to represent the same content would be something like this:</p>
 
 <blockquote>
-<code class="latex">This is a sentence with an &lt;em>emphasized&lt;/em> word, and a formula: x&lt;sup>2&lt;/sup> - x + 1.</code>
+<code class="latex">{{ include_escaped('_sources/firstsample.html') }}
+</code>
 </blockquote>
 
-<p>Since this document is written in HTML, we can show you exactly what that HTML look like:</p>
+<p>Since this document is written in HTML, we can show you exactly what that HTML look like by including it here:</p>
 <blockquote>
-This is a sentence with an <em>emphasized</em> word, and a formula: x<sup>2</sup> - x + 1.</code>
+{{ include_file('_sources/firstsample.html') }}
 </blockquote>
+
+
 
 
 <h2 id="text-file">Text Files and Text Editors</h2>
 
-<p>Our HTML files contain only characters, but no formatting. All of the formatting we 
+<p>Our HTML files contain only characters, but no formatting. All of the formatting we do will be done with code in the markup file. The same will be true of our CSS and JavaScript files: they are just characters.</p>
 
-A <dfn>text file</dfn> is a kind of file that you can create using a computer. A text file consists of only a sequence of characters: no formatting (fonts, bold, colours, etc.).</p>
+<p>All of these are <dfn>text files</dfn>, which is a generic term for what was just described: a file that contains only characters. These files could be for storing data (like CSV files for spreadsheet data), or could be documents (like LaTeX or HTML files), or could be programs (in JavaScript, Python, Java, C, &hellip;).</p>
 
-<p>If you</p>
+<p>In order to work with text files, you will need a program called a <dfn>text editor</dfn>. A text editor's job is basically what you'd think: it's a tool to create and edit text files.</p>
 
+<p>There are many text editors, but they all do fundamentally the same job. Text files created with one text editor can be edited with another. You may be used to working with documents that are very different that this: for example Word documents are designed to be created and edited with Microsoft Word. Text files are the opposite: they are a very simple file that you can use any one of dozens of text editors to work with.</p>
+
+<p>So, when choosing a text editor, you can really pick any one that you like. Good text editors will do a few things to make your life easier.Maybe most importantly, they will do <dfn>syntax highlighting</dfn>, so you can see the different parts of the markup (or stylesheet or program) that you're working with. This will mean that code that you type incorrectly will be coloured differently: as you get used to it, this will help you catch a lot of typos in your code. Here is the snippet of HTML from above, displayed in a few text editors that I had at-hand:</p>
+
+{{ 'editor1'|figure('Some HTML as displayed in a text editor', referenced=False) }}
+{{ 'editor2'|figure('Some HTML as displayed in a different text editor', referenced=False) }}
+{{ 'editor3'|figure('Some HTML as displayed in yet another text editor', referenced=False) }}
+
+<p class="draft">Some suggested text editors and links.</p>
 
 {% endblock %}
