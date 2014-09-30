@@ -1,18 +1,22 @@
 from jinja2 import Environment, FileSystemLoader, Template, contextfilter
 import json
 import os.path
+from collections import OrderedDict
 
 def get_context(infile):
     depth = infile.count('/')
     rellink = '../' * depth
     return {'rellink': rellink, 'input_file': infile}
 
-svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}</figcaption></figure>""")
-def figure(filebase, caption, figureclass='block', extension='png', directory='figures'):
+svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}&nbsp;<a href="{{rellink}}references.html">*</a></figcaption></figure>""")
+
+@contextfilter
+def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures'):
     """
     Output the markup for an image figure
     """
     context = {
+        'rellink': context['rellink'],
         'directory': directory,
         'filebase': filebase,
         'caption': caption,
@@ -21,13 +25,15 @@ def figure(filebase, caption, figureclass='block', extension='png', directory='f
     }
     return svg_template.render(context)
 
-def floatfigure(filebase, caption, figureclass=None, extension='png'):
+@contextfilter
+def floatfigure(context, filebase, caption, figureclass=None, extension='png'):
     cls = 'floating'
     if figureclass:
         cls += ' ' + figureclass
 
-    return figure(filebase=filebase, caption=caption, figureclass=cls, extension=extension,
+    return figure(context, filebase=filebase, caption=caption, figureclass=cls, extension=extension,
         directory='floats')
+
 
 def contents(_):
     """
@@ -91,6 +97,30 @@ def pagetitle(context, _):
     
     return ''
 
+def _read_contents():
+    data = json.load(open('contents.json'))
+    contents = OrderedDict()
+    for chapter in data:
+        chap_slug = chapter['chapter'][0]
+        chap_title = chapter['chapter'][1]
+        contents[chap_slug] = chap_title
+        sections = chapter['contents']
+        for sec_slug, sec_title in sections:
+            contents[chap_slug + '-' + sec_slug] = sec_title
+    return contents
+        
+@contextfilter
+def xref(context, chap):
+    """
+    Output a cross-reference to another section
+    """
+    data = json.load(open('contents.json'))
+    contents = _read_contents()
+    title = contents[chap]
+    return '<a href="%s.html" class="xref">%s</a>' % (chap, title)
+    
+
+
 environment = Environment(
         loader=FileSystemLoader(['.', '_layouts']),
         )
@@ -99,6 +129,7 @@ environment.filters['floatfigure'] = floatfigure
 environment.filters['contents'] = contents
 environment.filters['subcontents'] = subcontents
 environment.filters['pagetitle'] = pagetitle
+environment.filters['xref'] = xref
 
 
   
