@@ -9,18 +9,17 @@
 
 <h2 id="connections">How Computers Are Connected</h2>
 
-<p class="draft">wifi, ethernet, 3G, LTE, cable modems, fibre optics, ...</p>
-
 <p>Computers on the Internet can be connected to each other so they can exchange information in many different ways. This is part of what makes the Internet so flexible: different devices can connect to it in different ways, but still all work together.</p>
 
 <h3 id="in-home-connection">Network Connections At Home</h3>
+
 <p>Let's start with the kinds of connections you might actually deal with. On home computers, you probably have computers connected by one of two methods: Ethernet or Wi-Fi.</p>
 
 {{ 'ethernet'|floatfigure('An Ethernet cable connected to a laptop', extension='jpg') }}
 
 <p>If there is an actual cable connecting to your computer, it is probably <dfn>Ethernet</dfn>. An Ethernet connection is used over relatively short distances (up to 100 metres) but can transmit data very quickly (probably up to 100 or 1000 Mbits/s in home networks). This makes Ethernet very good for homes and offices: everything is close enough together, and its fast enough to stream video at home or move large files between computers in an office.</p>
 
-<p>If a home computer (or phone or tablet) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
+<p>If a home computer (or phone or tablet: they're the same as any other computer in this context) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
 
 {{ 'router'|floatfigure('A home router', extension='jpg') }}
 
@@ -29,15 +28,54 @@
 <p>Most home routers connect to a few computer inside the house (usually up to four computers with Ethernet and more by Wi-Fi). They also connect to the outside Internet: usually over a wired Ethernet connection.</p>
 
 
+<h3 id="home-internet-connection">Connections from Home to the Internet</h3>
+
+<p>A home router (or a home computer without a router) must be connected to the outside Internet somehow. This is the part that costs money: you pay an <dfn>ISP</dfn> (<dfn>Internet Service Provider</dfn>) to connect your home.</p>
+
+<p>Depending where you live, there are probably a few options of ISP. The limiting factor is essentially the number of ways to get data to every home: running new wires to every house is prohibitively expensive, so ISPs are traditionally companies that <em>already</em> had some connectivity to homes.</p>
+
+<p>Cable television companies (Shaw or a reseller for Vancouverites) can transmit data to and from your home over their television cables. This is done with the help of a <dfn>cable modem</dfn> which converts the signals of your home network (Ethernet) to and from a signal that can be carried by their cables.</p>
+
+<p>Phone companies (Telus or a reseller) can use their phone network for data. Again, customers have a <dfn>DSL modem</dfn> which connects the home network to the phone lines.</p>
+
+<p>These are probably the most common, but there may be other options available to you as well. If you live in a recently-built high-rise building, the building may have had high-speed Internet installed when it was built. In rural areas, long-distance wireless or even satellite technologies might be more cost-effective than installing phyisical connections to each home.</p>
+
+
+<h3 id="phone-internet">Mobile Internet</h3>
+
+<p>We also shouldn't forget the way that many people connect to the Internet: with their phones.</p>
+
+<p>Modern mobile phones can sent Internet data to and from the tower they are connected to wirelessly. The specific technologies aren't important, but you may have heard of these, from slowest to fastest: GSM, EDGE, 3G, 3G, HSPA, LTE.</p>
+
+<p>Phones will often use both Wi-Fi (when it's available) and the mobile network when it isn't. In either case, the result is the same: they can send and receive information over the Internet. Even though the transition from mobile network to and from Wi-Fi is transparent to the user, they are very different ways to transmit Internet data.</p>
+
+
+<h3 id="internet-infrastructure">Internet Infrastructure</h3>
+
+{{ 'optical-fibre'|floatfigure('Strands of optical fibre (with no connector on the end)', extension='jpg') }}
+
+<p>None of the connections mentioned above can do something that is very important to the infrastructure of the Internet: send lots of data quickly over long distances. That's not something that the average home user worries about, but it's critical to actually get information across the planet.</p>
+
+<p>These connections are done with <dfn>fibre optic</dfn> cables. These cables use long strands of glass or plastic to transmit light pulses that are used to encode data. These can transmit incredible amounts of data and over very long distances (up to 100 km without any amplifiers).</p>
+
+<p>Because they work so well over long distances, fibre optic cables can be buried to make Internet connections between cities, or sunk to cross oceans.</p>
+
+<aside>The <a href="http://www.submarinecablemap.com/">Submarine Cable Map</a> has information about the major underseas cables that carry data between continents.</aside>
+
+
+
 <h2 id="routing">How Information Travels</h2>
 
-
-<p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination.</p>
+<p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination. Each of these steps could be any of the connection methods described above, or something else entirely.</p>
 
 <p>Let's look at a simplified example of the way some computer might be connected:</p>
 {{ 'internet'|figure('Examples of how computers might be connected', extension='svg') }}
 
-<p>Some computers </p>
+<p>We might imagine that A&ndash;D are the computers in one house connected by some combination of Ethernet and Wi-Fi to a router (D). Computers E&ndash;H might be a house next door.</p>
+
+<p>There are a few things we can notice right away here. First, not everything we're calling a &ldquo;computer&rdquo; is something that looks like what you would call a computer: phones, tablets, and even things like printers that are network-connected take on the same role as anything else on the network (but maybe with different functionality). The routers (D and H) are connected to all of the devices in each house, as well as to something outside.</p>
+
+<p>Some computers have multiple connections, </p>
 
 <p>In order for this to work, each of the computer must pass the information along in the correct &ldquo;direction&rdquo;. Since some computers might have </p>
 
