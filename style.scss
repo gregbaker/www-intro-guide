@@ -1,4 +1,5 @@
 $main-font: Helvetica, sans-serif;
+$float-width: 10em;
 
 @import url("assets/reset.css");
 
@@ -67,7 +68,7 @@ figcaption {
 figure.floating, aside {
   float: right;
   clear: right;
-  max-width: 10em;
+  max-width: $float-width;
   margin: 0.5em 0 ;
   padding: 0 0 0 1em;
 }
@@ -75,6 +76,7 @@ figure.floating img {
   max-width: 100%;
 }
 aside {
+  width: $float-width;
   text-align: right;
   font-size: smaller;
   line-height: 1.2em;
