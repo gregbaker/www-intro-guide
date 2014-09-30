@@ -8,20 +8,24 @@ def get_context(infile):
     rellink = '../' * depth
     return {'rellink': rellink, 'input_file': infile}
 
-svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}&nbsp;<a href="{{rellink}}references.html">*</a></figcaption></figure>""")
+svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
 
 @contextfilter
-def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures'):
+def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
     """
     Output the markup for an image figure
     """
+    if referenced:
+        reference_link = '&nbsp;<a href="%sreferences.html">*</a>' % (context['rellink'])
+    else:
+        reference_link = ''
     context = {
-        'rellink': context['rellink'],
         'directory': directory,
         'filebase': filebase,
         'caption': caption,
         'figureclass': figureclass,
         'extension': extension,
+        'reference_link': reference_link,
     }
     return svg_template.render(context)
 

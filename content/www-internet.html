@@ -75,9 +75,15 @@
 
 <p>There are a few things we can notice right away here. First, not everything we're calling a &ldquo;computer&rdquo; is something that looks like what you would call a computer: phones, tablets, and even things like printers that are network-connected take on the same role as anything else on the network (but maybe with different functionality). The routers (D and H) are connected to all of the devices in each house, as well as to something outside.</p>
 
-<p>Some computers have multiple connections, </p>
+<p>Computers with a single connection (at one time: like pretty much every computer, phone, or tablet you have used) have a very simple job: all information they want to send out is sent along the one connection.</p>
 
-<p>In order for this to work, each of the computer must pass the information along in the correct &ldquo;direction&rdquo;. Since some computers might have </p>
+<p>Some computers have multiple connections. These computers have to be a little smarter about how they send out information and must pass the information along in the correct &ldquo;direction&rdquo;. These are <dfn>routers</dfn> (because they know how to &ldquo;route&rdquo; information).</p>
+
+<p>Also notice in the above figure that there are multiple paths between some computers: if A wants to communicate with P, information can be passed either through J/M or K/N. That gives the network fault tolerance: if computer J has a power failure, or the cable between J and M is severed by a backhoe, then communications can continue using the other path. They may slower because the remaining link is overloaded, but everything is still connected.</p>
+
+<p>Of course, the actual Internet is bigger than that figure: there are millions of computers connected and there are typically 15&ndash;20 hops between two computers at the edges. There is also more redundancy: there may be many ways to get information between two cities. Usually the fastest one is used, but if it stops working there are slightly-slower alternatives that can share the traffic.</p>
+
+
 
 
 

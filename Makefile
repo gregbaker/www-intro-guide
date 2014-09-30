@@ -45,6 +45,9 @@ _site/figures/%.png: figures/%.svg
 	inkscape -y 255 -b "#fff" -d 96 -e $@ $<
 #	gm convert $< $@
 
+_site/figures/%.png: figures/%.png
+	cp $< $@
+
 _site/floats/%.png: floats/%.png # TODO: responsive resizes
 	cp $< $@
 _site/floats/%.jpg: floats/%.jpg

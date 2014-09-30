@@ -4,4 +4,41 @@
 
 <p class="draft">What a text file, text editor is. What markup is and why we might use it.</p>
 
+<p>We introduced HTML as the &ldquo;HyperText Markup Language&rdquo;, but didn't explain the acronym. We'll have to wait for a decent explanation of &ldquo;HyperText&rdquo;, but we need to know what a &ldquo;Markup Language&rdquo; is before we go much further.</p>
+
+
+<h2 id="markup">Markup Languages</h2>
+<p>A <dfn>markup language</dfn> is a way to describe a document for a computer using only plain text. For example, LaTeX is a markup language often used for scientic and mathematical documents. Someone writing a LaTeX document would type code like this:</p>
+
+<blockquote>
+<code class="latex">This is a sentence with an \emph{emphasized} word, and a formula: \(x^2 - x + 1\).</code>
+</blockquote>
+
+<p>The markup must be processed into a final document using some kind of tool. For the LaTeX markup above, the resulting document will look like this:</p>
+
+{{ 'latex'|figure('Resulting document after LaTeX processing', referenced=False) }}
+
+<p>The details aren't important, but notice that the markup code contains some processing instructions that the LaTeX tools turned into formatting in the output: emphasized text was rendered in italics, and the formula was processed to look nice. (LaTeX is good at formulas: that's why it's used a lot in science and math publishing.)</p>
+
+<p>We aren't concerned about LaTeX in this course, but it is a good example of a markup language. We are concerned about HTML, which we will start writing soon. It's not as good at formulas, but the HTML markup to represent the same content would be something like this:</p>
+
+<blockquote>
+<code class="latex">This is a sentence with an &lt;em>emphasized&lt;/em> word, and a formula: x&lt;sup>2&lt;/sup> - x + 1.</code>
+</blockquote>
+
+<p>Since this document is written in HTML, we can show you exactly what that HTML look like:</p>
+<blockquote>
+This is a sentence with an <em>emphasized</em> word, and a formula: x<sup>2</sup> - x + 1.</code>
+</blockquote>
+
+
+<h2 id="text-file">Text Files and Text Editors</h2>
+
+<p>Our HTML files contain only characters, but no formatting. All of the formatting we 
+
+A <dfn>text file</dfn> is a kind of file that you can create using a computer. A text file consists of only a sequence of characters: no formatting (fonts, bold, colours, etc.).</p>
+
+<p>If you</p>
+
+
 {% endblock %}
