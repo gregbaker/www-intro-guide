@@ -1,5 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, Template, Markup, \
-    contextfilter, escape
+    contextfilter, contextfunction, escape
 import json
 import os.path
 from collections import OrderedDict
@@ -11,7 +11,7 @@ def get_context(infile):
 
 svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
 
-@contextfilter
+@contextfunction
 def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
     """
     Output the markup for an image figure
@@ -30,7 +30,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
     }
     return svg_template.render(context)
 
-@contextfilter
+@contextfunction
 def floatfigure(context, filebase, caption, figureclass=None, extension='png'):
     cls = 'floating'
     if figureclass:
@@ -40,7 +40,7 @@ def floatfigure(context, filebase, caption, figureclass=None, extension='png'):
         directory='floats')
 
 
-def contents(_):
+def contents():
     """
     Output the Table of Contents from the contents.json data.
     """
@@ -61,8 +61,8 @@ def contents(_):
     res.append('</ol>')
     return ''.join(res)
 
-@contextfilter
-def subcontents(context, _):
+@contextfunction
+def subcontents(context):
     """
     Output one chapter's Contents from the contents.json data.
     """
@@ -84,8 +84,8 @@ def subcontents(context, _):
 
     return ''.join(res)
 
-@contextfilter
-def pagetitle(context, _):
+@contextfunction
+def pagetitle(context):
     infile = context['input_file']
     fn = os.path.split(infile)[-1]
     basename = os.path.splitext(fn)[0]
@@ -114,7 +114,7 @@ def _read_contents():
             contents[chap_slug + '-' + sec_slug] = sec_title
     return contents
         
-@contextfilter
+@contextfunction
 def xref(context, chap):
     """
     Output a cross-reference to another section
@@ -146,12 +146,12 @@ loader = FileSystemLoader(['.', '_layouts'])
 environment = Environment(
         loader=loader,
         )
-environment.filters['figure'] = figure
-environment.filters['floatfigure'] = floatfigure
-environment.filters['contents'] = contents
-environment.filters['subcontents'] = subcontents
-environment.filters['pagetitle'] = pagetitle
-environment.filters['xref'] = xref
+environment.globals['figure'] = figure
+environment.globals['floatfigure'] = floatfigure
+environment.globals['contents'] = contents
+environment.globals['subcontents'] = subcontents
+environment.globals['pagetitle'] = pagetitle
+environment.globals['xref'] = xref
 environment.globals['include_file'] = include_file
 environment.globals['include_escaped'] = include_escaped
 environment.globals['quoted_code'] = quoted_code

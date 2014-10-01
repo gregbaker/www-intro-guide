@@ -76,6 +76,10 @@ figcaption {
   font-weight: bold;
   line-height: 1.2em;
 }
+figure.block>img {
+  border: 1px dashed #ccc;
+  padding: 0.25em;
+}
 figure.floating, aside {
   float: right;
   clear: right;

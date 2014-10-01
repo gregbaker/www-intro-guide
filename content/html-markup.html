@@ -16,7 +16,7 @@
 
 <p>The markup must be processed into a final document using some kind of tool. For the LaTeX markup above, the resulting document will look like this:</p>
 
-{{ 'latex'|figure('Resulting document after LaTeX processing', referenced=False) }}
+{{ figure('latex', 'Resulting document after LaTeX processing', referenced=False) }}
 
 <p>The details aren't important, but notice that the markup code contains some processing instructions that the LaTeX tools turned into formatting in the output: emphasized text was rendered in italics, and the formula was processed to look nice. (LaTeX is good at formulas: that's why it's used a lot in science and math publishing.)</p>
 
@@ -44,9 +44,9 @@
 
 <p>So, when choosing a text editor, you can really pick any one that you like. Good text editors will do a few things to make your life easier.Maybe most importantly, they will do <dfn>syntax highlighting</dfn>, so you can see the different parts of the markup (or stylesheet or program) that you're working with. This will mean that code that you type incorrectly will be coloured differently: as you get used to it, this will help you catch a lot of typos in your code. Here is the snippet of HTML from above, displayed in a few text editors that I had at-hand:</p>
 
-{{ 'editor1'|figure('Some HTML as displayed in a text editor', referenced=False) }}
-{{ 'editor2'|figure('Some HTML as displayed in a different text editor', referenced=False) }}
-{{ 'editor3'|figure('Some HTML as displayed in yet another text editor', referenced=False) }}
+{{ figure('editor1', 'Some HTML as displayed in a text editor', referenced=False) }}
+{{ figure('editor2', 'Some HTML as displayed in a different text editor', referenced=False) }}
+{{ figure('editor3', 'Some HTML as displayed in yet another text editor', referenced=False) }}
 
 <p>The code looks slightly different in each of these editors: different fonts and colours. But, since these aren't part of a text file, each of these produces the exact same result when it saves the file. The different editors also had different window sizes, which is why they have different line breaks: line breaks are part of the file, but most editors will wrap long lines if you have a small window.</p>
 
