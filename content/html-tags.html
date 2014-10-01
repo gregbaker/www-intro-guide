@@ -6,7 +6,30 @@
 
 <p>In the example <a href="html-markup.html#code-firstsample">fragment of an HTML file</a> in the last topic, we saw our first piece of HTML markup. This is part of what goes in an HTML file, but there needs to be more to make a complete page.</p>
 
-<p>HTML files are edited with a text editor</p>
+<p>HTML files are edited with a text editor: just make sure you save the file with the extension <code class="file">.html</code> (i.e. name it something like <code class="file">mypage.html</code>).</p>
+
+<p>There are a few basic pieces that need to go in an HTML file to get us started. Here's an empty HTML page: this is code you can type into a text editor and save as <code class="file">something.html</code>.</p>
+
+{{ quoted_code('_sources/emptypage.html') }}
+
+<p>That certainly deserves some explanation, but you can copy-and-paste it into a text editor now if you'd like to experiment. That is a perfectly complete (but empty) HTML page.</p>
+
+<h2 id="tags">HTML Tags</h2>
+
+<p>The things wrapped in triangular braces (the <code class="html">&lt;&thinsp;&hellip;&thinsp;&gt;</code> characters) are called <dfn>tags</dfn>. These are the most important part of HTML markup that is used to describe the structure of content. There are both <dfn>opening tags</dfn> and <dfn>closing tags</dfn> which come in pairs to enclose pieces of content.</p>
+
+<p>For example, in the above example, <code class="html">&lt;title&gt;</code> is an opening tag, and <code class="html">&lt;/title&gt;</code> is the corresponding closing tag. The <code class="html">&lt;title&gt;</code> tag is used to enclose the main title for the document: the one that is displayed in the title bar of the browser (and used as the label if you bookmark the page, and displayed in search engine results for the page).</p>
+
+<p>One other tag we should look at right away: the <code class="html">&lt;body&gt;&hellip;&#8203;&lt;/body&gt;</code> tag is used to encose the main part of the page: the actual content that you read in the browser's main window.</p>
+
+<p>Let's add a little to our page so there's actually something to see when we load it:</p>
+
+{{ quoted_code('files/firstpage.html') }}
+
+<p>The <code class="html">&lt;p&gt;&hellip;&#8203;&lt;/p&gt;</code> tag is used to enclose a paragraph on the page. The sentence &ldquo;This is a paragraph on my page.&rdquo; will appear formatted as a paragraph when we view the page in a web browser. You can view <a href="{{ rellink }}files/firstpage.html">this HTML file</a> here.</p>
+
+<p>Also try working with it: copy-and-paste that HTML code into your text editor, save it as a <code class="file">.html</code> file, and open that file in your web browser. It should look the save as when you clicked the link in the last paragraph.</p>
+
 
 
 {% endblock %}

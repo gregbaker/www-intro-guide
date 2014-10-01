@@ -11,6 +11,7 @@ body {
   max-width: 65em;
   margin-left: auto;
   margin-right: auto;
+  text-align: justify;
 }
 h1 {
   font-size: 200%;
@@ -97,6 +98,9 @@ aside {
   line-height: 1.2em;
   border: 1px solid #999;
   padding: 0.5em;
+}
+blockquote pre {
+  line-height: 1em;
 }
 
 footer {

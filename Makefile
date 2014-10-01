@@ -1,6 +1,10 @@
 
 # files we need to generate in _site/
-PAGES = $(filter-out _%.html, $(wildcard *.html */*.html))
+PAGES = $(filter-out _%.html, \
+          $(filter-out files/%, \
+            $(wildcard *.html */*.html) \
+          )\
+        )
 
 SVG_FIGURES = $(wildcard figures/*.svg) $(wildcard floats/*.svg)
 BITMAP_FIGURES = $(wildcard figures/*.png) $(wildcard floats/*.png) \
@@ -11,9 +15,9 @@ FIGURES = \
     $(patsubst %.svg, %.png, $(SVG_FIGURES)) \
     $(BITMAP_FIGURES)
 
-DIRECTORIES = assets content figures floats
+DIRECTORIES = assets content figures files floats
 STYLES = style.css
-ASSETS = $(wildcard assets/*)
+ASSETS = $(wildcard assets/*) $(wildcard files/*)
 
 # all files required in _site and _polished_site
 DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES)
@@ -43,7 +47,6 @@ _site/figures/%.svgz: _site/figures/%.svg _site/figures
 
 _site/figures/%.png: figures/%.svg
 	inkscape -y 255 -b "#fff" -d 96 -e $@ $<
-#	gm convert $< $@
 
 _site/figures/%.png: figures/%.png
 	cp $< $@
@@ -56,7 +59,7 @@ _site/floats/%.jpg: floats/%.jpg
 _site/%.css: %.scss
 	sass --scss --style expanded $< $@
 
-_site/assets/%: assets/% _site/assets
+_site/assets/%: assets/% _site/assets _site/files
 	cp $< $@
 
 $(SITE_DIRECTORIES): %:

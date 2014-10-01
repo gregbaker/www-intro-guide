@@ -135,8 +135,7 @@ def include_escaped(name):
     return escape(text)
 
 def quoted_code(filename, codeclass='html'):
-    fn = os.path.join('_sources', filename)
-    content = file(fn).read()
+    content = file(filename).read()
     figid = 'code-' + os.path.splitext(filename)[0]
     return '<blockquote id="%s">\n<pre><code class="%s">%s</code></pre>\n</blockquote>' % (figid, codeclass, escape(content))
 
