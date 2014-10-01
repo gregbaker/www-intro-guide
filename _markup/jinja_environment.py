@@ -134,10 +134,14 @@ def include_escaped(name):
     text = loader.get_source(environment, name)[0]
     return escape(text)
 
-def quoted_code(filename, codeclass='html'):
+def quoted_code(filename, codeclass='html', syntaxhighlight=True):
     content = file(filename).read()
     figid = 'code-' + os.path.splitext(filename)[0]
-    return '<blockquote id="%s">\n<pre><code class="%s">%s</code></pre>\n</blockquote>' % (figid, codeclass, escape(content))
+    if syntaxhighlight:
+        preclass = 'brush: ' + codeclass
+    else:
+        preclass = codeclass
+    return '<blockquote id="%s">\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
 
 
 
