@@ -134,6 +134,14 @@ def include_escaped(name):
     text = loader.get_source(environment, name)[0]
     return escape(text)
 
+def quoted_code(filename, codeclass='html'):
+    fn = os.path.join('_sources', filename)
+    content = file(fn).read()
+    figid = 'code-' + os.path.splitext(filename)[0]
+    return '<blockquote id="%s">\n<pre><code class="%s">%s</code></pre>\n</blockquote>' % (figid, codeclass, escape(content))
+
+
+
 loader = FileSystemLoader(['.', '_layouts'])
 environment = Environment(
         loader=loader,
@@ -146,4 +154,5 @@ environment.filters['pagetitle'] = pagetitle
 environment.filters['xref'] = xref
 environment.globals['include_file'] = include_file
 environment.globals['include_escaped'] = include_escaped
+environment.globals['quoted_code'] = quoted_code
 

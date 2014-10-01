@@ -22,10 +22,7 @@
 
 <p>We aren't concerned about LaTeX in this course, but it is a good example of a markup language. We are concerned about HTML, which we will start writing soon. It's not as good at formulas, but the HTML markup to represent the same content would be something like this:</p>
 
-<blockquote>
-<code class="latex">{{ include_escaped('_sources/firstsample.html') }}
-</code>
-</blockquote>
+{{ quoted_code('firstsample.html') }}
 
 <p>Since this document is written in HTML, we can show you exactly what that HTML look like by including it here:</p>
 <blockquote>
@@ -50,6 +47,8 @@
 {{ 'editor1'|figure('Some HTML as displayed in a text editor', referenced=False) }}
 {{ 'editor2'|figure('Some HTML as displayed in a different text editor', referenced=False) }}
 {{ 'editor3'|figure('Some HTML as displayed in yet another text editor', referenced=False) }}
+
+<p>The code looks slightly different in each of these editors: different fonts and colours. But, since these aren't part of a text file, each of these produces the exact same result when it saves the file. The different editors also had different window sizes, which is why they have different line breaks: line breaks are part of the file, but most editors will wrap long lines if you have a small window.</p>
 
 <p class="draft">Some suggested text editors and links.</p>
 
