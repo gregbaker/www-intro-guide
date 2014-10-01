@@ -1,6 +1,7 @@
 $main-font: Helvetica, sans-serif;
 $code-font: monospace;
 $float-width: 10em;
+$block-indent: 3em;
 
 @import url("assets/reset.css");
 
@@ -32,7 +33,7 @@ h3 {
 }
 
 ol, ul {
-  margin: 1em 0 1em 3em;
+  margin: 1em 0 1em $block-indent;
 }
 ol {
   list-style-type: decimal;
@@ -60,10 +61,26 @@ dfn {
   font-weight: bold;
 }
 blockquote {
-  margin: 1em 3em;
+  margin: 1em $block-indent;
 }
-code, pre {
+pre {
   font-family: $code-font;
+}
+code {
+  font-family: $code-font;
+  font-weight: bold;
+}
+code.file {
+  font-weight: normal;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 $block-indent 0.5em $block-indent;
+}
+dd p {
+  margin: 0.5em 0;
 }
 
 
