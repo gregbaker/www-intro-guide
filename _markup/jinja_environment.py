@@ -25,6 +25,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
         'filebase': filebase,
         'caption': caption,
         'figureclass': figureclass,
+        #'extension': 'png' if extension=='svg' else extension,
         'extension': extension,
         'reference_link': reference_link,
     }

@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<section>
 <p>In the example <a href="html-markup.html#code-firstsample">fragment of an HTML file</a> in the last topic, we saw our first piece of HTML markup. This is part of what goes in an HTML file, but there needs to be more to make a complete page.</p>
 
 <p>HTML files are edited with a text editor: just make sure you save the file with the extension <code class="file">.html</code> (i.e. name it something like <code class="file">mypage.html</code>).</p>
@@ -11,8 +12,10 @@
 {{ quoted_code('_sources/emptypage.html') }}
 
 <p>That certainly deserves some explanation, but you can copy-and-paste it into a text editor now if you'd like to experiment. That is a perfectly complete (but empty) HTML page.</p>
+</section>
 
-<h2 id="tags">HTML Tags</h2>
+<section id="tags">
+<h2>HTML Tags</h2>
 
 <p>The things wrapped in triangular braces (the <code class="html">&lt;&thinsp;&hellip;&thinsp;&gt;</code> characters) are called <dfn>tags</dfn>. These are the most important part of HTML markup that is used to describe the structure of content. There are both <dfn>opening tags</dfn> and <dfn>closing tags</dfn> (or <dfn>starting tags</dfn> and <dfn>ending tags</dfn>) which come in pairs to enclose pieces of content.</p>
 
@@ -29,9 +32,10 @@
 <p>Also try working with it: copy-and-paste that HTML code into your text editor, save it as a <code class="file">.html</code> file, and open that file in your web browser. It should look the save as when you clicked the link in the last paragraph. Try adding a second paragraph after the one in the example; reload the page in the browser to see what it looks like.</p>
 
 <p>The term <dfn>element</dfn> is used to refer to one instance of a tag and its contents. For example in the above, there is one title element, <code class="html">&lt;title&gt;My First Page&lt;/title&gt;</code> which has an opening tag (<code class="html">&lt;title&gt;</code>), a closing tag (<code class="html">&lt;/title&gt;</code>), and contents (<code class="html">My First Page</code>),</p>
+</section>
 
-
-<h2 id="basic-tags">Basic Tags</h2>
+<section id="basic-tags">
+<h2>Basic Tags</h2>
 
 <p>There are several tags in the example above that haven't been explained yet. These need to be in every HTML page.</p>
 
@@ -43,21 +47,28 @@
 <p>You may have also noticed that it has no closing tag, and that there's some extra stuff in the tag. We will get to that very soon&hellip;</p></dd>
 <dt><code class="html">&lt;body&gt;&hellip;&lt;/body&gt;</code></dt><dd>Finally, this element contains the actual content of the page: the part that is displayed in the main browser window. Most of the new tags we learn will go somewhere in the <code class="html">&lt;body&gt;</code>.</dd>
 </dl>
+</section>
 
-
-<h2 id="more-tags">More Tags</h2>
+<section id="more-tags">
+<h2>More Tags</h2>
 
 <p>Let's introduce a few more tags in another example:</p>
 {{ quoted_code('files/more-tags.html') }}
+</section>
 
-<h2 id="attributes">Attributes</h2>
+<section id="attributes">
+<h2>Attributes</h2>
 
 <p>In addition to just us</p>
 
+</section>
 
+<section id="links">
+<h2>Links</h2>
+</section>
 
-<h2 id="links">Links</h2>
-
-<h2 id="empty">Empty Tags</h2>
+<section id="empty">
+<h2>Empty Tags</h2>
+</section>
 
 {% endblock %}

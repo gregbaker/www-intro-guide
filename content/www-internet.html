@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
 <p>You probably know what <dfn>the Internet</dfn> is, at least somewhat.</p>
 
 <p>But there are more details to what &ldquo;the Internet&rdquo; is than most people know about. It makes sense to start with a little bit of an introduction into what the Internet actually <em>is</em>.</p>
 
 <p>Fundamentally, the Internet is a collection of computer that are connected: they can exchange information. Every computer &ldquo;on the Internet&rdquo; is connected to one or more other computers. There are many ways to connect</p>
+</section>
 
-<h2 id="connections">How Computers Are Connected</h2>
+<section id="connections">
+<h2>How Computers Are Connected</h2>
 
 <p>Computers on the Internet can be connected to each other so they can exchange information in many different ways. This is part of what makes the Internet so flexible: different devices can connect to it in different ways, but still all work together.</p>
 
-<h3 id="in-home-connection">Network Connections At Home</h3>
+<section id="in-home-connection">
+<h3>Network Connections At Home</h3>
 
 <p>Let's start with the kinds of connections you might actually deal with. On home computers, you probably have computers connected by one of two methods: Ethernet or Wi-Fi.</p>
 
@@ -26,9 +30,10 @@
 <p>But in order to be connected <em>to the Internet</em>, a home computer must be connected to <em>another computer</em>. Most homes have a <dfn>router</dfn> which all of the computers (and phones and other devices) connect to. The router is actually a small computer whose job it is to connect to other devices and in turn connect them to the outside Internet.</p>
 
 <p>Most home routers connect to a few computer inside the house (usually up to four computers with Ethernet and more by Wi-Fi). They also connect to the outside Internet: usually over a wired Ethernet connection.</p>
+</section>
 
-
-<h3 id="home-internet-connection">Connections from Home to the Internet</h3>
+<section id="home-internet-connection">
+<h3>Connections from Home to the Internet</h3>
 
 <p>A home router (or a home computer without a router) must be connected to the outside Internet somehow. This is the part that costs money: you pay an <dfn>ISP</dfn> (<dfn>Internet Service Provider</dfn>) to connect your home.</p>
 
@@ -39,18 +44,20 @@
 <p>Phone companies (Telus or a reseller) can use their phone network for data. Again, customers have a <dfn>DSL modem</dfn> which connects the home network to the phone lines.</p>
 
 <p>These are probably the most common, but there may be other options available to you as well. If you live in a recently-built high-rise building, the building may have had high-speed Internet installed when it was built. In rural areas, long-distance wireless or even satellite technologies might be more cost-effective than installing phyisical connections to each home.</p>
+</section>
 
-
-<h3 id="phone-internet">Mobile Internet</h3>
+<section id="phone-internet">
+<h3>Mobile Internet</h3>
 
 <p>We also shouldn't forget the way that many people connect to the Internet: with their phones.</p>
 
 <p>Modern mobile phones can sent Internet data to and from the tower they are connected to wirelessly. The specific technologies aren't important, but you may have heard of these, from slowest to fastest: GSM, EDGE, 3G, 3G, HSPA, LTE.</p>
 
 <p>Phones will often use both Wi-Fi (when it's available) and the mobile network when it isn't. In either case, the result is the same: they can send and receive information over the Internet. Even though the transition from mobile network to and from Wi-Fi is transparent to the user, they are very different ways to transmit Internet data.</p>
+</section>
 
-
-<h3 id="internet-infrastructure">Internet Infrastructure</h3>
+<section id="internet-infrastructure">
+<h3>Internet Infrastructure</h3>
 
 {{ floatfigure('optical-fibre', 'Strands of optical fibre (with no connector on the end)', extension='jpg') }}
 
@@ -62,9 +69,11 @@
 
 <aside>The <a href="http://www.submarinecablemap.com/">Submarine Cable Map</a> has information about the major underseas cables that carry data between continents.</aside>
 
+</section>
+</section>
 
-
-<h2 id="routing">How Information Travels</h2>
+<section id="routing">
+<h2>How Information Travels</h2>
 
 <p>In order to pass information between two distant computers, the message is passed along from the computer where it originates to a computer it is connected to. From there, it is passed to another computer, and another, and so on until it reaches its destination. Each of these steps could be any of the connection methods described above, or something else entirely.</p>
 
@@ -83,7 +92,7 @@
 
 <p>Of course, the actual Internet is bigger than that figure: there are millions of computers connected and there are typically 15&ndash;20 hops between two computers at the edges. There is also more redundancy: there may be many ways to get information between two cities. Usually the fastest one is used, but if it stops working there are slightly-slower alternatives that can share the traffic.</p>
 
-
+</section>
 
 
 

@@ -51,10 +51,11 @@ _site/figures/%.png: figures/%.svg
 _site/figures/%.png: figures/%.png
 	cp $< $@
 
-_site/floats/%.png: floats/%.png # TODO: responsive resizes
-	cp $< $@
+_site/floats/%.png: floats/%.png # TODO: srcset resizes
+	gm convert -resize 160x240 $< $@
+
 _site/floats/%.jpg: floats/%.jpg
-	cp $< $@
+	gm convert -resize 160x240 $< $@
 
 _site/%.css: %.scss
 	sass --scss --style expanded $< $@

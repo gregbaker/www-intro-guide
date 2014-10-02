@@ -6,9 +6,10 @@ $lg-screen: "(max-width: 1200px)";
 
 $main-font: 'Source Sans Pro', 'Helvetica', sans-serif;
 $code-font: 'Source Code Pro', monospace;
-$float-width: 10em;
-$block-indent: 3em;
-$block-indent-small: 2em;
+$float-width: 160px;
+$float-width-small: 100px;
+$block-indent: 2.5em;
+$block-indent-small: 1.5em;
 
 @import url("http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Source+Sans+Pro:400,400italic,700,700italic");
 @import url("assets/reset.css");
@@ -17,7 +18,7 @@ body {
   font-family: $main-font;
   line-height: 1.5em;
   padding: 1em 0.5em;
-  max-width: 65em;
+  max-width: 50em;
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
@@ -92,6 +93,9 @@ dt {
 }
 dd {
   margin: 0 $block-indent 0.5em $block-indent;
+  @media #{$sm-screen} {
+    margin: 0 0 0.5em $block-indent-small;
+  }
 }
 dd p {
   margin: 0.5em 0;
@@ -111,13 +115,17 @@ figcaption {
 figure.block>img {
   border: 1px dashed #ccc;
   padding: 0.25em;
+  max-width: 100%
 }
 figure.floating, aside {
   float: right;
   clear: right;
   max-width: $float-width;
-  margin: 0.5em 0 ;
-  padding: 0 0 0 1em;
+  margin: 0.5em 0 0.5em 1em;
+  padding: 0;
+  @media #{$xs-screen} {
+    max-width: $float-width-small;
+  }
 }
 figure.floating img {
   max-width: 100%;
@@ -129,6 +137,9 @@ aside {
   line-height: 1.2em;
   border: 1px solid #999;
   padding: 0.5em;
+  @media #{$xs-screen} {
+    max-width: $float-width-small;
+  }
 }
 blockquote pre {
   line-height: 1em;

@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<section>
 <p>Now that we have seen how web pages get from the server to the browser, we should turn to how they are actually <em>made</em>. That is what we're going to be spending most of the course learning about.</p>
 
 <p>Web pages are constructed using three main technologies, each of which plays a different role in the creation of the pages.</p>
@@ -15,8 +16,9 @@
 <p>With HTML and CSS we can make simple web pages, but they don't <em>do</em> anything. In order to control the behaviour of our pages, we need a third technology: <dfn>JavaScript</dfn>. JavaScript is a programming language that is embedded in web browsers. It can be used to insert logic and behaviour into web pages. We will start working with it in the unit {{ xref('js') }}.</p>
 
 <p>These three technologies form the basis of what we know as &ldquo;web pages&rdquo;, and the basis for this course.</p>
+</section>
 
-
+<section>
 <h2 id="why-separate">Why separate Content, Appearance, and Behaviour?</h2>
 
 <p>At this point, it might not be obvious why we need three different pieces of technology to create web pages. Hopefully, the distinct uses of these three things will become obvious as the course goes on. But for now, we can at least introduce the broad motivation.</p>
@@ -28,5 +30,6 @@
 <p>We will also end up with web sites that are easier to maintain. For example, if there is a problem with the appearance, you know to look in the CSS file. And if you fix the problem once, it should apply to your entire site since all of the pages will use the same stylesheet. On a larger project, you can have different people working on different aspects of the site: an author working with the HTML, a designer working on the CSS, and a programmer creating the JavaScript.</p>
 
 <p>As we actually start working with these technologies, you will hopefully convince yourself that these things are true, and that there are other reasons to keep these concepts separate.</p>
+</section>
 
 {% endblock %}
