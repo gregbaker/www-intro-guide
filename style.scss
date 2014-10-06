@@ -88,6 +88,10 @@ code {
 code.file {
   font-weight: normal;
 }
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
 dt {
   font-weight: bold;
 }

@@ -126,23 +126,28 @@ def xref(context, chap):
     return '<a href="%s.html" class="xref">%s</a>' % (chap, title)
     
 
-
-# from http://stackoverflow.com/questions/9767585/insert-static-files-literally-into-jinja-templates-without-parsing-them
-def include_file(name):
-    return Markup(loader.get_source(environment, name)[0])
+def include_output(name):
+    return '<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0])
 
 def include_escaped(name):
     text = loader.get_source(environment, name)[0]
     return escape(text)
 
-def quoted_code(filename, codeclass='html', syntaxhighlight=True):
-    content = file(filename).read()
-    figid = 'code-' + os.path.splitext(filename)[0]
+def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
+    if ident:
+        figid = ' id="%s"' % (ident,)
+    else:
+        figid = ''
     if syntaxhighlight:
         preclass = 'brush: ' + codeclass
     else:
         preclass = codeclass
-    return '<blockquote id="%s">\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
+    return '<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
+
+def quoted_code(filename, codeclass='html', syntaxhighlight=True):
+    content = file(filename).read()
+    figid = 'code-' + os.path.splitext(filename)[0]
+    return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
 
 
@@ -156,7 +161,8 @@ environment.globals['contents'] = contents
 environment.globals['subcontents'] = subcontents
 environment.globals['pagetitle'] = pagetitle
 environment.globals['xref'] = xref
-environment.globals['include_file'] = include_file
+environment.globals['include_output'] = include_output
 environment.globals['include_escaped'] = include_escaped
 environment.globals['quoted_code'] = quoted_code
+environment.globals['block_code'] = block_code
 
