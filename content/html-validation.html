@@ -4,4 +4,77 @@
 
 <p class="draft">Validating HTML: how and why it's important. Some common mistakes people make.</p>
 
+<p>When writing HTML, you might make a few mistakes as you're learning, and that's completely normal. But you may have noticed that if you try to load some pages with small mistakes into a web browser, they actually look okay.</p>
+
+<p>For example, we know that every (non-empty) tag must be closed. What if one isn't closed? How will the browser (or a mobile browser, or Google, or other tools that read HTML) interpret that markup?</p>
+
+<p>Let's look at an <a href="{{rellink}}files/invalid.html">invalid HTML page</a>
+ to see what happens. That page contains this incorrect markup (hopefully you can spot the mistake):</p>
+{{ quoted_code('_sources/invalid-snippet1.html') }}
+
+<p>The <code class="html">&lt;abbr&gt;</code> element is not closed. The browser will do its best to display the markup anyway, but we're not exactly sure how: is the text &ldquo;the group that&hellip;&rdquo; part of the abbreviation or not? We could end up with either interpretation:</p>
+<blockquote>
+<p>&hellip; the <a href="http://www.w3.org/"><abbr title="World Wide Web
+Consortium">W3C</abbr></a>, the group that &hellip;</p>
+<p>&hellip; the <abbr title="World Wide Web
+Consortium"><a href="http://www.w3.org/">W3C</a>, the group that</abbr> &hellip;</p>
+</blockquote>
+
+<p>My web browser chooses the first of these: the <code class="html">&lt;abbr&gt;</code> element contains only three characters, but how can I be sure about other browsers, or Google, or other tools? I probably can't: this error could be interpreted different ways without be knowing. That could lead to errors on my page for some users, or bad parsing by search engines leading to bad rankings.</p>
+
+<p>There is another error on that <a href="{{rellink}}files/invalid.html">invalid HTML page</a>: the quote ending an attribute value is missing:</p>
+
+{{ quoted_code('_sources/invalid-snippet2.html') }}
+
+<p>In my browser, this makes the rest of the paragraph not display (because it's interpreting the rest of the text as part of the attribute value), so it's pretty likely I would have noticed. If I had been using a different browser when writing that page, would it have done the same?</p>
+
+<p>The solution to this problem is easy: don't make mistakes like that. Make sure your markup follows the rules and it should be interpreted the same way by every tool. (Well, it's easy to <em>say</em> at least.)</p>
+
+
+
+<section>
+<h2 id="validators">HTML Validators</h2>
+<p>As we have seen, <em>web browsers</em> won't alert us about errors like the one above. So it's easy to say &ldquo;don't make mistakes&rdquo; but hard to notice if we do. Another tool is needed that will actually tell us about problems in our markup.</p>
+
+<p>An <dfn>HTML validator</dfn> (or just <dfn>validator</dfn>) is a tool that does exactly that: it compares our document against the rules of HTML markup and tells us if there are any problems.</p>
+
+<p>The best validator to use is probably <a href="http://validator.w3.org/">The W3C Markup Validation Service</a>, which you can access online. You can give it the URL of your page once it is uploaded, upload the file form your computer, or just copy-and-paste your markup.</p>
+
+<p>Once the validator has your markup, it will either report that it is &ldquo;valid&rdquo; (yay!) or give a list of errors it finds (boo!).</p>
+
+<p>If there are errors, please remember that you're working with an automated tool: it won't magically know exactly how to fix the problem. The validator may point to the problem, or to something just before or after the thing you actually want to fix. It will probably also give multiple &ldquo;errors&rdquo; for one actual problem that you need to fix, just because the mistake left it confused about the structure of the page.</p>
+
+<p>A suggestion: if the validator gives many errors, <strong>fix the first one</strong>  and then try validating again. It's likely that some of the remaining errors are the result of it being confused, not many more problems to fix.</p>
+
+<p>Try <a href="http://validator.w3.org/">the validator</a> now. Give it the invalid example above, or other examples from this course (which should all be valid), or some of the pages your have created for this course. </p>
+</section>
+
+<section>
+<h2 id="robustness">The Robustness Principle</h2>
+
+<p>It might help to understand <em>why</em> it's important for authors to make sure their HTML is as &ldquo;correct&rdquo; as possible, as well as why browsers don't break pages when small errors are present.</p>
+
+<p>Web browsers (and hopefully you as an author) are following the <dfn>robustness principle</dfn> of software design:</p>
+<blockquote id="robustness-principle"><p>Be conservative in what you do, be liberal in what you accept from others.</p>
+<footer>Originally from Jon Postell, in the <cite><a href="https://tools.ietf.org/html/rfc761">Transmission Control Protocol (TCP) specification</a></cite></footer>
+</blockquote>
+
+<p>The idea here is tha when two pieces of software are communicating, the one sending out information should be <em>very careful</em> what it sends, to make sure that the receiver understands it. On the other hand, the receiver should do its best to gracefully handle small errors in what it receives.</p>
+
+<p>If both sides uphold their end of this bargain, everything should be transmitted correctly and there should be no errors or miscommunication.</p>
+
+<p>If we try to do the analogous thing in human language, I claim these statements all carry the same information:</p>
+<ol>
+<li>&ldquo;You are smart.&rdquo;</li>
+<li>&ldquo;Smart is a thing that you is.&rdquo;</li>
+<li>&ldquo;LOL ur smrt!!!&rdquo;</li>
+</ol>
+<p>If I want to express this idea, will they understand #2 or #3? Maybe, but how can I be sure? The first is the safe, robust way to express this idea: I'm fairly sure any reader can understand it. Someone reading could <em>probably</em> understand all three and would do their best to figure it out, but it doesn't mean they are all equally good ways to get your point across.</p>
+
+<p>Back on the web, web browsers are doing their part: when there are errors in HTML, they handle them as best they can, to make sure as many pages as possible display, even if not <em>exactly</em> as the author intended.</p>
+
+<p>As authors, we need to do our part as well. Don't rely on the browser handling errors in the &ldquo;right&rdquo; way: do your best to not produce errors. That way, you make sure your page works in as many situations as possible.</p>
+
+</section>
+
 {% endblock %}

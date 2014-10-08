@@ -58,7 +58,7 @@ ol>li {
 }
 
 p {
-  margin: 1em 0;
+  margin: 1em 0 0.5em 0;
 }
 
 sup {
@@ -156,6 +156,14 @@ blockquote.output {
 footer {
   margin-top: 2em;
   clear: both;
+}
+blockquote footer {
+  margin-top: 0.5em;
+  clear: none;
+  font-size: 75%;
+}
+blockquote footer:before {
+  content: "\002013  ";
 }
 
 .draft {

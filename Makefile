@@ -99,7 +99,7 @@ watch:
 	watch -n 1 make
 
 validate: $(SITE_DEPS)
-	python _markup/validate.py $(SITE_DEPS)
+	python _markup/validate.py $(filter-out %invalid.html, $(SITE_DEPS))
 
 clean:
 	rm -rf _site _polished_site
