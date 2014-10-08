@@ -13,6 +13,7 @@
     "contents": [
       ["markup", "Text Files and Markup"],
       ["tags", "HTML and Tags"],
+      ["attributes", "Attributes and More"],
       ["semantic", "Semantic Markup"],
       ["validation", "Validating HTML"]
     ]

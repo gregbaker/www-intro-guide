@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="attributes">
+<h2>Attributes</h2>
+
+<p>In addition to just using tags as they are, elements can be modified with <dfn>attributes</dfn>. These are used to change the meaning or behaviour of tags.</p>
+
+<p>For example, we can indicate what language is being used in a citation using the <code class="html">&lt;cite&gt;</code> element and the <code class="html">lang</code> attribute like this:</p>
+{{ block_code('<p>In his work <cite lang="la">Principia Mathematica</cite>,\nNewton introduced...</p>') }}
+
+<p>As you can see, the attribute is placed in the opening tag, before the &ldquo;<code class="html">&gt;</code>&rdquo;. Every attribute has a <dfn>value</dfn> which follows it in quotes as in the example.</p>
+
+<p>Each attribute modifies the element in a specific way: in our example, it indicates that the language of the content is Latin. This could be used by a browser to offer an automatic translation, or by a speech browser to change pronunciation rules to read the content correctly.</p>
+
+<p>Another attribute we can try now: the <code class="html">&lt;abbr&gt;</code> tag is used to indicate an abbreviation, or other short-form or contraction. The <code class="html">title</code> attribute is used to give an expansion of the abbreviation like this:</p>
+{{ quoted_code('_sources/abbr.html') }}
+
+<p>When a browser displays this content, it can use the value of the <code class="html">title</code> attribute to offer the reader an expansion of the abbreviation. Here is the above HTML displayed in your browser:</p>
+{{ include_output('_sources/abbr.html') }}
+
+<p>Depending on your browser, you may be able to see the expansion of the abbreviation. On desktop browsers, you can move the mouse cursor over the text. On (some?) mobile browsers, you can tap the text &ldquo;HTML&rdquo;.</p>
+
+<p>There are many other attributes (and tags). We will see more as the course goes on, and start working with a reference where we can look up all that exist.</p>
+
+</section>
+
+<section id="links">
+<h2>Links</h2>
+
+<p>There is one tag (and attribute to go with it) that is <em>very</em> important to make the Web what it is: we need to create links.</p>
+
+<p>The <code class="html">&lt;a&gt;</code> tag is used to create links. (It stands for &ldquo;anchor&rdquo; for historical reasons.) The <code class="html">href</code> attribute gives the destination for the link. For example,</p>
+{{ quoted_code('_sources/links.html') }}
+
+<p>In your browser, that looks like this:</p>
+{{ include_output('_sources/links.html') }}
+
+<p>As you can see, the contents of the <code class="html">&lt;a&gt;</code> element are styled like a link, and if you try clicking on the links, you will go to the URLs given by the <code class="html">href</code>.</p>
+
+<p>As an aside, we can now explain the <dfn>HyperText</dfn> part of HTML. HyperText is a (slightly archaic) term that roughly means &ldquo;text with links in it&rdquo;. When the web was first created, the term was needed to explain that this new &ldquo;World Wide Web&rdquo; was a system of text with links.</p>
+
+</section>
+
+<section id="empty">
+<h2>Empty Tags</h2>
+
+<p>There are a few HTML elements where it doesn't make sense for them to have any contents: there is nothing to put between their start and end tags. In that case, there's really no purpose for an end tag. These are called <dfn>empty tags</dfn>.</p>
+
+<p>For example, the <code class="html">&lt;hr&gt;</code> tag is used to insert a &ldquo;horizontal rule&rdquo; indicating a division in the content.</p>
+
+{{ quoted_code('_sources/hr-example.html') }}
+
+<p>The horizontal rule element is used to indicate a break in the content: a major shift in topic or theme. Since it basically just marks a place in the document, there's nothing <em>inside</em> it: nothing to go between the start and end. As you can see, it is written with no end tag, but a slash in the (opening) tag to indicate that the element ends right away. In your browser, this HTML look like this:</p>
+
+{{ include_output('_sources/hr-example.html') }}
+
+<p>The empty tag that we have seen is <code class="html">&lt;meta&gt;</code> that we have put on every page:</p>
+{{ block_code('<meta charset="UTF-8" />') }}
+
+<aside>Actually, the slash for empty elements is optional in HTML5: it can be written either <code class="html">&lt;hr&nbsp;/&gt;</code> or <code class="html">&lt;hr&gt;</code>. I will use the slash so it is obvious which tags are empty and suggest you do as well.</aside>
+
+<p>This is an empty tag that goes in the <code class="html">&lt;head&gt;</code> element and gives information about the page (meta-information). The <code class="html">charset</code> attribute gives the browser information about how the characters in the text file are encoded. We won't cover the details of character encodings in this course: the &ldquo;right&rdquo; value for the attribute will always be <code class="html">"UTF-8"</code> on every page.</p>
+
+
+</section>
+
+<section id="complete">
+<h2>A Complete Page</h2>
+
+<p>Let's put the things we have learned together into a more complete HTML page, and sneak in a few more tags while we're at it:</p>
+{{ quoted_code('files/complete-page.html') }}
+
+<p>You can <a href="{{ rellink }}files/complete-page.html">have a look at that page</a>, or the contents of the <code class="html">&lt;body&gt;</code> will look like this in your browser:</p>
+
+{{ include_output('_sources/complete-body.html') }}
+
+<p class="draft">fill in description</p>
+
+<p>We can put the <code class="html">lang</code> attribute on the <code class="html">&lt;html&gt;</code> element to indicate the overall language of our page, and probably should to indicate the language so it can be filtered in search results, or translated by automated tools.</p>
+
+</section>
+
+{% endblock %}
