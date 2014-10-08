@@ -17,7 +17,7 @@
 
 {{ figure('word-formatting', 'MS Word tools for visual formatting (left) and semantic formatting (right)', extension='png', referenced=False) }}
 
-{{ figure('google-docs-formatting', 'Google Docs tools for semantic formatting (left) and visual formatting (right)', extension='png', referenced=False) }}
+{{ figure('google-docs-formatting', 'Google Docs tools for semantic formatting (left, under &ldquo;Normal text&rdquo;) and visual formatting (right, on the toolbar)', extension='png', referenced=False) }}
 
 <p>In those screenshots, you can see visual formatting tools where you directly choose the font, style, colour, and so on. Both tools also have &ldquo;style&rdquo; tools where you can specify the type of content in a semantic way.</p>
 
@@ -30,6 +30,17 @@
 
 <p>The word processor style tools let you change the way every &ldquo;Heading&nbsp;1&rdquo; or &ldquo;Subtitle&rdquo; looks at one time by changing the defaults for that type of content. This takes the same amount of time for one or a thousand pages.</p>
 
+<p>Using semantic markup in HTML also helps your page be used in situations you might not have expected. For example, search engines (Google, DuckDuckGo, Bing, etc.) must read pages on the Web to figure out what they are about (to decide what search terms they should be returned for). These are entirely automated tools that must process pages algorithmically.</p>
+
+<p>If we have done a good job with our markup, the search engines can extract lots of meaning (semantics) just from our markup. For example, just from examining the headings in the &ldquo;<a href="html-tags.html#code-complete-page">complete page</a>&rdquo; example from the last topic, we get this outline for the document:</p>
+<ol class="outline">
+<li>HTML Basics
+  <ol>
+  <li>More to Learn</li>
+  <li>Not In This Course</li>
+  </ol>
+</li>
+</ol>
 
 </section>
 
@@ -44,7 +55,6 @@
 <!--
 <p>That means that if we extract <em>just the markup</em> from a page, we should still be able to see the kind of content that was there. For example, if we do that with the body of the &ldquo;<a href="html-tags.html#code-complete-page">complete page</a>&rdquo; example from the last topic, we get this markup:</p>
 
-{{ quoted_code('_sources/semantic-skeleton.html') }}
 
 <p>We can still see that there is a main page heading, followed by a paragraph (with a link and abbreviation in it), and two section headings each containing one paragraph.</p>
 -->

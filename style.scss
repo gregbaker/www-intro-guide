@@ -173,6 +173,15 @@ ol#toc ol, ol.chapter-toc {
   font-weight: normal;
   list-style-type: lower-roman;
 }
+ol.outline {
+  list-style-type: decimal;
+}
+ol.outline>li>ol {
+  list-style-type: lower-roman;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 /* overriding shCore.css */
 .syntaxhighlighter a,
