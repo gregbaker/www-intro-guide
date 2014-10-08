@@ -148,6 +148,10 @@ aside {
 blockquote pre {
   line-height: 1em;
 }
+blockquote.output {
+  border: 1px dashed #ccc;
+  padding: 0.25em;
+}
 
 footer {
   margin-top: 2em;

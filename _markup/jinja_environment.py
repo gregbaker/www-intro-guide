@@ -1,8 +1,14 @@
 from jinja2 import Environment, FileSystemLoader, Template, Markup, \
-    contextfilter, contextfunction, escape
+    contextfilter, contextfunction
+from cgi import escape
 import json
 import os.path
+import codecs, sys
 from collections import OrderedDict
+
+# https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def get_context(infile):
     depth = infile.count('/')
@@ -127,7 +133,7 @@ def xref(context, chap):
     
 
 def include_output(name):
-    return '<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0])
+    return u'<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0])
 
 def include_escaped(name):
     text = loader.get_source(environment, name)[0]
@@ -142,11 +148,13 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
         preclass = 'brush: ' + codeclass
     else:
         preclass = codeclass
-    return '<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
+    
+    res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
+    return res.encode('utf8')
 
 def quoted_code(filename, codeclass='html', syntaxhighlight=True):
-    content = file(filename).read()
-    figid = 'code-' + os.path.splitext(filename)[0]
+    content = codecs.open(filename, encoding='utf-8').read()
+    figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
     return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
 

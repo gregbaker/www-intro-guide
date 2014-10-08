@@ -4,4 +4,49 @@
 
 <p class="draft">HTML is semantic markup: what is that? Why is it important? How do we do it?</p>
 
+<p>Whenever HTML tags have been described here, the focus has been on what they <strong>mean</strong> or their <strong>purpose</strong> on the page, not on how they look:</p>
+<blockquote>The <code class="html">&lt;p&gt;&hellip;&#8203;&lt;/p&gt;</code> tag is used to enclose a paragraph on the page&hellip; The <code class="html">&lt;a&gt;</code> tag is used to create links&hellip; The horizontal rule element is used to indicate a break in the content.</blockquote>
+
+<p>None of these descriptions have been about what these elements look like in a web browser, because that's not what HTML describes. HTML is a <dfn>semantic markup language</dfn>. That is, its job is to describe the semantics of content: what that content means, what kind of content is is, or what its purpose or role is on the page.</p>
+
+<p>When creating HTML pages, our goal should be to describe the content as accurately as possible with the tags we have.</p>
+
+<p>The alternative is <dfn>visual markup</dfn> or <dfn>presentational markup</dfn> where the author specifies the appearance of content directly.</p>
+
+<p>You may be familiar with visual and semantic formatting in word processors like Microsoft Word, or Google Docs word processing documents, which allow both. Note that Word and Docs are not <em>markup languages</em> (since there is no markup to write), but their formatting style can still be described as visual or semantic.</p>
+
+{{ figure('word-formatting', 'MS Word tools for visual formatting (left) and semantic formatting (right)', extension='png', referenced=False) }}
+
+{{ figure('google-docs-formatting', 'Google Docs tools for semantic formatting (left) and visual formatting (right)', extension='png', referenced=False) }}
+
+<p>In those screenshots, you can see visual formatting tools where you directly choose the font, style, colour, and so on. Both tools also have &ldquo;style&rdquo; tools where you can specify the type of content in a semantic way.</p>
+
+<section>
+<h2 id="why">Why Use Semantic Markup?</h2>
+
+<p>The best reason for doing semantic markup is probably that it will let us use CSS effectively, as we will see in the unit on {{ xref('css') }}. CSS will let us make changes to the page like &ldquo;all paragraphs should look like &hellip;&rdquo;. If we used visual markup (to express something like &ldquo;this text is on a new line, left justified, in a 12pt font&rdquo; on each paragraph in our page) then we wouldn't be able to easily re-style everything: we would have to change each &ldquo;paragraph&rdquo; separately.</p>
+
+<p>You may have had an experience like this using the tools described above for essays or other documents. If you format every section heading by selecting a font, then a size, then bold, they might all look fine. But if you then decide to change the style of your document, you have to change each one manually. This can be very time-consuming for a long document.</p>
+
+<p>The word processor style tools let you change the way every &ldquo;Heading&nbsp;1&rdquo; or &ldquo;Subtitle&rdquo; looks at one time by changing the defaults for that type of content. This takes the same amount of time for one or a thousand pages.</p>
+
+
+</section>
+
+<section>
+<h2 id="how">How to Choose Tags</h2>
+</section>
+
+
+<p>We will see in the unit on CSS ways to control the appearance of pages. We will be able to use CSS to give appearances to each type of content. For now, we will have to accept the browsers' default styles for each element.</p>
+
+
+<!--
+<p>That means that if we extract <em>just the markup</em> from a page, we should still be able to see the kind of content that was there. For example, if we do that with the body of the &ldquo;<a href="html-tags.html#code-complete-page">complete page</a>&rdquo; example from the last topic, we get this markup:</p>
+
+{{ quoted_code('_sources/semantic-skeleton.html') }}
+
+<p>We can still see that there is a main page heading, followed by a paragraph (with a link and abbreviation in it), and two section headings each containing one paragraph.</p>
+-->
+
 {% endblock %}

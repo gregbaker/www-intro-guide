@@ -17,7 +17,7 @@ FIGURES = \
 
 DIRECTORIES = assets content figures files floats
 STYLES = style.css
-ASSETS = $(wildcard assets/*) $(wildcard files/*)
+ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*))
 
 # all files required in _site and _polished_site
 DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES)
