@@ -4,4 +4,14 @@
 
 <p class="draft">Basic things that go in a CSS file, how to link, and how it changes the appearance.</p>
 
+<p>Let's say we want to use CSS to change the headings on the page: we want the <code class="html">&lt;h2&gt;</code> elements to be centred (instead of the default left-justified) and in an italic font.</p>
+
+<p>The CSS code to do this is below. This is a complete <code class="file">.css</code> file that I have saved as <code class="file">firststyle.css</code>:</p>
+{{ quoted_code('files/firststyle.css') }}
+
+<p>In order to make an HTML page actually <em>use</em> this style information, we need to add a tag that indicates what style sheet should be applied to the page. This is done in the <code class="html">&lt;head&gt;</code> (since it is information <em>about</em> the page, not part of the main content) and with the <code class="html">&lt;link&gt;</code> element like this:</p>
+{{ quoted_code('_sources/link-css.html') }}
+
+<p>The <code class="html">&lt;link&gt;</code> tag indicates a related document. The <code class="html">rel</code> attribute indicates what kind of relation we're indicating, in this case that it's our style sheet. The <code class="html">href</code> attribute give the location of the style sheet, just like <code class="html">href</code> does for the <code class="html">&lt;a&gt;</code> tag.</p>
+
 {% endblock %}

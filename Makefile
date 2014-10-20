@@ -60,7 +60,10 @@ _site/floats/%.jpg: floats/%.jpg
 _site/%.css: %.scss
 	sass --scss --style expanded $< $@
 
-_site/assets/%: assets/% _site/assets _site/files
+_site/assets/%: assets/% _site/assets
+	cp $< $@
+
+_site/files/%: files/% _site/files
 	cp $< $@
 
 $(SITE_DIRECTORIES): %:

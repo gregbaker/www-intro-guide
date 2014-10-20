@@ -2,6 +2,16 @@
 
 {% block content %}
 
-<p class="draft">Styles and stylesheets: what is that, and why do we want them? (semantic markup and flexible documents)</p>
+<p>So far, we have been using HTML only to encode semantic information, as it is intended. We have used the tags to indicate what is a paragraph (<code class="html">&lt;p&gt;</code>), or heading (<code class="html">&lt;h1&gt;</code>, <code class="html">&lt;h2&gt;</code>, <code class="html">&lt;h3&gt;</code>), or list (<code class="html">&lt;ul&gt;</code> and <code class="html">&lt;ol&gt;</code> with <code class="html">&lt;h1&gt;</code>). We haven't had any way to indicate what a &rdquo;level-1 heading&ldquo; should look like. Obviously to create nice web pages, we will need some way to do this.</p>
+
+<p>The <dfn>CSS</dfn> (<dfn>Cascading Style Sheets</dfn>) language will give us a way to express information about the <strong>appearance</strong> of different parts of our content. CSS information (style sheets) will also be edited with a text editor, and saved in <code class="file">.css</code> files.</p>
+
+<section id="why">
+<h2>Why Separate Style Information?</h2>
+
+<p>As we discussed in the <a href="{{rellink}}content/html-semantic.html">semantic markup</a> topic, separating content in HTML files and style in CSS files may seem like extra work when starting out.</p>
+
+<p>CSS will allow us to give all of our site's appearance information in one place: even if we have hundreds of HTML files, they an all refer to one CSS file. That way, if we want to make a change in the appearance of a site, it requires only a single change. We can also have separate people working on different parts of the site (authors creating HTML and designers creating CSS).</p>
+</section>
 
 {% endblock %}
