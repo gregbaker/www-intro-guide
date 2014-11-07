@@ -14,4 +14,20 @@
 
 <p>The <code class="html">&lt;link&gt;</code> tag indicates a related document. The <code class="html">rel</code> attribute indicates what kind of relation we're indicating, in this case that it's our style sheet. The <code class="html">href</code> attribute give the location of the style sheet, just like <code class="html">href</code> does for the <code class="html">&lt;a&gt;</code> tag.</p>
 
+<p>To see how this stylesheet actually affects a page, you can see <a href="{{rellink}}files/firststyle.css">the stylesheet as above</a> applied to <a href="{{rellink}}files/withstyle.html">a simple HTML page</a>. Here is a screenshot of that page in one web browser before applying the stylesheet, and after:</p>
+
+{{ figure('withstyle1', 'Simple HTML page with no stylesheet', referenced=False) }}
+{{ figure('withstyle2', 'Simple HTML page with a stylesheet applied', referenced=False) }}
+
+<p>As you can see, the stylesheet left most of the default styleing unchanged: the level-one heading and paragraphs did not change.</p>
+
+<p>The <code class="html">&lt;h2&gt;</code> elements were selected for change by this CSS: the <code class="css">h2 {&nbsp;&hellip;&nbsp;}</code> block (a CSS <dfn>rule</dfn>) indicates that we want to change the appearance of every <code class="html">&lt;h2&gt;</code> element.</p>
+
+<p>The &ldquo;<code class="css">h2</code>&rdquo; in the CSS is a <dfn>selector</dfn>: it indicates which elements we want to modify. In particular, this is a <dfn>type selector</dfn> which selects a particular type of element, <code class="html">&lt;h2&gt;</code> in this case. You can select any element for changes this way.</p>
+
+<p>The two lines in the curly braces are CSS <dfn>declarations</dfn> that indicate what we want to change. Each is a <dfn>property</dfn>, the thing we want to change, and the <dfn>value</dfn> that we want to change it to. In this case, we have center-aligned the text, and made the font italic. You can see both of these changes in the figures above, and you should be able to see them on <a href="{{rellink}}files/withstyle.html">the actual page</a> as well.</p>
+
+<p>There are many properties that you can use in your CSS, and each has values that can be assigned to it. There are also more ways to select content for style changes. We will explore both of these in the following topics.</p>
+
+
 {% endblock %}
