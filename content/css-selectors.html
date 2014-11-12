@@ -4,4 +4,30 @@
 
 <p class="draft">more selectors (in addition to the tag selector they have been using)</p>
 
+<p>So far, we have only been able to select every instance of a particular tag in our stylesheets. This is often very useful, but limiting. There are many more ways to select content for modification in CSS, and we should explore some.</p>
+
+<section id="class-id">
+<h2>Classes and IDs</h2>
+
+<p>There are often cases where we use one element for different purposes on a page. For example, suppose we are creating a web page for a recipe: we might have lists like this:</p>
+
+{{ quoted_code('_sources/recipe1.html') }}
+
+<p>We have both ordered and unordered lists on this page, so we can easily select them separately and style them. But we have two unordered lists doing different jobs: one is a list of ingredients and one is a list of problems we think someone following the recipe might have. These are both lists where order isn't important so <code class="html">&lt;ul&gt;</code> is the right tag to use, but it would be totally reasonable to want these to look different on the page.</p>
+
+<p>In order to select these lists separately, they need to be distinguished somehow. To do this, we can use the <code class="html">class</code> property. Elements can be given a class to indicate their specific role on the page. The value for a <code class="html">class</code> can be any word that is meaningful. For example, we might add classes like this:</p>
+
+{{ quoted_code('_sources/recipe2.html') }}
+
+<p>The <code class="html">class</code> property won't change the page in any way by itself, but we can now uses these classes to grab particular elements in CSS:</p>
+
+{{ quoted_code('_sources/classes.css') }}
+
+<p>The second selector here (&ldquo;<code class="css">ul.problems</code>&rdquo;) is a <dfn>class selector</dfn>. It selects all <code class="html">&lt;ul&gt;</code> elements that have <code class="html">class="problems"</code> but does not change other unordered lists. The first selector (&ldquo;<code class="css">ul</code>&rdquo;) still selects <em>all</em> <code class="html">&lt;ul&gt;</code> elements, whether they have a class or not.</p>
+
+
+
+</section>
+
+
 {% endblock %}

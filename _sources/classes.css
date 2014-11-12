@@ -1,0 +1,6 @@
+ul {
+  list-style-type: disc;  
+}
+ul.problems {
+  font-size: smaller;
+}
