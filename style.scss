@@ -69,6 +69,9 @@ sup {
 em {
   font-style: italic;
 }
+strong {
+  font-weight: bold;
+}
 dfn {
   font-style: italic;
   font-weight: bold;
@@ -191,6 +194,9 @@ ol.outline>li>ol {
   margin-bottom: 0;
 }
 
+div.syntaxhighlighter {
+  clear: both;
+}
 
 /* overriding shCore.css */
 .syntaxhighlighter a,

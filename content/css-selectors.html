@@ -6,14 +6,16 @@
 
 <p>So far, we have only been able to select every instance of a particular tag in our stylesheets. This is often very useful, but limiting. There are many more ways to select content for modification in CSS, and we should explore some.</p>
 
-<section id="class-id">
-<h2>Classes and IDs</h2>
+<section id="class">
+<h2>Classes</h2>
 
 <p>There are often cases where we use one element for different purposes on a page. For example, suppose we are creating a web page for a recipe: we might have lists like this:</p>
 
 {{ quoted_code('_sources/recipe1.html') }}
 
 <p>We have both ordered and unordered lists on this page, so we can easily select them separately and style them. But we have two unordered lists doing different jobs: one is a list of ingredients and one is a list of problems we think someone following the recipe might have. These are both lists where order isn't important so <code class="html">&lt;ul&gt;</code> is the right tag to use, but it would be totally reasonable to want these to look different on the page.</p>
+
+<aside>Actually, a class value must start with a letter, but can contain letters, number, hyphens, and underscores.</aside>
 
 <p>In order to select these lists separately, they need to be distinguished somehow. To do this, we can use the <code class="html">class</code> property. Elements can be given a class to indicate their specific role on the page. The value for a <code class="html">class</code> can be any word that is meaningful. For example, we might add classes like this:</p>
 
@@ -25,9 +27,39 @@
 
 <p>The second selector here (&ldquo;<code class="css">ul.problems</code>&rdquo;) is a <dfn>class selector</dfn>. It selects all <code class="html">&lt;ul&gt;</code> elements that have <code class="html">class="problems"</code> but does not change other unordered lists. The first selector (&ldquo;<code class="css">ul</code>&rdquo;) still selects <em>all</em> <code class="html">&lt;ul&gt;</code> elements, whether they have a class or not.</p>
 
-
+<p class="draft">another example of classes</p>
 
 </section>
+
+<section id="identifiers">
+<h2>IDs</h2>
+
+<p>We can also distinguish elements with the <code class="html">id</code> property. The difference between <code class="html">class</code> and <code class="html">id</code> is that a particular <code class="html">id</code> value can occur <strong>only once on a page</strong>. So, we use <code class="html">id</code> to uniquely identify things.</p>
+
+<p>For example, we know we will only have one page footer (information at the bottom of the page about the site, etc.). There is a tag <code class="html">&lt;footer&gt;</code>, but we might have something like copyright information inside it that we want to style separately: we know there will only be one copyright statement on a particular page, so we use <code class="html">id</code>:</p>
+
+{{ quoted_code('_sources/copyright.html') }}
+
+<p>Then we can select just the paragraph with that identifier like this:</p>
+
+{{ quoted_code('_sources/ids.css') }}
+
+<p>Above, we used <code class="html">class="ingredients"</code> instead of <code class="html">id="ingredients"</code> because we could create a page with multiple recipes, so multiple lists of ingredients. Here we know the copyright info will occur only once so we can use <code class="html">id="copyright"</code>.</p>
+
+<p>Since <code class="html">id</code> values are unique, they can also be used to identify a part of the page (thus the name). We will use this in the unit on {{ xref('js') }} and beyond, but for now, it can be used to link to a particular <em>position</em> on a page. For example, this topic starts with an element that has an <code class="html">id</code> specified. We can link to that part (<code class="html">id="identifiers"</code>) of the page (<code class="file">css-selectors.html</code>) in HTML like this:</p>
+
+{{ quoted_code('_sources/id-link.html') }}
+
+<p>That will create a link to the start of the section {% include '_sources/id-link.html' %} (like that).</p>
+
+</section>
+
+<section id="contextual">
+<h2>Contextual Selectors</h2>
+
+</section>
+
+
 
 
 {% endblock %}

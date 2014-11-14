@@ -15,7 +15,7 @@ def get_context(infile):
     rellink = '../' * depth
     return {'rellink': rellink, 'input_file': infile}
 
-svg_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
+figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
 
 @contextfunction
 def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
@@ -35,7 +35,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
         'extension': extension,
         'reference_link': reference_link,
     }
-    return svg_template.render(context)
+    return figure_template.render(context)
 
 @contextfunction
 def floatfigure(context, filebase, caption, figureclass=None, extension='png'):
