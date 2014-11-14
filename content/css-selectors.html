@@ -52,10 +52,50 @@
 
 <p>That will create a link to the start of the section {% include '_sources/id-link.html' %} (like that).</p>
 
+<p class="draft">Have we talked enough about URLs for that to make sense?</p>
+
 </section>
+
+<section id="class-id-values">
+<h2>Class and ID Values</h2>
+
+<p class="draft">semantic values, please. Move to css-separate.html?</p>
+
+</section>
+
 
 <section id="contextual">
 <h2>Contextual Selectors</h2>
+
+<p>It is often useful to select elements based on where they are on the page. For example, you might want to modify emphasized text that is in headings (but not elsewhere), or only list items in ordered lists (but not unordered).</p>
+
+<p>For example, suppose we want to space out the elements of lists, inserting whitespace between each item. If we want to modify both <code class="html">&lt;ol&gt;</code> and <code class="html">&lt;ul&gt;</code> elements, we can do it like this:</p>
+
+{{ quoted_code('_sources/contextual1.css') }}
+
+<p>But if we only want to modify <code class="html">&lt;ol&gt;</code> lists (leaving <code class="html">&lt;ul&gt;</code> alone), we need to select only the list items inside ordered lists. To do this, we can use <dfn>contextual selectors</dfn> that find one element inside another.</p>
+
+{{ quoted_code('_sources/contextual2.css') }}
+
+<p>The selector &ldquo;<code class="css">ol li</code>&rdquo; will select any <code class="html">&lt;li&gt;</code> that is <em>inside</em> an <code class="html">&lt;ol&gt;</code> element but not other list items.</p>
+
+<p>For another use of contextual selectors, you might find that you don't like the default appearance of links within headings: the blue colour is distyracting and you want the links to only be underlined.</p>
+
+{{ figure('headinglink1', 'Page with a link in a heading', referenced=False) }}
+
+<p>This CSS with a contextual selector can be used to modify only the links in level-2 headings:</p>
+{{ quoted_code('_sources/contextual3.css') }}
+
+<p>The page will then look like this. (The link in the heading has turned black, in case you can't see it because of the device you're viewing this on.)</p>
+{{ figure('headinglink2', 'Restyled link in a heading', referenced=False) }}
+
+</section>
+
+<section id="others">
+<h2>Other Selectors</h2>
+
+<p>There are other selectors that can be used in CSS that we won't cover here.</p>
+
 
 </section>
 

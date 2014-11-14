@@ -84,7 +84,7 @@ _polished_site/%.png: _site/%.png
 
 # scour all SVG images
 _polished_site/%.svg: _site/%.svg
-	python /usr/share/pyshared/scour.py -q -i $< -o $@
+	python /usr/share/pyshared/scour.py --enable-id-stripping --enable-comment-stripping --shorten-ids -q -i $< -o $@
 _polished_site/%.svgz: _polished_site/%.svg
 	gzip -c < $< > $@
 
