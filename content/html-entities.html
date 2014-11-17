@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>When creating HTML, you might come across some characters you can't type for one reason or another. For example, suppose you wanted to produce this output on a page:</p>
+
+{{ include_output('_sources/entity1.html') }}
+
+<p>If we just type that in a <code class="html">&lt;p&gt;</code> element, then the <code class="html">&lt;</code> is assumed to be the start of a tag. This will cause errors in the validator and probably in browsers.</p>
+
+<p>In order to display a &ldquo;&lt;&rdquo; (or other special characters) on a page, we need to use an <dfn>entity</dfn>. The actual code with type in the HTML file to display the above is:</p>
+
+{{ quoted_code('_sources/entity1.html') }}
+
+<p>The <code class="html">&amp;lt;</code> is an entity: it starts with a ampersand and ends with a semicolon.</p>
+
+
+<section>
+<h2 id="special">Entities for Special Characters</h2>
+
+<p>There are a few more special characters that you can't just type literally in HTML documents, and you need to use entities to produce these. These come up often, and are probably worth remembering.</p>
+
+<figure id="entities-specialchar">
+<table>
+<thead><tr><th scope="col">Character</th><th scope="col">Entity</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td>&lt;</td><td><code class="html">&amp;lt;</code></td><td>less-than (usually starts a tag)</td></tr>
+<tr><td>&gt;</td><td><code class="html">&amp;gt;</code></td><td>greater-than (usually ends a tag)</td></tr>
+<tr><td>&amp;</td><td><code class="html">&amp;amp;</code></td><td>ampersand (usually starts an entity)</td></tr>
+<tr><td>&quot;</td><td><code class="html">&amp;quot;</code></td><td>double quote (usually wraps attribute values)</td></tr>
+<tr><td>&apos;</td><td><code class="html">&amp;apos;</code></td><td>apostrophe/single quote (can wrap attribute values)</td></tr>
+</tbody>
+</table>
+<figcaption>Entities for special characters in HTML</figcaption>
+</figure>
+
+
+</section>
+
+
+<section id="other">
+<h2>Other Characters</h2>
+
+</section>
+
+
+<section id="numeric">
+<h2>Numeric Entities</h2>
+
+</section>
+
+
+<section id="example">
+<h2>Example</h2>
+
+<p>Here is a longer example with different entities:</p>
+{{ quoted_code('_sources/entity2.html') }}
+<p>And what it looks like in this browser:</p>
+{{ include_output('_sources/entity2.html') }}
+
+</section>
+
+{% endblock %}

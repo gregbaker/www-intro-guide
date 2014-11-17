@@ -138,6 +138,19 @@ figure.floating, aside {
 figure.floating img {
   max-width: 100%;
 }
+figure table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+th {
+  font-weight: bold;
+  text-align: center;
+}
+th, td {
+  padding: 0.1em 0.5em;
+}
 aside {
   width: $float-width;
   text-align: right;

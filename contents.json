@@ -15,7 +15,9 @@
       ["tags", "HTML and Tags"],
       ["attributes", "Attributes and More"],
       ["semantic", "Semantic Markup"],
-      ["validation", "Validating HTML"]
+      ["validation", "Validating HTML"],
+      ["links", "Links and URLs"],
+      ["entities", "Entities"]
     ]
   },
   {
