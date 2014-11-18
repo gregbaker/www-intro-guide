@@ -3,7 +3,7 @@
     "chapter": ["www", "The Internet and the World Wide Web"],
     "contents": [
       ["internet", "The Internet"],
-      ["protocols", "The Rest of the Internet"],
+      ["protocols", "Internet Protocols"],
       ["http", "The Web and HTTP"],
       ["pillars", "HTML, CSS, and JavaScript"]
     ]
@@ -16,7 +16,7 @@
       ["attributes", "Attributes and More"],
       ["semantic", "Semantic Markup"],
       ["validation", "Validating HTML"],
-      ["links", "Links and URLs"],
+      ["urls", "URLs: Links and Images"],
       ["charref", "Character References"]
     ]
   },
