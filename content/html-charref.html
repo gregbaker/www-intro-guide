@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>When creating HTML, you might come across some characters you can't type for one reason or another. For example, suppose you wanted to produce this output on a page:</p>
+
+{{ include_output('_sources/charref1.html') }}
+
+<p>If we just type that in a <code class="html">&lt;p&gt;</code> element, then the <code class="html">&lt;</code> is assumed to be the start of a tag. This will cause errors in the validator and probably in browsers.</p>
+
+<p>In order to display a &ldquo;&lt;&rdquo; (or other special characters) on a page, we need to use an <dfn>character reference</dfn>. The actual code with type in the HTML file to display the above is:</p>
+
+{{ quoted_code('_sources/charref1.html') }}
+
+<aside>Character references are also called <dfn>entities</dfn> in older HTML versions, and you may find other HTMl materials that use that term.</aside>
+
+<p>The <code class="html">&amp;lt;</code> is a character reference: it starts with a ampersand and ends with a semicolon.</p>
+
+
+<section>
+<h2 id="special">References for Special Characters</h2>
+
+<p>There are a few more special characters that you can't just type literally in HTML documents, and you need to use entities to produce these. These come up often, and are probably worth remembering.</p>
+
+<figure id="specialchar">
+<table>
+<thead><tr><th scope="col">Character</th><th scope="col">Reference</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td>&lt;</td><td><code class="html">&amp;lt;</code></td><td>less-than (usually starts a tag)</td></tr>
+<tr><td>&gt;</td><td><code class="html">&amp;gt;</code></td><td>greater-than (usually ends a tag)</td></tr>
+<tr><td>&amp;</td><td><code class="html">&amp;amp;</code></td><td>ampersand (usually starts a reference)</td></tr>
+<tr><td>&quot;</td><td><code class="html">&amp;quot;</code></td><td>double quote (usually wraps attribute values)</td></tr>
+<tr><td>&apos;</td><td><code class="html">&amp;apos;</code></td><td>apostrophe/single quote (can wrap attribute values)</td></tr>
+</tbody>
+</table>
+<figcaption>References for special characters in HTML</figcaption>
+</figure>
+
+<p>The <code class="html">&amp;quot;</code> and <code class="html">&amp;apos;</code> references are only needed in attribute values. You can use a quote character in text &ldquo;<code class="html">&lt;p&gt;He said "hello"&lt;/p&gt;</code>&rdquo; but not inside a quoted value: &ldquo;<code class="html">&lt;p title="with a &amp;quot;quote&amp;quot;"&gt;&ZeroWidthSpace;&hellip;&lt;/p&gt;</code>&rdquo;.</p>
+
+</section>
+
+
+<section id="other">
+<h2>Other Characters</h2>
+
+<p>There may be other characters that you want to use on a page, but can't type because of your keyboard (or other input method). Character references can be used for these as well.</p>
+
+<p>There are many characters in this category, and you certainly aren't expected to remember them all, but here are a few that you might find useful.</p>
+
+<figure id="other-ref">
+<table>
+<thead><tr><th scope="col">Character</th><th scope="col">Reference</th><th scope="col">Description</th></tr></thead>
+<tbody>
+<tr><td>&euro;</td><td><code class="html">&amp;euro;</code></td><td>Euro sign</td></tr>
+<tr><td>&copy;</td><td><code class="html">&amp;copy;</code></td><td>Copyright symbol</td></tr>
+<tr><td>&ldquo;</td><td><code class="html">&amp;ldquo;</code></td><td>left double-quote</td></tr>
+<tr><td>&rdquo;</td><td><code class="html">&amp;rdquo;</code></td><td>right double-quote</td></tr>
+<tr><td>&hellip;</td><td><code class="html">&amp;hellip;</code></td><td>ellipsis</td></tr>
+<tr><td>&lambda;</td><td><code class="html">&amp;lambda;</code></td><td>Greek lowercase lambda</td></tr>
+<tr><td>&check;</td><td><code class="html">&amp;check;</code></td><td>checkmark</td></tr>
+</tbody>
+</table>
+<figcaption>Some other character references in HTML</figcaption>
+</figure>
+
+<p>You can refer to an <a href="http://dev.w3.org/html5/html-author/charref">HTML character reference chart</a> or a <a href="http://unicode-table.com/en/">character search</a> when you need another character.</p>
+
+</section>
+
+
+<section id="numeric">
+<h2>Numeric Character References</h2>
+
+<p>There are even more characters available than have named references in <a href="http://dev.w3.org/html5/html-author/charref">the chart</a>. The characters available in HTML are the (100,000 or so) defined in the <dfn>Unicode</dfn> character set.</p>
+
+<aside>For more information on Unicode: <a href="https://en.wikipedia.org/wiki/Unicode">Unicode in Wikipedia</a>, the <a href="http://www.unicode.org/">Unicode Consortium</a>.</aside>
+
+<p>Since there aren't names for these characters, we can refer to them by number. Numeric references have a <code class="html">#</code> to indicate a numeric (not named) reference and look like this <code class="html">&amp;#9834;</code> to produce the character &ldquo;&#9834;&rdquo;. You might also see references that start with <code class="html">#x</code> like <code class="html">&amp;#x266A;</code> which also produces the &ldquo;&#x266A;&rdquo; character: they are equivalent and it doesn't matter which you use (likely whichever you find in the reference/search you use).</p>
+
+<p>Again, a <a href="http://unicode-table.com/en/">character search</a> is likely the most practical way to find one of these characters when you need it.</p>
+
+<p>By the way, the element <code class="html">&lt;meta charset="UTF-8" /&gt;</code> we have been putting in the <code class="html">&lt;head&gt;</code> is indicating that we're using the Unicode character set, and that our editor is saving the characters to a text file in a certain way (known as <dfn>UTF-8</dfn>).</p>
+
+
+</section>
+
+
+<section id="example">
+<h2>Example</h2>
+
+<p>Here is a longer example with different types of character references:</p>
+{{ quoted_code('_sources/charref2.html') }}
+<p>And what it looks like in this browser:</p>
+{{ include_output('_sources/charref2.html') }}
+
+</section>
+
+{% endblock %}

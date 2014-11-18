@@ -17,7 +17,7 @@
       ["semantic", "Semantic Markup"],
       ["validation", "Validating HTML"],
       ["links", "Links and URLs"],
-      ["entities", "Entities"]
+      ["charref", "Character References"]
     ]
   },
   {
