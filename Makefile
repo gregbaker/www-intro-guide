@@ -4,7 +4,7 @@ PAGES = $(filter-out _%.html, \
           $(filter-out files/%, \
             $(wildcard *.html */*.html) \
           )\
-        ) \
+        )
 
 SVG_FIGURES = $(wildcard figures/*.svg) $(wildcard floats/*.svg)
 BITMAP_FIGURES = $(wildcard figures/*.png) $(wildcard floats/*.png) \
@@ -16,11 +16,12 @@ FIGURES = \
     $(BITMAP_FIGURES)
 
 DIRECTORIES = assets content figures files floats
+GENERATED_PAGES = term_index.html
 STYLES = style.css
-ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*)) term_index.html
+ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*))
 
 # all files required in _site and _polished_site
-DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES)
+DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES) $(GENERATED_PAGES)
 SITE_PAGES = $(foreach f, $(PAGES), _site/$(f))
 SITE_DEPS = $(foreach f, $(DEPS), _site/$(f))
 POLISHED_SITE_DEPS = $(foreach f, $(DEPS), _polished_site/$(f))
@@ -37,8 +38,8 @@ build: site
 
 # rules to build in _site
 
-_site/term_index.html: $(SITE_PAGES)
-	python _markup/generate_index.py _site/content/*.html > $@
+_site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
+	python _markup/generate_index.py $(SITE_PAGES) > $@
 
 _site/%.html: %.html $(LAYOUTS) _site/content
 	python _markup/jinga.py $< $@
