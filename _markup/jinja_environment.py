@@ -120,7 +120,10 @@ def _read_contents():
         for sec_slug, sec_title in sections:
             contents[chap_slug + '-' + sec_slug] = sec_title
     return contents
-        
+
+def basename(fn):
+    return os.path.splitext(os.path.split(fn)[1])[0]
+
 @contextfunction
 def xref(context, chap):
     """
