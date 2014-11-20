@@ -13,7 +13,12 @@ sys.setdefaultencoding('utf-8')
 def get_context(infile):
     depth = infile.count('/')
     rellink = '../' * depth
-    return {'rellink': rellink, 'input_file': infile}
+    if depth == 0:
+        indexlink = './'
+    else:
+        indexlink = rellink
+
+    return {'rellink': rellink, 'indexlink': indexlink, 'input_file': infile}
 
 figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
 

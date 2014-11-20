@@ -92,6 +92,10 @@ code {
 code.file {
   font-weight: normal;
 }
+code.url {
+  font-weight: normal;
+  font-family: $main-font;
+}
 abbr[title] {
     border-bottom: 1px dotted;
 }
