@@ -2,10 +2,50 @@
 
 {% block content %}
 
-<p>We have seen that in an <code class="html">&lt;a&gt;</code> element, the <code class="html">href</code> attribute use used to give the destination of the link. THis destination is a URL, but there is more to say about that, and we should have a look now.</p>
+<p>We have seen that in an <code class="html">&lt;a&gt;</code> element, the <code class="html">href</code> attribute use used to give the destination of the link. This destination is a URL, but there is more to say about that, and we should have a look now.</p>
 
-<section>
-<h2 id="special">References for Special Characters</h2>
+<p>URLs are also used to refer to images so they can be displayed on the page. The <code class="html">&lt;img&gt;</code> tag is used to insert images into a page like this:</p>
+
+{{ quoted_code('_sources/img1.html') }}
+
+<p>The <code class="html">src</code> attribute is used to give the URL of the image. The <code class="html">alt</code> attribute gives alternat text: text that can be displayed in place of the image if it can't be loaded (because it can't be found on the server, or network problems, or any other reason). Both of these attributes are required and the tag is empty, since it just marks the place an image should go, but doesn't have any content.</p>
+
+<section id="absolute">
+<h2>Absolute URLs</h2>
+
+<p>The URLs that we have seen so far are <dfn>absolute URLs</dfn>. Absolute URLs contain a scheme, server, and path as described in the topic {{ xref('www-http', fragment='fig-url') }} (but the path may be empty).</p>
+
+<p>Absolute URLs can be used to locate a piece of content on the web with no other information or context.</p>
+
+</section>
+
+<section id="relative">
+<h2>Relative URLs</h2>
+
+<p>In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same directory, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the director <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
+
+<section id="same-dir">
+<h3>In the same directory</h3>
+
+<p>The simplest relative URL is the one that specifies &ldquo;look in the same directory&rdquo;. To do that, you simply specify the filename:</p>
+
+{{ quoted_code('_sources/rel1.html') }}
+
+<p>The first line creates a link to the page <code class="file">nextpage.html</code> in the <em>same directory</em> as the HTML page that contains that link. The second line references an image <code class="file">happy.png</code> in the same directory.</p>
+
+<p>The nice thing about relative URLs is that they will work between pages on your site, no matter where that site is. You can create a link <code class="html">&lt;a href="menu.html"&gt;</code> that you want to take you back to your site's menu: it will work when you're editing the files on your computer and it will work after you have uploaded the site to a web server.</p>
+</section>
+
+<section id="into-dir">
+<h3>Into a directory</h3>
+
+<p>Suppose you want to refer to a </p>
+
+
+</section>
+
+
+
 
 </section>
 

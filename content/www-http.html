@@ -8,6 +8,21 @@
 
 <p>We aren't going to cover the details of an HTTP conversation, but some of the ideas are important for anyone creating web pages (or even using the web).</p>
 
+<section id="client-server">
+<h2>Requesting Pages</h2>
+
+<p>When you click on a link in your web browser, you are making a request for a web page. How does this request get fulfilled?</p>
+
+<p>Your web browser on your computer is acting as the <dfn>client</dfn> for this request. That is, it is the one initiating the request. When creating web pages, we usually think of the client (or <dfn>user agent</dfn>) being a web browser, but it is important to remember that other tools can act as clients as well. Search engines like Google request pages so they can be indexed; other tools (like the HTML validator that we'll see later) request pages so they can be examined on the user's behalf; archivers and other tools download pages so they can be stored.</p>
+
+<p>The client contacts the <dfn>server</dfn> to make its request. The server is another computer on the Internet: it is running server software that can answer HTTP requests. When it gets the request for a page, it finds or generates the content and sends it back.</p>
+
+<aside>Both &ldquo;client&rdquo; and &ldquo;server&rdquo; are used to refer to both the computer and the software running on it.</aside>
+
+<p>&ldquo;HTTP&rdquo; defines the way that this conversation takes place between the two computers. It is used to request HTML pages, images, and any other content that is on the web. It also defines various errors that can be handled by the user agent or shown to the user.</p>
+
+</section>
+
 <section id="urls">
 <h2>URLs</h2>
 
@@ -21,9 +36,9 @@
 
 <p>You will also see URLs that start with &ldquo;<code class="url">https://</code>&rdquo; indicating the <dfn>HTTPS</dfn> (<dfn>HTTP Secure</dfn>) protocol which works the same as HTTP, but all information is encrypted when being sent between the server and client. That ensure that none of the computers in between can read the messages going back-and-forth.</p>
 
-<p>Next is the <dfn>server</dfn> (or <dfn>host name</dfn>). This is the name of the computer that the browser needs to contact to retrieve this information.</p>
+<p>Next is the <dfn>server</dfn> (or <dfn>host name</dfn>). This is the name of the computer that the browser needs to contact to retrieve this information. The server software on it will answer the request.</p>
 
-<p>Finally, the <dfn>path</dfn> indicates which page on this server we're interested in.</p>
+<p>Finally, the <dfn>path</dfn> indicates which page on this server we're interested in. This is used by the server to decide which piece of content the user has requested so it can be sent back (or it can decide that it can't find that path and return a 404 Not Found error message, or some other error if appropriate).</p>
 
 </section>
 

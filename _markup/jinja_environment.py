@@ -130,14 +130,18 @@ def basename(fn):
     return os.path.splitext(os.path.split(fn)[1])[0]
 
 @contextfunction
-def xref(context, chap):
+def xref(context, chap, text=None, fragment=None):
     """
     Output a cross-reference to another section
     """
     data = json.load(open('contents.json'))
-    contents = _read_contents()
-    title = contents[chap]
-    return '<a href="%s.html" class="xref">%s</a>' % (chap, title)
+    if text is None:
+        contents = _read_contents()
+        text = contents[chap]
+    frag = ''
+    if fragment:
+        frag = '#' + fragment    
+    return '<a href="%s.html%s" class="xref">%s</a>' % (chap, frag, text)
     
 
 def include_output(name):
