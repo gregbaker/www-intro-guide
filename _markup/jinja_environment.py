@@ -6,6 +6,10 @@ import os.path
 import codecs, sys
 from collections import OrderedDict
 
+GLOBALS = {
+    'jquery_url': 'https://code.jquery.com/jquery-2.1.1.min.js'
+}
+
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -170,8 +174,18 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True):
         _, ext = os.path.splitext(filename)
         codeclass = ext[1:]
     figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
+    
+    content = process_jinga(content)
+        
     return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
+
+def process_jinga(template_text, context={}):
+    """
+    Return result of processing template text in our standard environment.
+    """
+    template = environment.from_string(template_text)
+    return template.render(context)
 
 
 loader = FileSystemLoader(['.', '_layouts'])
@@ -188,4 +202,4 @@ environment.globals['include_output'] = include_output
 environment.globals['include_escaped'] = include_escaped
 environment.globals['quoted_code'] = quoted_code
 environment.globals['block_code'] = block_code
-
+environment.globals.update(GLOBALS)

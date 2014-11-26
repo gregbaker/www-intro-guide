@@ -37,6 +37,7 @@
     "contents": [
       ["behaviour", "Behaviour of Web Pages"],
       ["basics", "JavaScript Basics"],
+      ["jquery", "The jQuery Library"],
       ["events", "Events and Behaviour"]
     ]
   },

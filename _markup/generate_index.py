@@ -2,7 +2,7 @@
 
 import sys
 import html5lib
-from jinja_environment import _read_contents, basename, environment
+from jinja_environment import _read_contents, basename, process_jinga
 
 TEMPLATE_START = """{% extends "base.html" %}
 {% block title %}Index of Terms{% endblock %}
@@ -72,8 +72,7 @@ def render_index(content):
     Render the index into a page
     """
     template_text = TEMPLATE_START + content + TEMPLATE_END
-    template = environment.from_string(template_text)
-    return template.render(CONTEXT)
+    return process_jinga(template_text, CONTEXT)
 
 def generate_index(infiles):
     terms = collect_terms(infiles)

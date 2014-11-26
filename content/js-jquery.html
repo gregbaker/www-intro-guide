@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="libraries">
+<h2>Libraries in Programming</h2>
+<p>JavaScript is a full-featured programming language all by itself, but there are many tasks that programmers creating JavaScript need to do a lot which are not in the &ldquo;core&rdquo; language.</p>
+
+<p>Every programming language is like this: the language itself lets programmers solve problems, but as the language is used, it becomes clear that some tasks must be done often (by at least some programmers). </p>
+
+</section>
+
+<section id="jquery">
+<h2>jQuery</h2>
+
+{{ quoted_code('_sources/script-jquery.html') }}
+
+<p><a href="{{rellink}}files/jquery-first.html">first page</a></p>
+
+</section>
+
+{% endblock %}
