@@ -2,10 +2,44 @@
 
 {% block content %}
 
+<section id="script-tag">
+<h2>Linking Scripts</h2>
 <p class="draft">The script tag and basic ideas of JS (hooking a function up to an onclick event)</p>
 
 <p>The <code class="html">&lt;script&gt;</code> element is used to connect JavaScript to HTML pages. When the browser encounters <code class="html">&lt;script&gt;</code>, it will load and run the code (similar to the way it loads stylesheets for <code class="html">&lt;link rel="stylesheet"&gt;</code> or images for <code class="html">&lt;img&gt;</code></p>
 
-<p></p>
+<p>We will usually write JavaScript code in separate files named <code class="file">something.js</code>. We can link this to a web page like this:</p>
+
+{{ quoted_code('_sources/script-first.html') }}
+
+<p>The <code class="html">&lt;script&gt;</code> tag has no contents (the end tag comes immediately after the start tag). This element causes the browser to load the code from the relative URL <code class="url">mycode.js</code> and execute it.</p>
+
+</section>
+
+<section id="first-js">
+<h2>First JavaScript Code</h2>
+
+<p>Now that we can tell the browser about a JavaScript file, we should actually write some code. As a first step, here is some code that can go in our <code class="url">mycode.js</code> file:</p>
+
+{{ quoted_code('files/mycode.js') }}
+
+<p>And here is a more complete HTML file that loads it with the <code class="html">&lt;script&gt;</code> tag:</p>
+
+{{ quoted_code('files/first-js.html') }}
+
+<p>You can have a look at <a href="{{rellink}}files/first-js.html">that HTML page</a> and see how it works: try clicking on the paragraph.</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}
