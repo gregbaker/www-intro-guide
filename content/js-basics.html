@@ -29,6 +29,36 @@
 
 <p>You can have a look at <a href="{{rellink}}files/first-js.html">that HTML page</a> and see how it works: try clicking on the paragraph.</p>
 
+<p>There is a lot of new stuff in that example that deserves more explanation&hellip;</p>
+
+</section>
+
+<section id="events">
+<h2>Events</h2>
+
+<p>In the HTML above, you will see the new property <code class="html">onclick</code>. This property is used to connect some JavaScript code to an event on the page.</p>
+
+<p>An <dfn>event</dfn> in HTML is triggered by certain things that the user does, or that happen in the browser. For example, the &ldquo;click&rdquo; event occurs when the user clicks on the element. In the example above, you can click on the paragraph and it triggers execution of some JavaScript logic.</p>
+
+<p>There are several other events on elements and we will use some of then as the course goes on. For example, there are events &ldquo;mouseover&rdquo; (when the mouse cursor moves over an element, on a desktop computer), &ldquo;load&rdquo; (when the page has finished loading), &ldquo;touchstart&rdquo; (the user starts touching an element, on a mobile device), and &ldquo;change&rdquo; (the user changes the entry in a form element). We will introduce more event types as they are needed.</p>
+
+<p>The value for the event property (<code class="html">say_hello()</code> in the example) is a piece of JavaScript code. It will usually be short and used to call longer pieces of logic written elsewhere. In this example, it calls the <code class="js">say_hello</code> function defined in the JavaScript file&hellip;</p>
+</section>
+
+<section id="functions">
+<h2>JavaScript Functions</h2>
+
+<p>Let's look again at the <code class="file">mycode.js</code> file:</p>
+
+{{ quoted_code('files/mycode.js') }}
+
+<p>This code creates a function named <code class="js">say_hello</code>. A <dfn>function</dfn> are used to is used to contain some related logic. It could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
+
+<p>Our function definitions will look like this (with a few more parts to be added later):</p>
+
+{{ quoted_code('_sources/function_template.js') }}
+
+<p>This creates a function called <code class="js">function_name</code>. When we <dfn>call</dfn> that function (ask that it be executed), the logic in the <code class="js">{&hellip;}</code> will run line-by-line. [There is other syntax to define functions in JavaScript as well. We're going to ignore that.]</p>
 
 </section>
 
