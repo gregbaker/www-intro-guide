@@ -68,6 +68,9 @@ _site/%.css: %.scss
 _site/assets/%: assets/% _site/assets
 	cp $< $@
 
+_site/files/%.html: files/%.html _site/files
+	python _markup/jinga.py $< $@
+
 _site/files/%: files/% _site/files
 	cp $< $@
 

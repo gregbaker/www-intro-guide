@@ -8,12 +8,18 @@
 do_something = function() {
   alert('test');
 }
+setup = function() {
+  jQuery('p').click(do_something);
+}
+jQuery(document).ready(setup);
 </script>
 </head>
 <body>
 <h1>First jQuery Page</h1>
 
-<p onmouseover="do_something()">This is a special paragraph.</p>
+<p>This is a special paragraph.</p>
+<p>This is a special paragraph.</p>
+<p>This is a special paragraph.</p>
 
 </body>
 </html>

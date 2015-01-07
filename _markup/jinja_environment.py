@@ -7,7 +7,7 @@ import codecs, sys
 from collections import OrderedDict
 
 GLOBALS = {
-    'jquery_url': 'https://code.jquery.com/jquery-2.1.1.min.js'
+    'jquery_url': 'https://code.jquery.com/jquery-2.1.3.min.js'
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
