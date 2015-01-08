@@ -19,10 +19,38 @@
 
 {{ quoted_code('_sources/script-jquery.html') }}
 
-<p>Here is a complete page:</p>
+<p>Here is a complete page that uses the jQuery library:</p>
 {{ quoted_code('files/jquery-first.html') }}
 
-<p><a href="{{rellink}}files/jquery-first.html">first page</a></p>
+<p>And the JavaScript file <code class="file">jquery-event.js</code> that goes with it:</p>
+{{ quoted_code('files/jquery-event.js') }}
+
+<p>You can have a look at this <a href="{{rellink}}files/jquery-first.html">first page with jQuery</a> and see how it behaves.</p>
+
+<p>There are lots of new concepts in this JavaScript file. It probably makes sense to take a look line-by-line.</p>
+
+<dl>
+<dt><code class="js">do_something = function() { &hellip; }</code></dt>
+<dd>Just like before, this creates a function named <code class="js">do_something</code>. Also like before, this function can be called with <code class="js">do_something()</code> to run the code inside the <code class="js">{&nbsp;&hellip;&nbsp;}</code>.</dd>
+
+<dt><code class="js">alert('Hello world!');</code></dt>
+<dd>This one line is the code that runs when the <code class="js">do_something</code> function is called. It pops up an alert window with the phrase &ldquo;Hello world!&rdquo;. That's maybe not too useful, but at least we can see when the function runs.
+
+<p>The function <code class="js">alert()</code> is built into JavaScript, so we can call it without defining it.</p></dd>
+
+<dt><code class="js">setup = function() { &hellip; }</code></dt>
+<dd>We are defining this function to do the work of setting up the JavaScript behaviour on the page (thus the name &ldquo;setup&rdquo;). It will be called after the browser loads the page (because we'll trigger that below).</dd>
+
+<dt><code class="js">jQuery('p').click(do_something);</code></dt>
+<dd><p class="draft">Aw crap, what do I say here? Nothing? Everything won't fit.</p></dd>
+
+<dt><code class="js">jQuery(document).ready(setup);</code></dt>
+<dd>This line gets everything started. The <code class="js">jQuery(document).ready(&hellip;)</code> idiom gives a function that should be called once the browser finishes loading the page (i.e. it is &ldquo;ready&rdquo;). In our case, we want the <code class="js">setup</code> function called when the page is ready, so we indicate it here.</dd>
+
+
+</dl>
+
+
 
 </section>
 
