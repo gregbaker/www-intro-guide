@@ -19,6 +19,16 @@ TEMPLATE_END = """
 
 CONTEXT = {'rellink': './'}
 
+def extract_text(elt):
+    """
+    Get the plain-text from this element
+    """
+    if elt.nodeType == elt.TEXT_NODE:
+        return elt.data
+    elif elt.nodeType == elt.ELEMENT_NODE:
+        return ''.join(extract_text(e) for e in elt.childNodes)
+    else:
+        raise ValueError, "unknown node type %i" % (elt.nodeType)
 
 def index_dfn(contents, terms, fname, dfn):
     """
@@ -31,8 +41,11 @@ def index_dfn(contents, terms, fname, dfn):
         elt = elt.parentNode
     
     ident = elt.getAttribute('id')
-    assert len(dfn.childNodes) == 1 # handle other cases later if we need to
-    text = dfn.childNodes[0].data
+    if dfn.hasAttribute('title'):
+       text = dfn.getAttribute('title')
+    else:
+       text = extract_text(dfn)
+
     entry = terms.get(text, [])
     topic = contents[basename(fname)]
     entry.append((fname + '#' + ident, topic))
@@ -74,11 +87,13 @@ def render_index(content):
     template_text = TEMPLATE_START + content + TEMPLATE_END
     return process_jinga(template_text, CONTEXT)
 
-def generate_index(infiles):
+def generate_index(outfile, infiles):
     terms = collect_terms(infiles)
     index_content = build_index(terms)
-    print render_index(index_content)
+    content = render_index(index_content)
+    with open(outfile, 'w') as fh:
+        fh.write(content)
 
 
 if __name__ == '__main__':
-    generate_index(sys.argv[1:])
+    generate_index(sys.argv[1], sys.argv[2:])
