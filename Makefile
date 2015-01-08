@@ -39,7 +39,7 @@ build: site
 # rules to build in _site
 
 _site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
-	python _markup/generate_index.py $(SITE_PAGES) > $@
+	python _markup/generate_index.py $@ $(SITE_PAGES)
 
 _site/%.html: %.html $(LAYOUTS) _site/content
 	python _markup/jinga.py $< $@
@@ -104,7 +104,7 @@ polished-site: validate $(POLISHED_SITE_DEPS)
 
 
 upload-draft: polished-site
-	rsync -aP --delete _polished_site/* ggbaker@oak.fas.sfu.ca:web/cs/165-draft/
+	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/cs/165-draft/
 
 watch:
 	watch -n 1 make

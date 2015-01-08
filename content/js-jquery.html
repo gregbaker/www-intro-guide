@@ -8,16 +8,21 @@
 
 <p>Every programming language is like this: the language itself lets programmers solve problems, but as the language is used, it becomes clear that some tasks must be done often (by at least some programmers). </p>
 
+<p>It would be inefficient for every programmer, or even each project/company to solve these problems separately. So, developers often publish their solutions to frequently-encountered problems in <dfn>code libraries</dfn> (or just <dfn>libraries</dfn>). These libraries can be used by other programmers so they don't have to re-solve the same problems.</p>
+
+<p>The ways JavaScript is used have evolved considerably since it was first introduced. Because of this, there are some libraries that are used <em>very</em> frequently to take care of things that almost every JavaScript program needs to handle. We will be starting with one that contains some basics that we'll need (and adding more later in the course).</p>
 </section>
 
 <section id="jquery">
 <h2>jQuery</h2>
 
-<p>JQuery is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">&gt;60%</a> of the most-visited web sites). It makes several common taks easier for the programmer: manipulating the HTML page, using events, animation.</p>
+<p><dfn title="jQuery">JQuery</dfn> is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">&gt;60%</a> of the most-visited web sites). It makes several common taks easier for the programmer: manipulating the HTML page, using events, animation.</p>
 
 <p>We start by including the jQuery library, in the same way we include any other JavaScript code in the page: by using the <code class="html">&lt;script&gt;</code> element and indicating its URL.</p>
 
 {{ quoted_code('_sources/script-jquery.html') }}
+
+<p>Including the jQuery library like this defines a function called <dfn title="jQuery function"><code class="js">jQuery</code></dfn> that will do lots of useful stuff, if we know how to use it.</p>
 
 <p>Here is a complete page that uses the jQuery library:</p>
 {{ quoted_code('files/jquery-first.html') }}
@@ -50,6 +55,7 @@
 
 </dl>
 
+<aside>The <code class="js">jQuery</code> function can also be called <dfn><code class="js">$</code></dfn> and the two behave exactly the same. We'll use <code class="js">jQuery</code> here, since it looks more like other function names.</aside>
 
 
 </section>
