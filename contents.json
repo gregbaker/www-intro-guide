@@ -33,7 +33,7 @@
     ]
   },
   {
-    "chapter": ["js", "JavaScript"],
+    "chapter": ["js", "JavaScript Introduction"],
     "contents": [
       ["behaviour", "Programming and Web Pages"],
       ["basics", "JavaScript Basics"],
@@ -47,6 +47,32 @@
       ["img", "Using Images on Web Pages"],
       ["formats", "Image Formats"],
       ["design", "Designing with Images"]
+    ]
+  },
+  {
+    "chapter": ["jquery", "Working with JavaScript and jQuery"],
+    "contents": [
+      ["conditional", "Making Decisions"],
+      ["selectors", "jQuery Selectors"],
+      ["manipulate", "Manipulating Pages"],
+      ["forms", "Working with Forms"],
+      ["iterate", "Iterating Over Elements"]      
+    ]
+  },
+  {
+    "chapter": ["plugin", "jQuerty Plugins"],
+    "contents": [
+      ["intro", "Extending jQuery"],
+      ["snapsvg", "SnapSVG"],
+      ["svg", "Working with SVG"],
+      ["animate", "Animating SVG"]
+    ]
+  },
+  {
+    "chapter": ["cssframework", "CSS Frameworks"],
+    "contents": [
+      ["positioning", "Positioning in CSS"],
+      ["bootstrap", "Bootstrap"]
     ]
   }
 ]
