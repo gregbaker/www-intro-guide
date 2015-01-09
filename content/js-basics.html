@@ -45,6 +45,13 @@
 <p>The value for the event property (<code class="html">say_hello()</code> in the example) is a piece of JavaScript code. It will usually be short and used to call longer pieces of logic written elsewhere. In this example, it calls the <code class="js">say_hello</code> function defined in the JavaScript file&hellip;</p>
 </section>
 
+<section id="variables">
+<h2>JavaScript Variables</h2>
+
+<p class="draft">TODO: a variable has a name and holds a value. = assigns one.</p>
+
+</section>
+
 <section id="functions">
 <h2>JavaScript Functions</h2>
 
@@ -52,7 +59,7 @@
 
 {{ quoted_code('files/mycode.js') }}
 
-<p>This code creates a function named <code class="js">say_hello</code>. A <dfn>function</dfn> are used to is used to contain some related logic. It could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
+<p>This code creates a variable named <code class="js">say_hello</code>. This variable holds a <dfn>function</dfn>. Functions are used to is used to contain some logic: it could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
 
 <p>Our function definitions will look like this (with a few more parts to be added later):</p>
 
@@ -60,16 +67,15 @@
 
 <p>This creates a function called <code class="js">function_name</code>. When we <dfn>call</dfn> that function (ask that it be executed), the logic in the <code class="js">{&hellip;}</code> will run line-by-line. [There is other syntax to define functions in JavaScript as well. We're going to ignore that.]</p>
 
+<p>A function is called by using its name (or if you'd rather think of it this way: the name of the variable that is holding it), and parenthesis after it, like &ldquo;<code class="js">say_hello()</code>&rdquo;.</p>
+
+<p>In the HTML file above, we used a function call like this as the value for the <code class="html">onclick</code> property of the paragraph. When you click the paragraph, your web browser runs this JavaScript code, thus calling the function and running the logic in it.</p>
+
+<p>Inside the function <code class="js">say_hello</code>, we call another function <code class="js">alert</code>. This function requires an <dfn>argument</dfn> which gives it more information about what it is supposed to do. The argument is put in the parenthesis and is <code class="js">'Hello world!'</code> in our example.</p>
+
+<p>Have a look at the <a href="{{rellink}}files/first-js.html">the example page with JavaScript</a> above. Click the paragraph: make sure you see what happens.</p>
+
 </section>
-
-
-
-
-
-
-
-
-
 
 
 {% endblock %}

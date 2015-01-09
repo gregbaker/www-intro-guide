@@ -1,8 +1,8 @@
-do_something = function() {
+say_hello = function() {
   alert('Hello world!');
 }
 setup = function() {
-  jQuery('p').click(do_something);
+  jQuery('p').click(say_hello);
 }
 jQuery(document).ready(setup);
 
