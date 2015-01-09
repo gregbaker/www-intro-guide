@@ -39,6 +39,34 @@
 <section id="into-dir">
 <h3>Into a directory</h3>
 
+<p>Referring to files in the same directory is straightforward enough, but you will often want to organize your files into a directory structure. Suppose we have organized our HTML and images into directories like this:</p>
+{{ figure('directory-structure', 'Example directory structure for a web site', extension='svg') }}
+
+<p>If we want to link from <code class="file">menu.html</code> to <code class="file">history.html</code> like the above: <code class="html">&lt;a href="history.html"&gt;our history&lt;/a&gt;</code>.</p>
+
+<p>But what if we want to link into a directory: link from <code class="file">menu.html</code> to <code class="file">europe.html</code> in the <code class="file">vacations</code> directory. We can put code like this in our <code class="file">menu.html</code>:</p>
+
+{{ quoted_code('_sources/links1.html') }}
+
+<p>What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> directory and find <code class="file">europe.html</code>.&rdquo; Note that the directory and file names are separated by a slash (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate directories in URLs.</p>
+
+<p>We can also move in multiple directory levels by giving each directory to enter. Again, if we were adding code to <code class="file">menu.html</code>, we could link to or include the image <code class="file">eiffel.jpg</code> like this:</p>
+
+{{ quoted_code('_sources/links2.html') }}
+
+<p>These would create a link (first line: user clicks the words &ldquo;us at the Eiffel Tower&rdquo; to go to the image itself) and embed the image (second link: image appears on the <code class="file">menu.html</code> page itself).</p>
+
+<p>Remember that relative URLs depend on where the page itself is in the directory structure. If we wanted to do the same think on the <code class="file">europe.html</code> page, the code would be this since we start inside the <code class="file">vacations</code> directory.</p>
+{{ quoted_code('_sources/links3.html') }}
+
+
+
+</section>
+
+
+<section id="up-dir">
+<h3>Up a directory level</h3>
+
 <p>Suppose you want to refer to a </p>
 
 
