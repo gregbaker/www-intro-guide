@@ -22,41 +22,43 @@
 <section id="relative">
 <h2>Relative URLs</h2>
 
-<p>In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same directory, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the director <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
+<p>In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same folder, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the folder <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
+
+<aside>The words <dfn>folder</dfn> and <dfn>directory</dfn> are synonyms for us: we'll say &ldquo;folder&rdquo; but either is acceptable.</aside>
 
 <section id="same-dir">
-<h3>In the same directory</h3>
+<h3>In the same folder</h3>
 
-<p>The simplest relative URL is the one that specifies &ldquo;look in the same directory&rdquo;. To do that, you simply specify the filename:</p>
+<p>The simplest relative URL is the one that specifies &ldquo;look in the same folder&rdquo;. To do that, you simply specify the filename:</p>
 
 {{ quoted_code('_sources/rel1.html') }}
 
-<p>The first line creates a link to the page <code class="file">nextpage.html</code> in the <em>same directory</em> as the HTML page that contains that link. The second line references an image <code class="file">happy.png</code> in the same directory.</p>
+<p>The first line creates a link to the page <code class="file">nextpage.html</code> in the <em>same folder</em> as the HTML page that contains that link. The second line references an image <code class="file">happy.png</code> in the same folder.</p>
 
 <p>The nice thing about relative URLs is that they will work between pages on your site, no matter where that site is. You can create a link <code class="html">&lt;a href="menu.html"&gt;</code> that you want to take you back to your site's menu: it will work when you're editing the files on your computer and it will work after you have uploaded the site to a web server.</p>
 </section>
 
 <section id="into-dir">
-<h3>Into a directory</h3>
+<h3>Into a folder</h3>
 
-<p>Referring to files in the same directory is straightforward enough, but you will often want to organize your files into a directory structure. Suppose we have organized our HTML and images into directories like this:</p>
-{{ figure('directory-structure', 'Example directory structure for a web site', extension='svg') }}
+<p>Referring to files in the same folder is straightforward enough, but you will often want to organize your files into a folder structure. Suppose we have organized our HTML and images into folders like this:</p>
+{{ figure('directory-structure', 'Example folder structure for a web site', extension='svg') }}
 
-<p>If we want to link from <code class="file">menu.html</code> to <code class="file">history.html</code> like the above: <code class="html">&lt;a href="history.html"&gt;our history&lt;/a&gt;</code>.</p>
+<p>If we want to link from <code class="file">menu.html</code> to <code class="file">about.html</code> like the above: <code class="html">&lt;a href="about.html"&gt;about me&lt;/a&gt;</code>.</p>
 
-<p>But what if we want to link into a directory: link from <code class="file">menu.html</code> to <code class="file">europe.html</code> in the <code class="file">vacations</code> directory. We can put code like this in our <code class="file">menu.html</code>:</p>
+<p>But what if we want to link into a folder: link from <code class="file">menu.html</code> to <code class="file">europe.html</code> in the <code class="file">vacations</code> folder. We can put code like this in our <code class="file">menu.html</code>:</p>
 
 {{ quoted_code('_sources/links1.html') }}
 
-<p>What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> directory and find <code class="file">europe.html</code>.&rdquo; Note that the directory and file names are separated by a slash (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate directories in URLs.</p>
+<p>What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> folder and find <code class="file">europe.html</code>.&rdquo; Note that the folder and file names are separated by a slash (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate folders in URLs.</p>
 
-<p>We can also move in multiple directory levels by giving each directory to enter. Again, if we were adding code to <code class="file">menu.html</code>, we could link to or include the image <code class="file">eiffel.jpg</code> like this:</p>
+<p>We can also move in multiple folder levels by giving each folder to enter. Again, if we were adding code to <code class="file">menu.html</code>, we could link to or include the image <code class="file">eiffel.jpg</code> like this:</p>
 
 {{ quoted_code('_sources/links2.html') }}
 
 <p>These would create a link (first line: user clicks the words &ldquo;us at the Eiffel Tower&rdquo; to go to the image itself) and embed the image (second link: image appears on the <code class="file">menu.html</code> page itself).</p>
 
-<p>Remember that relative URLs depend on where the page itself is in the directory structure. If we wanted to do the same think on the <code class="file">europe.html</code> page, the code would be this since we start inside the <code class="file">vacations</code> directory.</p>
+<p>Remember that relative URLs depend on where the page itself is in the folder structure. If we wanted to do the same think on the <code class="file">europe.html</code> page, the code would be this since we start inside the <code class="file">vacations</code> folder.</p>
 {{ quoted_code('_sources/links3.html') }}
 
 
@@ -65,7 +67,7 @@
 
 
 <section id="up-dir">
-<h3>Up a directory level</h3>
+<h3>Up a level</h3>
 
 <p>Suppose you want to refer to a </p>
 
