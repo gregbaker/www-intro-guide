@@ -24,6 +24,7 @@ ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*))
 DEPS = $(DIRECTORIES) $(ASSETS) $(STYLES) $(FIGURES) $(PAGES) $(GENERATED_PAGES)
 SITE_PAGES = $(foreach f, $(PAGES), _site/$(f))
 SITE_DEPS = $(foreach f, $(DEPS), _site/$(f))
+VALIDATE_DEPS = $(filter-out %invalid.html, $(filter %.html, $(SITE_DEPS)))
 POLISHED_SITE_DEPS = $(foreach f, $(DEPS), _polished_site/$(f))
 
 SITE_DIRECTORIES = _site $(foreach d, $(DIRECTORIES), _site/$(d))
@@ -109,12 +110,16 @@ upload-draft: polished-site
 watch:
 	watch -n 1 make
 
-validate: $(SITE_DEPS)
-	python _markup/validate.py $(filter-out %invalid.html, $(SITE_DEPS))
+validate: $(VALIDATE_DEPS)
+	python _markup/validate.py $(VALIDATE_DEPS)
+
+validate-remote: validate $(foreach f, $(VALIDATE_DEPS), $(f)-validate-remote)
+%-validate-remote: %
+	python _markup/w3c-validator.py $<
 
 clean:
 	rm -rf _site _polished_site
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.pyc" -exec rm {} \;
 
-.PHONY: all do-polished-build site polished-site upload-draft watch validate clean
+.PHONY: all do-polished-build site polished-site upload-draft watch validate validate-remote clean
