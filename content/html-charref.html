@@ -8,11 +8,11 @@
 
 <p>If we just type that in a <code class="html">&lt;p&gt;</code> element, then the <code class="html">&lt;</code> is assumed to be the start of a tag. This will cause errors in the validator and probably in browsers.</p>
 
-<p>In order to display a &ldquo;&lt;&rdquo; (or other special characters) on a page, we need to use a <dfn>character reference</dfn>. The actual code we type in the HTML file to display the above is:</p>
+<p>In order to display a &ldquo;&lt;&rdquo; (or other special characters) on a page, we need to use a <dfn id="charref">character reference</dfn>. The actual code we type in the HTML file to display the above is:</p>
 
 {{ quoted_code('_sources/charref1.html') }}
 
-<aside>Character references are also called <dfn>entities</dfn> in older HTML versions, and you may find other HTMl materials that use that term.</aside>
+<aside id="entity">Character references are also called <dfn>entities</dfn> in older HTML versions, and you may find other HTMl materials that use that term.</aside>
 
 <p>The <code class="html">&amp;lt;</code> is a character reference: it starts with a ampersand and ends with a semicolon.</p>
 
@@ -72,7 +72,7 @@
 <section id="numeric">
 <h2>Numeric Character References</h2>
 
-<p>There are even more characters available than have named references in <a href="http://dev.w3.org/html5/html-author/charref">the chart</a>. The characters available in HTML are the (100,000 or so) defined in the <dfn>Unicode</dfn> character set.</p>
+<p id="unicode">There are even more characters available than have named references in <a href="http://dev.w3.org/html5/html-author/charref">the chart</a>. The characters available in HTML are the (100,000 or so) defined in the <dfn>Unicode</dfn> character set.</p>
 
 <aside>For more information on Unicode: <a href="https://en.wikipedia.org/wiki/Unicode">Unicode in Wikipedia</a>, the <a href="http://www.unicode.org/">Unicode Consortium</a>.</aside>
 
@@ -80,7 +80,7 @@
 
 <p>Again, a <a href="http://unicode-table.com/en/">character search</a> is likely the most practical way to find one of these characters when you need it.</p>
 
-<p>By the way, the element <code class="html">&lt;meta charset="UTF-8" /&gt;</code> we have been putting in the <code class="html">&lt;head&gt;</code> is indicating that we're using the Unicode character set, and that our editor is saving the characters to a text file in a certain way (known as <dfn>UTF-8</dfn>).</p>
+<p id="utf8">By the way, the element <code class="html">&lt;meta charset="UTF-8" /&gt;</code> we have been putting in the <code class="html">&lt;head&gt;</code> is indicating that we're using the Unicode character set, and that our editor is saving the characters to a text file in a certain way (known as <dfn>UTF-8</dfn>).</p>
 
 
 </section>

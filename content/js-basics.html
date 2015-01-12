@@ -38,7 +38,7 @@
 
 <p>In the HTML above, you will see the new property <code class="html">onclick</code>. This property is used to connect some JavaScript code to an event on the page.</p>
 
-<p>An <dfn>event</dfn> in HTML is triggered by certain things that the user does, or that happen in the browser. For example, the &ldquo;click&rdquo; event occurs when the user clicks on the element. In the example above, you can click on the paragraph and it triggers execution of some JavaScript logic.</p>
+<p id="event">An <dfn>event</dfn> in HTML is triggered by certain things that the user does, or that happen in the browser. For example, the &ldquo;click&rdquo; event occurs when the user clicks on the element. In the example above, you can click on the paragraph and it triggers execution of some JavaScript logic.</p>
 
 <p>There are several other events on elements and we will use some of then as the course goes on. For example, there are events &ldquo;mouseover&rdquo; (when the mouse cursor moves over an element, on a desktop computer), &ldquo;load&rdquo; (when the page has finished loading), &ldquo;touchstart&rdquo; (the user starts touching an element, on a mobile device), and &ldquo;change&rdquo; (the user changes the entry in a form element). We will introduce more event types as they are needed.</p>
 
@@ -57,21 +57,21 @@
 
 <p>Let's look again at the <code class="file">mycode.js</code> file:</p>
 
-{{ quoted_code('files/mycode.js') }}
+{{ quoted_code('files/mycode.js', ident='code-mycode2') }}
 
-<p>This code creates a variable named <code class="js">say_hello</code>. This variable holds a <dfn>function</dfn>. Functions are used to is used to contain some logic: it could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
+<p id="func">This code creates a variable named <code class="js">say_hello</code>. This variable holds a <dfn>function</dfn>. Functions are used to is used to contain some logic: it could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
 
 <p>Our function definitions will look like this (with a few more parts to be added later):</p>
 
 {{ quoted_code('_sources/function_template.js') }}
 
-<p>This creates a function called <code class="js">function_name</code>. When we <dfn>call</dfn> that function (ask that it be executed), the logic in the <code class="js">{&hellip;}</code> will run line-by-line. [There is other syntax to define functions in JavaScript as well. We're going to ignore that.]</p>
+<p>This creates a function called <code class="js">function_name</code>. When we <dfn id="call">call</dfn> that function (ask that it be executed), the logic in the <code class="js">{&hellip;}</code> will run line-by-line. [There is other syntax to define functions in JavaScript as well. We're going to ignore that.]</p>
 
 <p>A function is called by using its name (or if you'd rather think of it this way: the name of the variable that is holding it), and parenthesis after it, like &ldquo;<code class="js">say_hello()</code>&rdquo;.</p>
 
 <p>In the HTML file above, we used a function call like this as the value for the <code class="html">onclick</code> property of the paragraph. When you click the paragraph, your web browser runs this JavaScript code, thus calling the function and running the logic in it.</p>
 
-<p>Inside the function <code class="js">say_hello</code>, we call another function <code class="js">alert</code>. This function requires an <dfn>argument</dfn> which gives it more information about what it is supposed to do. The argument is put in the parenthesis and is <code class="js">'Hello world!'</code> in our example.</p>
+<p>Inside the function <code class="js">say_hello</code>, we call another function <code class="js">alert</code>. This function requires an <dfn id="arg">argument</dfn> which gives it more information about what it is supposed to do. The argument is put in the parenthesis and is <code class="js">'Hello world!'</code> in our example.</p>
 
 <p>Have a look at the <a href="{{rellink}}files/first-js.html">the example page with JavaScript</a> above. Click the paragraph: make sure you see what happens.</p>
 

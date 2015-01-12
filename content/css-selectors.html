@@ -25,7 +25,7 @@
 
 {{ quoted_code('_sources/classes.css') }}
 
-<p>The second selector here (&ldquo;<code class="css">ul.problems</code>&rdquo;) is a <dfn>class selector</dfn>. It selects all <code class="html">&lt;ul&gt;</code> elements that have <code class="html">class="problems"</code> but does not change other unordered lists. The first selector (&ldquo;<code class="css">ul</code>&rdquo;) still selects <em>all</em> <code class="html">&lt;ul&gt;</code> elements, whether they have a class or not.</p>
+<p id="class-sel">The second selector here (&ldquo;<code class="css">ul.problems</code>&rdquo;) is a <dfn>class selector</dfn>. It selects all <code class="html">&lt;ul&gt;</code> elements that have <code class="html">class="problems"</code> but does not change other unordered lists. The first selector (&ldquo;<code class="css">ul</code>&rdquo;) still selects <em>all</em> <code class="html">&lt;ul&gt;</code> elements, whether they have a class or not.</p>
 
 <p class="draft">another example of classes</p>
 
@@ -73,7 +73,7 @@
 
 {{ quoted_code('_sources/contextual1.css') }}
 
-<p>But if we only want to modify <code class="html">&lt;ol&gt;</code> lists (leaving <code class="html">&lt;ul&gt;</code> alone), we need to select only the list items inside ordered lists. To do this, we can use <dfn>contextual selectors</dfn> that find one element inside another.</p>
+<p id="context-sel">But if we only want to modify <code class="html">&lt;ol&gt;</code> lists (leaving <code class="html">&lt;ul&gt;</code> alone), we need to select only the list items inside ordered lists. To do this, we can use <dfn>contextual selectors</dfn> that find one element inside another.</p>
 
 {{ quoted_code('_sources/contextual2.css') }}
 

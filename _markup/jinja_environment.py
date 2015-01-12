@@ -168,12 +168,15 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
     return res.encode('utf8')
 
-def quoted_code(filename, codeclass=None, syntaxhighlight=True):
+def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
     content = codecs.open(filename, encoding='utf-8').read()
     if not codeclass:
         _, ext = os.path.splitext(filename)
         codeclass = ext[1:]
-    figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
+    if ident:
+        figid = ident
+    else:
+        figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
     
     content = process_jinga(content)
         

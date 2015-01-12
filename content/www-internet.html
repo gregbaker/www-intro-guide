@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>You probably know what <dfn>the Internet</dfn> is, at least somewhat.</p>
+<p id="internet">You probably know what <dfn>the Internet</dfn> is, at least somewhat.</p>
 
 <p>But there are more details to what &ldquo;the Internet&rdquo; is than most people know about. It makes sense to start with a little bit of an introduction into what the Internet actually <em>is</em>.</p>
 
@@ -19,13 +19,13 @@
 
 {{ floatfigure('ethernet', 'An Ethernet cable connected to a laptop', extension='jpg') }}
 
-<p>If there is an actual cable connecting to your computer, it is probably <dfn>Ethernet</dfn>. An Ethernet connection is used over relatively short distances (up to 100 metres) but can transmit data very quickly (probably up to 100 or 1000 Mbits/s in home networks). This makes Ethernet very good for homes and offices: everything is close enough together, and its fast enough to stream video at home or move large files between computers in an office.</p>
+<p id="ethernet">If there is an actual cable connecting to your computer, it is probably <dfn>Ethernet</dfn>. An Ethernet connection is used over relatively short distances (up to 100 metres) but can transmit data very quickly (probably up to 100 or 1000 Mbits/s in home networks). This makes Ethernet very good for homes and offices: everything is close enough together, and its fast enough to stream video at home or move large files between computers in an office.</p>
 
-<p>If a home computer (or phone or tablet: they're the same as any other computer in this context) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
+<p id="wifi">If a home computer (or phone or tablet: they're the same as any other computer in this context) doesn't have a wired Ethernet connection, it probably uses <dfn>Wi-Fi</dfn> connection (also called <dfn>802.11</dfn>). Wi-Fi uses radio waves to transmit information. Like Ethernet, it is used over relatively short distances (maybe up to 100 metres, depending how many walls are in the way) and transmits data quickly (up to 54 Mbits/s or even 150 Mbits/s, but usually less because of interference from other wireless signals, loss from going through walls, etc).</p>
 
 {{ floatfigure('router', 'A home router', extension='jpg') }}
 
-<p>But in order to be connected <em>to the Internet</em>, a home computer must be connected to <em>another computer</em>. Most homes have a <dfn>router</dfn> which all of the computers (and phones and other devices) connect to. The router is actually a small computer whose job it is to connect to other devices and in turn connect them to the outside Internet.</p>
+<p id="home-router">But in order to be connected <em>to the Internet</em>, a home computer must be connected to <em>another computer</em>. Most homes have a <dfn>router</dfn> which all of the computers (and phones and other devices) connect to. The router is actually a small computer whose job it is to connect to other devices and in turn connect them to the outside Internet.</p>
 
 <p>Most home routers connect to a few computer inside the house (usually up to four computers with Ethernet and more by Wi-Fi). They also connect to the outside Internet: usually over a wired Ethernet connection.</p>
 </section>
@@ -33,13 +33,13 @@
 <section id="home-internet-connection">
 <h3>Connections from Home to the Internet</h3>
 
-<p>A home router (or a home computer without a router) must be connected to the outside Internet somehow. This is the part that costs money: you pay an <dfn>ISP</dfn> (<dfn>Internet Service Provider</dfn>) to connect your home.</p>
+<p id="isp">A home router (or a home computer without a router) must be connected to the outside Internet somehow. This is the part that costs money: you pay an <dfn>ISP</dfn> (<dfn>Internet Service Provider</dfn>) to connect your home.</p>
 
 <p>Depending where you live, there are probably a few options of ISP. The limiting factor is essentially the number of ways to get data to every home: running new wires to every house is prohibitively expensive, so ISPs are traditionally companies that <em>already</em> had some connectivity to homes.</p>
 
-<p>Cable television companies (Shaw or a reseller for Vancouverites) can transmit data to and from your home over their television cables. This is done with the help of a <dfn>cable modem</dfn> which converts the signals of your home network (Ethernet) to and from a signal that can be carried by their cables.</p>
+<p id="cable">Cable television companies (Shaw or a reseller for Vancouverites) can transmit data to and from your home over their television cables. This is done with the help of a <dfn>cable modem</dfn> which converts the signals of your home network (Ethernet) to and from a signal that can be carried by their cables.</p>
 
-<p>Phone companies (Telus or a reseller) can use their phone network for data. Again, customers have a <dfn>DSL modem</dfn> which connects the home network to the phone lines.</p>
+<p id="dsl">Phone companies (Telus or a reseller) can use their phone network for data. Again, customers have a <dfn>DSL modem</dfn> which connects the home network to the phone lines.</p>
 
 <p>These are probably the most common, but there may be other options available to you as well. If you live in a recently-built high-rise building, the building may have had high-speed Internet installed when it was built. In rural areas, long-distance wireless or even satellite technologies might be more cost-effective than installing phyisical connections to each home.</p>
 </section>
@@ -61,7 +61,7 @@
 
 <p>None of the connections mentioned above can do something that is very important to the infrastructure of the Internet: send lots of data quickly over long distances. That's not something that the average home user worries about, but it's critical to actually get information across the planet.</p>
 
-<p>These connections are done with <dfn>fibre optic</dfn> cables. These cables use long strands of glass or plastic to transmit light pulses that are used to encode data. These can transmit incredible amounts of data and over very long distances (up to 100 km without any amplifiers).</p>
+<p id="fibre">These connections are done with <dfn>fibre optic</dfn> cables. These cables use long strands of glass or plastic to transmit light pulses that are used to encode data. These can transmit incredible amounts of data and over very long distances (up to 100 km without any amplifiers).</p>
 
 <p>Because they work so well over long distances, fibre optic cables can be buried to make Internet connections between cities, or sunk to cross oceans.</p>
 
@@ -84,7 +84,7 @@
 
 <p>Computers with a single connection (at one time: like pretty much every computer, phone, or tablet you have used) have a very simple job: all information they want to send out is sent along the one connection.</p>
 
-<p>Some computers have multiple connections. These computers have to be a little smarter about how they send out information and must pass the information along in the correct &ldquo;direction&rdquo;. These are <dfn>routers</dfn> (because they know how to &ldquo;route&rdquo; information).</p>
+<p id="router">Some computers have multiple connections. These computers have to be a little smarter about how they send out information and must pass the information along in the correct &ldquo;direction&rdquo;. These are <dfn>routers</dfn> (because they know how to &ldquo;route&rdquo; information).</p>
 
 <p>Also notice in the above figure that there are multiple paths between some computers: if A wants to communicate with P, information can be passed either through J/M or K/N. That gives the network fault tolerance: if computer J has a power failure, or the cable between J and M is severed by a backhoe, then communications can continue using the other path. They may slower because the remaining link is overloaded, but everything is still connected.</p>
 

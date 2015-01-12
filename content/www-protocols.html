@@ -8,7 +8,7 @@
 
 <p>We can compare the way computers communicate with the say we communicate using language. We have all agreed that the work &ldquo;good&rdquo; is an adjective that conveys positive or desirable properties. Since we all agree what that word means, I can use it to communicate with you: &ldquo;learning about the Internet is good.&rdquo; The same information could have been transmitted in different ways: &ldquo;<span lang="fr">bon</span>&rdquo;, &ldquo;<span lang="es">bueno</span>&rdquo;, &ldquo;<span lang="zh">好的</span>&rdquo;, and &ldquo;<span lang="pa">ਚੰਗਾ ਹੈ</span>&rdquo; are all ways that groups of people have agreed to convey the same idea.</p>
 
-<p>On the Internet, a collection of rules about exchanging data between computers is called a <dfn>protocol</dfn>. There might be several protocols that do the same task (like the translations of the work &ldquo;good&rdquo; above), but there are also protocols that do specific things that others do not.</p>
+<p id="proto">On the Internet, a collection of rules about exchanging data between computers is called a <dfn>protocol</dfn>. There might be several protocols that do the same task (like the translations of the work &ldquo;good&rdquo; above), but there are also protocols that do specific things that others do not.</p>
 
 
 <section id="examples">
@@ -16,13 +16,13 @@
 
 <p>There are many protocols used online, but a few examples will help you understand what they do.</p>
 
-<p>For example, when you send an email, your email client (Outlook, Thunderbird, or a webmail client) uses a protocol called <dfn>SMTP</dfn> (Simple Mail Transport Protocol) to send it from you to the recipient (e.g. to get it from from your university email server to Gmail). SMTP gets the email to the recipient's mail server where they read their messages from.</p>
+<p id="smtp">For example, when you send an email, your email client (Outlook, Thunderbird, or a webmail client) uses a protocol called <dfn>SMTP</dfn> (Simple Mail Transport Protocol) to send it from you to the recipient (e.g. to get it from from your university email server to Gmail). SMTP gets the email to the recipient's mail server where they read their messages from.</p>
 
-<p>If you want to transfer a file to a web server (so others can see it), you might do this with the <dfn>SFTP</dfn> (Secure File Transfer Protocol). This protocol is used to copy files between computers. SFTP is used when you have an account on the other computer: you enter a username and password to confirm your identity and then can manage your files.</p>
+<p id="sftp">If you want to transfer a file to a web server (so others can see it), you might do this with the <dfn>SFTP</dfn> (Secure File Transfer Protocol). This protocol is used to copy files between computers. SFTP is used when you have an account on the other computer: you enter a username and password to confirm your identity and then can manage your files.</p>
 
 <p>Multiplayer online games (Counter-Strike, Minecraft, Call of Duty, &hellip;) all need to communicate game data over the Internet. Each of them has its own protocol to transmit the kind of information it needs (where an enemy is, how the player is moving, what is on the ground in a particular position, &hellip;). In each case, the game itself knows how to communicate and coordinate with the servers of the company that made the game, or with other players' computers directly.</p>
 
-<p>The protocol that we're most interested in for this course is <dfn>HTTP</dfn>, the protocol used to transmit information on the World Wide Web. HTTP is one protocol that is used on the Internet, no better or worse than the others (but admittedly a very popular one). We will discuss it more in the next topic, {{ xref('www-http') }}.</p>
+<p id="http">The protocol that we're most interested in for this course is <dfn>HTTP</dfn>, the protocol used to transmit information on the World Wide Web. HTTP is one protocol that is used on the Internet, no better or worse than the others (but admittedly a very popular one). We will discuss it more in the next topic, {{ xref('www-http') }}.</p>
 
 </section>
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<p>We have seen that in an <code class="html">&lt;a&gt;</code> element, the <code class="html">href</code> attribute use used to give the destination of the link. This destination is a <dfn>URL</dfn>, but there is more to say about that, and we should have a look now.</p>
+<p id="url">We have seen that in an <code class="html">&lt;a&gt;</code> element, the <code class="html">href</code> attribute use used to give the destination of the link. This destination is a <dfn>URL</dfn>, but there is more to say about that, and we should have a look now.</p>
 
 <p>URLs are also used to refer to images so they can be displayed on the page. The <code class="html">&lt;img&gt;</code> tag is used to insert images into a page like this:</p>
 
@@ -13,7 +13,7 @@
 <section id="absolute">
 <h2>Absolute URLs</h2>
 
-<p>The URLs that we have seen so far are <dfn>absolute URLs</dfn>. Absolute URLs contain a scheme, server, and path as described in the topic {{ xref('www-http', fragment='fig-url') }} (but the path may be empty).</p>
+<p id="absol">The URLs that we have seen so far are <dfn>absolute URLs</dfn>. Absolute URLs contain a scheme, server, and path as described in the topic {{ xref('www-http', fragment='fig-url') }} (but the path may be empty).</p>
 
 <p>Absolute URLs can be used to locate a piece of content on the web with no other information or context.</p>
 
@@ -22,9 +22,9 @@
 <section id="relative">
 <h2>Relative URLs</h2>
 
-<p>In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same folder, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the folder <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
+<p id="relat">In HTML, you can also refer to content by giving its position relative to the page you're looking at. These <dfn>relative URLs</dfn> give information like &ldquo;in the same folder, find the page <code class="file">nextpage.html</code>&rdquo; or &ldquo;look in the folder <code class="file">images</code> for the image <code class="file">selfie.jpg</code>&rdquo;.</p>
 
-<aside>The words <dfn>folder</dfn> and <dfn>directory</dfn> are synonyms for us: we'll say &ldquo;folder&rdquo; but either is acceptable.</aside>
+<aside id="directory">The words <dfn>folder</dfn> and <dfn>directory</dfn> are synonyms for us: we'll say &ldquo;folder&rdquo; but either is acceptable.</aside>
 
 <section id="same-folder">
 <h3>In the same folder</h3>
@@ -50,7 +50,7 @@
 
 {{ quoted_code('_sources/links1.html') }}
 
-<p>What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> folder and find <code class="file">europe.html</code>.&rdquo; Note that the folder and file names are separated by a <dfn>slash</dfn> (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate folders in URLs.</p>
+<p id="dirsep">What this means to the web browser is &ldquo;start where the current file (<code class="file">menu.html</code>) is; move into the <code class="file">vacations</code> folder and find <code class="file">europe.html</code>.&rdquo; Note that the folder and file names are separated by a <dfn>slash</dfn> (<dfn>/</dfn>), not a backslash (\) or other character. Slash is the only character used to separate folders in URLs.</p>
 
 <p>We can also move in multiple folder levels by giving each folder to enter. Again, if we were adding code to <code class="file">menu.html</code>, we could link to or include the image <code class="file">eiffel.jpg</code> like this:</p>
 
@@ -70,7 +70,7 @@
 
 <p>The above lets us descend into folders, but we will also need to move up out of them. For example, if we're working on <code class="file">math.html</code> and want to make a link back to the menu.</p>
 
-<p>What we have to express to the browser is &ldquo;move up out of this folder (<code class="file">courses</code>) and find <code class="file">menu.html</code>.&rdquo; We can use the special folder name &ldquo;<dfn><code class="file">..</code></dfn>&rdquo; to do this: the web browser will understand it as &ldquo;move up a level&rdquo;. A link to the menu one level up is expressed like this:</p>
+<p id="dotdot">What we have to express to the browser is &ldquo;move up out of this folder (<code class="file">courses</code>) and find <code class="file">menu.html</code>.&rdquo; We can use the special folder name &ldquo;<dfn><code class="file">..</code></dfn>&rdquo; to do this: the web browser will understand it as &ldquo;move up a level&rdquo;. A link to the menu one level up is expressed like this:</p>
 
 {{ quoted_code('_sources/links4.html') }}
 

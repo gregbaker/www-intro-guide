@@ -46,6 +46,10 @@ def index_dfn(contents, terms, fname, dfn):
     else:
        text = extract_text(dfn)
 
+    # kind of suggest that the <dfn> or at least its parent has an id to link to
+    if not dfn.hasAttribute('id') and not dfn.parentNode.hasAttribute('id'):
+        sys.stderr.write("<dfn> for '%s' in %s has no id.\n" % (text, fname))
+
     entry = terms.get(text, [])
     topic = contents[basename(fname)]
     entry.append((fname + '#' + ident, topic))

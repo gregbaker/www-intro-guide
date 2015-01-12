@@ -17,7 +17,7 @@
 <section id="tags">
 <h2>HTML Tags</h2>
 
-<p>The things wrapped in triangular braces (the <code class="html">&lt;&thinsp;&hellip;&thinsp;&gt;</code> characters) are called <dfn>tags</dfn>. These are the most important part of HTML markup that is used to describe the structure of content. There are both <dfn>opening tags</dfn> and <dfn>closing tags</dfn> (or <dfn>starting tags</dfn> and <dfn>ending tags</dfn>) which come in pairs to enclose pieces of content.</p>
+<p id="tag">The things wrapped in triangular braces (the <code class="html">&lt;&thinsp;&hellip;&thinsp;&gt;</code> characters) are called <dfn>tags</dfn>. These are the most important part of HTML markup that is used to describe the structure of content. There are both <dfn>opening tags</dfn> and <dfn>closing tags</dfn> (or <dfn>starting tags</dfn> and <dfn>ending tags</dfn>) which come in pairs to enclose pieces of content.</p>
 
 <p>For example, in the above example, <code class="html">&lt;title&gt;</code> is an opening tag, and <code class="html">&lt;/title&gt;</code> is the corresponding closing tag. The <code class="html">&lt;title&gt;</code> tag is used to enclose the main title for the document: the one that is displayed in the title bar of the browser (and used as the label if you bookmark the page, and displayed in search engine results for the page).</p>
 
@@ -33,7 +33,7 @@
 
 <p>Also try working with this HTML: copy-and-paste the HTML code into your text editor, save it as a <code class="file">.html</code> file, and open that file in your web browser. It should look the same as when you clicked the link in the last paragraph. Try adding a second paragraph after the one in the example; reload the page in the browser to see what it looks like.</p>
 
-<p>The term <dfn>element</dfn> is used to refer to one instance of a tag and its contents. For example in the above, there is one title element, <code class="html">&lt;title&gt;My First Page&lt;/title&gt;</code> which has an opening tag (<code class="html">&lt;title&gt;</code>), a closing tag (<code class="html">&lt;/title&gt;</code>), and contents (<code class="html">My First Page</code>),</p>
+<p id="element">The term <dfn>element</dfn> is used to refer to one instance of a tag and its contents. For example in the above, there is one title element, <code class="html">&lt;title&gt;My First Page&lt;/title&gt;</code> which has an opening tag (<code class="html">&lt;title&gt;</code>), a closing tag (<code class="html">&lt;/title&gt;</code>), and contents (<code class="html">My First Page</code>),</p>
 </section>
 
 <section id="basic-tags">
@@ -42,7 +42,7 @@
 <p>There are several tags in the example above that haven't been explained yet. These need to be in every HTML page.</p>
 
 <dl>
-<dt><code class="html">&lt;!DOCTYPE html&gt;</code></dt><dd>This isn't really a tag or an element, it is the <dfn>document type declaration</dfn> (or <dfn>doctype</dfn>) for the page. This doctype indicates that the page is HTML5. The doctype doesn't have a closing version: it's the first thing in an <code class="file">.html</code> file and stands alone.</dd>
+<dt><code class="html">&lt;!DOCTYPE html&gt;</code></dt><dd id="doctype">This isn't really a tag or an element, it is the <dfn>document type declaration</dfn> (or <dfn>doctype</dfn>) for the page. This doctype indicates that the page is HTML5. The doctype doesn't have a closing version: it's the first thing in an <code class="file">.html</code> file and stands alone.</dd>
 <dt><code class="html">&lt;html&gt;&hellip;&lt;/html&gt;</code></dt><dd>This element contains entire HTML page. It should be the first tag to start (after the doctype) and last to close.</dd>
 <dt><code class="html">&lt;head&gt;&hellip;&lt;/head&gt;</code></dt><dd>This element contains information <em>about</em> the page (as opposed to content of the page). For now, it will hold only the <code class="html">&lt;title&gt;</code> and <code class="html">&lt;meta&gt;</code> tags.</dd>
 <dt><code class="html">&lt;meta charset="UTF-8" /&gt;</code></dt><dd>This tag tells the browser about the &ldquo;character encoding&rdquo; for this document. The details aren't important now, but it's a property of how the text file is encoded when it is saved. This <code class="html">&lt;meta&gt;</code> tag should be in every HTML file like this.
@@ -62,9 +62,9 @@
 
 <dl>
 <dt><code class="html">&lt;h1&gt;</code></dt><dd>This tag is used for a &ldquo;level 1&rdquo; heading. That is, it's the most important heading on the page. Typically, every page should start with an <code class="html">&lt;h1&gt;</code> that has the same contents as the <code class="html">&lt;title&gt;</code>: the main title for the page.</dd>
-<dt><code class="html">&lt;em&gt;</code></dt><dd>This tag indicates <dfn>emphasized text</dfn>: some important word or phrase in the sentence. An <code class="html">&lt;em&gt;</code> must go inside a paragraph (or heading, or other &ldquo;block-level&rdquo; element as we'll see later).</dd>
-<dt><code class="html">&lt;ul&gt;</code></dt><dd>This tag describes an <dfn>unordered list</dfn>. That is, it contains a list of things where the order isn't important. The <code class="html">&lt;ul&gt;</code> element (and the ordered list version <code class="html">&lt;ol&gt;</code>, or menu list <code class="html">&lt;menu&gt;</code>) can't contain text the way a <code class="html">&lt;p&gt;</code> can: it can only contain <code class="html">&lt;li&gt;</code> elements.</dd>
-<dt><code class="html">&lt;li&gt;</code></dt><dd>These are the only thing that can go in a <code class="html">&lt;ul&gt;</code> or <code class="html">&lt;ol&gt;</code> element (and can <strong>only</strong> be inside one of those elements). They denote <dfn>list items</dfn>.</dd>
+<dt><code class="html">&lt;em&gt;</code></dt><dd id="em">This tag indicates <dfn>emphasized text</dfn>: some important word or phrase in the sentence. An <code class="html">&lt;em&gt;</code> must go inside a paragraph (or heading, or other &ldquo;block-level&rdquo; element as we'll see later).</dd>
+<dt><code class="html">&lt;ul&gt;</code></dt><dd id="ul">This tag describes an <dfn>unordered list</dfn>. That is, it contains a list of things where the order isn't important. The <code class="html">&lt;ul&gt;</code> element (and the ordered list version <code class="html">&lt;ol&gt;</code>, or menu list <code class="html">&lt;menu&gt;</code>) can't contain text the way a <code class="html">&lt;p&gt;</code> can: it can only contain <code class="html">&lt;li&gt;</code> elements.</dd>
+<dt><code class="html">&lt;li&gt;</code></dt><dd id="li">These are the only thing that can go in a <code class="html">&lt;ul&gt;</code> or <code class="html">&lt;ol&gt;</code> element (and can <strong>only</strong> be inside one of those elements). They denote <dfn>list items</dfn>.</dd>
 </dl>
 
 <p>As you can see from these, each tag has some rules about where it can be place or what can be placed in it: <code class="html">&lt;em&gt;</code> must go in a <code class="html">&lt;p&gt;</code> or similar; <code class="html">&lt;ul&gt;</code> must contain only <code class="html">&lt;li&gt;</code>s.</p>
