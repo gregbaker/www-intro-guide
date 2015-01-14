@@ -3,7 +3,7 @@ This project contains the content for the Study Guide for CMPT 165 at [Simon Fra
 
 ## Building the Guide
 
-In an Ubuntu/Debian system, you can install the build dependencies: `apt-get install python-jinja2 ruby-sass graphicsmagick optipng python-scour python-html5lib`
+In an Ubuntu/Debian system, you can install the build dependencies: `apt-get install python-jinja2 ruby-sass graphicsmagick optipng pngquant python-scour python-html5lib`
 
 Or you can use [VirtualBox](https://www.virtualbox.org/) and [Vagrant](http://www.vagrantup.com/) (and the Vagrantfile in the project) to create a box that's ready to go.
 

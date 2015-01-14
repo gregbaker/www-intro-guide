@@ -86,10 +86,10 @@ site: $(SITE_DEPS)
 $(POLISHED_SITE_DIRECTORIES): %:
 	mkdir -p $@
 
-# optipng all PNG images
+# pngquant and optipng all PNG images
 _polished_site/%.png: _site/%.png
-	cp $< $@
-	optipng $@
+	pngquant --quality 90-100 - < $< > $@ \
+	&& optipng $@
 
 # scour all SVG images
 _polished_site/%.svg: _site/%.svg
