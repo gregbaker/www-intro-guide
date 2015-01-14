@@ -28,7 +28,6 @@
       ["properties", "CSS Properties"],
       ["selectors", "CSS Selectors"],
       ["pages", "Styling Pages with CSS"],
-      ["responsive", "Responsive Design"],
       ["separate", "Separating Content and Appearance"]
     ]
   },
@@ -37,8 +36,10 @@
     "contents": [
       ["behaviour", "Programming and Web Pages"],
       ["basics", "JavaScript Basics"],
+      ["varfunc", "Variables and Functions"],
       ["jquery", "The jQuery Library"],
-      ["events", "Events and Behaviour"]
+      ["events", "Events and Behaviour"],
+      ["errors", "Why doesn't my code work?"]
     ]
   },
   {
@@ -50,29 +51,40 @@
     ]
   },
   {
-    "chapter": ["jquery", "Working with JavaScript and jQuery"],
+    "chapter": ["js2", "Working with JavaScript and jQuery"],
     "contents": [
       ["conditional", "Making Decisions"],
+      ["objects", "Objects (and arrays?)"],
       ["selectors", "jQuery Selectors"],
       ["manipulate", "Manipulating Pages"],
       ["forms", "Working with Forms"],
-      ["iterate", "Iterating Over Elements"]      
+      ["iterating", "Iterating Over Elements"]      
     ]
   },
   {
-    "chapter": ["plugin", "jQuerty Plugins"],
+    "chapter": ["plugins", "jQuery Plugins"],
     "contents": [
-      ["intro", "Extending jQuery"],
+      ["morejquery", "More jQuery"],
+      ["extending", "Extending jQuery"],
       ["snapsvg", "SnapSVG"],
       ["svg", "Working with SVG"],
-      ["animate", "Animating SVG"]
+      ["animation", "Animating SVG"]
     ]
   },
   {
-    "chapter": ["cssframework", "CSS Frameworks"],
+    "chapter": ["css2", "More CSS"],
     "contents": [
       ["positioning", "Positioning in CSS"],
-      ["bootstrap", "Bootstrap"]
+      ["frameworks", "CSS Frameworks"],
+      ["responsive", "Responsive Design"]
     ]
+  },
+  {
+    "chapter": ["epilogue", "Epilogue"],
+    "contents": [
+      ["serverside", "Server-side Programming"],
+      ["bits", "Bits and Transmitting Information"]
+    ]
+  
   }
 ]
