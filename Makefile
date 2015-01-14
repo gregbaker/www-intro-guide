@@ -57,10 +57,10 @@ _site/figures/%.png: figures/%.svg
 _site/figures/%.png: figures/%.png
 	cp $< $@
 
-_site/floats/%.png: floats/%.png # TODO: srcset resizes
+_site/floats/%.png: floats/%.png _site/floats
 	gm convert -resize 160x240 $< $@
 
-_site/floats/%.jpg: floats/%.jpg
+_site/floats/%.jpg: floats/%.jpg _site/floats
 	gm convert -resize 160x240 $< $@
 
 _site/%.css: %.scss
@@ -89,7 +89,7 @@ $(POLISHED_SITE_DIRECTORIES): %:
 # pngquant and optipng all PNG images
 _polished_site/%.png: _site/%.png
 	pngquant --quality 90-100 - < $< > $@ \
-	&& optipng $@
+	&& optipng -q $@
 
 # scour all SVG images
 _polished_site/%.svg: _site/%.svg
