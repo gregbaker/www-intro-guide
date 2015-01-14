@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<p class="draft">more selectors (in addition to the tag selector they have been using)</p>
-
 <p>So far, we have only been able to select every instance of a particular tag in our stylesheets. This is often very useful, but limiting. There are many more ways to select content for modification in CSS, and we should explore some.</p>
 
 <section id="class">
@@ -23,11 +20,20 @@
 
 <p>The <code class="html">class</code> property won't change the page in any way by itself, but we can now uses these classes to grab particular elements in CSS:</p>
 
-{{ quoted_code('_sources/classes.css') }}
+{{ quoted_code('_sources/classes1.css') }}
 
 <p id="class-sel">The second selector here (&ldquo;<code class="css">ul.problems</code>&rdquo;) is a <dfn>class selector</dfn>. It selects all <code class="html">&lt;ul&gt;</code> elements that have <code class="html">class="problems"</code> but does not change other unordered lists. The first selector (&ldquo;<code class="css">ul</code>&rdquo;) still selects <em>all</em> <code class="html">&lt;ul&gt;</code> elements, whether they have a class or not.</p>
 
-<p class="draft">another example of classes</p>
+<p>Classes can be added as you find you need them to make the appearance of the page match your intent. For example, while creating a recipe page as above, you might find that you have some ingredients that are optional (e.g. you can add hot sauce if you like it).</p>
+
+<p>In a case like that, you can go back and add <code class="html">class="optional"</code> to elements where it's relevant:</p>
+{{ quoted_code('_sources/recipe3.html') }}
+
+<p>Then you can return to your stylesheet and change the appearance of just those elements:</p>
+
+{{ quoted_code('_sources/classes2.css') }}
+
+<p>The selector <code class="css">.optional</code> selects <em>any</em> elements with <code class="html">class="optional"</code>, not just <code class="html">&lt;li class="optional"&gt;</code>. In our example, it would do the same thing as <code class="css">li.optional</code> since we only have <code class="html">&lt;li&gt;</code> elements with that class, but this way we could add other &ldquo;optional&rdquo; content ( like <code class="html">&lt;p class="optional"&gt;</code>) and have it styled the same way.</p>
 
 </section>
 
@@ -51,15 +57,6 @@
 {{ quoted_code('_sources/id-link.html') }}
 
 <p>That will create a link to the start of the section {% include '_sources/id-link.html' %} (like that).</p>
-
-<p class="draft">Have we talked enough about URLs for that to make sense?</p>
-
-</section>
-
-<section id="class-id-values">
-<h2>Class and ID Values</h2>
-
-<p class="draft">semantic values, please. Move to css-separate.html?</p>
 
 </section>
 
@@ -94,11 +91,32 @@
 <section id="others">
 <h2>Other Selectors</h2>
 
-<p>There are other selectors that can be used in CSS that we won't cover here.</p>
+<p>There are other selectors that can be used in CSS that we won't cover in detail here, but here is a quick indication of some of the things you can select if you need to:</p>
 
+<dl>
+<dt>Pseudo-class selectors</dt>
+<dd>There are some special properties of elements that the browser can automatically detect and apply styles. Probably the most useful are the link pseudo-classes: links that have not been visited (usually blue), visited (usually purple), and currently-being-clicked (usually red). Here is CSS to set colours similar to the defaults:
+{{ quoted_code('_sources/pseudoclass.css') }}
+</dd>
 
+<dt>Child selectors</dt>
+<dd>The contextual selector (space) will select an element that's <em>anywhere</em> inside the element. For example, if you have a <code class="html">&lt;ol&gt;</code> with a <code class="html">&lt;ul&gt;</code> inside it, selecting with <code class="css">ol li</code> will select the items of the <code class="html">&lt;ol&gt;</code> as well, since they are <em>somewhere</em> inside the <code class="html">&lt;ol&gt;</code>. That might not be what you intend.
+<p>This CSS will separately change the appearance of list items that are <em>immediately</em> within <code class="html">&lt;ol&gt;</code>s and <code class="html">&lt;ul&gt;</code>s:</p>
+{{ quoted_code('_sources/child.css') }}
+
+</dd>
+</dl>
 </section>
 
+
+<section id="combine">
+<h2>Combining Selectors</h2>
+
+<p>These selectors can be combined in any way you like. For example, here are selectors that would affect the appearance of (1) list items in the <code class="html">&lt;ul class="ingredients"&gt;</code>; (2) optional items in the ingredients list; (3) unvisited links with <code class="html">class="external"</code>:</p>
+
+{{ quoted_code('_sources/combine.css') }}
+
+</section>
 
 
 

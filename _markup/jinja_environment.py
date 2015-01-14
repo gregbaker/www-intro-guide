@@ -163,7 +163,7 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     if syntaxhighlight:
         preclass = 'brush: ' + codeclass
     else:
-        preclass = codeclass
+        preclass = codeclass + " code"
     
     res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
     return res.encode('utf8')

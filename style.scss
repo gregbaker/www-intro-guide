@@ -85,7 +85,7 @@ blockquote {
 pre {
   font-family: $code-font;
 }
-code {
+code, pre.code {
   font-family: $code-font;
   font-weight: bold;
 }
