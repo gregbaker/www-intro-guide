@@ -71,6 +71,10 @@ _site/assets/%: assets/% _site/assets
 
 _site/files/%.html: files/%.html _site/files
 	python _markup/jinga.py $< $@
+_site/files/%.css: files/%.css _site/files
+	python _markup/rstrip.py $< $@
+_site/files/%.js: files/%.js _site/files
+	python _markup/rstrip.py $< $@
 
 _site/files/%: files/% _site/files
 	cp $< $@

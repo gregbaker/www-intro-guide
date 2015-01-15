@@ -150,11 +150,11 @@ def xref(context, chap, text=None, fragment=None):
     
 
 def include_output(name):
-    return u'<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0])
+    return u'<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0].rstrip())
 
 def include_escaped(name):
     text = loader.get_source(environment, name)[0]
-    return escape(text)
+    return escape(text.rstrip())
 
 def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     if ident:
@@ -166,7 +166,7 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     else:
         preclass = codeclass + " code"
     
-    res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content))
+    res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content.rstrip()))
     return res.encode('utf8')
 
 def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
@@ -179,8 +179,8 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
     else:
         figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
     
-    content = process_jinga(content)
-        
+    content = process_jinga(content).rstrip()
+
     return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
 
@@ -189,7 +189,7 @@ def process_jinga(template_text, context={}):
     Return result of processing template text in our standard environment.
     """
     template = environment.from_string(template_text)
-    return template.render(context)
+    return template.render(context).rstrip()
 
 
 loader = FileSystemLoader(['.', '_layouts'])
