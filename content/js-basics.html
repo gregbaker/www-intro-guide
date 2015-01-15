@@ -19,18 +19,40 @@
 <section id="first-js">
 <h2>First JavaScript Code</h2>
 
-<p>Now that we can tell the browser about a JavaScript file, we should actually write some code. As a first step, here is some code that can go in our <code class="url">mycode.js</code> file:</p>
+<p>Now that we can tell the browser about a JavaScript file, we should actually write some code. As a first step, here is a line of code that can go in our <code class="file">first-code.js</code> file:</p>
 
-{{ quoted_code('files/mycode.js') }}
+{{ quoted_code('files/first-code.js') }}
 
-<p>And here is a more complete HTML file that loads it with the <code class="html">&lt;script&gt;</code> tag:</p>
+<p>That one line will run when the browser processes the <code class="html">&lt;script&gt;</code> element. You can have a look at <a href="{{rellink}}files/first-js.html">that HTML page</a> and see what happens.</p>
+<p>As the page loads, the browser runs that one line of JavaScript code, which causes an alert message to appear (before the rest of the page loads, since the <code class="html">&lt;script&gt;</code> element comes before the rest ofthe page). When you click OK, the browser will continue.</p>
 
-{{ quoted_code('files/first-js.html') }}
+<p id="fn">In this code, <code class="js">alert</code> is a JavaScript <dfn>function</dfn>. A function represents some logic that we can run by <dfn title="calling (a function)">calling</dfn> the function. The <code class="js">alert</code> function is built into JavaScript; we will define functions of our own very soon.</p>
 
-<p>You can have a look at <a href="{{rellink}}files/first-js.html">that HTML page</a> and see how it works: try clicking on the paragraph.</p>
+<p>When we mention a function by name with parenthesis after it, we are indicating that we want to call the function. In the parenthesis, we put whatever <dfn>arguments</dfn> the function needs to run. In the case of <code class="js">alert</code>, we give it the string (in quotes) that shold be displayed in the alert message.</p>
 
-<p>There is a lot of new stuff in that example that deserves more explanation&hellip;</p>
+<p>Try saving these files: <a href="{{rellink}}files/first-js.html">the HTML page</a> and <a href="{{rellink}}files/first-code.js">the JavaScript</a>. Add another call to the <code class="js">alert</code> function in the <code class="file">.js</code> file and see how the behaviour changes.</p>
+</section>
 
+<section id="first-event">
+<h2>Controlling Execution: Functions and Events</h2>
+
+<p>We don't really want all of our code to run at the moment the page loads. We want to be able to attach behaviour to things the user does.</p>
+
+<p>In order to do this, we will wrap our code up in a function. That way, we can call the function when we want it to run: like we did with <code class="js">alert</code> before, but with a function we have created.</p>
+
+<p>We can put that line of code (that creates the alert message) in a function like this:</p>
+
+{{ quoted_code('files/first-event.js') }}
+
+<p>This defines a function named <code class="js">say_hello</code> so we can use it later. Nothing visible to the user happens when the browser loads the code: it just defines the <code class="js">say_hello</code> so we can use it later.</p>
+
+<p>And here is an HTML file that loads and uses this JavaScript code:</p>
+
+{{ quoted_code('files/event.html') }}
+
+<p>You can have a look at <a href="{{rellink}}files/event.html">that HTML page</a> and see how it works: try clicking on the paragraph.</p>
+
+<p>Notice the <code class="html">onclick</code> attribute given to the paragraph. The value there gives JavaScript code that will execute when the user clicks the paragraph. In this case, clicking the paragraph will call the <code class="js">say_hello</code> function (with no arguments). In turn, <code class="js">say_hello</code> will call <code class="js">alert</code> and do something we can actually see.</p>
 </section>
 
 <section id="events">
@@ -55,9 +77,9 @@
 <section id="functions">
 <h2>JavaScript Functions</h2>
 
-<p>Let's look again at the <code class="file">mycode.js</code> file:</p>
+<p>Let's look again at the <code class="file">first-event.js</code> file:</p>
 
-{{ quoted_code('files/mycode.js', ident='code-mycode2') }}
+{{ quoted_code('files/first-event.js', ident='code-first-event2') }}
 
 <p id="func">This code creates a variable named <code class="js">say_hello</code>. This variable holds a <dfn>function</dfn>. Functions are used to is used to contain some logic: it could be a particular calculation, code you want to execute as the result of an event, or any other sensible collection of logic.</p>
 
