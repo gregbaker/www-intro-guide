@@ -8,7 +8,7 @@
 
 {{ quoted_code('_sources/img1.html') }}
 
-<p>The <code class="html">src</code> attribute is used to give the URL of the image. The <code class="html">alt</code> attribute gives alternat text: text that can be displayed in place of the image if it can't be loaded (because it can't be found on the server, or network problems, or any other reason). Both of these attributes are required and the tag is empty, since it just marks the place an image should go, but doesn't have any content.</p>
+<p>The <code class="html">src</code> attribute is used to give the URL of the image. The <code class="html">alt</code> attribute gives alternate text: text that can be displayed in place of the image if it can't be loaded (because it can't be found on the server, or network problems, or any other reason). Both of these attributes should be specified and the tag is empty, since it just marks the place an image should go, but doesn't have any content.</p>
 
 <section id="absolute">
 <h2>Absolute URLs</h2>
@@ -94,6 +94,16 @@ We can do the same thing to move up two levels. We could put this on <code class
 </section>
 
 
+
+</section>
+<section id="case">
+<h2>Case-Sensitivity</h2>
+
+<p>URLs are <dfn id="case-sens">case sensitive</dfn>. That means that the URL <code class="url">page.html</code> is a <em>different</em> URL than <code class="url">Page.html</code> or <code class="url">PAGE.HTML</code>.</p>
+
+<p>That means that the URLs you use must match your files. This can be difficult since both Windows and Mac computer are case insensitive: the file names <code class="file">page.html</code> and <code class="file">Page.html</code> are considered to be the same.</p>
+
+<p>That means that if you use the HTML <code class="html">&lt;a href="page.html"&gt;</code> to refer to a file you have named <code class="file">Page.html</code>, then <em>it will work on your computer but not on a web server</em>. Make sure your URLs and filenames match (probably by using lowercase everywhere).</p>
 
 </section>
 

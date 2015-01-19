@@ -173,6 +173,9 @@ blockquote.output {
   border: 1px dashed #ccc;
   padding: 0.25em;
 }
+blockquote p:first-child {
+  margin-top: 0.5em;
+}
 
 footer {
   margin-top: 2em;
@@ -209,6 +212,9 @@ ol.outline>li>ol {
   list-style-type: lower-roman;
   margin-top: 0;
   margin-bottom: 0;
+}
+span.term {
+  font-weight: bold;
 }
 
 div.syntaxhighlighter {

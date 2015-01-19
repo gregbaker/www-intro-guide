@@ -7,7 +7,7 @@ import codecs, sys
 from collections import OrderedDict
 
 GLOBALS = {
-    'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list',
+    'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.1.3.min.js',
 }
 
@@ -75,6 +75,8 @@ def contents():
             res.append('</ol>')
 
         res.append('</li>')
+    res.append('<li><a href="term_index.html">Index of Terms</a></li>')
+    res.append('<li><a href="references.html">References</a></li>')
     res.append('</ol>')
     return ''.join(res)
 
@@ -146,14 +148,21 @@ def xref(context, chap, text=None, fragment=None):
     frag = ''
     if fragment:
         frag = '#' + fragment    
-    return '<a href="%s.html%s" class="xref">%s</a>' % (chap, frag, text)
+    return '<a href="%scontent/%s.html%s" class="xref">%s</a>' % (context['rellink'], chap, frag, text)
     
 
 def include_output(name):
-    return u'<blockquote class="output">%s</blockquote>' % (loader.get_source(environment, name)[0].rstrip())
+    text = loader.get_source(environment, name)[0].rstrip()
+    return u'<blockquote class="output">%s</blockquote>' % (text)
+
+def check_line_len(filename, text):
+    maxlen = max(len(line.rstrip()) for line in text.splitlines())
+    if maxlen > 70:
+        sys.stderr.write("%s has long lines (%i chars)." % (filename, maxlen))
 
 def include_escaped(name):
     text = loader.get_source(environment, name)[0]
+    check_line_len(name, text)
     return escape(text.rstrip())
 
 def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
@@ -166,7 +175,9 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     else:
         preclass = codeclass + " code"
     
-    res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(content.rstrip()))
+    text = content.rstrip()
+    check_line_len(ident, text)
+    res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(text))
     return res.encode('utf8')
 
 def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
@@ -183,6 +194,8 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
 
     return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
+def html_tag_ref_url(elt):
+    return 'https://developer.mozilla.org/en/docs/Web/HTML/Element/%s' % (elt)
 
 def process_jinga(template_text, context={}):
     """
@@ -206,4 +219,5 @@ environment.globals['include_output'] = include_output
 environment.globals['include_escaped'] = include_escaped
 environment.globals['quoted_code'] = quoted_code
 environment.globals['block_code'] = block_code
+environment.globals['html_tag_ref_url'] = html_tag_ref_url
 environment.globals.update(GLOBALS)

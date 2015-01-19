@@ -3,11 +3,12 @@
 import sys
 import html5lib
 from jinja_environment import _read_contents, basename, process_jinga
+from cgi import escape
 
 TEMPLATE_START = """{% extends "base.html" %}
 {% block title %}Index of Terms{% endblock %}
 {% block h1 %}Index of Terms{% endblock %}
-{% block pageclass %}term_index{% endblock %}
+{% block pageclass %}termindex{% endblock %}
 
 {% block content %}
 <ul id="index">
@@ -80,8 +81,8 @@ def build_index(terms):
     for w in words:
         out = []
         for url,txt in terms[w]:
-            out.append('<a href="%s">%s</a>' % (url, txt))
-        items.append('<li>' + w + ': ' + ('; '.join(out)) + '</li>')
+            out.append('<a href="%s">%s</a>' % (escape(url), escape(txt)))
+        items.append('<li><span class="term">' + escape(w) + '</span>: ' + ('; '.join(out)) + '</li>')
     return '\n'.join(items)
 
 def render_index(content):
