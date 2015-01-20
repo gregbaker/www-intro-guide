@@ -4,4 +4,58 @@
 
 <p class="draft">Graphics formats: bitmap vs vector. When to choose SVG, PNG, GIF, JPEG.</p>
 
+<p>There are several different ways to represent images in a computer (and on web pages). In this section, we will discuss some common choices for the web, and how you would choose between them.</p>
+
+<section id="bitmap-vector">
+<h2>Bitmap and Vector Images</h2>
+
+<p>There are two fundamental ways images can be represented in computers, and we should start there.</p>
+
+<p>Let's start with a very simple image to use as an example. It's not a complicated image: a red circle with a black outline, but it will be enough to highlight the difference.</p>
+
+{{ figure('vector-bitmap1', 'A simple image', extension='svg', referenced=False) }}
+
+<p id="vector">A <dfn>vector image</dfn> is represented as a collection of shapes: lines, curves, circles, squares, etc. This example image is particularly well suited to representation as a vector image: the computer can store information equivalent to &ldquo;a circle with a black outline and red fill, with centre at &hellip; and radius &hellip;&rdquo; and that will represent this image perfectly.</p>
+
+<p id="bitmap">A <dfn>bitmap image</dfn> is represented as a grid of <dfn>pixels</dfn> each of which is given a particular colour. Here is the same image represented as both a vector and bitmap image:</p>
+
+{{ figure('vector-bitmap2', 'A vector (left) and bitmap image (right)', extension='svg', referenced=False) }}
+
+<p>Those probably look just about the same to you. If you're looking at this page on a very high resolution display like a modern smartphone or tablet, you might see that the vector representation on the left is slightly clearer, but otherwise they're likely identical.</p>
+
+<p>The bitmap image looks good here because the pixels are very small: small enough to fool your eye into not seeing them as little squares, but as a smooth image.</p>
+
+<p>If we zoom in on that image, you'll be able to see the difference between the two more clearly:</p>
+
+{{ figure('vector-bitmap3', 'Enlargements of a vector (left) and bitmap image (right)', extension='svg', referenced=False) }}
+
+<p>Now the difference is obvious. The vector image contains the information &ldquo;this is a circle&rdquo;, so when we zoom in it can be scaled smoothly: it's just a bigger circle. On the other hand, the bitmap image is just a collection of coloured square pixels, so fundamentally that's all we can work with when scaling the image.</p>
+
+<p>In this case, the vector image will look nicer when printed or displayed on a high-resolution display. It will also be easier to edit it (for example, stretch it or change the fill colour).</p>
+
+<p>For a more realistic example, consider this icon:</p>
+{{ figure('phone-icon', 'An illustration', extension='svg', referenced=True) }}
+
+<p>When saved as a vector image, the file is is about 2&nbsp;kilobytes. When saved as a bitmap image, the best I could do is 11&nbsp;kilobytes, so it would take about five times longer to download. Also remember that the vector image will scale more smoothly when being printed, or on high-resolution displays.</p>
+
+<aside>To be fair, the difference between download times for 2 and 11&nbsp;kilobytes is tiny. The effect would be more severe for larger images.</aside>
+
+<p>On the other hand, not all images make sense as a vector image. Since vector formats are best at the shapes they can represent (curves, lines, circles, etc.), images that aren't made up of those shapes might not be a good fit in a vector image.</p>
+
+<p>For example, consider this photograph:</p>
+
+{{ figure('phone-pic', 'A photograph', extension='jpg', referenced=True) }}
+
+<p id="trace">As it is, the image is about 12&nbsp;kilobytes and looks nice. In an attempt to make a vector image, I have <dfn>traced</dfn> (or <dfn>vectorized</dfn>) the image in a vector editing program. This is an automatic attempt to turn the image into vector shapes:</p>
+
+{{ figure('phone-pic-traced', 'A vectorized photograph', extension='svg', referenced=False) }}
+
+<p>As you can see, it didn't go well. Even with all of the lost detail, the image grew to 54&nbsp;kilobytes.</p>
+
+<aside>It is possible to embed a bitmap in a vector image and retain all of the detail, but that's not really a vector image: just a bitmap image wrapped up.</aside>
+
+<p>Hopefully the lesson is clear: choose vector images when the image is made of of &ldquo;shapes&rdquo; and bitmap images when it isn't.</p>
+
+</section>
+
 {% endblock %}

@@ -57,6 +57,9 @@ _site/figures/%.png: figures/%.svg
 _site/figures/%.png: figures/%.png
 	cp $< $@
 
+_site/figures/%.jpg: figures/%.jpg
+	cp $< $@
+
 _site/floats/%.png: floats/%.png _site/floats
 	gm convert -resize 160x240 $< $@
 
