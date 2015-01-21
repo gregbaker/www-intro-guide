@@ -8,7 +8,7 @@
 
 <p class="draft">TODO: a variable has a name and holds a value. = assigns one.</p>
 
-<p>In the previous example, we saw a function beign defined like this:</p>
+<p>In the previous example, we saw a function being defined like this:</p>
 
 {{ quoted_code('_sources/varassign1.js') }}
 
@@ -17,6 +17,8 @@
 <p id="var">A <dfn>variable</dfn> is a way to store a value in our program. In this example, the variable is named <code class="js">say_hello</code>. The <code class="js">=</code> is used to <dfn>assign</dfn> to the variable: it takes the value on the right and stores it in the variable named on the left.</p>
 
 <p id="varassign">This line of code is a <dfn>variable assignment statement</dfn>. When a variable assignment statement runs, the value is stored in the computer's memory and the variable name can be used to refer back to that value later.</p>
+
+<p>Just like with <code class="html">class</code> and <code class="html">id</code> values in HTML, variable names should be descriptive and indicate what they are holding.</p>
 
 <p>In JavaScript, any type of value can be stored in any variable, and there are many types the language supports&hellip;</p>
 
@@ -29,8 +31,25 @@
 
 
 <dl>
-<dt>Numbers</dt>
-<dd></dd>
+<dt id="numbers">Numbers</dt>
+<dd>
+<p><dfn data-term="numbers">Numbers</dfn> can be stored and calculated on in probably the obvious ways:</p>
+{{ quoted_code('_sources/types1.js') }}
+<p>After this code, we have created a variable <code class="js">more</code> currently holding 8 (one more than <code class="js">count</code> had when <code class="js">more</code> was assigned), and <code class="js">twice_as_much</code> holding 14.</p>
+<p>As you can see, numbers can be both integers and real numbers with decimal parts.</p>
+</dd>
+
+<dt id="strings">Strings</dt>
+<dd>
+<p>In JavaScript, <dfn>strings</dfn> are sequences of character. That is, they represent text. We have seena string used (but not stored in a variable) in our very first piece of JavaScript code:</p>
+{{ quoted_code('files/first-code.js') }}
+<p>The words in the single-quotes are a string containing twelve characters.</p>
+<p>We can also store strings in variables:</p>
+{{ quoted_code('_sources/types2.js') }}
+<p>As you can see, strings can be wrapped in either single or double quotes. When the <code class="js">+</code> is applied to strings, the strings are joined together so at the end of this code, the variable <code class="js">personal_greeting</code> contains the string <code class="js">'Hello Becky B Barrington'</code>.</p>
+
+</dd>
+
 
 </dl>
 
