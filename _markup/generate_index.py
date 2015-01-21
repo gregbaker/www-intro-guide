@@ -36,19 +36,30 @@ def index_dfn(contents, terms, fname, dfn):
     Add entry to index data structure for this <dfn>
     """
     elt = dfn
+    depth = 0
     while not elt.hasAttribute('id'):
         if elt.tagName == 'section':
             raise ValueError, '<section> without id in %s' % (fname)
-        elt = elt.parentNode
-    
+
+        if elt.tagName == 'dd':
+            # special case id-finder for stuff in a <dd>: link to the <dt>
+            elt = elt.previousSibling
+            while elt.nodeType != elt.ELEMENT_NODE or elt.tagName != 'dt':
+                elt = elt.previousSibling
+        else:
+            elt = elt.parentNode
+        depth += 1
+
     ident = elt.getAttribute('id')
-    if dfn.hasAttribute('title'):
-       text = dfn.getAttribute('title')
+    good_id = depth < 2 or elt.tagName == 'dt'    
+
+    if dfn.hasAttribute('data-term'):
+       text = dfn.getAttribute('data-term')
     else:
        text = extract_text(dfn)
 
     # kind of suggest that the <dfn> or at least its parent has an id to link to
-    if not dfn.hasAttribute('id') and not dfn.parentNode.hasAttribute('id'):
+    if not good_id:
         sys.stderr.write("<dfn> for '%s' in %s has no id.\n" % (text, fname))
 
     entry = terms.get(text, [])
