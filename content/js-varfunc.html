@@ -46,12 +46,27 @@
 <p>The words in the single-quotes are a string containing twelve characters.</p>
 <p>We can also store strings in variables:</p>
 {{ quoted_code('_sources/types2.js') }}
-<p>As you can see, strings can be wrapped in either single or double quotes. When the <code class="js">+</code> is applied to strings, the strings are joined together so at the end of this code, the variable <code class="js">personal_greeting</code> contains the string <code class="js">'Hello Becky B Barrington'</code>.</p>
-
+<p>As you can see, strings can be wrapped in either single or double quotes. When the <code class="js">+</code> is applied to strings, the strings are joined together.</p>
+<p>The last line above joins three strings: the contents of <code class="js">greeting</code>, a string containing a space, and the contents of <code class="js">name</code>, The result is that the variable <code class="js">personal_greeting</code> contains the string <code class="js">'Hello Becky B Barrington'</code>.</p>
 </dd>
 
+<dt>Functions</dt>
+<dd><p>As we have seen (and will explore more later), functions can be stored in variables.</p></dd>
 
+<dt id="objects">Objects</dt>
+<dd>
+<p>An <dfn>object</dfn> is a value in JavaScript that can contain other things: numbers, strings, functions, other objects, etc. We haven't seen any objects in JavaScript yet and won't be creating new types of objects in this course, but we will be using objects we get from other code.</p>
+<p>We will explore using objects further as we encounter them.</p>
+</dd>
 </dl>
+
+<p>The type of information you're dealing with obviously affects what you can do with it. For example, this code makes sense if <code class="js">a</code> and <code class="js">b</code> are both numbers: it will subtract the two values.</p>
+
+{{ quoted_code('_sources/types3.js') }}
+
+<p>If <code class="js">a</code> and <code class="js">b</code> contain strings, then this code will cause an error. Similarly, this code made sense because the built-in thing called <code class="js">alert</code> is a function, so we can call it.</p>
+
+{{ quoted_code('files/first-code.js', ident="code-first-code-2") }}
 
 
 </section>
@@ -75,11 +90,34 @@
 
 <p>In the HTML file above, we used a function call like this as the value for the <code class="html">onclick</code> property of the paragraph. When you click the paragraph, your web browser runs this JavaScript code, thus calling the function and running the logic in it.</p>
 
-<p>Inside the function <code class="js">say_hello</code>, we call another function <code class="js">alert</code>. This function requires an <dfn id="arg">argument</dfn> which gives it more information about what it is supposed to do. The argument is put in the parenthesis and is <code class="js">'Hello world!'</code> in our example.</p>
+<p>Inside the function <code class="js">say_hello</code>, we call another function <code class="js">alert</code>. This function requires an <dfn id="arg">argument</dfn> which gives it more information about what it is supposed to do. The argument is put in the parenthesis and is the string <code class="js">'Hello world!'</code> in our example.</p>
 
 <p>Have a look at the <a href="{{rellink}}files/first-js.html">the example page with JavaScript</a> above. Click the paragraph: make sure you see what happens.</p>
 
 </section>
+
+<section id="summary">
+<h2>Summary</h2>
+
+<p>In the last few sections, we have seen many new concepts. This is sort of unavoidable: there are many pieces needed to make any program work. Here is a quick summary of what we have seen:</p>
+
+<dl>
+<dt id="summary-func">function</dt>
+<dd>A <dfn>function</dfn> is a way to wrap up (and name) some behaviour in a program. We have used <code class="js">alert</code> and created a function <code class="js">say_hello</code>. Functions can be <dfn data-term="calling (a function)">called</dfn> by putting <code class="js">()</code> after their name, with <dfn>arguments</dfn> in the parenthesis if the function needs them.</dd>
+
+<dt id="summary-event">event</dt>
+<dd>An <dfn>event</dfn> is a way to refer to some specific things that happen in the web browser: the user clicks a particular element, the page finishes loading, the user types something in a form. We have seen (and will see more) ways to attach a function call to an event so we can make something happen as the result of the event.</dd>
+
+<dt id="summary-variable">variable</dt>
+<dd>A <dfn>variable</dfn> is a way to store some information in our program. and to give it a name so we can refer to it later.</dd>
+
+<dt id="summary-type">types</dt>
+<dd>Every value in JavaScript has a <dfn>type</dfn> (whether it's stored in a variable or just used as part of some calculation). The type determines what information it represents (number, string, function, &hellip;), and how we can use it (doing arithmetic on numbers, joining strings, calling functions, &hellip;).</dd>
+
+</dl>
+
+</section>
+
 
 
 {% endblock %}
