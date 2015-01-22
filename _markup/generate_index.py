@@ -18,7 +18,7 @@ TEMPLATE_END = """
 </ul>
 {% endblock %}"""
 
-CONTEXT = {'rellink': './'}
+CONTEXT = {'rellink': './', 'indexlink': './'}
 
 def extract_text(elt):
     """

@@ -28,6 +28,7 @@
       ["properties", "CSS Properties"],
       ["selectors", "CSS Selectors"],
       ["pages", "Styling Pages with CSS"],
+      ["colour", "Colours in CSS"],
       ["separate", "Separating Content and Appearance"]
     ]
   },

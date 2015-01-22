@@ -15,9 +15,9 @@
 
 {{ figure('vector-bitmap1', 'A simple image', extension='svg', referenced=False) }}
 
-<p id="vector">A <dfn>vector image</dfn> is represented as a collection of shapes: lines, curves, circles, squares, etc. This example image is particularly well suited to representation as a vector image: the computer can store information equivalent to &ldquo;a circle with a black outline and red fill, with centre at &hellip; and radius &hellip;&rdquo; and that will represent this image perfectly.</p>
+<p id="vector-img">A <dfn>vector image</dfn> is represented as a collection of shapes: lines, curves, circles, squares, etc. This example image is particularly well suited to representation as a vector image: the computer can store information equivalent to &ldquo;a circle with a black outline and red fill, with centre at &hellip; and radius &hellip;&rdquo; and that will represent this image perfectly.</p>
 
-<p id="bitmap">A <dfn>bitmap image</dfn> is represented as a grid of <dfn>pixels</dfn> each of which is given a particular colour. Here is the same image represented as both a vector and bitmap image:</p>
+<p id="bitmap-img">A <dfn>bitmap image</dfn> is represented as a grid of <dfn>pixels</dfn> each of which is given a particular colour. Here is the same image represented as both a vector and bitmap image:</p>
 
 {{ figure('vector-bitmap2', 'A vector (left) and bitmap image (right)', extension='svg', referenced=False) }}
 
@@ -54,8 +54,83 @@
 
 <aside>It is possible to embed a bitmap in a vector image and retain all of the detail, but that's not really a vector image: just a bitmap image wrapped up.</aside>
 
+<p>It often makes sense to use a bitmap image because of the technology involved. For example, digital cameras inherently produce grids of pixels because of the way their <a href="https://en.wikipedia.org/wiki/Image_sensor">image sensors</a> work. Also, computer displays display grids of pixels so screen captures (like those in this course showing how web pages display on-screen) will inherently be bitmap images.</p>
+
 <p>Hopefully the lesson is clear: choose vector images when the image is made of of &ldquo;shapes&rdquo; and bitmap images when it isn't.</p>
 
+<p>There is really only one vector image format that is relevant to the web. <dfn>SVG</dfn> (or <dfn data-term="scalable vector graphics">Scalable Vector Graphics</dfn>) is a vector image format designed for use on the web. We will work more with SVG later in the course.</p>
+
+<p>We will discuss bitmap file formats as we cover concepts that distinguish them&hellip;</p>
+
 </section>
+
+
+<section id="bitmaps">
+<h2>Bitmap Images</h2>
+
+<p>Let's return to the screenshot of the sample web page from {{ xref('html-attributes') }}:</p>
+{{ figure('complete-page', 'Sample web page screenshot', extension='png', referenced=False) }}
+
+<p>Since the image is a screenshot and computer displays inherently display bitmaps, this should be saved as a bitmap (not vector) image. Let's take a closer look at the first few characters in the first paragraph:</p>
+
+{{ figure('compression1', 'Detail of screenshot', extension='png', referenced=False) }}
+
+<p>As we expect, the image is made up of a grid of pixels. We can add a grid to make the individual pixels more clear:</p>
+
+{{ figure('compression2', 'Detail with a pixel grid', extension='png', referenced=False) }}
+
+<p>When the computer stores this bitmap data on disk (or transmits it over the Internet), is basically has to store the colour of each pixel. Essentially, that information is &ldquo;Row 1: white pixel, white pixel, white pixel, &hellip; Row 2: dark grey pixel, black pixel, black pixel, dark grey pixel, &hellip;&rdquo;. Of course, the way the computer represents that information isn't english descriptions like that, but the basic idea is the same.</p>
+
+<p>The <dfn>BMP</dfn> (<dfn>Windows Bitmap</dfn>) format simply records the colour of each pixel with no compression (typically). If we save the original screenshot in that format the result is a 526&nbsp;kilobyte file. That is a lot of a relatively small image. The BMP format isn't used on the web because it produces such large files.</p>
+
+<p>We can instead save an image as a <dfn>PNG</dfn> (<dfn>Portable Network Graphics</dfn>) which is common on the web. PNG uses <a href="https://en.wikipedia.org/wiki/Data_compression">data compression</a> to represent images in smaller files with no loss in quality. Saving the screenshot as a PNG, I got a 36&nbsp;kilobyte file: much smaller than without any compression, but we can do better if we actually understand a little more about images.</p>
+
+</section>
+
+<section id="depth">
+<h2>Colour Depth</h2>
+
+<p>One factor that has a larg impact on the size of a bitmap image file is the amount of information that much be stored <em>for each pixel</em>. This is determined by how many choices there are for the colour of each pixel.</p>
+
+<p>In the figures above, we can see that there are relatively few colours actually used: white, black, and a few greys (and a few shades of blue for the link, which isn't in the enlargement).</p>
+
+<p>The default for most image editing programs is images with a full range of colour for each pixel. This is called <dfn>24-bit colour</dfn> or <dfn>true colour</dfn>. The reason for the name &ldquo;24-bit colour&rdquo; is that each pixel can be any of 2<sup>24</sup></p>
+
+</section>
+
+
+<section id="compression">
+<h2>Image Compression</h2>
+
+
+
+
+
+
+<p>When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, larger than the PNG image. But worse, we can have a look at part of the result:</p>
+
+{{ figure('compression3', 'Screenshot saved as JPEG', extension='png', referenced=False) }}
+
+<p>That doensn't look too bad, but let's take a closer look at the same part of the image as above:</p>
+
+{{ figure('compression4', 'JPEG detail', extension='png', referenced=False) }}
+
+<p>Here we can see the real problem of JPEG compression when it's applied to non-photographs: since it's not designed for that type of image, it </p>
+
+</section>
+
+
+
+
+<section id="summary">
+<h2>Summary</h2>
+
+<p class="draft">summary of the formats and when to choose each</p>
+
+</section>
+
+
+
+
 
 {% endblock %}
