@@ -94,7 +94,30 @@
 
 <p>In the figures above, we can see that there are relatively few colours actually used: white, black, and a few greys (and a few shades of blue for the link, which isn't in the enlargement).</p>
 
-<p>The default for most image editing programs is images with a full range of colour for each pixel. This is called <dfn>24-bit colour</dfn> or <dfn>true colour</dfn>. The reason for the name &ldquo;24-bit colour&rdquo; is that each pixel can be any of 2<sup>24</sup></p>
+<p>The default for most image editing programs is images with a full range of colour for each pixel. This is called <dfn>24-bit colour</dfn> or <dfn>true colour</dfn>. The reason for the name &ldquo;24-bit colour&rdquo; is that each pixel can be any of 2<sup>24</sup> possible colours. This is enough to represent images like photographs that have many shades of colours used in their pixels. The drawback is that there is a lot of information for each pixel and file sizes tend to be large.</p>
+
+<p>Using 24-bit colour for an image like the screenshot above isn't necessary, since there are only a few colours there. However, the 36&nbsp;kilobyte PNG file mentioned above was saved with 24-bit colour because it was the default.</p>
+
+<p>It is also possible to choose fewer colours for an image file: the file contains a <dfn>palette</dfn> of colours that it will use, and then for each pixel, the image must indicate which of the palette colours is to be used.</p>
+
+<p>The largest palette usually used in image contain 2<sup>8</sup> = 256 colours and is called <dfn>8-bit colour</dfn>. In this case, each pixel takes about 1/3 of the storage space of a true colour image.</p>
+
+<p>When the screenshot above was saved as a 24-bit PNG image, it was a 36 kilobyte file. When converted to 8-bit colour and saved, it was 19 kilobytes. That's more than a third of the original size (probably because of the overhead of storing the palette information), but a significant savings.</p>
+
+<p>Palettes can be other sizes for an image (usually powers of two). For example, reducing the screenshot to 2<sup>3</sup> = 8 colours, the file size decreased to 9 kilobytes with no noticable reduction in quality. (My image editor chose shades of grey and blue to represent the antializing in the image: if I look really closely maybe I can see tiny differences in the darkness around the edges of the characters, but nothing that I would worry about.)</p>
+
+<p>Here are some details of the screenshot after being saved with 256 and 8 colours:</p>
+
+{{ figure('depth', 'Detail of screenshot saved with 8- and 3-bit colour', extension='png', referenced=False) }}
+
+<p>Obviously the choice of colour depth has a lot to do with the content of the image: the screenshot has very few unique colours so choosing a small palette makes the file smaller without losing quality.</p>
+
+<p>If the original had lots of colours, then selecting only a few for the whole image might decrease its quality significantly. For example, our photograph from above looks like this when saved with 256 and 8 colours:</p>
+
+{{ figure('phone-pic-8', 'Photograph forced into 256 colours', extension='png', referenced=False) }}
+{{ figure('phone-pic-3', 'Photograph forced into 8 colours', extension='png', referenced=False) }}
+
+<p>Neither of these is particularly good: reducing colour depth is not a good option for this image. (The 256 colour version is actually a larger file than the original for reasons we will see in the next section.)</p>
 
 </section>
 
