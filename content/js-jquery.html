@@ -6,7 +6,7 @@
 <h2>Libraries in Programming</h2>
 <p>JavaScript is a full-featured programming language all by itself, but there are many tasks that programmers creating JavaScript need to do a lot which are not in the &ldquo;core&rdquo; language that is built into web browsers.</p>
 
-<p>Every programming language is like this: the language itself lets programmers solve problems, but as the language is used, it becomes clear that some tasks must be done often (at least by programmers creating certain kinds of problems: others might have different common problems).</p>
+<p>Every programming language is like this: the language itself lets programmers solve problems, but as the language is used, it becomes clear that some tasks must be done often (at least by programmers creating certain kinds of programs: others might have different common problems).</p>
 
 <p id="code-library">It would be inefficient for every programmer, or even each project/company to solve these problems separately. So, developers often publish their solutions to frequently-encountered problems in <dfn>code libraries</dfn> (or just <dfn>libraries</dfn>). These libraries can be used by other programmers so they don't have to re-solve the same problems.</p>
 
@@ -16,7 +16,7 @@
 <section id="jquery">
 <h2>jQuery</h2>
 
-<p><dfn id="jquery-dfn" data-term="jQuery">JQuery</dfn> is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">more than half</a> of the most-visited web sites). It makes several common taks easier for the programmer: manipulating the HTML page, using events, animation.</p>
+<p><dfn id="jquery-dfn" data-term="jQuery">JQuery</dfn> is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">more than half</a> of the most-visited web sites). It makes several common tasks easier for the programmer: manipulating the HTML page, using events, animation.</p>
 
 <p>We start by including the jQuery library, in the same way we include any other JavaScript code in the page: by using the <code class="html">&lt;script&gt;</code> element and indicating its URL.</p>
 
@@ -36,29 +36,30 @@
 
 <dl>
 <dt><code class="js">say_hello = function() { &hellip; }</code></dt>
-<dd>Just like before, this creates a function named <code class="js">say_hello</code>. Also like before, this function can be called with <code class="js">say_hello()</code> to run the code inside the <code class="js">{&nbsp;&hellip;&nbsp;}</code>.</dd>
+<dd><p>Just like before, this creates a function named <code class="js">say_hello</code>. Also like before, this function can be called with <code class="js">say_hello()</code> to run the code inside the <code class="js">{&nbsp;&hellip;&nbsp;}</code>.</p></dd>
 
 <dt><code class="js">alert('Hello world!');</code></dt>
-<dd>This one line is the code that runs when the <code class="js">say_hello</code> function is called. It pops up an alert window with the phrase &ldquo;Hello world!&rdquo;. That's maybe not too useful, but at least we can see when the function runs.
-
-<p>The function <code class="js">alert()</code> is built into JavaScript, so we can call it without defining it.</p></dd>
+<dd><p>This one line is the code that runs when the <code class="js">say_hello</code> function is called. As before, it pops up an alert window with the phrase &ldquo;Hello world!&rdquo;.</p></dd>
 
 <dt><code class="js">setup = function() { &hellip; }</code></dt>
-<dd>We are defining this function to do the work of setting up the JavaScript behaviour on the page (thus the name &ldquo;setup&rdquo;). It will be called after the browser loads the page (because we'll trigger that below).</dd>
+<dd><p>We are defining this function to do the work of setting up the JavaScript behaviour on the page (thus the name &ldquo;setup&rdquo;). It will be called after the browser loads the page (because we'll trigger that in the next lines of code).</p></dd>
 
 <dt><code class="js">jQuery('p').click(say_hello);</code></dt>
-<dd>The <code class="js">jQuery</code> function is used to select some part(s) of the page. The function call <code class="js">jQuery('p')</code> selects <em>every <code class="html">&lt;p&gt;</code> element on the page</em>.
+<dd><p>The <code class="js">jQuery</code> function is used to select some part(s) of the page. The function call <code class="js">jQuery('p')</code> selects <em>every <code class="html">&lt;p&gt;</code> element on the page</em>.</p>
 <p>Following with <code class="js">.click(&hellip;)</code> sets the behaviour we want when those elements are clicked: in this case, we give it the <code class="js">say_hello</code> function. (We don't want to call the function right now, so we don't say <code class="js">say_hello()</code>. We just want to give jQuery the function <strong>it</strong> should call later, so we just give it the variable that holds it.)</p>
 </dd>
 
 <dt><code class="js">jQuery(document).ready(setup);</code></dt>
-<dd>This line gets everything started. The <code class="js">jQuery(document).ready(&hellip;)</code> idiom gives a function that should be called once the browser finishes loading the page (i.e. it is &ldquo;ready&rdquo;). In our case, we want the <code class="js">setup</code> function called when the page is ready, so we indicate it here.
+<dd><p>This line gets everything started. The <code class="js">jQuery(document).ready(&hellip;)</code> idiom gives a function that should be called once the browser finishes loading the page (i.e. it is &ldquo;ready&rdquo;). In our case, we want the <code class="js">setup</code> function called when the page is ready, so we indicate it here.</p>
 <p>This <code class="js">jQuery</code> is similar to the previous: it selects something (in this case the <code class="js">document</code> special value, referring to the entire page), and connects some event (the document being ready, as opposed to being clicked as above) to a function.</p>
 </dd>
 
 </dl>
 
 <aside>The <code class="js">jQuery</code> function can also be called <dfn id="dollar"><code class="js">$</code></dfn>, so <code class="js">jQuery('p')</code> and <code class="js">$('p')</code> are synonymous. We'll use <code class="js">jQuery</code> here, since it looks more like other function names.</aside>
+
+<p class="draft">I should put this somewhere... where?</p>
+{{ quoted_code('_sources/jquery1.js') }}
 
 <p>Notice that we didn't use the <code class="html">onclick</code> attribute in HTML here, but connected the logic to the HTML with jQuery. This puts all of the logic in the JavaScript file where it belongs, and leaves only content in the HTML. It also prevents repetition, since we can modify all of the pharagras at once, instead of having to say something for each <code class="html">&lt;p&gt;</code> on the page.
 We will continue to do things this way, and you should as well.</p>
