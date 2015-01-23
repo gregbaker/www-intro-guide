@@ -66,8 +66,9 @@ def contents():
     for chapter in data:
         chap_slug = chapter['chapter'][0]
         chap_title = chapter['chapter'][1]
-        sections = chapter['contents']
         res.append('<li><a href="content/%s.html">%s</a>' % (chap_slug, chap_title))
+        
+        sections = chapter.get('contents', [])
         if sections:
             res.append('<ol>')
             for sec_slug, sec_title in sections:
@@ -75,6 +76,7 @@ def contents():
             res.append('</ol>')
 
         res.append('</li>')
+
     res.append('<li><a href="term_index.html">Index of Terms</a></li>')
     res.append('<li><a href="references.html">References</a></li>')
     res.append('</ol>')
@@ -93,7 +95,7 @@ def subcontents(context):
     res = []
     for chapter in data:
         chap_slug = chapter['chapter'][0]
-        sections = chapter['contents']
+        sections = chapter.get('contents', [])
         if chap_slug == chapter_slug:
             res.append('<h2 id="contents">Contents</h2>')
             res.append('<ol class="chapter-toc">')
@@ -114,7 +116,7 @@ def pagetitle(context):
         chap_slug = chapter['chapter'][0]
         if chap_slug == basename:
             return chapter['chapter'][1]
-        sections = chapter['contents']
+        sections = chapter.get('contents', [])
         for sec_slug, sec_title in sections:
             if chap_slug + '-' + sec_slug == basename:
                 return sec_title
@@ -128,7 +130,7 @@ def _read_contents():
         chap_slug = chapter['chapter'][0]
         chap_title = chapter['chapter'][1]
         contents[chap_slug] = chap_title
-        sections = chapter['contents']
+        sections = chapter.get('contents', [])
         for sec_slug, sec_title in sections:
             contents[chap_slug + '-' + sec_slug] = sec_title
     return contents
