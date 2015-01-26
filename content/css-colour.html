@@ -2,6 +2,76 @@
 
 {% block content %}
 
+<p>We have seen a few places where we need to speficy a colour in CSS: </p>
+
+<p class="draft">what are those?</p>
+
+<section id="basics">
+<h2>About Colours</h2>
+
+<p>Before we start giving numeric colour values, you should know at least a little about how colour works.</p>
+
+<p id="subtr">If you've ever mixed colours together, you've probably done it with paint. Paints and dyes are mixed with the primary colours cyan (blue), yellow, and magenta (red) in the <dfn>CYM colour model</dfn>. With paint, the coloured surface absorbs parts of the (usually white) light that illuminates it. Since the paint removes parts of the reflected light, this is also referred to as the <dfn>subtractive colour model</dfn>.</p>
+
+<p id="addit">However, paints and computer screens create colours differently. Computer screens actually produce light. Computer screens start black, and light is added to produce a colour, using the additive colour model. The primary colours in the <dfn>additive colour model</dfn> are red, green, and blue. Additive colour is also called the <dfn>RGB colour model</dfn>.</p>
+
+<p>To mix light to produce a colour on the screen, we will have to mix various amounts of red, green, and blue to get the desired result.</p>
+
+</section>
+
+<section id="rgb">
+<h2>Working with RGB</h2>
+
+<p>We will use the three-character method of specifying a CSS colour. The amount of each primary colour is specified with a character on this scale:</p>
+<blockquote>
+{% for c in "0123456789abcdef" %}<code class="css">{{ c }}</code>{% if not loop.last %}, {% endif %}{% endfor %}
+</blockquote>
+
+<p>The <code class="css">0</code> end of the scale is little of the colour (dark/off). The <code class="css">f</code> end is a lot of the colour (bright/on).</p>
+
+<p>The three primary colours are specified in the order red, green, blue. For example, the colour <code class="css">#f70</code> indicates a lot of red, a medium amount of green, and no blue (or <code class="css">#F70</code>: case doesn't matter in these colour codes).</p>
+
+<p>Based on this, we can guess that <code class="css">#000</code> is very dark: it is the colour code for black. If we start increasing the first character, we add red to the colour. This is the result if we increase the amount of red from <code class="css">0</code> (none) to <code class="css">f</code> (lots):</p>
+
 {{ figure('colour1', 'Colour scale from #000 to #f00', extension='svg', referenced=False) }}
+
+<p>This shoulbe be fairly predictable: it starts black and as you add red, it gets redder. What happens if you turn up all three (red, green, blue) values together?</p>
+
+{{ figure('colour2', 'Colour scale from #000 to #fff', extension='svg', referenced=False) }}
+
+<p>When the three components are the same, none is brighter than the other and we end up with a shade of grey with black (<code class="css">#000</code>) and white (<code class="css">#fff</code>) at the extremes.</p>
+
+<p>If we keep experimenting, we can try a scale of colours from red (<code class="css">#f00</code>) to white (<code class="css">#fff</code>) like this:</p>
+
+{{ figure('colour3', 'Colour scale from #000 to #fff', extension='svg', referenced=False) }}
+
+<p>Again maybe not suprpisingly, we see that between red and white are shades of pink.</p>
+
+<p>The point of these examples is not that drawing colour scales is fun, but that there is a certain logic to these colour codes. If you know a few basic ideas, you can guess what colour a particular code is, or what code you should write for a colour. You should by now be able to guess these:</p>
+
+<figure id="colour-table">
+<table>
+<thead><tr><th scope="col">Code</th><th scope="col">Colour</th><th scope="col">Rationale</th></tr></thead>
+<tbody>
+<tr><td><code class="css">#000</code></td><td>black</td><td>as dark as possible</td></tr>
+<tr><td><code class="css">#fff</code></td><td>white</td><td>as bright as possible</td></tr>
+<tr><td><code class="css">#f00</code></td><td>red</td><td>only red light</td></tr>
+<tr><td><code class="css">#0f0</code></td><td>green</td><td>only green light</td></tr>
+<tr><td><code class="css">#00f</code></td><td>blue</td><td>only blue light</td></tr>
+<tr><td><code class="css">#060</code></td><td>dark green</td><td>a little green, no red or blue</td></tr>
+<tr><td><code class="css">#99f</code></td><td>light blue</td><td>more blue than the others, closer to white</td></tr>
+</tbody>
+</table>
+<figcaption>Some colours we can guess from previous examples</figcaption>
+</figure>
+
+<p>Because the additive and subtractive colour models don't work the same way, there's one colour in particular that you might not guess: <code class="css">#ff0</code> is yellow. But armed with this fact, we can guess that a lighter yellow might be <code class="css">#ff8</code>: like yellow but closer to white.</p>
+
+{{ figure('colour4', 'Colour scale from #ff0 to #fff', extension='svg', referenced=False) }}
+
+
+
+
+</section>
 
 {% endblock %}

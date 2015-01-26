@@ -12,7 +12,11 @@ jQuery(document).ready(function(){
   });
   var sq, lbl, c;
   for(i=0; i<16; i++) {
-    c = "#" + hex[i] + "00";
+    //c = "#" + hex[i] + "00";
+    //c = "#" + hex[i] + hex[i] + hex[i];
+    //c = "#f" + hex[i] + hex[i];
+    c = "#ff" + hex[i];
+    
     sq = s.rect(i*w, 0, w, h);
     sq.attr({
       fill: c,
