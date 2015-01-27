@@ -114,6 +114,7 @@ figure {
   margin: 1em auto;
   text-align: center;
   max-width: 100%;
+  clear: both;
 }
 figcaption {
   font-size: smaller;
@@ -147,9 +148,13 @@ figure table {
 th {
   font-weight: bold;
   text-align: center;
+  background-color: #ddd;
+  border: 1px solid #999;
+  margin: 0 2px;
 }
 th, td {
   padding: 0.1em 0.5em;
+  text-align: center;
 }
 aside {
   width: $float-width;

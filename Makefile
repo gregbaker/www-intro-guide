@@ -52,7 +52,7 @@ _site/figures/%.svgz: _site/figures/%.svg _site/figures
 	gzip -c < $< > $@
 
 _site/figures/%.png: figures/%.svg
-	inkscape -y 255 -b "#fff" -d 96 -e $@ $<
+	inkscape -y 255 -b "#fff" -d 90 -e $@ $<
 
 _site/figures/%.png: figures/%.png
 	cp $< $@

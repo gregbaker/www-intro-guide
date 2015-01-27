@@ -6,6 +6,8 @@
 
 <p class="draft">what are those?</p>
 
+<p>There are some built-in words in CSS that can be used to specify a colour, like <code class="css">red</code> and <code class="css">lavender</code>, but they are quite limiting since you're restricted to the colours that happen to have been assigned words.</p>
+
 <section id="basics">
 <h2>About Colours</h2>
 
@@ -65,13 +67,32 @@
 <figcaption>Some colours we can guess from previous examples</figcaption>
 </figure>
 
-<p>Because the additive and subtractive colour models don't work the same way, there's one colour in particular that you might not guess: <code class="css">#ff0</code> is yellow. But armed with this fact, we can guess that a lighter yellow might be <code class="css">#ff8</code>: like yellow but closer to white.</p>
+<p>Because the additive and subtractive colour models don't work the same way, there's one colour in particular that you might not guess: <code class="css">#ff0</code> is yellow. But armed with this fact, we can guess that a lighter yellow might be <code class="css">#ffa</code>: like yellow but closer to white.</p>
 
-{{ figure('colour4', 'Colour scale from #ff0 to #fff', extension='svg', referenced=False) }}
-
-
+{{ figure('colour4', 'Yellow colour samples', extension='svg', referenced=False) }}
 
 
+<p>You shouldn't have to memorize these colour codes. If you understand the <code class="css">0</code> to <code class="css">f</code> scale, and how the red, green, and blue values go together to make a colour, you should be able to come up with a colour code fairly quickly.</p>
+
+</section>
+
+<section id="other">
+<h2>Other Ways to Specify Colour</h2>
+
+<p>In older versions of HTML, colours could only be specified with six characters, like <code class="css">#b5123b</code>. The first two characters specify the red value (<code class="css">b5</code> in the example), the second two specify green (<code class="css">12</code>), and the last two blue (<code class="css">3b</code>). These can also be used in CSS, but we won’t go into details because they are more difficult to work with by hand. If you are using a colour selector in a graphics program, it may show you a six-character colour code: you can copy and paste this into CSS if you want to use the colour.</p>
+
+<aside>The CSS reference has a good section on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">CSS color values</a> that is much more complete. I actually used <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Tools/ColorPicker_Tool">Mozilla's ColorPicker</a> to produce most of these colour codes.</aside>
+
+<p>To convert from a three-character to six-character colour code, simply double the characters. For example, <code class="css">#f80</code> and <code class="css">#ff8800</code> are the same colour.
+Taking the <em>first</em> character of each pair in a six-character code will give you a similar (but probably not exactly the same) three-character colour code. For example, <code class="css">#b5123b</code> is close to <code class="css">#b13</code>.</p>
+
+{{ figure('colour5', 'Similar 6- and 3-character codes', extension='svg', referenced=False) }}
+
+<p>There are also several other ways to specify a colour, although you won't see them used as often. Here are some examples, just so you can see some of the possibilities:</p>
+
+{{ figure('colour6', 'Various ways to specify the same colour', extension='svg', referenced=False) }}
+
+<p>Any of these colour codes can be used anywhere you need to specify a colour in CSS. For example, the text colour (<code class="css">color</code>), background colour (<code class="css">background-color</code>), and border colour (<code class="css">border-color</code>).</p>
 </section>
 
 {% endblock %}
