@@ -90,11 +90,13 @@
 <section id="depth">
 <h2>Colour Depth</h2>
 
-<p>One factor that has a larg impact on the size of a bitmap image file is the amount of information that much be stored <em>for each pixel</em>. This is determined by how many choices there are for the colour of each pixel.</p>
+<p>One factor that has a large impact on the size of a bitmap image file is the amount of information that much be stored <em>for each pixel</em>. This is determined by how many choices there are for the colour of each pixel.</p>
 
 <p>In the figures above, we can see that there are relatively few colours actually used: white, black, and a few greys (and a few shades of blue for the link, which isn't in the enlargement).</p>
 
 <p id="24bit">The default for most image editing programs is images with a full range of colour for each pixel. This is called <dfn>24-bit colour</dfn> or <dfn>true colour</dfn>. The reason for the name &ldquo;24-bit colour&rdquo; is that each pixel can be any of 2<sup>24</sup> possible colours. This is enough to represent images like photographs that have many shades of colours used in their pixels. The drawback is that there is a lot of information for each pixel and file sizes tend to be large.</p>
+
+<aside>If you look back at {{xref('css-colour', fragment='other')}}, there are 2<sup>24</sup> choices for the 6-character colours: it's the same set of colours in either case.</aside>
 
 <p>Using 24-bit colour for an image like the screenshot above isn't necessary, since there are only a few colours there. However, the 36&nbsp;kilobyte PNG file mentioned above was saved with 24-bit colour because it was the default.</p>
 
