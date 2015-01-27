@@ -56,13 +56,32 @@
 <section id="examples">
 <h2>Examples</h2>
 
-em vs strong
+<p>Consider these sentences which we want to mark up appropriately in HTML:</p>
 
-dl
+{{ figure('semantic', 'Example sentences to mark up', extension='svg', referenced=False) }}
 
-cite or dfn?
+<p>Each sentence has one word/phrase that is formatted differently. When choosing markup for content, we have to include markup for the <em>meaning</em> of the content. That means we can't just settle for a tag that <em>looks</em> right.</p>
 
-tease to span.otherlang?
+<p>In the first sentence, the work &ldquo;you&rdquo; is highlighted as an important word in the sentence. The emphasis is placed on that word and that is important to the meaning here.</p>
+
+<p>Looking in the <a href="{{htmlref_url}}">HTML reference</a>, the most appropriate element I see is <code class="html">&lt;em&gt;</code> which <a href="{{html_tag_ref_url('em')}}">is described as indicating</a> &ldquo;text that has stress emphasis&rdquo;, which sounds like what is happening here.</p>
+
+<p>For the second sentence, the word &ldquo;never&rdquo; could also be wrapped in <code class="html">&lt;em&gt;</code>, but again looking at the reference we can find <a href="{{html_tag_ref_url('strong')}}">the <code class="html">&lt;strong&gt;</code> element</a> which &ldquo;gives text strong importance&rdquo;. It is basically like <code class="html">&lt;em&gt;</code> but with even more emphasis: that seems appropriate to a warning like this.</p>
+
+<p>The text &ldquo;&lt;li&gt;&rdquo; in the third sentence is an example of HTML code. In the reference, we might look at <a href="{{html_tag_ref_url('kbd')}}"><code class="html">&lt;kbd&gt;</code></a>, which &ldquo;represents user input&rdquo; and could be appropriate if we're asking the user to type something, but that doesn't sound like what is happening here. A better fit would be <a href="{{html_tag_ref_url('code')}}"><code class="html">&lt;code&gt;</code></a> which &ldquo;represents a fragment of computer code&rdquo;.</p>
+
+<p>After some looking at the available HTML tags and what they <em>mean</em>, we arrive at this markup for the first three sentences:</p>
+
+{{ quoted_code('_sources/semantic1.html') }}
+
+<p>That will look something like this in the web browser:</p>
+{{ include_output('_sources/semantic1.html', cls='compact') }}
+
+<p>That doesn't look exactly like the original sample, but that's not important here. The meaning is right and that's what we care about. We can worry about appearance later when we start working with {{ xref('css') }}.</p>
+
+<p>We haven't suggested any markup for the last sentence, which has some text formatted differently because it's in a different language. By convention, non-English phrases are formatted in italics when printed.</p>
+
+<p>If we look in the reference for a tag with a meaning like &ldquo;phrase in another language&rdquo;, we won't find one. What we need is a tag that we can use when nothing else fits&hellip;</p>
 
 </section>
 

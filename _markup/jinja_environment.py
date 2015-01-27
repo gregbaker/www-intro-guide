@@ -153,9 +153,9 @@ def xref(context, chap, text=None, fragment=None):
     return '<a href="%scontent/%s.html%s" class="xref">%s</a>' % (context['rellink'], chap, frag, text)
     
 
-def include_output(name):
+def include_output(name, cls=''):
     text = loader.get_source(environment, name)[0].rstrip()
-    return u'<blockquote class="output">%s</blockquote>' % (text)
+    return u'<blockquote class="output %s">%s</blockquote>' % (cls, text)
 
 def check_line_len(filename, text):
     maxlen = max(len(line.rstrip()) for line in text.splitlines())
