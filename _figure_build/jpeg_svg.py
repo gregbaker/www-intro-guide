@@ -10,7 +10,7 @@ sample_h = 80
 sample_w = 300
 sample_sep = 5
 total_h = n_samples * (sample_h + sample_sep) - sample_sep
-total_w = sample_w + 125
+total_w = sample_w + 135
 
 svg_template = string.Template("""<svg height="%i" width="%i" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 ${body}

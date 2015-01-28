@@ -93,9 +93,9 @@ site: $(SITE_DEPS)
 $(POLISHED_SITE_DIRECTORIES): %:
 	mkdir -p $@
 
-# pngquant and optipng all PNG images
+# pngquant and optipng all PNG images (let pngquant fail if quality is bad)
 _polished_site/%.png: _site/%.png
-	pngquant --quality 90-100 - < $< > $@ \
+	pngquant --quality 90-100 - < $< > $@ || true \
 	&& optipng -q $@
 
 # scour all SVG images
