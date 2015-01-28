@@ -102,9 +102,9 @@
 
 <p id="palette">It is also possible to choose fewer colours for an image file: the file contains a <dfn>palette</dfn> of colours that it will use, and then for each pixel, the image must indicate which of the palette colours is to be used.</p>
 
-<p id="8bit">The largest palette usually used in image contain 2<sup>8</sup> = 256 colours and is called <dfn>8-bit colour</dfn>. In this case, each pixel takes about 1/3 of the storage space of a true colour image.</p>
+<p id="8bit">The largest palette usually used in images contains 2<sup>8</sup> = 256 colours and is called <dfn>8-bit colour</dfn>. In this case, each pixel takes about 1/3 of the storage space of a true colour image (8 bits instead of 24).</p>
 
-<p>When the screenshot above was saved as a 24-bit PNG image, it was a 36 kilobyte file. When converted to 8-bit colour and saved, it was 19 kilobytes. That's more than a third of the original size (probably because of the overhead of storing the palette information), but a significant savings.</p>
+<p>When the screenshot above was saved as a 24-bit PNG image, it was a 36 kilobyte file. When converted to 8-bit colour and saved, it was 19 kilobytes. That's more than a third of the original size (probably because of the overhead of storing the palette information and some other overhead), but a significant savings.</p>
 
 <p>Palettes can other numbers of colours, usually powers of two so &ldquo;<var>n</var>-bit colour&rdquo; uses up to 2<sup><var>n</var></sup> colours. For example, reducing the screenshot to 2<sup>3</sup> = 8 colours, the file size decreased to 9 kilobytes with no noticable reduction in quality. (My image editor chose shades of grey and blue to represent the antializing in the image: if I look really closely maybe I can see tiny differences in the darkness around the edges of the characters, but nothing that I would worry about.)</p>
 
@@ -119,7 +119,7 @@
 {{ figure('phone-pic-8', 'Photograph forced into 256 colours', extension='png', referenced=False) }}
 {{ figure('phone-pic-3', 'Photograph forced into 8 colours', extension='png', referenced=False) }}
 
-<p>Neither of these is particularly good: reducing colour depth is not a good option for this image. (The 256 colour version is actually a larger file than the original for reasons we will see in the next section.)</p>
+<p>Neither of these is particularly good: reducing colour depth is not a good option for this image. (The 256 colour version isn't too bad, but it is actually a larger file than the original for reasons we will see in the next section.)</p>
 
 </section>
 
@@ -127,12 +127,23 @@
 <section id="compression">
 <h2>Image Compression</h2>
 
+<p>The bitmap image formats used on the web all use some kind of <dfn id="compr">compression</dfn> (or <a href="http://en.wikipedia.org/wiki/Data_compression"><dfn id="datacomp">data compression</dfn></a>) to make the file smaller. As we noted above, and uncompressed BMP of the screenshot was about 15 times larger than even the largest PNG we created. Compressing image data is very effective, and necessary to make the images download quickly.</p>
 
+<p>There are several ways to compress images (or other data). The details of the algorithms are complicated and not something we'll cover here.</p>
 
+<p id="lossless">Many image formats use <dfn>lossless</dfn> compression, which means that the data before compression is <em>exactly</em> the same as the result after compressing and uncompressing.</p>
 
+<p>That seems like a good idea: we don't want our images to change just because we saved them in some format (and we certainly don't want a Word document to change if we put it in a ZIP file). PNG uses lossless compression: if you save a file as a PNG and re-open it, you will get exactly the same image back (unless you change the colour depth as part of saving the image, of course).</p>
 
+<p id="lossy">It is also possible to store images using <dfn>lossy</dfn> compression, where the image we get back might be <em>slightly</em> different than the original. This can get us a much smaller file, and as long as the differences are subtle, we probably won't mind.</p>
 
-<p>When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, larger than the PNG image. But worse, we can have a look at part of the result:</p>
+<p id="jpeg">The <dfn>JPEG</dfn> compression algorithm is lossy and designed specifically for photographs. JPEG files are excellent for storing photographs, but not good at other types of images.</p>
+
+<p>The JPEG algorithm has a &ldquo;quality&rdquo; parameter which can be used to trade off file size and image quality.</p>
+
+<p class="draft">example of a nice big photo, with detail at different qualities</p>
+
+<p>But a non-photo doesn't get the same results. When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, which is larger than the PNG image (which we got down to 19 and 9 kilobytes with various options). But worse, we can have a look at part of the result:</p>
 
 {{ figure('compression3', 'Screenshot saved as JPEG', extension='png', referenced=False) }}
 
@@ -140,7 +151,7 @@
 
 {{ figure('compression4', 'JPEG detail', extension='png', referenced=False) }}
 
-<p>Here we can see the real problem of JPEG compression when it's applied to non-photographs: since it's not designed for that type of image, it </p>
+<p>Here we can see the real problem of JPEG compression when it's applied to non-photographs: since it's not designed for that type of image, the details it changes to save file size are noticable and make the image look worse.</p>
 
 </section>
 
