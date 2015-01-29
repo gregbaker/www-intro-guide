@@ -6,8 +6,8 @@ output = '../figures/jpeg.svg'
 
 qualities = [90, 70, 50, 30, 10]
 n_samples = len(qualities)
-sample_h = 80
-sample_w = 300
+sample_h = 80 # double actual image size for visibility
+sample_w = 360
 sample_sep = 5
 total_h = n_samples * (sample_h + sample_sep) - sample_sep
 total_w = sample_w + 135
