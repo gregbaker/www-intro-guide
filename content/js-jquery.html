@@ -137,9 +137,20 @@ We will continue to do things this way, and you should as well.</p>
 <li>When any <code class="html">&lt;h1&gt;</code> (there's only one) have the mouse pointer move over it (a &ldquo;mouseover&rdquo; event), call the <code class="js">h1_hover</code> function.</li>
 </ul>
 
+<p>When either of those events occur, the corresponding function (<code class="js">p_click</code> or <code class="js">h1_hover</code>) is called. They select the paragraph with <code class="js">jQuery('#changeme')</code>.</p>
+
+<p>Then the <code class="js">html</code> function is used to change the contents of that paragraph. The string given to <code class="js">html</code> is used to replace the contents for the (first) element selected by the <code class="js">jQuery</code> call. After the functions run, the page will look as if we had these in the original HTML (respectively):</p>
+
+<p>We can combine these ideas any way we want. We can now:</p>
+
+<ul>
+<li>Select various parts of the page with jQuery selectors.</li>
+<li>Attach functions to events on those parts of the page.</li>
+<li>Replace the HTML contents of elements on the page.</li>
+</ul>
+
+<p>Just this gives us many ways to introduce interesting behaviour into our pages. We will see more things JavaScript and jQuery can do later.</p>
+
 </section>
-
-
-<p class="draft">above is incomplete</p>
 
 {% endblock %}
