@@ -139,11 +139,21 @@
 
 <p id="jpeg">The <dfn>JPEG</dfn> compression algorithm is lossy and designed specifically for photographs. JPEG files are excellent for storing photographs, but not good at other types of images.</p>
 
-<p>The JPEG algorithm has a &ldquo;quality&rdquo; parameter which can be used to trade off file size and image quality.</p>
+<p>The JPEG algorithm has a &ldquo;quality&rdquo; parameter (1&ndash;100) which can be used to trade off file size and image quality. In order to explore this, and the kind of lossiness JPEG has, let's look at an example photo:</p>
 
-<p class="draft">example of a nice big photo, with detail at different qualities</p>
+{{ figure('vancouver-docks', 'Photo for JPEG comparison', extension='jpg', referenced=True) }}
 
-<p>But a non-photo doesn't get the same results. When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, which is larger than the PNG image (which we got down to 19 and 9 kilobytes with various options). But worse, we can have a look at part of the result:</p>
+<p>The examples below start with the original image scaled to 1408 &times; 1056 pixels: possibly too large to fit reasonably on a web page, but it's big enough we'll be able to see the quality differences well. Here is a small detail of the image (the foot of the leftmost crane), after being saved at various JPEG qualities:</p>
+
+{{ figure('jpeg', 'Comparison of JPEG qualities by zooming in on results', extension='svg', referenced=True) }}
+
+<p>As you can see, some details in the image are lost as the quality decreases. From quality 90 to 70 to 50, there is a little decrease in sharpness (the shipping containers on the right of the detail, edges of the vertical orange beams). In the images saved at 30 and 10 there is a very noticable decrease in quality.</p>
+
+<p>But also have a look at the file size: it decreases from 510&nbsp;kilobytes to only 37. There is an obvious tradeoff here that we can make. How to best make it will depend on the image and how it is being presented.</p>
+
+<p>The best I could do with the image saving it as a (lossless) PNG file was 670&nbsp;KB: choosing the right file format will definitely save us download time.</p>
+
+<p>But a non-photo doesn't get the same results with JPEG. When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, which is larger than the PNG image (which we got down to 19 and 9 kilobytes with various options). But worse, we can have a look at part of the result:</p>
 
 {{ figure('compression3', 'Screenshot saved as JPEG', extension='png', referenced=False) }}
 

@@ -93,9 +93,9 @@ site: $(SITE_DEPS)
 $(POLISHED_SITE_DIRECTORIES): %:
 	mkdir -p $@
 
-# pngquant and optipng all PNG images
+# pngquant and optipng all PNG images (let pngquant fail if quality is bad)
 _polished_site/%.png: _site/%.png
-	pngquant --quality 90-100 - < $< > $@ \
+	pngquant --quality 90-100 - < $< > $@ || true \
 	&& optipng -q $@
 
 # scour all SVG images
@@ -125,7 +125,7 @@ validate-remote: validate $(foreach f, $(VALIDATE_DEPS), $(f)-validate-remote)
 	python _markup/w3c-validator.py $<
 
 clean:
-	rm -rf _site _polished_site
+	rm -rf _site _polished_site _figure_build/*.jpeg _figure_build/*.png
 	find . -name "*~" -exec rm {} \;
 	find . -name "*.pyc" -exec rm {} \;
 
