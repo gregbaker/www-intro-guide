@@ -122,11 +122,24 @@ We will continue to do things this way, and you should as well.</p>
 
 <p>After we select some part(s) of the page with the <code class="js">jQuery</code> function, there are lots of things we can do with  the result. So far, we have only seen one thing: connect a function to the &ldquo;click&rdquo; event.</p>
 
-<p>There is another function in jQuery objects called <code class="js">html</code> that can be used to modify the contents of the page.</p>
+<p>There is another function in jQuery objects called <code class="js">html</code> that can be used to modify the contents of the page. Let's look at another complete page example to see it work. Here is <a href="{{rellink}}/files/manipulate.html">an HTML page</a> that we can work with:</p>
+
+{{ quoted_code('files/manipulate.html') }}
+
+<p>And here is a JavaScript file <code class="file">manipulate-page.js</code> that it references with its <code class="html">&lt;script&gt;</code> element:</p>
+
+{{ quoted_code('files/manipulate-page.js') }}
+
+<p>The last line here does the same thing as before: calls the <code class="js">setup</code> function when the page is finished loading. The <code class="js">setup</code> function connects two events to two functions:</p>
+
+<ul>
+<li>When the element with <code class="html">id="changeme"</code> is clicked, call the <code class="js">p_click</code> function.</li>
+<li>When any <code class="html">&lt;h1&gt;</code> (there's only one) have the mouse pointer move over it (a &ldquo;mouseover&rdquo; event), call the <code class="js">h1_hover</code> function.</li>
+</ul>
 
 </section>
 
 
-<p class="draft">Maybe another example and introduce .html() here?</p>
+<p class="draft">above is incomplete</p>
 
 {% endblock %}
