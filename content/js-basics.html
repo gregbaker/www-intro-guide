@@ -52,18 +52,9 @@
 <p>You can have a look at <a href="{{rellink}}files/event.html">that HTML page</a> and see how it works: try clicking on the paragraph.</p>
 
 <p>Notice the <code class="html">onclick</code> attribute given to the paragraph. The value there gives JavaScript code that will execute when the user clicks the paragraph. In this case, clicking the paragraph will call the <code class="js">say_hello</code> function (with no arguments). In turn, <code class="js">say_hello</code> will call <code class="js">alert</code> and do something we can actually see.</p>
-</section>
 
-<section id="events">
-<h2>Events</h2>
+<p>We will discuss events more (using a different method) in {{ xref('js-events') }}. for now: that function is called when the element is clicked.</p>
 
-<p>In the HTML above, you will see the new property <code class="html">onclick</code>. This property is used to connect some JavaScript code to an event on the page.</p>
-
-<p id="event">An <dfn>event</dfn> in HTML is triggered by certain things that the user does, or that happen in the browser. For example, the &ldquo;click&rdquo; event occurs when the user clicks on the element. In the example above, you can click on the paragraph and it triggers execution of some JavaScript logic.</p>
-
-<p>There are several other events on elements and we will use some of then as the course goes on. For example, there are events &ldquo;mouseover&rdquo; (when the mouse cursor moves over an element, on a desktop computer), &ldquo;load&rdquo; (when the page has finished loading), &ldquo;touchstart&rdquo; (the user starts touching an element, on a mobile device), and &ldquo;change&rdquo; (the user changes the entry in a form element). We will introduce more event types as they are needed.</p>
-
-<p>The value for the event property (<code class="html">say_hello()</code> in the example) is a piece of JavaScript code. It will usually be short and used to call longer pieces of logic written elsewhere. In this example, it calls the <code class="js">say_hello</code> function defined in the JavaScript file.</p>
 </section>
 
 {% endblock %}
