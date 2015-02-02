@@ -43,7 +43,7 @@ _site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
 	python _markup/generate_index.py $@ $(SITE_PAGES)
 
 _site/%.html: %.html $(LAYOUTS) _site/content
-	python _markup/jinga.py $< $@
+	python _markup/jinja.py $< $@
 
 _site/figures/%.svg: figures/%.svg _site/figures
 	cp $< $@
@@ -73,7 +73,7 @@ _site/assets/%: assets/% _site/assets
 	cp $< $@
 
 _site/files/%.html: files/%.html _site/files
-	python _markup/jinga.py $< $@
+	python _markup/jinja.py $< $@
 _site/files/%.css: files/%.css _site/files
 	python _markup/rstrip.py $< $@
 _site/files/%.js: files/%.js _site/files

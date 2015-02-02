@@ -192,14 +192,14 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
     else:
         figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
     
-    content = process_jinga(content).rstrip()
+    content = process_jinja(content).rstrip()
 
     return block_code(content, ident=figid, codeclass=codeclass, syntaxhighlight=syntaxhighlight)
 
 def html_tag_ref_url(elt):
     return 'https://developer.mozilla.org/en/docs/Web/HTML/Element/%s' % (elt)
 
-def process_jinga(template_text, context={}):
+def process_jinja(template_text, context={}):
     """
     Return result of processing template text in our standard environment.
     """

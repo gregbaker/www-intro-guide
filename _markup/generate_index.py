@@ -2,7 +2,7 @@
 
 import sys
 import html5lib
-from jinja_environment import _read_contents, basename, process_jinga
+from jinja_environment import _read_contents, basename, process_jinja
 from cgi import escape
 
 TEMPLATE_START = """{% extends "base.html" %}
@@ -101,7 +101,7 @@ def render_index(content):
     Render the index into a page
     """
     template_text = TEMPLATE_START + content + TEMPLATE_END
-    return process_jinga(template_text, CONTEXT)
+    return process_jinja(template_text, CONTEXT)
 
 def generate_index(outfile, infiles):
     terms = collect_terms(infiles)
