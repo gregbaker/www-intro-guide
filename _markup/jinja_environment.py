@@ -9,6 +9,8 @@ from collections import OrderedDict
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.1.3.min.js',
+    'snapsvg_url': 'https://cdn.jsdelivr.net/snap.svg/0.3.0/snap.svg-min.js',
+    'raphael_url': 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
