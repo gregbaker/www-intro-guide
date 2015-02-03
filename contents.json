@@ -67,7 +67,7 @@
     "contents": [
       ["morejquery", "More jQuery"],
       ["extending", "Extending jQuery"],
-      ["snapsvg", "SnapSVG"],
+      ["raphael", "Rapha&euml;l"],
       ["svg", "Working with SVG"],
       ["animation", "Animating SVG"]
     ]

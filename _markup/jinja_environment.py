@@ -9,7 +9,6 @@ from collections import OrderedDict
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.1.3.min.js',
-    'snapsvg_url': 'https://cdn.jsdelivr.net/snap.svg/0.3.0/snap.svg-min.js',
     'raphael_url': 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',
 }
 
@@ -74,10 +73,10 @@ def contents():
         if sections:
             res.append('<ol>')
             for sec_slug, sec_title in sections:
-                res.append('<li><a href="content/%s-%s.html">%s</a></li>' % (chap_slug, sec_slug, sec_title))
+                res.append('<li><a href="content/%s-%s.html">%s</a></li>\n' % (chap_slug, sec_slug, sec_title))
             res.append('</ol>')
 
-        res.append('</li>')
+        res.append('</li>\n')
 
     res.append('<li><a href="term_index.html">Index of Terms</a></li>')
     res.append('<li><a href="references.html">References</a></li>')
