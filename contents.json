@@ -59,15 +59,14 @@
       ["selectors", "jQuery Selectors"],
       ["manipulate", "Manipulating Pages"],
       ["forms", "Working with Forms"],
-      ["iterating", "Iterating Over Elements"]      
+      ["iterating", "Iterating Over Elements"]
     ]
   },
   {
-    "chapter": ["plugins", "jQuery Plugins"],
+    "chapter": ["jssvg", "JavaScript and Graphics"],
     "contents": [
       ["morejquery", "More jQuery"],
-      ["extending", "Extending jQuery"],
-      ["raphael", "Rapha&euml;l"],
+      ["raphael", "JavaScript + SVG: Rapha&euml;l"],
       ["svg", "Working with SVG"],
       ["animation", "Animating SVG"]
     ]
