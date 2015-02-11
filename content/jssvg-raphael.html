@@ -3,4 +3,40 @@
 {% block content %}
 
 <p class="draft">Rapha&euml;l is a library that lets us play with SVG images. That sounds like fun.</p>
+
+<p>In this section, we will start using a JavaScript library that we can use to create and manipulate SVG graphics on the page.</p>
+
+<p>Recall that SVG is a vector graphics format: the image is made up of shapes not pixels. Because of this, we can use JavaScript code to create of manipulate those shapes. If we were working with bitmapped images, we would have to draw pixels: there are libraries to help with that but vector images are just easier to work with to start with.</p>
+
+<p id="raphael">The library we will be working with is called <dfn>{{raph}}</dfn>. It is a library created to make working with SVG images easy in JavaScript. As a first example of working with {{raph}}, let's recreate the &ldquo;simple image&rdquo; from the graphics topic:</p>
+
+{{ figure('vector-bitmap1', 'A simple image', extension='svg', referenced=False) }}
+
+<p>This image is 50 pixels wide and high. The circle is centred in the image (at (25, 25)) and has radius 24. (I know these things because I looked at the original SVG image in Inkscape.)</p>
+
+<p>To start with, we need a HTML page that will contain our work:</p>
+
+{{ quoted_code('files/raph1.html') }}
+
+<p>The page is similar to the others we have seen, but it include the {{raph}} library. The <code class="html">&lt;div id="container"&gt;</code> will be what holds the image we create.</p>
+
+{{ quoted_code('files/raphael1.js') }}
+
+<p>You can <a href="{{rellink}}files/raph1.html">have a look at this page</a> to see that the result is pretty close. Let's look more closely at the contents of the <code class="js">setup</code> function that is doing the work:</p>
+
+<dl>
+<dt id="paper"><code class="js">paper = Raphael('container', 50, 50);</code></dt>
+<dd>This creates a {{raph}} SVG object inside the thing with <code class="html">id="container"</code> that is 50 pixels wide, and 50 pixels high. We store it in a variable <code class="js">paper</code> because {{raph}} calls the thing you draw on a <dfn>paper</dfn>.</dd>
+<dt><code class="js">circ = paper.circle(25, 25, 24);</code></dt>
+<dd>A paper object contains a function <code class="js">circle</code> that draws a circle on it. This line creates a circle with centre at point (25, 25) and radius 24. We'll put the circle object into the variable <code class="js">circ</code> because we need to change some of its properties in the next line.</dd>
+<dt><code class="js">circ.attr(&hellip;);</code></dt>
+<dd>Every SVG shape object in {{raph}} contains the <code class="js">attr</code> method that can be used to change various attributes of the shape. In this case, we want to manipulate the circle to make it look more like our example.</dd>
+<dt><code class="js"></code></dt>
+<dd></dd>
+<dt><code class="js"></code></dt>
+<dd></dd>
+
+</dl>
+
+
 {% endblock %}
