@@ -92,8 +92,8 @@ def build_index(terms):
     for w in words:
         out = []
         for url,txt in terms[w]:
-            out.append('<a href="%s">%s</a>' % (escape(url), escape(txt)))
-        items.append('<li><span class="term">' + escape(w) + '</span>: ' + ('; '.join(out)) + '</li>')
+            out.append('<a href="%s">%s</a>' % (escape(url), txt))
+        items.append('<li><span class="term">' + w + '</span>: ' + ('; '.join(out)) + '</li>')
     return '\n'.join(items)
 
 def render_index(content):

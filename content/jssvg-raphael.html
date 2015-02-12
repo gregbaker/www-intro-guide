@@ -12,17 +12,21 @@
 
 {{ figure('vector-bitmap1', 'A simple image', extension='svg', referenced=False) }}
 
-<p>This image is 50 pixels wide and high. The circle is centred in the image (at (25, 25)) and has radius 24. (I know these things because I looked at the original SVG image in Inkscape.)</p>
+<p>This image is 50 pixels wide and high. The circle is centred in the image (at x=25 and y=25) and has radius 24. (I know these things because I looked at the original SVG image in Inkscape.)</p>
 
 <p>To start with, we need a HTML page that will contain our work:</p>
 
 {{ quoted_code('files/raph1.html') }}
 
-<p>The page is similar to the others we have seen, but it include the {{raph}} library. The <code class="html">&lt;div id="container"&gt;</code> will be what holds the image we create.</p>
+<p>The page is similar to the others we have seen, but it include the {{raph}} library. The <code class="html">&lt;div id="container"&gt;</code> will hold the image we create.</p>
 
 {{ quoted_code('files/raphael1.js') }}
 
-<p>You can <a href="{{rellink}}files/raph1.html">have a look at this page</a> to see that the result is pretty close. Let's look more closely at the contents of the <code class="js">setup</code> function that is doing the work:</p>
+<p>You can <a href="{{rellink}}files/raph1.html">have a look at this page</a> to see that the result is pretty close. Here's a screenshot of what it looks like in one browser:</p>
+
+{{ figure('raph1', 'Screenshot of our first '+raph+' page', extension='png', referenced=False) }}
+
+<p>Let's look more closely at the contents of the <code class="js">setup</code> function that is doing the work:</p>
 
 <dl>
 <dt id="paper"><code class="js">paper = Raphael('container', 50, 50);</code></dt>

@@ -4,7 +4,7 @@ setup = function() {
   circ.attr({
     'fill': '#f00',
     'stroke': '#000',
-    'stroke-width': 2
+    'stroke-width': '2'
   });
 }
 jQuery(document).ready(setup);
