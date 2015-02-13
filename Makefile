@@ -15,7 +15,7 @@ FIGURES = \
     $(patsubst %.svg, %.png, $(SVG_FIGURES)) \
     $(BITMAP_FIGURES)
 
-DIRECTORIES = assets content figures files floats
+DIRECTORIES = assets assign content figures files floats
 GENERATED_PAGES = term_index.html
 STYLES = style.css
 ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*))
@@ -42,7 +42,7 @@ build: site
 _site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
 	python _markup/generate_index.py $@ $(SITE_PAGES)
 
-_site/%.html: %.html $(LAYOUTS) _site/content
+_site/%.html: %.html $(LAYOUTS) _site/assign _site/content
 	python _markup/jinja.py $< $@
 
 _site/figures/%.svg: figures/%.svg _site/figures

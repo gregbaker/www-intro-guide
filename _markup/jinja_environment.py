@@ -63,6 +63,8 @@ def contents():
     """
     Output the Table of Contents from the contents.json data.
     """
+    from wordcount import wordcount
+    total_wc = 0
     data = json.load(open('contents.json'))
     res = ['<ol id="toc">']
     for chapter in data:
@@ -74,7 +76,10 @@ def contents():
         if sections:
             res.append('<ol>')
             for sec_slug, sec_title in sections:
-                res.append('<li><a href="content/%s-%s.html">%s</a></li>\n' % (chap_slug, sec_slug, sec_title))
+                slug = '%s-%s' % (chap_slug, sec_slug)
+                wc = wordcount('content/%s.html' % (slug))
+                total_wc += wc
+                res.append('<li><a href="content/%s.html">%s</a> <span class="wc">(%i; %i)</span></li>\n' % (slug, sec_title, wc, total_wc))
             res.append('</ol>')
 
         res.append('</li>\n')

@@ -212,6 +212,9 @@ ol#toc ol, ol.chapter-toc {
   font-weight: normal;
   list-style-type: lower-roman;
 }
+span.wc {
+  display: none;
+}
 ol.outline {
   list-style-type: decimal;
 }
