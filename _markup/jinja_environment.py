@@ -8,6 +8,8 @@ from collections import OrderedDict
 
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
+    'cssref_url': 'http://reference.sitepoint.com/css',
+    'csspropref_url': 'http://reference.sitepoint.com/css/propertyref', # see also css_prop_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.1.3.min.js',
     'raphael_url': 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js',
     'raph': 'Rapha&euml;l',
@@ -206,6 +208,13 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
 def html_tag_ref_url(elt):
     return 'https://developer.mozilla.org/en/docs/Web/HTML/Element/%s' % (elt)
 
+def css_prop_ref_url(prop):
+    return 'http://reference.sitepoint.com/css/%s' % (prop)
+
+def css_dt(prop):
+    # avoid repetition on css-properties.html
+    return '<dt id="%s"><a href="%s"><code class="css">%s</code></a></dt>' % (prop, css_prop_ref_url(prop), prop)
+
 def process_jinja(template_text, context={}):
     """
     Return result of processing template text in our standard environment.
@@ -229,4 +238,6 @@ environment.globals['include_escaped'] = include_escaped
 environment.globals['quoted_code'] = quoted_code
 environment.globals['block_code'] = block_code
 environment.globals['html_tag_ref_url'] = html_tag_ref_url
+environment.globals['css_prop_ref_url'] = css_prop_ref_url
+environment.globals['css_dt'] = css_dt
 environment.globals.update(GLOBALS)

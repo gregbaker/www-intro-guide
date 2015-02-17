@@ -4,4 +4,48 @@
 
 <p class="draft">Properties we can use in CSS. Introduction to the CSS reference.  A few examples.</p>
 
+<p>There are many CSS properties that you can use: too many to introduce them all right away (or even to remember them all and how they work), but we should see a few more so we can actually <em>do</em> something useful with CSS.</p>
+
+<section id="css-ref">
+<h2>CSS Reference</h2>
+
+<p>Like we did with HTML elements and the <a href="{{ htmlref_url }}">HTML Reference</a>, we will have a <a href="{{ cssref_url }}"><dfn id="cssref">CSS Reference</dfn></a> for all of the parts of CSS. You should keep the references in mind, but we can introduce a few key properties now.</p>
+
+<p>We have seen <code class="css">text-align</code>: have a look at <a href="{{ css_prop_ref_url('text-align') }}"><code class="css">text-align</code> in the CSS reference</a>. Like the HTML reference, you will see a basic description of the property and the values it can be given.</p>
+
+<p>You will also notice on the reference page for each CSS property a section on &ldquo;browser support&rdquo;. This wasn't much of an issue with plan HTML, but with CSS we have to be a little aware of what properties are supported by common web browsers. New features have been added with new CSS versions, and not all are prefectly supported by every browser.</p>
+
+<p>In this course, we will discuss only ones that are well supported, but if you are scanning the reference for others, have a quick look at that the compatibility table to make sure it will work as adveritised.</p>
+
+</section>
+
+<section id="useful">
+<h2>Useful CSS Properties</h2>
+
+<p>Again, we certainly won't be covering every interesting CSS property here, but can introduce a few (with links to the CSS reference for each).</p>
+
+<dl>
+{{ css_dt('color') }}
+<dd>Used to set the colour (usually of the text) for the element. For example, &ldquo;<code class="css">color: green;</code>&rdquo;. We will discuss colour values more in {{ xref('css-colour') }}.</dd>
+{{ css_dt('background-color') }}
+<dd>Used to set the background colour (behind the text) for the element. For example, &ldquo;<code class="css">background-color: black;</code>&rdquo;.</dd>
+</dl>
+
+
+</section>
+
+<section id="example">
+<h2>Example</h2>
+
+<p>Here is an example page that we can style with the properties above:</p>
+
+<p>&hellip; and a CSS to go with it:</p>
+
+<p class="draft">do that</p>
+
+</section>
+
+
+
+
 {% endblock %}
