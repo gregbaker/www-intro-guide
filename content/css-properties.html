@@ -43,22 +43,12 @@
 </dd>
 {{ css_dt('line-height') }}
 <dd>Controls the amount of vertical space each line of text takes up (which you might know as &ldquo;<a href="http://en.wikipedia.org/wiki/Leading">leading</a>&rdquo;). For example, &ldquo;<code class="css">line-height: 1.5em;</code>&rdquo;.</dd>
+{{ css_dt('font-family') }}
+<dd>Sets the font for the text. You should give a list of fonts that are tried in-order until the browser finds one available on the user's system. There are five generic font families and your list <strong>must</strong> end with one of them since it's guaranteed to work. For example, &ldquo;<code class="css">font-family: "Garamond", "Times", serif;</code>&rdquo;.</dd>
 </dl>
 
 
 </section>
-
-<section id="example">
-<h2>Example</h2>
-
-<p>Here is an example page that we can style with the properties above:</p>
-
-<p>&hellip; and a CSS to go with it:</p>
-
-<p class="draft">do that</p>
-
-</section>
-
 
 
 <section id="boxmodel">
@@ -91,17 +81,15 @@
 <section id="units">
 <h2>CSS Units</h2>
 
-<p>You probably noticed the measurement <code class="css">1em</code> above. The <code class="css">em</code> is a unit of (length) measurement in CSS. There are several units that need a little explanation:</p>
+<p>You probably noticed the measurement <code class="css">1em</code> above. The <code class="css">em</code> is a unit of (length) measurement in CSS. Here are some common units that need a little explanation:</p>
 
 <dl>
 <dt><code class="css">em</code></dt>
-<dd>The current font size: if the current text is 12&nbsp;point then this will be 12 points.</dd>
-<dt><code class="css">ex</code></dt>
-<dd>Half the current font size: if the current text is 12&nbsp;point then this will be 6 points.</dd>
+<dd>The current font size: if the current text is 12&nbsp;point then this will be 12 points. Another unit, an <code class="css">ex</code> is half the text size.</dd>
 <dt><code class="css">px</code></dt>
 <dd>One screen pixel (dot) on the display. (Note: for some very high resolution devices, real &ldquo;pixels&rdquo; are very small, so this length is adjusted to be close to the size of a pixel on a traditional display.)</dd>
 <dt><code class="css">mm</code></dt>
-<dd>A millimetre. There are also units for centimetre, inch, etc. (Note: this is the browsers best guess, but might be innacurate depending on the scaling of the display/projector/phone/etc.)</dd>
+<dd>A millimetre. There are also units for centimetre, inch, etc. (Note: this is the browsers best guess, but might be innacurate depending on the scaling of the display/projector/phone/etc. For example if you display your screen on a projector, the &ldquo;millimetre&rdquo; suddenly becomes much larger.)</dd>
 </dl>
 
 <p>As much as possible, I suggest you specify measurements using <code class="css">em</code>s and <code class="css">ex</code>s. These are the only units that don't require some kind of note describing when they are a lie. If you think in <code class="css">em</code>s, you will be thinking properly about the way a page might scale depending on the current screen/font/whatever size.</p>
@@ -112,5 +100,32 @@
 
 
 </section>
+
+
+<section id="example">
+<h2>Example</h2>
+
+<p>Here is an example page that we can style with some of the properties above:</p>
+
+{{ quoted_code('files/css-prop-page.html') }}
+
+<p>&hellip; and a CSS to go with it:</p>
+
+{{ quoted_code('files/css-prop.css') }}
+
+
+<p>You can look at <a href="{{rellink}}files/css-prop-page.html">that page with the stylesheet</a> yourself, or in my browser it looks like this:</p>
+
+{{ figure('css-prop-result', 'Screenshot of the example page', referenced=False) }}
+
+<p>When creating a stylesheet for a page, remember that you're always adding to the browser's default style. In this example, setting <code class="css">font-weight: bold;</code> for the heading probably doesn't have any effect since the default is bold, but it doesn't hurt either.</p>
+
+<aside>There are various <a href="https://www.google.ca/search?q=reset+css"><dfn>reset stylesheets</dfn></a> that will remove browser defaults and give you a very boring (but predictable) starting point for your page.</aside>
+
+<p></p>
+</section>
+
+
+
 
 {% endblock %}
