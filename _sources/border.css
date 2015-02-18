@@ -1,0 +1,8 @@
+figure {
+  border-style: solid;
+  border-width: 3px;
+  border-color: red;
+}
+figure {
+  border: solid red 3px;
+}

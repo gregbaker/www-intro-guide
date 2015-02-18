@@ -9,7 +9,7 @@
 <section id="css-ref">
 <h2>CSS Reference</h2>
 
-<p>Like we did with HTML elements and the <a href="{{ htmlref_url }}">HTML Reference</a>, we will have a <a href="{{ cssref_url }}"><dfn id="cssref">CSS Reference</dfn></a> for all of the parts of CSS. You should keep the references in mind, but we can introduce a few key properties now.</p>
+<p>Like we did with HTML elements and the <a href="{{ htmlref_url }}">HTML Reference</a>, we will use a <a href="{{ cssref_url }}"><dfn id="cssref">CSS Reference</dfn></a> for all of the parts of CSS. You should keep the references in mind, but we can introduce a few key properties now.</p>
 
 <p>We have seen <code class="css">text-align</code>: have a look at <a href="{{ css_prop_ref_url('text-align') }}"><code class="css">text-align</code> in the CSS reference</a>. Like the HTML reference, you will see a basic description of the property and the values it can be given.</p>
 
@@ -25,10 +25,24 @@
 <p>Again, we certainly won't be covering every interesting CSS property here, but can introduce a few (with links to the CSS reference for each).</p>
 
 <dl>
+{{ css_dt('text-align') }}
+<dd>As we can seen, <code class="css">text-align</code> can be used to change the text justification. Possible values are <code class="css">left</code>, <code class="css">right</code>, <code class="css">center</code>, and <code class="css">justify</code> (for full justification with to ragged left or right margin).</dd>
+{{ css_dt('font-style') }}
+<dd>Used to control italic text: possible values include <code class="css">italic</code> and <code class="css">normal</code> (for non-italics).</dd>
+{{ css_dt('font-weight') }}
+<dd>Used to control bold text: possible values include <code class="css">bold</code> and <code class="css">normal</code> (for non-bold).</dd>
 {{ css_dt('color') }}
 <dd>Used to set the colour (usually of the text) for the element. For example, &ldquo;<code class="css">color: green;</code>&rdquo;. We will discuss colour values more in {{ xref('css-colour') }}.</dd>
 {{ css_dt('background-color') }}
 <dd>Used to set the background colour (behind the text) for the element. For example, &ldquo;<code class="css">background-color: black;</code>&rdquo;.</dd>
+{{ css_dt('border-width') }}
+{{ css_dt('border-style') }}
+{{ css_dt('border-color') }}
+<dd>These are used to control the border around an element (width of the line, type of line, and colour of line, respectively). You can either use these properties separately or use a <dfn>shorthand property</dfn> <code class="css">border</code> to combine these into one line (giving the three values in any order). These two things are equivalent:
+{{ quoted_code('_sources/border.css') }}
+</dd>
+{{ css_dt('line-height') }}
+<dd>Controls the amount of vertical space each line of text takes up (which you might know as &ldquo;<a href="http://en.wikipedia.org/wiki/Leading">leading</a>&rdquo;). For example, &ldquo;<code class="css">line-height: 1.5em;</code>&rdquo;.</dd>
 </dl>
 
 
@@ -47,5 +61,56 @@
 
 
 
+<section id="boxmodel">
+<h2>CSS Box Model</h2>
+
+<p id="box">There are several properties in CSS that are often grouped together as <dfn>box properties</dfn> which control the way browsers lay out the page using the CSS <dfn>box model</dfn>.</p>
+
+<p>These properties might not be immediately intuitive, but aren't too difficult. Suppose we have an element on the page (like a <code class="html">&lt;h2&gt;Element Contents&lt;/h2&gt;</code>). Here are the parts of its &ldquo;box&rdquo; when drawn:</p>
+
+{{ figure('boxmodel', 'CSS box model illustration', extension='svg', referenced=False) }}
+
+<p>So, this CSS code:</p>
+
+{{ quoted_code('_sources/box1.css') }}
+
+<p>&hellip; will make the <code class="html">&lt;h2&gt;</code> have a grey background, with <code class="css">1em</code> of space between the text and the border. The space inside the border (even if it's invidible because you don't have one) is covered with the background colour and is controlled by the <code class="css">padding</code> properties.</p>
+
+<!--
+<aside id="outline">In addition to borders, elements can also have an <dfn>outline</dfn> which is the same, but takes up no space on the page: they can overlap other elements.</aside>
+-->
+
+<p>If we want more space separating this element (and its border) from the stuff around it, we would have to increase the margin.</p>
+
+<p>It's easy to mistake margin and padding, especially when there is no border or background colour. If you are trying to change the space around an element (especially when the browser's default CSS has some space there), try setting <em>both</em> margin and padding to zero and work from there.</p>
+
+{{ quoted_code('_sources/box2.css') }}
+
+</section>
+
+<section id="units">
+<h2>CSS Units</h2>
+
+<p>You probably noticed the measurement <code class="css">1em</code> above. The <code class="css">em</code> is a unit of (length) measurement in CSS. There are several units that need a little explanation:</p>
+
+<dl>
+<dt><code class="css">em</code></dt>
+<dd>The current font size: if the current text is 12&nbsp;point then this will be 12 points.</dd>
+<dt><code class="css">ex</code></dt>
+<dd>Half the current font size: if the current text is 12&nbsp;point then this will be 6 points.</dd>
+<dt><code class="css">px</code></dt>
+<dd>One screen pixel (dot) on the display. (Note: for some very high resolution devices, real &ldquo;pixels&rdquo; are very small, so this length is adjusted to be close to the size of a pixel on a traditional display.)</dd>
+<dt><code class="css">mm</code></dt>
+<dd>A millimetre. There are also units for centimetre, inch, etc. (Note: this is the browsers best guess, but might be innacurate depending on the scaling of the display/projector/phone/etc.)</dd>
+</dl>
+
+<p>As much as possible, I suggest you specify measurements using <code class="css">em</code>s and <code class="css">ex</code>s. These are the only units that don't require some kind of note describing when they are a lie. If you think in <code class="css">em</code>s, you will be thinking properly about the way a page might scale depending on the current screen/font/whatever size.</p>
+
+<p>The one exception is when dealing with bitmapped images: they are inherently sized in pixels, so that probably makes the most sense.</p>
+
+{{ quoted_code('_sources/units.css') }}
+
+
+</section>
 
 {% endblock %}

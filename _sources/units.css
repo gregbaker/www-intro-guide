@@ -1,0 +1,13 @@
+p {
+  line-height: 1.5em;
+}
+blockquote {
+  margin-left: 2em;
+  border-left: 0.25em solid black; 
+}
+img#ourlogo {
+  width: 120px;
+  height: 160px;
+  float: left;
+  margin-left: 1em;
+}
