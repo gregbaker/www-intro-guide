@@ -48,6 +48,7 @@
     "contents": [
       ["img", "Using Images on Web Pages"],
       ["formats", "Image Formats"],
+      ["bitmap", "Bitmap Image Formats"],
       ["design", "Designing with Images"]
     ]
   },

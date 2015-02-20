@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="draft">When to choose SVG, PNG, GIF, JPEG. Needs summary</p>
+
+<section id="bitmaps">
+<h2>Bitmap Images</h2>
+
+<p>Let's return to the screenshot of the sample web page from {{ xref('html-attributes') }}:</p>
+{{ figure('complete-page', 'Sample web page screenshot', extension='png', referenced=False) }}
+
+<p>Since the image is a screenshot and computer displays inherently display bitmaps, this should be saved as a bitmap (not vector) image. Let's take a closer look at the first few characters in the first paragraph:</p>
+
+{{ figure('compression1', 'Detail of screenshot', extension='png', referenced=False) }}
+
+<p>As we expect, the image is made up of a grid of pixels. We can add a grid to make the individual pixels more clear:</p>
+
+{{ figure('compression2', 'Detail with a pixel grid', extension='png', referenced=False) }}
+
+<p>When the computer stores this bitmap data on disk (or transmits it over the Internet), is basically has to store the colour of each pixel. Essentially, that information is &ldquo;Row 1: white pixel, white pixel, white pixel, &hellip; Row 2: dark grey pixel, black pixel, black pixel, dark grey pixel, &hellip;&rdquo;. Of course, the way the computer represents that information isn't english descriptions like that, but the basic idea is the same.</p>
+
+<p id="bmp">The <dfn>BMP</dfn> (<dfn>Windows Bitmap</dfn>) format simply records the colour of each pixel with no compression (typically). If we save the original screenshot in that format the result is a 526&nbsp;kilobyte file. That is a lot of a relatively small image. The BMP format isn't used on the web because it produces such large files.</p>
+
+<p id="png">We can instead save an image as a <dfn>PNG</dfn> (<dfn>Portable Network Graphics</dfn>) which is common on the web. PNG uses <a href="https://en.wikipedia.org/wiki/Data_compression">data compression</a> to represent images in smaller files with no loss in quality. Saving the screenshot as a PNG, I got a 36&nbsp;kilobyte file: much smaller than without any compression, but we can do better if we actually understand a little more about images.</p>
+
+</section>
+
+<section id="depth">
+<h2>Colour Depth</h2>
+
+<p>One factor that has a large impact on the size of a bitmap image file is the amount of information that much be stored <em>for each pixel</em>. This is determined by how many choices there are for the colour of each pixel.</p>
+
+<p>In the figures above, we can see that there are relatively few colours actually used: white, black, and a few greys (and a few shades of blue for the link, which isn't in the enlargement).</p>
+
+<p id="24bit">The default for most image editing programs is images with a full range of colour for each pixel. This is called <dfn>24-bit colour</dfn> or <dfn>true colour</dfn>. The reason for the name &ldquo;24-bit colour&rdquo; is that each pixel can be any of 2<sup>24</sup> possible colours. This is enough to represent images like photographs that have many shades of colours used in their pixels. The drawback is that there is a lot of information for each pixel and file sizes tend to be large.</p>
+
+<aside>If you look back at {{xref('css-colour', fragment='other')}}, there are 2<sup>24</sup> choices for the 6-character colours: it's the same set of colours in either case.</aside>
+
+<p>Using 24-bit colour for an image like the screenshot above isn't necessary, since there are only a few colours there. However, the 36&nbsp;kilobyte PNG file mentioned above was saved with 24-bit colour because it was the default.</p>
+
+<p id="palette">It is also possible to choose fewer colours for an image file: the file contains a <dfn>palette</dfn> of colours that it will use, and then for each pixel, the image must indicate which of the palette colours is to be used.</p>
+
+<p id="8bit">The largest palette usually used in images contains 2<sup>8</sup> = 256 colours and is called <dfn>8-bit colour</dfn>. In this case, each pixel takes about 1/3 of the storage space of a true colour image (8 bits instead of 24).</p>
+
+<p>When the screenshot above was saved as a 24-bit PNG image, it was a 36 kilobyte file. When converted to 8-bit colour and saved, it was 19 kilobytes. That's more than a third of the original size (probably because of the overhead of storing the palette information and some other overhead), but a significant savings.</p>
+
+<p>Palettes can other numbers of colours, usually powers of two so &ldquo;<var>n</var>-bit colour&rdquo; uses up to 2<sup><var>n</var></sup> colours. For example, reducing the screenshot to 2<sup>3</sup> = 8 colours, the file size decreased to 9 kilobytes with no noticable reduction in quality. (My image editor chose shades of grey and blue to represent the antializing in the image: if I look really closely maybe I can see tiny differences in the darkness around the edges of the characters, but nothing that I would worry about.)</p>
+
+<p>Here are some details of the screenshot after being saved with 256 and 8 colours:</p>
+
+{{ figure('depth', 'Detail of screenshot saved with 8- and 3-bit colour', extension='png', referenced=False) }}
+
+<p>Obviously the choice of colour depth has a lot to do with the content of the image: the screenshot has very few unique colours so choosing a small palette makes the file smaller without losing quality.</p>
+
+<p>If the original had lots of colours, then selecting only a few for the whole image might decrease its quality significantly. For example, our photograph from above looks like this when saved with 256 and 8 colours:</p>
+
+{{ figure('phone-pic-8', 'Photograph forced into 256 colours', extension='png', referenced=False) }}
+{{ figure('phone-pic-3', 'Photograph forced into 8 colours', extension='png', referenced=False) }}
+
+<p>Neither of these is particularly good: reducing colour depth is not a good option for this image. (The 256 colour version isn't too bad, but it is actually a larger file than the original for reasons we will see in the next section.)</p>
+
+</section>
+
+
+<section id="compression">
+<h2>Image Compression</h2>
+
+<p>The bitmap image formats used on the web all use some kind of <dfn id="compr">compression</dfn> (or <a href="http://en.wikipedia.org/wiki/Data_compression"><dfn id="datacomp">data compression</dfn></a>) to make the file smaller. As we noted above, and uncompressed BMP of the screenshot was about 15 times larger than even the largest PNG we created. Compressing image data is very effective, and necessary to make the images download quickly.</p>
+
+<p>There are several ways to compress images (or other data). The details of the algorithms are complicated and not something we'll cover here.</p>
+
+<p id="lossless">Many image formats use <dfn>lossless</dfn> compression, which means that the data before compression is <em>exactly</em> the same as the result after compressing and uncompressing.</p>
+
+<p>That seems like a good idea: we don't want our images to change just because we saved them in some format (and we certainly don't want a Word document to change if we put it in a ZIP file). PNG uses lossless compression: if you save a file as a PNG and re-open it, you will get exactly the same image back (unless you change the colour depth as part of saving the image, of course).</p>
+
+<p id="lossy">It is also possible to store images using <dfn>lossy</dfn> compression, where the image we get back might be <em>slightly</em> different than the original. This can get us a much smaller file, and as long as the differences are subtle, we probably won't mind.</p>
+
+<p id="jpeg">The <dfn>JPEG</dfn> compression algorithm is lossy and designed specifically for photographs. JPEG files are excellent for storing photographs, but not good at other types of images.</p>
+
+<p>The JPEG algorithm has a &ldquo;quality&rdquo; parameter (1&ndash;100) which can be used to trade off file size and image quality. In order to explore this, and the kind of lossiness JPEG has, let's look at an example photo:</p>
+
+{{ figure('vancouver-docks', 'Photo for JPEG comparison', extension='jpg', referenced=True) }}
+
+<p>The examples below start with the original image scaled to 1408 &times; 1056 pixels: possibly too large to fit reasonably on a web page, but it's big enough we'll be able to see the quality differences well. Here is a small detail of the image (the foot of the leftmost crane), after being saved at various JPEG qualities:</p>
+
+{{ figure('jpeg', 'Comparison of JPEG qualities by zooming in on results', extension='svg', referenced=True) }}
+
+<p>As you can see, some details in the image are lost as the quality decreases. From quality 90 to 70 to 50, there is a little decrease in sharpness (the shipping containers on the right of the detail, edges of the vertical orange beams). In the images saved at 30 and 10 there is a very noticable decrease in quality.</p>
+
+<p>But also have a look at the file size: it decreases from 510&nbsp;kilobytes to only 37. There is an obvious tradeoff here that we can make. How to best make it will depend on the image and how it is being presented.</p>
+
+<p>The best I could do with the image saving it as a (lossless) PNG file was 670&nbsp;KB: choosing the right file format will definitely save us download time.</p>
+
+<p>But a non-photo doesn't get the same results with JPEG. When I saved the screenshot as a JPEG image, the file size was 27&nbsp;kilobytes, which is larger than the PNG image (which we got down to 19 and 9 kilobytes with various options). But worse, we can have a look at part of the result:</p>
+
+{{ figure('compression3', 'Screenshot saved as JPEG', extension='png', referenced=False) }}
+
+<p>That doensn't look too bad, but let's take a closer look at the same part of the image as above:</p>
+
+{{ figure('compression4', 'JPEG detail', extension='png', referenced=False) }}
+
+<p>Here we can see the real problem of JPEG compression when it's applied to non-photographs: since it's not designed for that type of image, the details it changes to save file size are noticable and make the image look worse.</p>
+
+</section>
+
+
+
+
+<section id="summary">
+<h2>Summary</h2>
+
+<p>After all of that, there are still only really three image format that make sense for web pages (because they are supported by browsers):</p>
+
+<dl>
+<dt>SVG</dt>
+<dd>The vector graphics format that can be used on the web. If you have an image that can be represented as a vector image, this is probably the best choice.</dd>
+<dt>JPEG</dt>
+<dd>A bitmap image format with lossy compression designed for photographs. Does a great job with photos and a bad job with everything else. Choose a &ldquo;quality&rdquo; that balances loss of detail with file size.</dd>
+<dt>PNG</dt>
+<dd>A bitmap format with lossless compression. Probably the best choice for everything except photographs. Choose a good colour depth for the smallest possible file.</dd>
+</dl>
+
+<p>You will also see GIF images on the web, but the compression in PNG images is better so you probably wouldn't choose GIF. THe GIF format does support simple animations (which the other formats don't) but there are also many video formats: those are a better choice for this usage.</p>
+
+</section>
+
+
+
+
+
+{% endblock %}

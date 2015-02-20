@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<p class="draft">Properties we can use in CSS. Introduction to the CSS reference.  A few examples.</p>
-
 <p>There are many CSS properties that you can use: too many to introduce them all right away (or even to remember them all and how they work), but we should see a few more so we can actually <em>do</em> something useful with CSS.</p>
 
 <section id="css-ref">
@@ -118,11 +116,13 @@
 
 {{ figure('css-prop-result', 'Screenshot of the example page', referenced=False) }}
 
-<p>When creating a stylesheet for a page, remember that you're always adding to the browser's default style. In this example, setting <code class="css">font-weight: bold;</code> for the heading probably doesn't have any effect since the default is bold, but it doesn't hurt either.</p>
+<p>When creating a stylesheet for a page, remember that you're always adding to the browser's default style. In this example, setting <code class="css">font-weight: bold;</code> for the <code class="html">&lt;h1&gt;</code> probably doesn't have any effect since the default is bold, but it doesn't hurt either. In this example, we removed the bold font from the <code class="html">&lt;h2&gt;</code>.</p>
 
-<aside>There are various <a href="https://www.google.ca/search?q=reset+css"><dfn>reset stylesheets</dfn></a> that will remove browser defaults and give you a very boring (but predictable) starting point for your page.</aside>
+<aside>There are various <a href="https://www.google.ca/search?q=reset+css"><dfn id="reset">reset stylesheets</dfn></a> that will remove browser defaults and give you a very boring (but predictable) starting point for your page.</aside>
 
-<p></p>
+<p>The width of the border was specified as <code class="css">medium</code> but coud also have been a length like <code class="css">0.1em</code>.</p>
+
+<p>Try experimenting with CSS on this page (or one you have created). There is no substitute for trying out some stuff and seeing how it affects the page.</p>
 </section>
 
 
