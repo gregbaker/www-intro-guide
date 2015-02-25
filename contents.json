@@ -57,7 +57,7 @@
     "chapter": ["js2", "Working with JavaScript and jQuery"],
     "contents": [
       ["conditional", "Making Decisions"],
-      ["objects", "Objects (and arrays?)"],
+      ["objects", "Objects and Arrays"],
       ["selectors", "jQuery Selectors"],
       ["manipulate", "Manipulating Pages"],
       ["forms", "Working with Forms"],

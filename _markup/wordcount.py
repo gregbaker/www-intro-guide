@@ -2,7 +2,7 @@ import sys
 import html5lib
 from jinja_environment import _read_contents, basename, process_jinja
 
-COUNTED_ELEMENTS = set(['h1', 'h2', 'h3', 'p', 'dt', 'dd', 'th', 'td'])
+COUNTED_ELEMENTS = set(['h1', 'h2', 'h3', 'p', 'dt', 'dd', 'th', 'td', 'code'])
 EXCLUDED_ELEMENTS = set(['blockquote'])
 
 def count_words(elt, in_counted=False):

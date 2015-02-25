@@ -4,6 +4,9 @@
 
 <p class="draft">Rapha&euml;l is a library that lets us play with SVG images. That sounds like fun.</p>
 
+<section id="starting">
+<h2>Starting with {{raph}}</h2>
+
 <p>In this section, we will start using a JavaScript library that we can use to create and manipulate SVG graphics on the page.</p>
 
 <p>Recall that SVG is a vector graphics format: the image is made up of shapes not pixels. Because of this, we can use JavaScript code to create of manipulate those shapes. If we were working with bitmapped images, we would have to draw pixels: there are libraries to help with that but vector images are just easier to work with to start with.</p>
@@ -34,13 +37,27 @@
 <dt><code class="js">circ = paper.circle(25, 25, 24);</code></dt>
 <dd>A paper object contains a function <code class="js">circle</code> that draws a circle on it. This line creates a circle with centre at point (25, 25) and radius 24. We'll put the circle object into the variable <code class="js">circ</code> because we need to change some of its properties in the next line.</dd>
 <dt><code class="js">circ.attr(&hellip;);</code></dt>
-<dd>Every SVG shape object in {{raph}} contains the <code class="js">attr</code> method that can be used to change various attributes of the shape. In this case, we want to manipulate the circle to make it look more like our example.</dd>
-<dt><code class="js"></code></dt>
-<dd></dd>
-<dt><code class="js"></code></dt>
-<dd></dd>
-
+<dd>Every SVG shape object in {{raph}} contains the <code class="js">attr</code> method that can be used to change various attributes of the shape. The argument that you give to <code class="js">attr</code> is an object with the properties you want to shape to have. In this case, we want to manipulate the circle to make it look more like our example.</dd>
+<dt><code class="js">{ 'fill': '#f00', &hellip; }</code></dt>
+<dd>This JavaScript object describes the appearance of the shape, almost as if they were CSS rules for the shape. The first one  (<code class="js">'fill'</code>) sets the colour <em>inside</em> the shape to red. The others in this example set the outline colour and thickness.</dd>
 </dl>
+
+<p>There are many attributes that can be set on SVG elements to control the way they look. We will cover them as you need them: there are SVG reference materials out there, but you won't need them for this course.</p>
+
+</section>
+
+<section id="example">
+<h2>Another Example</h2>
+
+{{ quoted_code('files/raphael2.js') }}
+
+{{ figure('raph2', 'SVG image created in this example', extension='svg', referenced=False) }}
+
+
+
+</section>
+
+
 
 
 {% endblock %}
