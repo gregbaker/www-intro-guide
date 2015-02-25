@@ -39,6 +39,7 @@
       ["basics", "JavaScript Basics"],
       ["varfunc", "Variables and Functions"],
       ["jquery", "The jQuery Library"],
+      ["jquerymore", "Working with jQuery"],
       ["events", "Events and Behaviour"],
       ["errors", "Why doesn't my code work?"]
     ]
