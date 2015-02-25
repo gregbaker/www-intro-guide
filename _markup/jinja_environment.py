@@ -5,6 +5,7 @@ import json
 import os.path
 import codecs, sys
 from collections import OrderedDict
+from img_process import img_width_height
 
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
@@ -29,7 +30,7 @@ def get_context(infile):
 
     return {'rellink': rellink, 'indexlink': indexlink, 'input_file': infile}
 
-figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="../{{ directory }}/{{ filebase }}.{{ extension }}" alt="{{ caption }}"><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
+figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="{{rellink}}{{ imgpath }}" alt="{{ caption }}" {{widthheight}} /><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
 
 @contextfunction
 def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
@@ -40,13 +41,16 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
         reference_link = '&nbsp;<a href="%sreferences.html">*</a>' % (context['rellink'])
     else:
         reference_link = ''
+    
+    imgpath = '%s/%s.%s' % (directory, filebase, extension)
+    wh = img_width_height(imgpath)
+        
     context = {
-        'directory': directory,
-        'filebase': filebase,
+        'rellink': context['rellink'],
+        'widthheight': wh,
+        'imgpath': imgpath,
         'caption': caption,
         'figureclass': figureclass,
-        #'extension': 'png' if extension=='svg' else extension,
-        'extension': extension,
         'reference_link': reference_link,
     }
     return figure_template.render(context)
