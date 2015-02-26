@@ -49,6 +49,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
         'rellink': context['rellink'],
         'widthheight': wh,
         'imgpath': imgpath,
+        'filebase': filebase,
         'caption': caption,
         'figureclass': figureclass,
         'reference_link': reference_link,
@@ -123,6 +124,11 @@ def pagetitle(context):
     infile = context['input_file']
     fn = os.path.split(infile)[-1]
     basename = os.path.splitext(fn)[0]
+    
+    if basename.startswith('exer'):
+        return 'Exercise ' + basename[4:]
+    elif basename.startswith('assign'):
+        return 'Assignment ' + basename[6:]
     
     data = json.load(open('contents.json'))
     for chapter in data:
