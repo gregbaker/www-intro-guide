@@ -10,7 +10,7 @@
 <p>In order to make an HTML page actually <em>use</em> this style information, we need to add a tag that indicates what style sheet should be applied to the page. This is done in the <code class="html">&lt;head&gt;</code> (since it is information <em>about</em> the page, not part of the main content) and with the <code class="html">&lt;link&gt;</code> element like this:</p>
 {{ quoted_code('_sources/link-css.html') }}
 
-<p>The <code class="html">&lt;link&gt;</code> tag indicates a related document. The <code class="html">rel</code> attribute indicates what kind of relation we're indicating, in this case that it's our style sheet. The <code class="html">href</code> attribute give the location of the style sheet, just like <code class="html">href</code> does for the <code class="html">&lt;a&gt;</code> tag.</p>
+<p id="link">The <code class="html dfn">&lt;link&gt;</code> tag indicates a related document. The <code class="html">rel</code> attribute indicates what kind of relation we're indicating, in this case that it's our style sheet. The <code class="html">href</code> attribute give the location of the style sheet, just like <code class="html">href</code> does for the <code class="html">&lt;a&gt;</code> tag.</p>
 
 <p>To see how this stylesheet actually affects a page, you can see <a href="{{rellink}}files/firststyle.css">the stylesheet as above</a> applied to <a href="{{rellink}}files/withstyle.html">a simple HTML page</a>. Here is a screenshot of that page in one web browser before applying the stylesheet, and after:</p>
 

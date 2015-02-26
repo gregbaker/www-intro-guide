@@ -46,12 +46,12 @@
 
 <dt><code class="js">jQuery('p').click(say_hello);</code></dt>
 <dd><p>The <code class="js">jQuery</code> function is used to select some part(s) of the page. The function call <code class="js">jQuery('p')</code> selects <em>every <code class="html">&lt;p&gt;</code> element on the page</em>.</p>
-<p>Following with <code class="js">.click(&hellip;)</code> sets the behaviour we want when those elements are clicked: in this case, we give it the <code class="js">say_hello</code> function. (We don't want to call the function right now, so we don't say <code class="js">say_hello()</code>. We just want to give jQuery the function <strong>it</strong> should call later, so we just give it the variable that holds it.)</p>
+<p id="click">Following with <code class="js dfn" data-term=".click()">.click(&hellip;)</code> sets the behaviour we want when those elements are clicked: in this case, we give it the <code class="js">say_hello</code> function. (We don't want to call the function right now, so we don't say <code class="js">say_hello()</code>. We just want to give jQuery the function <strong>it</strong> should call later, so we just give it the variable that holds it.)</p>
 </dd>
 
-<dt><code class="js">jQuery(document).ready(setup);</code></dt>
+<dt id="ready"><code class="js dfn" data-term=".ready()">jQuery(document).ready(setup);</code></dt>
 <dd><p>This line gets everything started. The <code class="js">jQuery(document).ready(&hellip;)</code> idiom gives a function that should be called once the browser finishes loading the page (i.e. it is &ldquo;ready&rdquo;). In our case, we want the <code class="js">setup</code> function called when the page is ready, so we indicate it here.</p>
-<p>This <code class="js">jQuery</code> is similar to the previous: it selects something (in this case the <code class="js">document</code> special value, referring to the entire page), and connects some event (the document being ready, as opposed to being clicked as above) to a function.</p>
+<p>This <code class="js">jQuery</code> is similar to the previous: it selects something (in this case the <code class="js dfn">document</code> special value, referring to the entire page), and connects some event (the document being ready, as opposed to being clicked as above) to a function.</p>
 </dd>
 
 </dl>

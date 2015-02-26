@@ -223,7 +223,7 @@ def css_prop_ref_url(prop):
 
 def css_dt(prop):
     # avoid repetition on css-properties.html
-    return '<dt id="%s"><a href="%s"><code class="css">%s</code></a></dt>' % (prop, css_prop_ref_url(prop), prop)
+    return '<dt id="%s"><a href="%s"><code class="css dfn">%s</code></a></dt>' % (prop, css_prop_ref_url(prop), prop)
 
 def process_jinja(template_text, context={}):
     """

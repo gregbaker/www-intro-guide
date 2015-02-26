@@ -17,7 +17,7 @@
 
 <p id="tag">The things wrapped in triangular braces (the <code class="html">&lt;&thinsp;&hellip;&thinsp;&gt;</code> characters) are called <dfn>tags</dfn>. These are the most important part of HTML markup that is used to describe the structure of content. There are both <dfn>opening tags</dfn> and <dfn>closing tags</dfn> (or <dfn>starting tags</dfn> and <dfn>ending tags</dfn>) which come in pairs to enclose pieces of content.</p>
 
-<p>For example, in the above example, <code class="html">&lt;title&gt;</code> is an opening tag, and <code class="html">&lt;/title&gt;</code> is the corresponding closing tag. The <code class="html">&lt;title&gt;</code> tag is used to enclose the main title for the document: the one that is displayed in the title bar of the browser (and used as the label if you bookmark the page, and displayed in search engine results for the page).</p>
+<p id="title">For example, in the above example, <code class="html">&lt;title&gt;</code> is an opening tag, and <code class="html">&lt;/title&gt;</code> is the corresponding closing tag. The <code class="html dfn">&lt;title&gt;</code> tag is used to enclose the main title for the document: the one that is displayed in the title bar of the browser (and used as the label if you bookmark the page, and displayed in search engine results for the page).</p>
 
 <p>One other tag we should look at right away: the <code class="html">&lt;body&gt;&hellip;&#8203;&lt;/body&gt;</code> tag is used to encose the main part of the page: the actual content that you read in the browser's main window.</p>
 
@@ -25,7 +25,7 @@
 
 {{ quoted_code('files/firstpage.html') }}
 
-<p>The <code class="html">&lt;p&gt;&hellip;&#8203;&lt;/p&gt;</code> tag is used to enclose a paragraph on the page. The sentence &ldquo;This is a paragraph on my page.&rdquo; will appear formatted as a paragraph when we view the page in a web browser. You can view <a href="{{ rellink }}files/firstpage.html">this HTML file</a> here.</p>
+<p id="p">The <code class="html dfn">&lt;p&gt;&hellip;&#8203;&lt;/p&gt;</code> tag is used to enclose a paragraph on the page. The sentence &ldquo;This is a paragraph on my page.&rdquo; will appear formatted as a paragraph when we view the page in a web browser. You can view <a href="{{ rellink }}files/firstpage.html">this HTML file</a> here.</p>
 
 <p>You might notice on that page that the line break in the code above doesn't match the way the paragraph is formatted when you view the page (unless you happen to have the exact right size browser window to display the same way). In HTML, all of the formatting must be specified with tags (and CSS as we'll see later). The <code class="html">&lt;p&gt;</code> tag indicated that we wanted the content formatted like a paragraph: the browser did that and chose the places to break the lines (among other things) for your browser.</p>
 
@@ -41,11 +41,11 @@
 
 <dl>
 <dt><code class="html">&lt;!DOCTYPE html&gt;</code></dt><dd id="doctype">This isn't really a tag or an element, it is the <dfn>document type declaration</dfn> (or <dfn>doctype</dfn>) for the page. This doctype indicates that the page is HTML5. The doctype doesn't have a closing version: it's the first thing in an <code class="file">.html</code> file and stands alone.</dd>
-<dt><code class="html">&lt;html&gt;&hellip;&lt;/html&gt;</code></dt><dd>This element contains entire HTML page. It should be the first tag to start (after the doctype) and last to close.</dd>
-<dt><code class="html">&lt;head&gt;&hellip;&lt;/head&gt;</code></dt><dd>This element contains information <em>about</em> the page (as opposed to content of the page). For now, it will hold only the <code class="html">&lt;title&gt;</code> and <code class="html">&lt;meta&gt;</code> tags.</dd>
-<dt><code class="html">&lt;meta charset="UTF-8" /&gt;</code></dt><dd>This tag tells the browser about the &ldquo;character encoding&rdquo; for this document. The details aren't important now, but it's a property of how the text file is encoded when it is saved. This <code class="html">&lt;meta&gt;</code> tag should be in every HTML file like this.
+<dt id="htmltag"><code class="html dfn">&lt;html&gt;&hellip;&lt;/html&gt;</code></dt><dd>This element contains entire HTML page. It should be the first tag to start (after the doctype) and last to close.</dd>
+<dt id="headtag"><code class="html dfn">&lt;head&gt;&hellip;&lt;/head&gt;</code></dt><dd>This element contains information <em>about</em> the page (as opposed to content of the page). For now, it will hold only the <code class="html">&lt;title&gt;</code> and <code class="html">&lt;meta&gt;</code> tags.</dd>
+<dt id="metatag"><code class="html dfn" data-term="&lt;meta /&gt;">&lt;meta charset="UTF-8" /&gt;</code></dt><dd>This tag tells the browser about the &ldquo;character encoding&rdquo; for this document. The details aren't important now, but it's a property of how the text file is encoded when it is saved. This <code class="html">&lt;meta&gt;</code> tag should be in every HTML file like this.
 <p>You may have also noticed that it has no closing tag, and that there's some extra stuff in the tag. We will get to that very soon&hellip;</p></dd>
-<dt><code class="html">&lt;body&gt;&hellip;&lt;/body&gt;</code></dt><dd>Finally, this element contains the actual content of the page: the part that is displayed in the main browser window. Most of the new tags we learn will go somewhere in the <code class="html">&lt;body&gt;</code>.</dd>
+<dt id="bodytag"><code class="html dfn">&lt;body&gt;&hellip;&lt;/body&gt;</code></dt><dd>Finally, this element contains the actual content of the page: the part that is displayed in the main browser window. Most of the new tags we learn will go somewhere in the <code class="html">&lt;body&gt;</code>.</dd>
 </dl>
 <p>These tags are always arranged this way in every HTML page. In our example, we have a simple <code class="html">&lt;p&gt;</code> element in the body: that is where we will need to expand the number of tags we know first.</p>
 </section>
@@ -59,10 +59,10 @@
 <p>The elements here are generally like the ones we have seen before: and opening tag, some content, and a closing tag. The differences are in what they mean and how they are put together to describe content.</p>
 
 <dl>
-<dt><code class="html">&lt;h1&gt;</code></dt><dd>This tag is used for a &ldquo;level 1&rdquo; heading. That is, it's the most important heading on the page. Typically, every page should start with an <code class="html">&lt;h1&gt;</code> that has the same contents as the <code class="html">&lt;title&gt;</code>: the main title for the page.</dd>
-<dt><code class="html">&lt;em&gt;</code></dt><dd id="em">This tag indicates <dfn>emphasized text</dfn>: some important word or phrase in the sentence. An <code class="html">&lt;em&gt;</code> must go inside a paragraph (or heading, or other &ldquo;block-level&rdquo; element as we'll see later).</dd>
-<dt><code class="html">&lt;ul&gt;</code></dt><dd id="ul">This tag describes an <dfn>unordered list</dfn>. That is, it contains a list of things where the order isn't important. The <code class="html">&lt;ul&gt;</code> element (and the ordered list version <code class="html">&lt;ol&gt;</code>, or menu list <code class="html">&lt;menu&gt;</code>) can't contain text the way a <code class="html">&lt;p&gt;</code> can: it can only contain <code class="html">&lt;li&gt;</code> elements.</dd>
-<dt><code class="html">&lt;li&gt;</code></dt><dd id="li">These are the only thing that can go in a <code class="html">&lt;ul&gt;</code> or <code class="html">&lt;ol&gt;</code> element (and can <strong>only</strong> be inside one of those elements). They denote <dfn>list items</dfn>.</dd>
+<dt><code class="html dfn" id="h1tag">&lt;h1&gt;</code></dt><dd>This tag is used for a &ldquo;level 1&rdquo; heading. That is, it's the most important heading on the page. Typically, every page should start with an <code class="html">&lt;h1&gt;</code> that has the same contents as the <code class="html">&lt;title&gt;</code>: the main title for the page.</dd>
+<dt id="emtag"><code class="html dfn">&lt;em&gt;</code></dt><dd>This tag indicates <dfn>emphasized text</dfn>: some important word or phrase in the sentence. An <code class="html">&lt;em&gt;</code> must go inside a paragraph (or heading, or other &ldquo;block-level&rdquo; element as we'll see later).</dd>
+<dt id="ultag"><code class="html dfn">&lt;ul&gt;</code></dt><dd>This tag describes an <dfn>unordered list</dfn>. That is, it contains a list of things where the order isn't important. The <code class="html">&lt;ul&gt;</code> element (and the ordered list version <code class="html dfn">&lt;ol&gt;</code>, or menu list <code class="html dfn">&lt;menu&gt;</code>) can't contain text the way a <code class="html">&lt;p&gt;</code> can: it can only contain <code class="html">&lt;li&gt;</code> elements.</dd>
+<dt id="litag"><code class="html dfn">&lt;li&gt;</code></dt><dd id="li">These are the only thing that can go in a <code class="html">&lt;ul&gt;</code> or <code class="html">&lt;ol&gt;</code> element (and can <strong>only</strong> be inside one of those elements). They denote <dfn>list items</dfn>.</dd>
 </dl>
 
 <p>As you can see from these, each tag has some rules about where it can be place or what can be placed in it: <code class="html">&lt;em&gt;</code> must go in a <code class="html">&lt;p&gt;</code> or similar; <code class="html">&lt;ul&gt;</code> must contain only <code class="html">&lt;li&gt;</code>s.</p>

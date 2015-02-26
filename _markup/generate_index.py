@@ -27,16 +27,19 @@ class IndexTerm(object):
         self.link = link
         self.topic = topic
         if alphaterm:
-            self.alphaterm = alphaterm.lower()
+            self.alphaterm = alphaterm
         else:
-            self.alphaterm = term.lower()
+            self.alphaterm = term
     
     def __repr__(self):
         return "'%s'@%s" % (self.term, self.link)
     
     @classmethod
-    def key(cls, term):
+    def indexkey(cls, term):
         return term.alphaterm
+    @classmethod
+    def sortkey(cls, term):
+        return term.alphaterm.lower()
 
 def extract_text(elt):
     """
@@ -66,7 +69,7 @@ def get_id(elt, fname):
         depth += 1
 
     ident = elt.getAttribute('id')
-    good_id = depth < 2 or elt.tagName == 'dt' or (depth < 3 and origelt.tagName == 'code')  
+    good_id = depth < 2 or elt.tagName in ['dt', 'figure']
 
     # kind of suggest that the element or at least its parent has an id to link to
     if not good_id:
@@ -82,14 +85,27 @@ def index_elt(contents, fname, elt):
     ident = get_id(elt, fname)
     alphaterm = None
 
-    if elt.hasAttribute('data-term'):
-       text = elt.getAttribute('data-term')
-    elif elt.tagName == 'code':
-       text = extract_text(elt)
+    if elt.tagName == 'code':
+       if elt.hasAttribute('data-term'):
+           text = elt.getAttribute('data-term')
+       else:
+           text = extract_text(elt)
+
+       if u'\u2026' in text:
+           pos = text.find(u'\u2026')
+           text = text[:pos]
        alphaterm = text
        alphaterm = alphaterm.replace('<', '')
        alphaterm = alphaterm.replace('>', '')
-       text = escape(text)
+       alphaterm = alphaterm.replace('&', '')
+       alphaterm = alphaterm.replace('.', '')
+       
+       codetype = elt.getAttribute('class').split()[0]
+       
+       text = '<code class="%s">%s</code> <span class="codetype">(%s)</span>' % (codetype, escape(text), codetype.upper())
+
+    elif elt.hasAttribute('data-term'):
+       text = elt.getAttribute('data-term')
     else:
        text = extract_text(elt)
 
@@ -126,8 +142,8 @@ def collect_terms(infiles):
     Collect all <dfn>s in the documents into a data structure
     """
     terms = list(find_terms(infiles))
-    terms.sort(key=IndexTerm.key)
-    collected = itertools.groupby(terms, key=IndexTerm.key)
+    terms.sort(key=IndexTerm.sortkey)
+    collected = itertools.groupby(terms, key=IndexTerm.indexkey)
     return collected
 
 def build_index(terms):

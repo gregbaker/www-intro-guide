@@ -5,7 +5,7 @@
 <section id="script-tag">
 <h2>Linking Scripts</h2>
 
-<p>The <code class="html">&lt;script&gt;</code> element is used to connect JavaScript to HTML pages. When the browser encounters <code class="html">&lt;script&gt;</code>, it will load and run the code (similar to the way it loads stylesheets for <code class="html">&lt;link rel="stylesheet"&gt;</code> or images for <code class="html">&lt;img&gt;</code></p>
+<p id="script">The <code class="html dfn">&lt;script&gt;</code> element is used to connect JavaScript to HTML pages. When the browser encounters <code class="html">&lt;script&gt;</code>, it will load and run the code (similar to the way it loads stylesheets for <code class="html">&lt;link rel="stylesheet"&gt;</code> or images for <code class="html">&lt;img&gt;</code></p>
 
 <p>We will usually write JavaScript code in separate files named <code class="file">something.js</code>. We can link this to a web page like this:</p>
 
@@ -25,7 +25,7 @@
 <p>That one line will run when the browser processes the <code class="html">&lt;script&gt;</code> element. You can have a look at <a href="{{rellink}}files/first-js.html">that HTML page</a> and see what happens.</p>
 <p>As the page loads, the browser runs that one line of JavaScript code, which causes an alert message to appear (before the rest of the page loads, since the <code class="html">&lt;script&gt;</code> element comes before the rest ofthe page). When you click OK, the browser will continue.</p>
 
-<p id="fn">In this code, <code class="js">alert</code> is a JavaScript <dfn>function</dfn>. A function represents some logic that we can run by <dfn data-term="calling (a function)">calling</dfn> the function. The <code class="js">alert</code> function is built into JavaScript; we will define functions of our own very soon.</p>
+<p id="fn">In this code, <code class="js dfn">alert</code> is a JavaScript <dfn>function</dfn>. A function represents some logic that we can run by <dfn data-term="calling (a function)">calling</dfn> the function. The <code class="js">alert</code> function is built into JavaScript; we will define functions of our own very soon.</p>
 
 <p id="funccall">When we mention a function by name with parenthesis after it, we are indicating that we want to call the function. In the parenthesis, we put whatever <dfn>arguments</dfn> the function needs to run. In the case of <code class="js">alert</code>, we give it the string (in quotes) that shold be displayed in the alert message.</p>
 

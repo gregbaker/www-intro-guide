@@ -7,14 +7,14 @@
 
 <p id="attrib">In addition to just using tags as they are, elements can be modified with <dfn>attributes</dfn>. These are used to change the meaning or behaviour of tags.</p>
 
-<p>For example, we can indicate what language is being used in a citation using the <code class="html">&lt;cite&gt;</code> element and the <code class="html">lang</code> attribute like this:</p>
+<p id="cite">For example, we can indicate what language is being used in a citation using the <code class="html dfn">&lt;cite&gt;</code> element and the <code class="html dfn">lang</code> attribute like this:</p>
 {{ block_code('<p>In his work <cite lang="la">Principia Mathematica</cite>,\nNewton introduced...</p>') }}
 
 <p id="attrib-value">As you can see, the attribute is placed in the opening tag, before the &ldquo;<code class="html">&gt;</code>&rdquo;. Every attribute has a <dfn>value</dfn> which follows it in quotes as in the example.</p>
 
 <p>Each attribute modifies the element in a specific way: in our example, it indicates that the language of the content is Latin. This could be used by a browser to offer an automatic translation, or by a speech browser to change pronunciation rules to read the content correctly.</p>
 
-<p>Another attribute we can try now: the <code class="html">&lt;abbr&gt;</code> tag is used to indicate an abbreviation, or other short-form or contraction. The <code class="html">title</code> attribute is used to give an expansion of the abbreviation like this:</p>
+<p id="abbr">Another attribute we can try now: the <code class="html dfn">&lt;abbr&gt;</code> tag is used to indicate an abbreviation, or other short-form or contraction. The <code class="html dfn">title</code> attribute is used to give an expansion of the abbreviation like this:</p>
 {{ quoted_code('_sources/abbr.html') }}
 
 <p>When a browser displays this content, it can use the value of the <code class="html">title</code> attribute to offer the reader an expansion of the abbreviation. Here is the above HTML displayed in your browser:</p>
@@ -31,7 +31,7 @@
 
 <p>There is one tag (and attribute to go with it) that is <em>very</em> important to make the Web what it is: we need to create links.</p>
 
-<p>The <code class="html">&lt;a&gt;</code> tag is used to create links. (It stands for &ldquo;anchor&rdquo; for historical reasons.) The <code class="html">href</code> attribute gives the destination for the link. For example,</p>
+<p id="a">The <code class="html dfn">&lt;a&gt;</code> tag is used to create links. (It stands for &ldquo;anchor&rdquo; for historical reasons.) The <code class="html dfn">href</code> attribute gives the destination for the link. For example,</p>
 {{ quoted_code('_sources/links.html') }}
 
 <p>In your browser, that looks like this:</p>
@@ -50,7 +50,7 @@
 
 <p id="empty-tag">There are a few HTML elements where it doesn't make sense for them to have any contents: there is nothing to put between their start and end tags. In that case, there's really no purpose for an end tag. These are called <dfn>empty tags</dfn>.</p>
 
-<p>For example, the <code class="html">&lt;hr&gt;</code> tag is used to insert a &ldquo;horizontal rule&rdquo; indicating a division in the content.</p>
+<p id="hr">For example, the <code class="html dfn">&lt;hr&gt;</code> tag is used to insert a &ldquo;horizontal rule&rdquo; indicating a division in the content.</p>
 
 {{ quoted_code('_sources/hr-example.html') }}
 
@@ -78,9 +78,9 @@
 
 {{ figure('complete-page', 'Display of sample HTML page', extension='png', referenced=False) }}
 
-<p>The only new element on this page is the <code class="html">&lt;h2&gt;</code>. This tag is used to indicate a second-level heading. TYpically, you should use the <code class="html">&lt;h1&gt;</code> for the main title of the <em>whole</em> page, probably with the same text as the <code class="html">&lt;title&gt;</code>. The <code class="html">&lt;h2&gt;</code> can be used for sections within the page.</p>
+<p id="h2">The only new element on this page is the <code class="html dfn">&lt;h2&gt;</code>. This tag is used to indicate a second-level heading. Typically, you should use the <code class="html">&lt;h1&gt;</code> for the main title of the <em>whole</em> page, probably with the same text as the <code class="html">&lt;title&gt;</code>. The <code class="html">&lt;h2&gt;</code> can be used for sections within the page.</p>
 
-<p>There is also an <code class="html">&lt;h3&gt;</code> tag for subsections (if we wanted to subdivide &ldquo;More to Learn&rdquo; into smaller topics). There are <code class="html">&lt;h4&gt;</code> to <code class="html">&lt;h6&gt;</code> tags as well, but if you need those, your content is probably too complicated and should be split across multiple pages.</p>
+<p id="other-h">There is also an <code class="html dfn">&lt;h3&gt;</code> tag for subsections (if we wanted to subdivide &ldquo;More to Learn&rdquo; into smaller topics). There are <code class="html">&lt;h4&gt;</code> to <code class="html">&lt;h6&gt;</code> tags as well, but if you need those, your content is probably too complicated and should be split across multiple pages.</p>
 
 <p>We will return to the <code class="html">id</code> attribute later.</p>
 
