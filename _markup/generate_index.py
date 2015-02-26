@@ -2,6 +2,7 @@
 
 import sys
 import html5lib
+import itertools
 from jinja_environment import _read_contents, basename, process_jinja
 from cgi import escape
 
@@ -20,6 +21,23 @@ TEMPLATE_END = """
 
 CONTEXT = {'rellink': './', 'indexlink': './'}
 
+class IndexTerm(object):
+    def __init__(self, term, link, topic, alphaterm=None):
+        self.term = term
+        self.link = link
+        self.topic = topic
+        if alphaterm:
+            self.alphaterm = alphaterm.lower()
+        else:
+            self.alphaterm = term.lower()
+    
+    def __repr__(self):
+        return "'%s'@%s" % (self.term, self.link)
+    
+    @classmethod
+    def key(cls, term):
+        return term.alphaterm
+
 def extract_text(elt):
     """
     Get the plain-text from this element
@@ -31,12 +49,9 @@ def extract_text(elt):
     else:
         raise ValueError, "unknown node type %i" % (elt.nodeType)
 
-def index_dfn(contents, terms, fname, dfn):
-    """
-    Add entry to index data structure for this <dfn>
-    """
-    elt = dfn
+def get_id(elt, fname):
     depth = 0
+    origelt = elt
     while not elt.hasAttribute('id'):
         if elt.tagName == 'section':
             raise ValueError, '<section> without id in %s' % (fname)
@@ -51,49 +66,80 @@ def index_dfn(contents, terms, fname, dfn):
         depth += 1
 
     ident = elt.getAttribute('id')
-    good_id = depth < 2 or elt.tagName == 'dt'    
+    good_id = depth < 2 or elt.tagName == 'dt' or (depth < 3 and origelt.tagName == 'code')  
 
-    if dfn.hasAttribute('data-term'):
-       text = dfn.getAttribute('data-term')
-    else:
-       text = extract_text(dfn)
-
-    # kind of suggest that the <dfn> or at least its parent has an id to link to
+    # kind of suggest that the element or at least its parent has an id to link to
     if not good_id:
-        sys.stderr.write("<dfn> for '%s' in %s has no id.\n" % (text, fname))
+        sys.stderr.write("'%s' in %s has no id nearby.\n" % (origelt, fname))
+    
+    return ident
 
-    entry = terms.get(text, [])
+
+def index_elt(contents, fname, elt):
+    """
+    Add entry to index data structure for this element
+    """
+    ident = get_id(elt, fname)
+    alphaterm = None
+
+    if elt.hasAttribute('data-term'):
+       text = elt.getAttribute('data-term')
+    elif elt.tagName == 'code':
+       text = extract_text(elt)
+       alphaterm = text
+       alphaterm = alphaterm.replace('<', '')
+       alphaterm = alphaterm.replace('>', '')
+       text = escape(text)
+    else:
+       text = extract_text(elt)
+
+    link = fname + '#' + ident
     topic = contents[basename(fname)]
-    entry.append((fname + '#' + ident, topic))
-    terms[text] = entry
+
+    term = IndexTerm(text, link, topic, alphaterm=alphaterm)
+    return term
+
+def find_elements(elt):
+    if elt.nodeType == elt.ELEMENT_NODE:
+        classes = elt.getAttribute('class').split()
+        if 'dfn' in classes:
+            yield elt
+        if elt.tagName == 'dfn':
+            yield elt
+        else:
+            for c in elt.childNodes:
+                for e in find_elements(c):
+                    yield e
+
+def find_terms(infiles):
+    contents = _read_contents()
+    for f in infiles:
+        assert f.startswith('_site/')
+        link = f[6:]
+        doc = html5lib.parse(open(f).read(), treebuilder="dom")
+        
+        for d in find_elements(doc.documentElement):
+            yield index_elt(contents, link, d)
 
 def collect_terms(infiles):
     """
     Collect all <dfn>s in the documents into a data structure
     """
-    terms = {}
-    contents = _read_contents()
-    for f in infiles:
-        assert f.startswith('_site/')
-        doc = html5lib.parse(open(f).read(), treebuilder="dom")
-        dfns = doc.getElementsByTagName('dfn')
-        for d in dfns:
-            index_dfn(contents, terms, f[6:], d)
-    
-    return terms
+    terms = list(find_terms(infiles))
+    terms.sort(key=IndexTerm.key)
+    collected = itertools.groupby(terms, key=IndexTerm.key)
+    return collected
 
 def build_index(terms):
     """
     Build the HTML for the index list
     """
-    words = terms.keys()
-    words.sort(key=lambda x: x.lower())
     items = []
-    for w in words:
+    for key, kterms in terms:
         out = []
-        for url,txt in terms[w]:
-            out.append('<a href="%s">%s</a>' % (escape(url), txt))
-        items.append('<li><span class="term">' + w + '</span>: ' + ('; '.join(out)) + '</li>')
+        for t in kterms:
+            out.append('<a href="%s">%s</a>' % (escape(t.link), t.topic))
+        items.append('<li><span class="term">' + t.term + '</span>: ' + ('; '.join(out)) + '</li>')
     return '\n'.join(items)
 
 def render_index(content):
