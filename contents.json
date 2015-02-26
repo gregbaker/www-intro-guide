@@ -56,11 +56,11 @@
   {
     "chapter": ["js2", "Working with JavaScript and jQuery"],
     "contents": [
+      ["forms", "Working with Forms"],
       ["conditional", "Making Decisions"],
       ["objects", "Objects and Arrays"],
       ["selectors", "jQuery Selectors"],
       ["manipulate", "Manipulating Pages"],
-      ["forms", "Working with Forms"],
       ["iterating", "Iterating Over Elements"]
     ]
   },

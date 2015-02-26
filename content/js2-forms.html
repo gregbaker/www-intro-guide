@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p class="draft">The form tags, and how to use them to get user input.</p>
+<p class="draft">The form tags, and how to use them to get user input and respond to that with jQuery.</p>
+
+<p>Programs are boring if they just do the same thing every time. We need to respond to things the user does to make things interesting. So far, we have one way to do this: respond to user actions by letting jQuery connect the actions to our functions.</p>
+
+<p>That's good but limited: the user clicks on something or they don't. They move the cursor somewhere or they don't. We would like to get richer input from them.</p>
+
+<section id="formtags">
+<h2>HTML Forms</h2>
+
+<p id="input">We can have the user give us more detailed input using the <dfn>form tags</dfn> in HTML, starting with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn">&lt;input&gt;</code></a>.</p>
+
+<aside id="formtag">In previous versions of HTML, all inputs had to be inside a <a href="{{ html_tag_ref_url('form') }}"><code class="html dfn">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
+
+<p></p>
+
+</section>
+
+
 {% endblock %}
