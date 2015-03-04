@@ -6,17 +6,13 @@
 <section id="class">
 <h2>Classes</h2>
 
-<p>There are often cases where we use one element for different purposes on a page. For example, suppose we are creating a web page for a recipe: we might have lists like this:</p>
+<p>There are often cases where we use one element for different purposes on a page. We have already seen the <code class="html">class</code> attribute used to distinguish different uses.</p>
 
-{{ quoted_code('_sources/recipe1.html') }}
-
-<p>We have both ordered and unordered lists on this page, so we can easily select them separately and style them. But we have two unordered lists doing different jobs: one is a list of ingredients and one is a list of problems we think someone following the recipe might have. These are both lists where order isn't important so <code class="html">&lt;ul&gt;</code> is the right tag to use, but it would be totally reasonable to want these to look different on the page.</p>
-
-<aside>Actually, a class value must start with a letter, but can contain letters, number, hyphens, and underscores.</aside>
-
-<p>In order to select these lists separately, they need to be distinguished somehow. To do this, we can use the <code class="html">class</code> property. Elements can be given a class to indicate their specific role on the page. The value for a <code class="html">class</code> can be any word that is meaningful. For example, we might add classes like this:</p>
+<p>For example, suppose we are creating a web page for a recipe. We might come up with markup that uses several different lists, but with different roles.</p>
 
 {{ quoted_code('_sources/recipe2.html') }}
+
+<p>Here we have two <code class="html">&lt;ul&gt;</code> elements. Order of the items doesn't matter in either case, so <code class="html">&lt;ul&gt;</code> is the right tag to use, but it would be totally reasonable to want these to look different on the page. We thus used <code class="html">class</code> to indicate their specific role.</p>
 
 <p>The <code class="html">class</code> property won't change the page in any way by itself, but we can now uses these classes to grab particular elements in CSS:</p>
 
