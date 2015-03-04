@@ -48,6 +48,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
     context = {
         'rellink': context['rellink'],
         'widthheight': wh,
+        'filebase': filebase,
         'imgpath': imgpath,
         'filebase': filebase,
         'caption': caption,

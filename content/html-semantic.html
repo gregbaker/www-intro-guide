@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<p class="draft">HTML is semantic markup: what is that? Why is it important? How do we do it?</p>
-
 <p>Whenever HTML tags have been described here, the focus has been on what they <strong>mean</strong> or their <strong>purpose</strong> on the page, not on how they look:</p>
 <blockquote>The <code class="html">&lt;p&gt;&hellip;&#8203;&lt;/p&gt;</code> tag is used to enclose a paragraph on the page&hellip; The <code class="html">&lt;a&gt;</code> tag is used to create links&hellip; The horizontal rule element is used to indicate a break in the content.</blockquote>
 
@@ -85,11 +83,56 @@
 
 </section>
 
-<section id="generic">
-<h2>Generic Tags</h2>
+<section id="classid">
+<h2>The <code class="html">class</code> and <code class="html">id</code> Attributes</h2>
+
+<p>HTML has many usefu semantic tags that we can use to describe our content, but sometimes they can be limiting.</p>
+
+<p>The <code class="html">&lt;p&gt;</code> tag is nice to enclose paragraphs, but there can be times you have more than one type of paragraph, for example normal paragraphs containing prose and a paragraph of copyright information at the bottom of the page (&ldquo;This page is copyright &copy; 2015&hellip;&rdquo;).</p>
+
+<p>The <code class="html">class</code> and <code class="html">id</code> attributes can be used to give extra semantic information about elements. We can continue to use <code class="html">&lt;p&gt;</code> for most paragraphs, but <code class="html">&lt;p id="copyright"&gt;</code> for the one that is semantically different from the others.</p>
+
+<p>The value of <code class="html">class</code> and <code class="html">id</code> can be any word, but should be meaningful (i.e. something about the meaning, not the appearance).</p>
+
+<p>The different between the two is that a particular <code class="html">id</code> value can be used <em>only once</em> on a page. So we can have at most one element with <code class="html">id="copyright"</code>. That seems appropriate in this case sicne we only have one copyright notice per page.</p>
+
+<aside>You might also use <code class="html">&lt;footer&gt;</code> for the copyright information, depending on the context, but that's not a good <code class="html">class</code>/<code class="html">id</code> example.</aside>
+
+<p>The most likely reason to want to distinguish an element is to make it look different with CSS. We'll get to that later. For now we will use <code class="html">class</code> and <code class="html">id</code> just for semantic reasons.</p>
+
+<p>As an example of this, in this guide there are many examples of computer code marked up as <code class="html">&lt;code&gt;</code> elements, but I wanted some to look different. HTML code looks like &ldquo;<code class="html">&lt;p&gt;</code>&rdquo; but filenames look like &ldquo;<code class="file">filename.html</code>&rdquo;. In order to distinguish the two types of code, the markup used was <code class="html">&lt;code class="html"&gt;</code> and <code class="html">&lt;code class="file"&gt;</code>. It is then possible to grab these things separately in CSS and change their appearance. We need to use <code class="html">class</code> here, since there might be many HTML code examples on one page.</p>
 
 </section>
 
+<section id="generic">
+<h2>Generic Tags</h2>
 
+<p>In the above example, we came to a piece of content that we need to wrap in a tag because it is a different type of content, but find nothing matching its meaning in the HTML reference. This is inevitable: there is no way we could add HTML tags to match every kind of content that everyone ever uses.</p>
+
+<p id="divspan">There are two <dfn>generic tags</dfn> to handle these cases: <a href="{{html_tag_ref_url('div')}}"><code class="html dfn">&lt;div&gt;</code></a> and <a href="{{html_tag_ref_url('span')}}"><code class="html dfn">&lt;span&gt;</code></a>.</p>
+
+<p>The difference between the two is where they can be placed in the HTML.</p>
+
+<p id="block">The <code class="html">&lt;div&gt;</code> element holds <dfn>block-level content</dfn> (or sometimes <dfn>flow content</dfn>). That is, it can go directly inside the <code class="html">&lt;body&gt;</code> and is displayed below the previous block. Other block-level elements we have seen include <code class="html">&lt;p&gt;</code>, <code class="html">&lt;h1&gt;</code>, <code class="html">&lt;h2&gt;</code>, <code class="html">&lt;ul&gt;</code>, and <code class="html">&lt;li&gt;</code>.</p>
+
+<p id="inline">The <code class="html">&lt;span&gt;</code> elements holds <dfn>inline content</dfn> (or sometimes <dfn>phrasing content</dfn>). Inline content goes inside a block, so it part of a paragraph, heading, list item, or other block. Other inline elements include <code class="html">&lt;em&gt;</code>, <code class="html">&lt;a&gt;</code>, and <code class="html">&lt;abbr&gt;</code>.</p>
+
+<p>Because they don't have any meaning on their own, <code class="html">&lt;div&gt;</code> and <code class="html">&lt;span&gt;</code> should always be given a meaningful <code class="html">class</code> or <code class="html">id</code> value that indicates their purpose on the page.</p>
+
+<p>We can now give markup for the last example above. We found no existing tag for a phrase in another language, so must choose a generic tag. The phrase is <em>part of</em> a paragraph, so we choose the inline tag <code class="html">&lt;span&gt;</code> and give it a meaningful class name. (We shouldn't use <code class="html">id</code> since there may be many other-language phrases on a single page.)</p>
+
+{{ quoted_code('_sources/semantic2.html') }}
+
+<p>When displayed on the page, the <code class="html">&lt;span&gt;</code> looks the same as other text. We will need to use CSS to change its appearance once we start working with it.</p>
+
+{{ include_output('_sources/semantic2.html', cls='compact') }}
+
+<p>We can actually improve this markup a little more by using the <code class="html">lang</code> attribute we saw earlier:</p>
+
+{{ quoted_code('_sources/semantic3.html') }}
+
+<p>This way, the text can be indexed more accurately by Google and your web browser may offer an automatic translation to English.</p>
+
+</section>
 
 {% endblock %}
