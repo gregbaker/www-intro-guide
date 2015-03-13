@@ -14,7 +14,39 @@
 
 <aside>In previous versions of HTML, all inputs had to be inside a <a href="{{ html_tag_ref_url('form') }}"><code class="html dfn" id="formtag">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
 
-<p></p>
+<p>The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code> and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
+
+{{ quoted_code('_sources/form1.html') }}
+
+<p>In the browser, that looks like this:</p>
+
+{{ figure('form1', 'Display of the form input in a browser', referenced=False) }}
+
+<p class="draft">Mention some more types</p>
+</section>
+
+<section id="jquery-forms">
+<h2>jQuery and Forms</h2>
+
+<p>Once we have some input from the user with a form, we can access it with JavaScript and jQuery.</p>
+
+<p>The easiest thing to do is find the <code class="html">&lt;input&gt;</code> with jQuery (probably selecting by <code class="html">id</code>) and using the jQuery object's <code class="js">.val()</code> method that will give you what the user typed.</p>
+
+<p>In the example above, we had an input with <code class="html">id="something"</code> so we can get the string the use typed with <code class="js">jQuery('#something').val()</code>.</p>
+
+<p>Let's expand that into a more complete example. We can add a button input to the page so the user has something obvious to click to initiate an event:</p>
+
+{{ quoted_code('files/form2.html') }}
+
+<p>Then we can use this JavaScript code to manipulate the page based on what the user enters. When the button is clicked (<code class="js">jQuery('#resultbutton').click(&hellip;)</code>) we will (in <code class="js">show_result</code>) get what they typed and report it by filling in the content of the <code class="html">&lt;p id="result"&gt;</code>.</p>
+
+{{ quoted_code('files/handle-form.js') }}
+
+<p>Here's what that looks like in the browser, after I typed something and clicked the button:</p>
+
+{{ figure('form2', 'Form example after clicking', referenced=False) }}
+
+<p>If you'd like to try it yourself, have a look at <a href="{{rellink}}files/form2.html">the page itself</a>.</p>
 
 </section>
 
