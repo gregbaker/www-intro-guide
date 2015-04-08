@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="draft">SVG is text-based like HTML.</p>
+
+<section id="format">
+<h2>The SVG Format</h2>
+
+<p>As we have said, the SVG image format is a vector image format created for use on the web (but not limited to the web: it can be used in any context you need a vector image).</p>
+
+<p>The actual format of an SVG file is actually very similar to HTML: they were both created with similar underlying technologies. SVG images are stored as text files, and contain tags and attributes, much like HTML.</p>
+
+{{ quoted_code('figures/raph1-res.svg') }}
+
+
+</section>
+
+{% endblock %}

@@ -54,6 +54,16 @@
     ]
   },
   {
+    "chapter": ["jssvg", "JavaScript and Graphics"],
+    "contents": [
+      ["morejquery", "More jQuery"],
+      ["raphael", "JavaScript + SVG: Rapha&euml;l"],
+      ["svg-about", "About SVG"],
+      ["svg", "Working with SVG"],
+      ["animation", "Animating SVG"]
+    ]
+  },
+  {
     "chapter": ["js2", "Working with JavaScript and jQuery"],
     "contents": [
       ["forms", "Working with Forms"],
@@ -62,15 +72,6 @@
       ["selectors", "jQuery Selectors"],
       ["manipulate", "Manipulating Pages"],
       ["iterating", "Iterating Over Elements"]
-    ]
-  },
-  {
-    "chapter": ["jssvg", "JavaScript and Graphics"],
-    "contents": [
-      ["morejquery", "More jQuery"],
-      ["raphael", "JavaScript + SVG: Rapha&euml;l"],
-      ["svg", "Working with SVG"],
-      ["animation", "Animating SVG"]
     ]
   },
   {

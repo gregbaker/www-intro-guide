@@ -14,7 +14,7 @@
 
 <aside>In previous versions of HTML, all inputs had to be inside a <a href="{{ html_tag_ref_url('form') }}"><code class="html dfn" id="formtag">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
 
-<p>The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code> and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
+<p>The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
 
 {{ quoted_code('_sources/form1.html') }}
 
@@ -22,7 +22,7 @@
 
 {{ figure('form1', 'Display of the form input in a browser', referenced=False) }}
 
-<p class="draft">Mention some more types</p>
+<p>There are other input types that you can use: radio buttons (select one of many options), checkboxes (check on or off), password input (like text, but characters aren't visible on-screen), and several more. For now, we will only use the text input and the &ldquo;button&rdquo; in the next section.</p>
 </section>
 
 <section id="jquery-forms">
@@ -47,6 +47,8 @@
 {{ figure('form2', 'Form example after clicking', referenced=False) }}
 
 <p>If you'd like to try it yourself, have a look at <a href="{{rellink}}files/form2.html">the page itself</a>.</p>
+
+<p>Have another look at the logic in that JavaScript and how it fits together make things work: <code class="js">setup</code> is called after the page loads and connects <code class="js">show_result</code> as the action to take when the button is clicked. When the button is clicked and <code class="js">show_result</code> is called, it gets the text that was typed (a string, into the variable <code class="js">typed</code>) and inserts text into the <code class="html">&lt;p id="result&gt;</code> so we can see the result.</p>
 
 </section>
 

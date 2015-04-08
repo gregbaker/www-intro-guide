@@ -192,6 +192,10 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
         figid = ' id="%s"' % (ident,)
     else:
         figid = ''
+
+    if codeclass == 'svg':
+        codeclass = 'xml svg'
+
     if syntaxhighlight:
         preclass = 'brush: ' + codeclass
     else:
