@@ -57,7 +57,15 @@
 
 {{ figure('raph2', 'SVG image created in this example', extension='svg', referenced=False) }}
 
-<p class="draft">Some stuff about where to find those methods and how to use them.</p>
+<p>As you can see, there are many functions in the paper object that are used to create shapes and other elements. The details can be found in the <a href="{{ raphref_url }}">{{raph}} reference</a>, but we will introduce the ones you need here: no need to dive into that reference unless you really want to have a look around.</p>
+
+<p>For example, the <a href="{{ raph_ref_url('Paper', 'ellipse') }}"><code class="js">.ellipse()</code> function</a> needs four arguments: the <var>x</var> and <var>y</var> (horizontal and vertical) positions for the centre of the ellipse, and the horizontal and vertical radius. For <a href="{{ raph_ref_url('Paper', 'text') }}"><code class="js">.text()</code></a>, you give the <var>x</var> and <var>y</var> position and the actual text to display. For <a href="{{ raph_ref_url('Paper', 'rect') }}"><code class="js">.rect()</code></a>, the arguments are <var>x</var>, <var>y</var>, width and height.</p>
+
+<p>The <a href="{{ raph_ref_url('Element', 'attr') }}"><code class="js">.attr()</code> function</a> that every element in the image has is a little more complicated since it can be used to set many visual characteristics of the elements. The way it can be used varies by the type of element it's applied to.</p>
+
+<p>Note the extra <code class="js">{&nbsp;&hellip;&nbsp;}</code> in the arguments: the values we are giving are actually elements of a JavaScript object, which we will discuss in detail later. For now, just make sure to specify the values as in the examples.</p>
+
+<p>We will also explore the different attributes you can specify here as we go on.</p>
 
 </section>
 
