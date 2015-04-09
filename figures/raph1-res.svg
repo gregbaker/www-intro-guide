@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50" height="50">
-<circle stroke-width="2" stroke="#000000" fill="#ff0000" r="24" cy="25" cx="25"></circle>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+    width="200" height="100">
+<ellipse stroke-width="4" stroke="#999999" fill="#00ff00"
+    ry="10" rx="40" cy="20" cx="50"></ellipse>
+<text font-family="serif" font-size="14px" fill="#000000"
+    text-anchor="middle" y="50" x="100">
+    <tspan dy="4.5">I think this is going well.</tspan>
+</text>
+<rect transform="matrix(0.866,0.5,-0.5,0.866,55.2757,-76.2917)"
+    stroke="#007700" fill="none"
+    width="40" height="30" x="150" y="50"></rect>
 </svg>
+

@@ -2,17 +2,30 @@
 
 {% block content %}
 
-<p class="draft">SVG is text-based like HTML.</p>
+<p>The SVG image format is strange in some ways. You use it like other image formats (PNG, JPEG, etc.) but it technically has more in common with HTML.</p>
 
 <section id="format">
 <h2>The SVG Format</h2>
 
 <p>As we have said, the SVG image format is a vector image format created for use on the web (but not limited to the web: it can be used in any context you need a vector image).</p>
 
-<p>The actual format of an SVG file is actually very similar to HTML: they were both created with similar underlying technologies. SVG images are stored as text files, and contain tags and attributes, much like HTML.</p>
+<p>The actual format of an SVG file is actually very similar to HTML: they were both created with similar underlying technologies. SVG images are stored as text files, and contain tags and attributes, much like HTML. Let's look again at the SVG image we created in the previous section using JavaScript and {{raph}}:</p>
+
+{{ figure('raph1-res', 'SVG image created by JavaScript code', extension='svg', referenced=False) }}
+
+<p>Our JavaScript actually created this SVG code (simplified slightly here for readability) on the web page:</p>
 
 {{ quoted_code('figures/raph1-res.svg') }}
 
+<p>You can actually copy-and-paste that code into a text editor, save it as a <code class="file">.svg</code> file and open it as an image.</p>
+
+<p>You can see lots of recognizable things there. There are tags that open and close. The tags have attributes and contain content.</p>
+
+<p>The details aren't important: you won't need to create SVG files like this but hopefully it will help you see why {{raph}} works the way it does. For example, the <code class="js">.attr()</code> method is named that way because it literally adds attributes to tags.</p>
+
+<p>If you're exploring the {{raph}} reference or some other SVG materials, you may see examples given or explained with SVG code like that.</p>
+
+<p>You can also see a little of what {{raph}} is doing to make things easier. For example, when creating the rectangle in that example, our code just specified &ldquo;rotate 30 degrees&rdquo;. {{raph}} turned that into a &ldquo;transformation matrix&rdquo; which is nice, because I didn't want to do whatever calcuation created it.</p>
 
 </section>
 
