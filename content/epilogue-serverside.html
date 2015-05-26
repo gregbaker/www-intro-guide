@@ -4,4 +4,31 @@
 
 <p class="draft">We have been making HTML by hand. It can also be made by a program. Demonstrate with a simple nodejs example. Ask them to imagine that except bigger. That's how the web really works.</p>
 
+<p>Throughout this course, we have been creating HTML with a text editor and saving <code class="file">.html</code> files. When these are put on a web server, they are then sent as-is to web browsers. In this case, the job of the web server is very simple: find the file and send it out.</p>
+
+<p>But if you think about many web sites you visit, this method of creating web pages can't be the whole story. On Facebook, your news feed changes each time you load it: nobody is sitting there typing HTML to update it for you. When you search on Google, you might be searching for something nobody has ever searched for before, so there's no way the results can be pre-prepared.</p>
+
+<p>For these sites (and many others), the HTML that is sent from the server to your browser must be generated when you request it. There is a program on the web server that can look at your request (what you searched for, or who you are logged in as, or where you are requesting from, or any other condition) and create an HTML page specifically for that request.</p>
+
+<p id="static-dynamic">Web pages that are the same for every request (and are probably stored in <code class="file">.html</code> files on the server) are called <dfn>static web pages</dfn>. Web pages that are created as they are requested are called <dfn>dynamic web pages</dfn>.</p>
+
+<p id="server-client">Writing programs to create dynamic pages is <dfn>server-side programming</dfn> since the programs run on the web server. The programming we have been doing in JavaScript, where the programs run in the user's web browser, is called <dfn>client-side programming</dfn>.</p>
+
+<p>We have only made static web pages in this course. That has given us a good chance to explore the basic ideas of the web, and given us a place to put JavaScript code to learn about (client-side) programming and do some interaction with the user.</p>
+
+<p>Creating dynamic web pages requires a few more things that we won't be doing in detail here.</p>
+
+<p>First, the web server needs to be configured to actually run a program to generate a response (instead of just finding a file on disk). This is often the biggest barrier to exploring server-side programming: you need a web server and need to set it up appropriately. This isn't terribly difficult or expensive, but it can be a challenge for beginners.</p>
+
+<p>Second, you need to be able to write programs that generate the HTTP response for the user. This mostly means creating HTML with your code. Exactly how that is done depends on the page you need to create: it will probably involve reading information from a database, or collecting information from some other source.</p>
+
+<section id="node">
+<h2>Server-Side JavaScript</h2>
+
+<p class="draft">some toy example</p>
+
+</section>
+
+
+
 {% endblock %}
