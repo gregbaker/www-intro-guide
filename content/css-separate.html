@@ -35,8 +35,7 @@
 <section id="benefits">
 <h2>Benefits</h2>
 
-<p class="draft">What this gets us: can re-use content in different contexts: different CSS for mobile, or an ebook, or .... Separate author/designer roles. Re-skin a whoe site with one CSS change</p>
-
+<p>Hopefully the benefits of creating web pages this way will become clear as you do it.</p>
 
 <aside>
 A few links on the subject:
@@ -44,11 +43,20 @@ A few links on the subject:
 <a href="https://web.archive.org/web/20120923221724/http://versie1.webrichtlijnen.nl/english/manual/development/production/philosophy/separating-content-and-design/advantages/">The advantages of separating structure and presentation</a>
 </aside>
 
-<!--
-http://pongos.com/2013/08/separating-content-from-appearance-semantic-markup/#sthash.LBaQcUbh.dpbs
-http://versie1.webrichtlijnen.nl/english/manual/development/production/philosophy/separating-content-and-design/advantages/
-https://web.archive.org/web/20120923221724/http://versie1.webrichtlijnen.nl/english/manual/development/production/philosophy/separating-content-and-design/advantages/
--->
+<p>Since we have separated content and appearance into separate files, it's easier to work on them independantly. That could simply mean you can start creating content before really deciding what it will look like: it should be fairly easy to go back later and style the pages. You may have to add some tags or <code class="html">class</code> and <code class="html">id</code> attributes, but shouldn't have to make major changes to the HTML.</p>
+
+<p>And later if you find you don't like the way your pages look, you can change one CSS file to update the apparance of your entire site.</p>
+
+<p>On larger projects, there could be different people responsible for creating the content and the style for it. It's probably not realistic that they will work <em>totally</em> independantly, but they can mostly get on with their jobs without constantly coordinating with the others.</p>
+
+<p>It is also possible to create entirely separate stylesheets for the same content. For example, you might want to create content for a presentation that looks one way while you are giving the presentation, but is reformatted if it is printed by participants.</p>
+
+<aside>There are a few more details, but if you rename a <code class="file">.epub</code> file to <code class="file">.zip</code> and extract it, you will find HTML content.</aside>
+
+<p>It is also possible to use HTML content in very different contexts. For example, the <a href="http://en.wikipedia.org/wiki/EPUB">EPUB</a> format for ebooks is basically HTML+CSS wrapped up in a ZIP file. Having content and not styling information in HTML makes it easy to convert content to an ebook format, even though the way the reader interacts with it is very different (turning pages instead of scrolling, different shaped screen, maybe no colour, etc.).</p>
+
+
+
 
 </section>
 
