@@ -2,6 +2,28 @@
 
 {% block content %}
 
-<p class="draft">Information transmitted over the Internet (or stored im memory, or saved on disk) must be represented in bits. For example characters must be encoded (and refer to binary representations in character reference). Wrong encoding = garbled files.</p>
+<p id="bit">We have talked a lot about transmitting information over the Internet. In order for any information to be transmitted over the network (or stored in your computer's memory, or stored on its disks), it must be encoded as a sequence of <dfn>bits</dfn>.</p>
+
+<p>Each bit can have one of two values, usually written as 0 and 1. How these are represented on the network or disk doesn't matter to us, but it will be something like &ldquo;an electrical pulse for 1 but none for 0&rdquo; or &ldquo;a magnetic field oriented <em>this</em> way for 0 but <em>that</em> way for 1&rdquo;.</p>
+
+<p>All of the information we can been working with has been turned into bits by our software. The details of encoding files like images are beyond the scope of this course: we can just be assured that the PNG and JPEG formats specify (very different) ways to turn image data into a sequence of bits (and back again). Text files, on the other hand, deserve a little more attention.</p>
+
+
+<section id="characters">
+<h2>Encoding Characters</h2>
+
+<p>Something we have stored and transmitted frequently are characters: HTML, CSS, and JavaScript are all just characters stored in a text file. These have been sent from server to client for all of our pages.</p>
+
+<p id="charenc">In order for this to happen, characters must be encoded as bits (using a <dfn>character encoding</dfn>). As long as the client and server agree on this encoding, everything will work. If they don't, the characters won't be received correctly.</p>
+
+<p>For example, <a href="http://www.hanselman.com/blog/WhyTheAskObamaTweetWasGarbledOnScreenKnowYourUTF8UnicodeASCIIAndANSIDecodingMrPresident.aspx">a tweet</a> that was received by Obama during a campaign event contained the work &ldquo;that&rsquo;s&rdquo;. The fifth character there isn't the apostrophe character that is on your keyboard; it is a <a href="http://unicode-table.com/en/2019/">right single quote</a> character.</p>
+
+<p>That was encoded (properly) by the sender and Twitter, but decoded incorrectly by the display software where it became &ldquo;thatâ€™s&rdquo;. This is a very easy mistake to make as a programmer or author, but very annoying for users when it happens (although most of us won't be on TV when it happens).</p>
+
+<p>The <code class="html">&lt;meta charset="UTF-8" /&gt;</code> element we have been including on every page indicates that the document uses the <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8 encoding of Unicode</a>, and specifying it explicitly ensure that the web browser will decode everything properly. This is the character encoding that should be used for all documents on the Web.</p>
+
+<p>The way UTF-8 encodes characters is very similar to some other character sets (which is why most of the characters in the Obama tweet were decoded correctly). If you have any characters in a document that aren't on a standard English keyboard (&euro;, &aacute;, &#12113;, &#1071;, &hellip;), make sure to test that they are being displayed correctly. (And programmers should <em>always</em> try some non-English characters to make sure their software works with them.)</p>
+
+</section>
 
 {% endblock %}
