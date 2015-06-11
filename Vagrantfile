@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/provider/virtualbox.box"
 
   config.vm.synced_folder "./", "/home/vagrant/guide"
+  config.vm.network "forwarded_port", guest: 8080, host: 8080 # used for node.js sample test
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "./_chef-cookbooks"
