@@ -1,0 +1,3 @@
+sudo apt-get install nodejs npm
+nodejs guide/files/node_sample.js
+# Visit http://localhost:8080/
