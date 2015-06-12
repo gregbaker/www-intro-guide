@@ -9,6 +9,34 @@
 <p>All of the information we can been working with has been turned into bits by our software. The details of encoding files like images are beyond the scope of this course: we can just be assured that the PNG and JPEG formats specify (very different) ways to turn image data into a sequence of bits (and back again). Text files, on the other hand, deserve a little more attention.</p>
 
 
+<section id="bytes">
+<h2>Bits and Bytes</h2>
+
+<p>You have likely see the words &ldquo;bits&rdquo; and &ldquo;bytes&rdquo; used to describe amounts of information. As stated above, a bit is a single 0 or 1.</p>
+
+<p id="byte">A <dfn>byte</dfn> is a sequence of eight bits: it is often a more convenient unit to start with when talking about storing or transmitting information. There are 2<sup>8</sup> =&nbsp;256 possible bytes, usually taken to represent numbers 0&ndash;255:</p>
+
+<blockquote>
+00000000 = 0<br />
+00000001 = 1<br />
+00000010 = 2<br />
+00000011 = 3<br />
+00000100 = 4<br />
+&vellip;<br />
+11111111 = 255<br />
+</blockquote>
+
+<p id="kilomega">A <dfn>kilobit</dfn> (<dfn>kb</dfn>) is 2<sup>10</sup> =&nbsp;1024 bits and a <a href="https://en.wikipedia.org/wiki/Kilobyte" id="kb"><dfn>kilobyte</dfn></a> (<dfn>kB</dfn>) is 1024 bytes. A <dfn>megabit</dfn> and <dfn>megabyte</dfn> (<dfn>Mb</dfn> and <dfn>MB</dfn>) are 2<sup>20</sup> =&nbsp;1048576 bits and bytes, respectively. A <dfn>gigabit</dfn> and <dfn>gigabyte</dfn> represent multiples of 2<sup>30</sup> =&nbsp;1073741824.</p>
+
+<p>The powers of two here (2<sup>10</sup> =&nbsp;1024 instead of 10<sup>3</sup> =&nbsp;1000) are used because powers of two occur frequently in computing and are often more convenient: 2<sup><var>n</var></sup> is the number of unique values that can be represented by <var>n</var> bits. The kilo- and mega- prefixes are <em>usually</em> used this way to represent powers of 1024 in computing, but are also sometimes used to indicate multiples of 1000 like they are for other metric units. It won't always be clear from the context, but usually the difference is not big enough to worry too much about.</p>
+
+<aside>Serious pedants use the prefixes &ldquo;kibi-&rdquo;, &ldquo;mebi-&rdquo;, and &ldquo;gibi-&rdquo; for the multiples of 1024, but it's rare to see them outside of Wikipedia.</aside>
+
+<p>We touched on some of these topics when discussing image file sizes in {{ xref('graphics-img', fragment='filesize') }} and when discussing image formats in {{ xref('graphics-formats') }} and {{ xref('graphics-bitmap') }}. In order to make image files smaller, we were forced to decrease the amount of information we were storing, by decreasing the number of pixels, number of possible colours (which determines bits per pixel), and choice of compression algorithm (which does a better job of packing information into a smaller number of bits).</p>
+
+</section>
+
+
 <section id="characters">
 <h2>Encoding Characters</h2>
 
