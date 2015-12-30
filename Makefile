@@ -31,7 +31,7 @@ SITE_DIRECTORIES = _site $(foreach d, $(DIRECTORIES), _site/$(d))
 POLISHED_SITE_DIRECTORIES = _polished_site $(foreach d, $(DIRECTORIES), _polished_site/$(d))
 
 # extra dependencies to make sure we rebuild HTML files when necessary
-LAYOUTS = _layouts/base.html contents.json _markup/jinja_environment.py
+LAYOUTS = _layouts/base.html _layouts/chapterbase.html _layouts/sectionbase.html _layouts/assignbase.html _layouts/appendixbase.html contents.json _markup/jinja_environment.py
 
 
 build: site
@@ -100,7 +100,7 @@ _polished_site/%.png: _site/%.png
 
 # scour all SVG images
 _polished_site/%.svg: _site/%.svg
-	python /usr/share/pyshared/scour.py --enable-id-stripping --enable-comment-stripping --shorten-ids -q -i $< -o $@
+	/usr/bin/scour --enable-id-stripping --enable-comment-stripping --shorten-ids -q -i $< -o $@
 _polished_site/%.svgz: _polished_site/%.svg
 	gzip -c < $< > $@
 
@@ -111,8 +111,10 @@ _polished_site/%: _site/%
 polished-site: validate $(POLISHED_SITE_DEPS)
 
 
-upload-draft: polished-site
-	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/cs/165-draft/
+#upload-draft: polished-site
+#	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/cs/165-draft/
+upload-1161: polished-site
+	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/165/1161-d1/guide/
 
 watch:
 	watch -n 1 make

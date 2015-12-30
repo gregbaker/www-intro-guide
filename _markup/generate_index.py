@@ -6,10 +6,10 @@ import itertools
 from jinja_environment import _read_contents, basename, process_jinja
 from cgi import escape
 
-TEMPLATE_START = """{% extends "base.html" %}
+TEMPLATE_START = """{% extends "appendixbase.html" %}
 {% block title %}Index of Terms{% endblock %}
 {% block h1 %}Index of Terms{% endblock %}
-{% block pageclass %}termindex{% endblock %}
+{% block pageclass %}termindex appendix{% endblock %}
 
 {% block content %}
 <ul id="index">
