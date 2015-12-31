@@ -1,2 +1,6 @@
 {% extends "base.html" %}
 {% block pageclass %}appendix{% endblock %}
+{% block breadcrumbs %}
+<a href="{{indexlink}}">CMPT 165 Study Guide</a>
+{{crumbsep}}{{pagetitle()}}
+{% endblock %}

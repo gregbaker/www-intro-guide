@@ -19,7 +19,7 @@ TEMPLATE_END = """
 </ul>
 {% endblock %}"""
 
-CONTEXT = {'rellink': './', 'indexlink': './'}
+CONTEXT = {'rellink': './', 'indexlink': './', 'input_file': 'term_index.html'}
 
 class IndexTerm(object):
     def __init__(self, term, link, topic, alphaterm=None):

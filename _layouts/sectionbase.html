@@ -1,2 +1,7 @@
 {% extends "base.html" %}
 {% block pageclass %}section{% endblock %}
+{% block breadcrumbs %}
+<a href="{{indexlink}}">CMPT 165 Study Guide</a>
+{{crumbsep}}{{xref(chapterlabel())}}
+{{crumbsep}}{{pagetitle()}}
+{% endblock %}

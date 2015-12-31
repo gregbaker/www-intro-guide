@@ -26,9 +26,10 @@ body {
   }
 }
 h1 {
-  font-size: 200%;
+  font-size: 250%;
   font-weight: bold;
   margin: 1em 0;
+  line-height: 1em;
 }
 h2 {
   clear: both;
@@ -41,6 +42,32 @@ h3 {
   font-size: 125%;
   font-style: italic;
   margin: 1.5em 0 1em 0;
+}
+
+div.guide {
+  font-weight: normal;
+  text-align: center;
+  font-size: 150%;
+}
+div.breadcrumbs {
+  background-color: #ddd;
+  border: 1px solid #999;
+  padding: 0 0.25em;
+}
+footer {
+  background-color: #ddd;
+  border: 1px solid #999;
+  padding: 0 0.25em;
+}
+div.license {
+  float: right;
+  @media #{$sm-screen} {
+    float: none;
+  }
+}
+div.license img {
+  vertical-align: middle;
+  margin-left: 0.25em;
 }
 
 ol, ul {
@@ -211,7 +238,7 @@ ol#toc ol, ol.chapter-toc {
   list-style-type: lower-roman;
 }
 span.wc {
-  Xdisplay: none;
+  display: none;
 }
 ol.outline {
   list-style-type: decimal;

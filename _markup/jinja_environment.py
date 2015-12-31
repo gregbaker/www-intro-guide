@@ -131,6 +131,8 @@ def pagetitle(context):
         return 'Exercise ' + basename[4:]
     elif basename.startswith('assign'):
         return 'Assignment ' + basename[6:]
+    elif basename == 'term_index':
+        return 'Index of Terms'
     
     data = json.load(open('contents.json'))
     for chapter in data:
@@ -173,6 +175,17 @@ def xref(context, chap, text=None, fragment=None):
         frag = '#' + fragment    
     return '<a href="%scontent/%s.html%s" class="xref">%s</a>' % (context['rellink'], chap, frag, text)
     
+@contextfunction
+def chapterlabel(context):
+    infile = context['input_file']
+    fn = os.path.split(infile)[-1]
+    basename = os.path.splitext(fn)[0]
+    
+    if '-' in basename:
+        return basename.split('-')[0]
+    else:
+        return basename
+
 
 def include_output(name, cls=''):
     text = loader.get_source(environment, name)[0].rstrip()
@@ -251,6 +264,7 @@ environment.globals['floatfigure'] = floatfigure
 environment.globals['contents'] = contents
 environment.globals['subcontents'] = subcontents
 environment.globals['pagetitle'] = pagetitle
+environment.globals['chapterlabel'] = chapterlabel
 environment.globals['xref'] = xref
 environment.globals['include_output'] = include_output
 environment.globals['include_escaped'] = include_escaped
@@ -260,4 +274,5 @@ environment.globals['html_tag_ref_url'] = html_tag_ref_url
 environment.globals['css_prop_ref_url'] = css_prop_ref_url
 environment.globals['css_dt'] = css_dt
 environment.globals['raph_ref_url'] = raph_ref_url
+environment.globals['crumbsep'] = ' &rarr; '
 environment.globals.update(GLOBALS)

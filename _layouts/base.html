@@ -17,14 +17,16 @@
 </head>
 <body>
 <header>
-<h1>{% block h1 %}{{ pagetitle() }}{% endblock %}</h1>
+  {% block allcrumbs %}<div class="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div>{% endblock %}
+  <h1>{% block h1 %}{{ pagetitle() }}{% endblock %}</h1>
 </header>
 <main id="main">
 {% block content %}{% endblock %}
 </main>
 <footer>
-<a href="{{ indexlink }}">Guide Home</a>
+<a href="{{ indexlink }}">CMPT 165 Study Guide</a>
 <div class="license">
+Copyright &copy; 2015 Greg Baker
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC by-SA" src="{{rellink}}assets/cc-by-sa.svg" /></a>
 </div>
 </footer>
