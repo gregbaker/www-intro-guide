@@ -133,6 +133,8 @@ def pagetitle(context):
         return 'Assignment ' + basename[6:]
     elif basename == 'term_index':
         return 'Index of Terms'
+    elif basename == 'intro':
+        return 'Course Introduction'
     
     data = json.load(open('contents.json'))
     for chapter in data:
