@@ -249,6 +249,10 @@ def css_dt(prop):
 def raph_ref_url(obj, meth):
     return GLOBALS['raphref_url'] + '#%s.%s' % (obj, meth)
 
+def md(md_text):
+    import markdown
+    return markdown.markdown(md_text, output_format='xhtml5')
+
 def process_jinja(template_text, context={}):
     """
     Return result of processing template text in our standard environment.
@@ -276,5 +280,6 @@ environment.globals['html_tag_ref_url'] = html_tag_ref_url
 environment.globals['css_prop_ref_url'] = css_prop_ref_url
 environment.globals['css_dt'] = css_dt
 environment.globals['raph_ref_url'] = raph_ref_url
+environment.globals['md'] = md
 environment.globals['crumbsep'] = ' &rarr; '
 environment.globals.update(GLOBALS)
