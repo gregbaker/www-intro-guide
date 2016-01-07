@@ -133,6 +133,8 @@ def pagetitle(context):
         return 'Assignment ' + basename[6:]
     elif basename == 'term_index':
         return 'Index of Terms'
+    elif basename == 'intro':
+        return 'Course Introduction'
     
     data = json.load(open('contents.json'))
     for chapter in data:
@@ -247,6 +249,11 @@ def css_dt(prop):
 def raph_ref_url(obj, meth):
     return GLOBALS['raphref_url'] + '#%s.%s' % (obj, meth)
 
+@contextfilter
+def markdown(context, value):
+    from markdown import markdown as md
+    return md(value, output_format='xhtml5')
+
 def process_jinja(template_text, context={}):
     """
     Return result of processing template text in our standard environment.
@@ -259,6 +266,7 @@ loader = FileSystemLoader(['.', '_layouts'])
 environment = Environment(
         loader=loader,
         )
+environment.filters['markdown'] = markdown
 environment.globals['figure'] = figure
 environment.globals['floatfigure'] = floatfigure
 environment.globals['contents'] = contents
