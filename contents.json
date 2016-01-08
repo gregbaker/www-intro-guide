@@ -91,5 +91,11 @@
   },
   {
     "chapter": ["sw", "Software"]
+  },
+  {
+    "chapter": ["tech", "Technical Instructions"],
+    "contents": [
+      ["upload", "Uploading Files"]
+    ]
   }
 ]

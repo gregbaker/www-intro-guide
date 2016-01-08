@@ -1,0 +1,40 @@
+{% extends "appendixbase.html" %}
+
+{% block content %}
+
+<section id="cyberduck">
+<h2>Uploading with CyberDuck</h2>
+
+<p>These instructions will be for uploading with <a href="https://cyberduck.io/">CyberDuck</a>. It is available for both Windows and OSX. The screenshots here are OSX, but it looks similar in Windows
+</p>
+<p>You can also watch the <a href="https://www.youtube.com/watch?v=oTQiGJ2E_ig">video tutorial on uploading files</a>. It follows the same steps as the instructions here: use whichever instructions you prefer (or both).</p>
+
+<p>First, you'll need to install CyberDuck (you can accept all of the defaults in the installer) and start the program. Once the program is started, &ldquo;Open Connection&rdquo;.</p>
+{{ figure('cd1', 'Starting CyberDuck', extension='png', referenced=False) }}
+
+<p>Select the &ldquo;SFTP (SSH File Transfer Protocol)&rdquo; option, because that's how you need to connect to the server.</p>
+{{ figure('cd2', 'Selecting Connection Protocol', extension='png', referenced=False) }}
+
+<p>For the connection, use the server <code class="ip">cmpt165.csil.sfu.ca</code>, and your usual SFU username and password.</p>
+{{ figure('cd3', 'Connection Details', extension='png', referenced=False) }}
+
+<p>In your home directory, you'll see a folder <code class="file">public_html</code>. All of your web content must go in there: double-click to go into that folder.</p>
+{{ figure('cd4', 'Home Directory', extension='png', referenced=False) }}
+
+<p>When you start the course, you should see a file <code class="file">index.html</code> in there.</p>
+{{ figure('cd5', 'Initial public_html', extension='png', referenced=False) }}
+
+<p>From the &ldquo;actions&rdquo; menu, select &ldquo;Upload&hellip;&rdquo;.</p>
+{{ figure('cd6', 'Uploading a file', extension='png', referenced=False) }}
+
+<p>Find the <code class="file">.html</code> file on your computer and upload it. After that, you should see it in the folder.</p>
+{{ figure('cd7', 'After Uploading', extension='png', referenced=False) }}
+
+<p>Then you should be able to open a web browser, and type the URL of that resource to find it. It should be <code class="url">http://cmpt165.csil.sfu.ca/~<var>userid</var>/<var>filename.html</var></code>&nbsp;.</p>
+{{ figure('cd8', 'The URL in a Browser', extension='png', referenced=False) }}
+
+<p>In URLs, <strong>case matters</strong>, so <code class="file">filename.html</code> and <code class="file">FILEname.html</code> will have <strong>different</strong> URLs. Make sure your URL matches your filename.</p>
+
+</section>
+
+{% endblock %}
