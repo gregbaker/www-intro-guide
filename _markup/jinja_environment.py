@@ -249,6 +249,10 @@ def css_dt(prop):
 def raph_ref_url(obj, meth):
     return GLOBALS['raphref_url'] + '#%s.%s' % (obj, meth)
 
+def timing(semester, week):
+    """Timing note for lecture notes"""
+    return '<aside class="timing t%s">%s end of week %i</aside>' % (semester, semester, week)
+
 @contextfilter
 def markdown(context, value):
     from markdown import markdown as md
@@ -282,5 +286,6 @@ environment.globals['html_tag_ref_url'] = html_tag_ref_url
 environment.globals['css_prop_ref_url'] = css_prop_ref_url
 environment.globals['css_dt'] = css_dt
 environment.globals['raph_ref_url'] = raph_ref_url
+environment.globals['timing'] = timing
 environment.globals['crumbsep'] = ' &rarr; '
 environment.globals.update(GLOBALS)
