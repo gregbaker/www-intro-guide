@@ -75,8 +75,18 @@ def contents():
     from wordcount import wordcount
     total_wc = 0
     data = json.load(open('contents.json'))
-    res = ['<ol id="toc">']
+    section = 'pre'
+    res = ['<ol class="toc" id="preface">']
     for chapter in data:
+        if section == 'pre' and 'preface' not in chapter:
+            res.append('</ol>')
+            res.append('<ol class="toc" id="contents">')
+            section = 'contents'
+        if section == 'contents' and 'appendix' in chapter and chapter['appendix']:
+            res.append('</ol>')
+            res.append('<ol class="toc" id="appendix">')
+            section = 'appendix'
+
         chap_slug = chapter['chapter'][0]
         chap_title = chapter['chapter'][1]
         res.append('<li><a href="content/%s.html">%s</a>' % (chap_slug, chap_title))

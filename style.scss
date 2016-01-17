@@ -227,15 +227,19 @@ blockquote footer:before {
   font-style: italic;
 }
 
-ol#toc {
+ol.toc {
   font-weight: bold;
 }
-ol#toc ol {
+ol.toc ol {
   margin-top: 0.5em;
 }
-ol#toc ol, ol.chapter-toc {
+ol.toc ol, ol.chapter-toc {
   font-weight: normal;
   list-style-type: lower-roman;
+}
+ol.toc#preface>li, ol.toc#appendix>li {
+  list-style-type: none;
+  margin-bottom: 1em;
 }
 span.wc {
   display: none;

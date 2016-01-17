@@ -1,5 +1,14 @@
 [
   {
+    "chapter": ["intro-dist", "Introduction: SFU On-Campus offerings"],
+    "preface": true
+  },
+  {
+    "chapter": ["intro-oc", "Introduction: SFU Distance Education offerings"],
+    "preface": true
+  },
+  
+  {
     "chapter": ["www", "The Internet and the World Wide Web"],
     "contents": [
       ["internet", "The Internet"],
@@ -89,13 +98,16 @@
       ["bits", "Bits and Transmitting Information"]
     ]
   },
+  
   {
-    "chapter": ["sw", "Software"]
+    "chapter": ["sw", "Software"],
+    "appendix": true
   },
   {
     "chapter": ["tech", "Technical Instructions"],
     "contents": [
       ["upload", "Uploading Files"]
-    ]
+    ],
+    "appendix": true
   }
 ]
