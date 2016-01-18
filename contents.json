@@ -109,5 +109,10 @@
       ["upload", "Uploading Files"]
     ],
     "appendix": true
+  },
+  {
+    "chapter": ["code", "Code Snippets"],
+    "appendix": true
   }
+
 ]
