@@ -20,7 +20,7 @@
 
 <p>When the computer stores this bitmap data on disk (or transmits it over the Internet), is basically has to store the colour of each pixel. Essentially, that information is &ldquo;Row 1: white pixel, white pixel, white pixel, &hellip; Row 2: dark grey pixel, black pixel, black pixel, dark grey pixel, &hellip;&rdquo;. Of course, the way the computer represents that information isn't english descriptions like that, but the basic idea is the same.</p>
 
-<p id="bmp">The <dfn>BMP</dfn> (<dfn>Windows Bitmap</dfn>) format simply records the colour of each pixel with no compression (typically). If we save the original screenshot in that format the result is a 526&nbsp;kilobyte file. That is a lot of a relatively small image. The BMP format isn't used on the web because it produces such large files.</p>
+<p id="bmp">The <dfn>BMP</dfn> (<dfn>Windows Bitmap</dfn>) format simply records the colour of each pixel with no compression (typically). If we save the original screenshot in that format the result is a 526&nbsp;kilobyte file. That is a lot for a relatively small image. The BMP format isn't used on the web because it produces such large files.</p>
 
 <p id="png">We can instead save an image as a <dfn>PNG</dfn> (<dfn>Portable Network Graphics</dfn>) which is common on the web. PNG uses <a href="https://en.wikipedia.org/wiki/Data_compression">data compression</a> to represent images in smaller files with no loss in quality. Saving the screenshot as a PNG, I got a 36&nbsp;kilobyte file: much smaller than without any compression, but we can do better if we actually understand a little more about images.</p>
 
@@ -45,7 +45,7 @@
 
 <p>When the screenshot above was saved as a 24-bit PNG image, it was a 36 kilobyte file. When converted to 8-bit colour and saved, it was 19 kilobytes. That's more than a third of the original size (probably because of the overhead of storing the palette information and some other overhead), but a significant savings.</p>
 
-<p>Palettes can other numbers of colours, usually powers of two so &ldquo;<var>n</var>-bit colour&rdquo; uses up to 2<sup><var>n</var></sup> colours. For example, reducing the screenshot to 2<sup>3</sup> = 8 colours, the file size decreased to 9 kilobytes with no noticable reduction in quality. (My image editor chose shades of grey and blue to represent the antializing in the image: if I look really closely maybe I can see tiny differences in the darkness around the edges of the characters, but nothing that I would worry about.)</p>
+<p>Palettes can other numbers of colours, usually powers of two so &ldquo;<var>n</var>-bit colour&rdquo; uses up to 2<sup><var>n</var></sup> colours. For example, reducing the screenshot to 2<sup>3</sup> = 8 colours, the file size decreased to 9 kilobytes with no noticable reduction in quality. (My image editor chose shades of grey and blue to represent the antializing in the image: if I look really closely maybe I can see tiny differences in the darkness around the edges of the characters, but nothing that I would ever care about.)</p>
 
 <p>Here are some details of the screenshot after being saved with 256 and 8 colours:</p>
 
