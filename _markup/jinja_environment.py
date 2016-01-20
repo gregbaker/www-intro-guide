@@ -9,8 +9,7 @@ from img_process import img_width_height
 
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
-    'cssref_url': 'http://reference.sitepoint.com/css',
-    'csspropref_url': 'http://reference.sitepoint.com/css/propertyref', # see also css_prop_ref_url() below
+    'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.2.0.min.js',
     'raphael_url': 'https://bit.ly/raphael-212_js',
     'raphref_url': 'http://raphaeljs.com/reference.html', # see also raph_ref_url() below
@@ -31,7 +30,7 @@ def get_context(infile):
 
     return {'rellink': rellink, 'indexlink': indexlink, 'input_file': infile}
 
-figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="{{rellink}}{{ imgpath }}" alt="{{ caption }}" {{widthheight}} /><figcaption>{{ caption }}{{ reference_link }}</figcaption></figure>""")
+figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="{{rellink}}{{ imgpath }}" alt="{{ caption }}" {{widthheight}} />{% if caption %}<figcaption>{{ caption }}{{ reference_link }}</figcaption>{% endif %}</figure>""")
 
 @contextfunction
 def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
@@ -250,7 +249,7 @@ def html_tag_ref_url(elt):
     return 'https://developer.mozilla.org/en/docs/Web/HTML/Element/%s' % (elt)
 
 def css_prop_ref_url(prop):
-    return 'http://reference.sitepoint.com/css/%s' % (prop)
+    return 'https://developer.mozilla.org/en-US/docs/Web/CSS/%s' % (prop)
 
 def css_dt(prop):
     # avoid repetition on css-properties.html
