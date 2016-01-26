@@ -21,16 +21,27 @@
 
 <p>In the section {{ xref('html-validation') }}, we talked about using a validator to make sure our HTML followed the rules of the language. That gave us some assurance that it would be understood the same way by any browser (or other tool like Google's indexer) that needs to work with it. Producing valid code definitely helps convince us that the page will work in any browser.</p>
 
-<p id="css-validator">There is a similar <a href="https://jigsaw.w3.org/css-validator/" class="dfn">CSS Validator</a> that will make sure your CSS code follows the rules of that language. You should make sure the CSS you produce is also valid.</p>
+<p id="css-validator">There is a similar <a href="https://jigsaw.w3.org/css-validator/" class="dfn">CSS Validator</a> that will make sure your CSS code follows the rules of that language. You should make sure the CSS you produce is also valid for the same reasons.</p>
+
+<p>However, for CSS, the situation can be more complicated when it comes to actually working in different browsers.</p>
+
+<p>Remember that when you add a stylesheet to your document, you are always adding to the browser's default CSS. These can vary in different browsers: some style certain elements by default while other don't; some style in visually similar ways by using different CSS properties. Working on top of these default stylesheets can be difficult, since it's hard to predict what a different browser will do.</p>
+
+<p>You can use a <a href="http://meyerweb.com/eric/tools/css/reset/"><dfn id="reset">reset stylesheet</dfn></a> to help overcome this. These are pre-prepared stylesheets that <em>remove</em> all of the defaults set by browsers. The idea is that you will then have a consistent starting point that you can build from.</p>
+
+<aside>This Guide uses the reset stylesheet linked here, and then its <a href="{{rellink}}style.css">own stylesheet</a> is applied.</aside>
+
+<p>For example, they will remove <code class="css">font-style: italic</code> from <code class="html">&lt;em&gt;</code> elements. If you want <code class="html">&lt;em&gt;</code> styled a particular way, you must add that style choice back in your own CSS. This can mean a little more work for you (since you have to replace default styles), but it gives some comfort that you know what style changes will be applied and forces you to think about the styling of these basic elements, which can be a good part of the design process.</p>
+
 </section>
 
 <section id="compat">
 <h2>Check Browser Compatibility</h2>
 
-<p>With CSS especially, there is a big question of whether or not a particular browser will even understant the features you are using. CSS has been under very active development un recent years, and even new web browsers won't be able to produce all of the effects implied by the CSS Reference.</p>
+<p>With CSS especially, there is a big question of whether or not a particular browser will even understand the features you are using. CSS has been under very active development in recent years, and even new web browsers won't be able to produce all of the effects implied by the CSS Reference.</p>
 
 <p>This is less of an issue in HTML, which has been a little more stable recently. The only HTML compatibility issues will come from older versions of Internet&nbsp;Explorer. For this course, we will happily ignore old IE versions and move on.</p>
-<aside>All modern browsers now update themselves automatically: older versions will automatically Internet Explorer was the last to add this feature, in version&nbsp;9.</aside>
+<aside>All modern browsers now update themselves automatically: older versions will automatically download and install the newer version. Internet Explorer was the last to add this feature, in 2011.</aside>
 
 <p>For CSS, you need to be aware of what features you can safely use. Properties we have explicitly discussed in this Guide can be used universally, but that's a small fraction of what is available.</p>
 
@@ -38,12 +49,14 @@
 
 <p>Here are screenshots of the availability of two CSS properties in various browsers. The first is a very old and well-established feature. The second is currently quite experimental.</p>
 
-{{ figure('compat1', 'Compatibility info for an old CSS feature', extension='png', referenced=False) }}
-{{ figure('compat2', 'Compatibility info for a very new CSS feature', extension='png', referenced=False) }}
+{{ figure('compat1', 'Compatibility info for a well-established CSS feature', extension='png', referenced=False) }}<!-- color -->
+{{ figure('compat2', 'Compatibility info for a new/experimental CSS feature', extension='png', referenced=False) }}<!-- text-emphasis, simplified -->
 
 <p>In the second table of compatibility information indicates Firefox 46 (released in April 2016), Chrome 23 (released November 2012), and no support in any Internet Explorer version (as of this screenshot).</p>
 
 <p>The result here is that the first property (which was <code class="css">color</code>) can be used freely, and you have a good idea that it will work. The second probably can only be used in a very experimental way (or in a situation where you don't really care if the effect appears).</p>
+
+<p>Also notice in the compatibility table the second tab for mobile browser compatibility. These are usually similar: different browsers add new features at different times. In both cases, exactly which browser version you &ldquo;must&rdquo; support is unclear and generally depends on your audience.</p>
 
 <p>This can be a very frustrating aspect of working with CSS, but it's unavoidable. As you're learning new CSS features, you have no choice but to also learn if they're actually usable in current browsers.</p>
 
@@ -53,8 +66,17 @@
 <section id="test">
 <h2>Test Pages Well</h2>
 
-<p class="draft">different browsers; resize your window; try a mobile device.</p>
+<p>The compatibility information in the references will give you information that you couldn't have uncovered on your own. They are still no substitute for actually seeing your page work in various situations.</p>
 
+<p id="testing">You should be sure to <dfn data-term="testing pages">test</dfn> your pages with different browsers and make sure they work the way you expect.</p>
+
+<ul>
+<li><p>Resize your browser window: not everybody has the same size screen, and not everybody keeps their browser at the full screen size. Resize your browser to a few different sizes and make sure your page still fits together and looks okay.</p></li>
+<li><p>Try a different browser: if you usually use Chrome, try your pages in Firefox and Internet Explorer. They will usually be the same, but you may find compatibility and default CSS differences you need to work around.</p></li>
+<li><p>Try a mobile device: Will your pages work on a phone? You can't test every possible mobile browser, but you can at least try one and make sure your page looks reasonable on a small screen. Trying your page in a very small browser window on your computer will generally give you a good idea how it will look on a phone, but quick look on a different device is probably a good idea.</p></li>
+</ul>
+
+<p>Again, having to do these checks can be frustrating, but the flexibility of the web make it necessary to produce pages that work in different situations.</p>
 
 </section>
 
