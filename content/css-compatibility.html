@@ -27,11 +27,13 @@
 
 <p>Remember that when you add a stylesheet to your document, you are always adding to the browser's default CSS. These can vary in different browsers: some style certain elements by default while other don't; some style in visually similar ways by using different CSS properties. Working on top of these default stylesheets can be difficult, since it's hard to predict what a different browser will do.</p>
 
-<p>You can use a <a href="http://meyerweb.com/eric/tools/css/reset/"><dfn id="reset">reset stylesheet</dfn></a> to help overcome this. These are pre-prepared stylesheets that <em>remove</em> all of the defaults set by browsers. The idea is that you will then have a consistent starting point that you can build from.</p>
+<p>You can use a <a href="http://meyerweb.com/eric/tools/css/reset/"><dfn id="reset">reset stylesheet</dfn></a> to help overcome this. These are pre-prepared stylesheets that <em>remove</em> all of the defaults set by browsers. The idea is that you will then have a consistent starting point that you can build from. You can apply both a reset stylesheet and your own customizations by including two <code class="html">&lt;link&gt;</code> elements like this:</p>
+{{ quoted_code('_sources/reset-css.html') }}
 
 <aside>This Guide uses the reset stylesheet linked here, and then its <a href="{{rellink}}style.css">own stylesheet</a> is applied.</aside>
 
-<p>For example, they will remove <code class="css">font-style: italic</code> from <code class="html">&lt;em&gt;</code> elements. If you want <code class="html">&lt;em&gt;</code> styled a particular way, you must add that style choice back in your own CSS. This can mean a little more work for you (since you have to replace default styles), but it gives some comfort that you know what style changes will be applied and forces you to think about the styling of these basic elements, which can be a good part of the design process.</p>
+
+<p>For example, a reset CSS will remove <code class="css">font-style: italic</code> from <code class="html">&lt;em&gt;</code> elements. If you want <code class="html">&lt;em&gt;</code> styled a particular way, you must add that style choice back in your own CSS. This can mean a little more work for you (since you have to replace default styles), but it gives some comfort that you know what style changes will be applied and forces you to think about the styling of these basic elements, which can be a good part of the design process.</p>
 
 </section>
 
