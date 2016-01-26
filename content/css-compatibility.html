@@ -1,0 +1,61 @@
+{% extends "sectionbase.html" %}
+
+{% block content %}
+
+<p>When creating web pages, you have to remember that the HTML and CSS (and later JavaScript) that you create is sent to the viewer <em>as you create it</em>.</p>
+
+<p>That means that you don't have any real control over how the content is displayed: <strong>the user's web browser</strong> is responsible for turning your HTML and CSS into something that is displayed on screen. Whether or not it does so exactly the way you expect can be difficult to predict.</p>
+
+<p>When you test a page in your web browser, all you have really proven is that it works with&hellip;</p>
+<ul>
+<li>your particular browser (Firefox, Chrome, etc);</li>
+<li>in the version of the browser you have;</li>
+<li>with your browser window size;</li>
+<li>with the fonts, plugins, etc. that you have installed.</li>
+</ul>
+
+<p>That's not an acceptable assurance that your pages are actually going to work for anybody else. There are, however, a few things you can do to help make sure everything will go okay when your pages end up in different situations.</p>
+
+<section id="valid">
+<h2>Produce Good Content</h2>
+
+<p>In the section {{ xref('html-validation') }}, we talked about using a validator to make sure our HTML followed the rules of the language. That gave us some assurance that it would be understood the same way by any browser (or other tool like Google's indexer) that needs to work with it. Producing valid code definitely helps convince us that the page will work in any browser.</p>
+
+<p id="css-validator">There is a similar <a href="https://jigsaw.w3.org/css-validator/" class="dfn">CSS Validator</a> that will make sure your CSS code follows the rules of that language. You should make sure the CSS you produce is also valid.</p>
+</section>
+
+<section id="compat">
+<h2>Check Browser Compatibility</h2>
+
+<p>With CSS especially, there is a big question of whether or not a particular browser will even understant the features you are using. CSS has been under very active development un recent years, and even new web browsers won't be able to produce all of the effects implied by the CSS Reference.</p>
+
+<p>This is less of an issue in HTML, which has been a little more stable recently. The only HTML compatibility issues will come from older versions of Internet&nbsp;Explorer. For this course, we will happily ignore old IE versions and move on.</p>
+<aside>All modern browsers now update themselves automatically: older versions will automatically Internet Explorer was the last to add this feature, in version&nbsp;9.</aside>
+
+<p>For CSS, you need to be aware of what features you can safely use. Properties we have explicitly discussed in this Guide can be used universally, but that's a small fraction of what is available.</p>
+
+<p id="browser-compat">For other properties, you should check for information about their <dfn>browser compatibility</dfn>. The <a href="{{ cssref_url }}">CSS Reference</a> that we are using includes some: at the bottom of pages about CSS properties is a table of when support for various features appeared.</p>
+
+<p>Here are screenshots of the availability of two CSS properties in various browsers. The first is a very old and well-established feature. The second is currently quite experimental.</p>
+
+{{ figure('compat1', 'Compatibility info for an old CSS feature', extension='png', referenced=False) }}
+{{ figure('compat2', 'Compatibility info for a very new CSS feature', extension='png', referenced=False) }}
+
+<p>In the second table of compatibility information indicates Firefox 46 (released in April 2016), Chrome 23 (released November 2012), and no support in any Internet Explorer version (as of this screenshot).</p>
+
+<p>The result here is that the first property (which was <code class="css">color</code>) can be used freely, and you have a good idea that it will work. The second probably can only be used in a very experimental way (or in a situation where you don't really care if the effect appears).</p>
+
+<p>This can be a very frustrating aspect of working with CSS, but it's unavoidable. As you're learning new CSS features, you have no choice but to also learn if they're actually usable in current browsers.</p>
+
+</section>
+
+
+<section id="test">
+<h2>Test Pages Well</h2>
+
+<p class="draft">different browsers; resize your window; try a mobile device.</p>
+
+
+</section>
+
+{% endblock %}

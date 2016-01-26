@@ -38,6 +38,7 @@
       ["selectors", "CSS Selectors"],
       ["pages", "Styling Pages with CSS"],
       ["colour", "Colours in CSS"],
+      ["compatibility", "Browser Compatibilty"],
       ["separate", "Separating Content and Appearance"]
     ]
   },

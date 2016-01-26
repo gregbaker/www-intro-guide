@@ -19,8 +19,13 @@
 <li>If the tags aren't specific enough, add a <code class="html">class</code> or <code class="html">id</code> to distinguish particular elements as semantically-different.</li>
 <li>Choose <code class="html">class</code> and <code class="html">id</code> values to reflect meaning as well, not to describe an appearance.</li>
 <li>If no existing tag matches the content you have, use a generic tag (<code class="html">&lt;div&gt;</code> or <code class="html">&lt;span&gt;</code>) with a meaningful <code class="html">class</code> or <code class="html">id</code>.</li>
-<li>Use CSS to specify how you want pieces of content to look.</li>
-<li>If you need to, go back and add markup (especially <code class="html">class</code> or <code class="html">id</code> attributes) to your HTML as you're creating your CSS. Don't slip into saying things about appearance in your HTML when doind this.</li>
+</ul>
+
+<p>&hellip; and what this means when writing CSS:</p>
+<ul>
+<li>Use CSS to specify how you want pieces of content to look, in a separate <code class="file">.css</code> file.</li>
+<li>If you need to, go back and add markup (especially <code class="html">class</code> or <code class="html">id</code> attributes) to your HTML as you're creating your CSS. Don't slip into saying things about appearance in your HTML when doing this.</li>
+<li>Don't use the <code class="html">&lt;style&gt;</code> tag or HTML <code class="html">style</code> property, which mix style information back into your HTML. If your reference uses these, find a better reference.</li>
 </ul>
 
 <p>We haven't talked much about the third compontent: behaviour. We will do this when introducing JavaScript, and will add another point:</p>
