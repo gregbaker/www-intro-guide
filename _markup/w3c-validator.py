@@ -14,7 +14,7 @@ import json
 import commands
 import urllib
 
-html_validator_url = 'http://validator.w3.org/check'
+html_validator_url = 'http://validator.w3.org/nu/'
 css_validator_url = 'http://jigsaw.w3.org/css-validator/validator'
 
 verbose_option = False
@@ -40,7 +40,7 @@ def validate(filename):
             cmd = ('curl -sG -d uri=%s -d output=json -d warning=0 %s'
                     % (quoted_filename, css_validator_url))
         else:
-            cmd = ('curl -sG -d uri=%s -d output=json %s'
+            cmd = ('curl -sG -d doc=%s -d out=json %s'
                     % (quoted_filename, html_validator_url))
     else:
         # Upload file as multipart/form-data with POST.
@@ -48,7 +48,7 @@ def validate(filename):
             cmd = ('curl -sF "file=@%s;type=text/css" -F output=json -F warning=0 %s'
                     % (quoted_filename, css_validator_url))
         else:
-            cmd = ('curl -sF "uploaded_file=@%s;type=text/html" -F output=json %s'
+            cmd = ('curl -s -H "Content-Type: text/html; charset=utf-8" --data-binary @%s %s?out=json'
                     % (quoted_filename, html_validator_url))
     verbose(cmd)
     status,output = commands.getstatusoutput(cmd)
