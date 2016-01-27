@@ -103,11 +103,12 @@
   {
     "chapter": ["sw", "Software"],
     "appendix": true
-  },
+ },
   {
     "chapter": ["tech", "Technical Instructions"],
     "contents": [
-      ["upload", "Uploading Files"]
+      ["upload", "Uploading Files"],
+      ["devtools", "Browser Developer Tools"]
     ],
     "appendix": true
   },
