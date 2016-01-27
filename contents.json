@@ -36,8 +36,8 @@
       ["basics", "CSS Basics"],
       ["properties", "CSS Properties"],
       ["selectors", "CSS Selectors"],
-      ["pages", "Styling Pages with CSS"],
       ["colour", "Colours in CSS"],
+      ["pages", "Styling Pages with CSS"],
       ["compatibility", "Browser Compatibilty"],
       ["separate", "Separating Content and Appearance"]
     ]

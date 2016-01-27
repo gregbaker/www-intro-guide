@@ -2,7 +2,66 @@
 
 {% block content %}
 
-<p class="draft">How to style whole pages with CSS and a bigger example.</p>
+<p>In this section, we will pause to work on a web page and stylesheet, so we can see how some of these ideas fit together.</p>
 
+<p>We will produce a web page with a recipe: that will give us some real content where we can make realistic decisions about the markup we use.</p> <aside>Also, it's a good recipe.</aside>
+
+<section id="html">
+<h2>HTML for Content</h2>
+
+<p>We can start with the provided HTML page skeleton in the {{ xref('code') }} appendix: it contains the basic parts we now know we need in every page.</p>
+
+<p>There are two basic parts to a recipe: a list of ingredients and a list of steps to follow to complete the dish. These are both lists, but semeantically quite different. The list of ingredients has no particular order, but the order of the steps is very important. So, we will use <code class="html">&lt;ul></code> for the list of ingredients and <code class="html">&lt;ol></code> for the list of steps to follow.</p>
+
+<p>We will also include <code class="html">&lt;section></code> elements that we haven't used before: they can be used to enclose a section of the page (or nested to indicate subsections).</p>
+
+{{ quoted_code('files/recipe1.html') }}
+
+<p>The <code class="html">id</code> values can also be used as a <dfn>fragment</dfn> in a link. If we put <code class="url">#steps</code> at the end of a link to this page, the browser will scroll to the element with <code class="html">id="steps"</code>.</p>
+<aside>It's a best-practice to put an <code class="html">id</code> on each section or heading so someone can link to a position in your page.</aside>
+
+<p>Also notice that we used the <code class="html">&amp;ntilde;</code> to produce the &ldquo;&ntilde;&rdquo; character in &ldquo;jalape&ntilde;o&rdquo;.</p>
+
+<p>This is good markup for this content. We may want to refine it later, but you should start with markup that makes semantic sense for the content.</p>
+</section>
+
+<section id="css">
+<h2>CSS for Appearance</h2>
+
+<p>We will also start with the example CSS from the {{ xref('code') }} appendix. That may not be what you want for every page, but it's at least a start for us.</p>
+
+<p>The isn't much method to the other CSS changes made here: they are the result of experimenting and finding things that didn't look too bad. You may want to review some of these properties in the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS Reference</a>.</p>
+
+{{ quoted_code('files/recipestyle1.css') }}
+
+<p>This is what the above HTML looks like with this CSS applied, or see the <a href="{{rellink}}files/recipe1.html">the actual page</a>.</p>
+
+{{ figure('recipe1', 'Screenshot of the page at this stage', extension='png', referenced=False) }}
+
+<p>At this point, the page looks much better than the default, but a few more details would be nice&hellip;</p>
+</section>
+
+
+<section id="enhance">
+<h2>More Enhancements</h2>
+
+<p>On the above page, I would like to highlight the quantities of the ingredients (e.g. in &ldquo;1 tbsp lime juice&rdquo;, the quantity is &ldquo;1 tbsp&rdquo;) so they can be visually distinguished. I also know that the last ingredient is option and would like to present it with grey text.</p>
+
+<p>With the HTML as it is, this won't be possible. We can go back to our HTML and insert markup to distinguish these pieces of content. For the optional ingredient, we can simply apply <code class="html">class="optional"</code> to the list item.</p>
+
+<p>For the quantities of ingredients, we would like to find a meaningful HTML tag for that kind of content, but don't really find anything in the reference. In that case, we use one of the generic tags with a meaningful <code class="html">class</code> or <code class="html">id</code> attribute: we will use <code class="html">&lt;span></code> in this case since it is inline content. Now our list of ingredients will become:</p>
+
+{{ quoted_code('_sources/recipe_classes.html') }}
+
+<p>Then we can add CSS to select these elements and style them appropriately:</p>
+
+{{ quoted_code('_sources/recipe_extra.css') }}
+
+<p>Now our page looks like this, or see the <a href="{{rellink}}files/recipe1.html">the actual page</a>.</p>
+
+{{ figure('recipe2', 'Screenshot of the final page', extension='png', referenced=False) }}
+
+<p>This is by no means intended to be a definitive look at things that can be done with HTML and CSS, but should give you a decent example of what you can do with the tools you have now.</p>
+</section>
 
 {% endblock %}

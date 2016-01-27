@@ -1,0 +1,31 @@
+body {
+  font-family: "Helvetica", sans-serif;
+  color: #222;
+  line-height: 1.4;
+  padding: 0 1em;
+}
+h1 {
+  background-color: #5b5;
+  color: white;
+  text-align: center;
+}
+h2 {
+  border: thin solid #5b5;
+  border-top: thick solid #5b5;
+  padding-left: 0.25em;
+}
+ul, ol {
+  padding-left: 1.5em;
+}
+ul {
+  list-style-type: circle;
+}
+p#servings {
+  font-style: italic;
+}
+span.quantity {
+  font-weight: bold;
+}
+.optional {
+  color: #888;
+}
