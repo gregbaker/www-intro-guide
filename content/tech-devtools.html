@@ -1,6 +1,30 @@
 {% extends "appendixsectionbase.html" %}
 
 {% block content %}
+<p>You can also watch the <a href="https://www.youtube.com/watch?v=9IZ-IzIXG9w">video tutorial on the developer tools</a>. It covers the same ideas as the instructions here.</p>
 
+<p>You will find developer tools like these in both Firefox and Chrome. The video linked above uses Firefox and the screenshots here are from Chrome, but the tools are nearly identical (at this stage at least). Realistically, you can use either instructions with either browser.</p>
+
+<p>To turn on the developer tools, you can press <kbd>ctrl-shift-I</kbd>, or <kbd>⌘-shift-I</kbd>, or <kbd>F12</kbd>. The tools can also be found in the menu of either browser (but <kbd>F12</kbd> is probably fastest and easiest to remember). When the panel appears, select the &ldquo;Elements&rdquo; (Chrome) or &ldquo;Inspector&rdquo; (Firefox) tab and you'll see something like this:</p>
+
+{{ figure('devtools1', 'Development tools panel', extension='png', referenced=False) }}
+
+<p>The left panel is a view of the page's HTML: you can expand and explore the elements of the page here.</p>
+
+<p>If you select an element in the bottom-left, it will be highlighted on the page itself, and you will be able to see all of the CSS rules applied to that element and where they came from in the bottom-right:</p>
+
+{{ figure('devtools2', 'Development tools panel with an element selected', extension='png', referenced=False) }}
+
+<p>In this case, <code class="file">recipestyle.css</code> on line 7 had some properties that affected the <code class="html">&lt;h1></code>.</p>
+
+<p>You can also select an element by clicking on the page itself: select the &ldquo;pick an element&rdquo; tool and then click something on the page.</p>
+
+{{ figure('devtools3', 'The &ldquo;pick an element&rdquo; tool icon.', extension='png', referenced=False) }}
+
+<p>You can also select an element and see information about how the browser has laid it out on the page: how many actual pixes of margin, padding, border, width, and height it is drawn with. That is in the &ldquo;Computed&rdquo; (Chrome) or &ldquo;Box Model&rdquo; (Firefox) tab:</p>
+
+{{ figure('devtools4', 'The &ldquo;pick an element&rdquo; tool icon.', extension='png', referenced=False) }}
+
+<p>There are many other features in the development tools: they are extremely useful when creating web pages. These are the basic features that you will need right away when working with HTML and CSS.</p>
 
 {% endblock %}
