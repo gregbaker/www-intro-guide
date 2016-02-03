@@ -15,15 +15,33 @@ function refreshSwatch() {
   $( "#color" ).html("#" + hex)
 }
 $(function() {
-  $( "#red, #green, #blue" ).slider({
+  $( ".slider" ).slider({
     orientation: "horizontal",
     range: "min",
     max: 15,
     value: 0,
+    step: 1,
     slide: refreshSwatch,
     change: refreshSwatch
   });
   $( "#red" ).slider( "value", 0 );
   $( "#green" ).slider( "value", 0 );
   $( "#blue" ).slider( "value", 0 );
+
+  $(document).keydown(function(e) {
+    /* move all sliders up/down on right/left arrow keys */
+    var change = 0;
+    if ( e.which == 37 ) {
+      change = -1;
+      e.preventDefault();
+    } else if ( e.which == 39 ) {
+      change = 1;
+      e.preventDefault();
+    }
+    $( ".slider" ).each( function(i, s) {
+      var slider = $(s);
+      var v = slider.slider("value");
+      slider.slider("value", v+change);
+    });
+  });
 });
