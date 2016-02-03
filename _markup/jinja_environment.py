@@ -15,6 +15,7 @@ GLOBALS = {
     'raphref_url': 'http://raphaeljs.com/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
+    'copyright_year': '2015&ndash;2016',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
@@ -119,6 +120,7 @@ def contents():
 
     res.append('<li><a href="term_index.html">Index of Terms</a></li>')
     res.append('<li><a href="references.html">References</a></li>')
+    res.append('<li><a href="copyright.html">Copyright Information</a></li>')
     res.append('</ol>')
     return ''.join(res)
 
@@ -160,6 +162,10 @@ def pagetitle(context):
         return 'Assignment ' + basename[6:]
     elif basename == 'term_index':
         return 'Index of Terms'
+    elif basename == 'references':
+        return 'References and Sources'
+    elif basename == 'copyright':
+        return 'Copyright Information'
     elif basename == 'intro':
         return 'Course Introduction'
     

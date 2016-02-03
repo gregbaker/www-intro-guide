@@ -21,6 +21,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   @media #{$xs-screen} {
     text-align: left;
   }
