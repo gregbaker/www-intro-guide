@@ -226,6 +226,9 @@ blockquote footer:before {
   color: #0b0;
   font-style: italic;
 }
+.optionalnote {
+  font-style: italic;
+}
 
 ol.toc {
   font-weight: bold;
@@ -241,7 +244,7 @@ ol.toc li.extra {
   list-style-type: none;
 }
 ol.toc li.extra:after {
-  content: " [extra optional content]"
+  content: " [optional content]"
 }
 ol.toc#preface>li, ol.toc#appendix>li {
   list-style-type: none;

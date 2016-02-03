@@ -1,0 +1,42 @@
+{% extends "sectionbase.html" %}
+
+{% block headextra %}
+  <link rel="stylesheet" href="{{rellink}}assets/fontstyle.css" />
+{% endblock %}
+
+{% block content %}
+
+<p class="optionalnote">This section of the Guide is optional. It may help you make your pages look nicer, however.</p>
+
+<section id="problems">
+<h2>Font Problems</h2>
+
+<p>As mentioned in {{ xref('css-properties') }}, the CSS <code class="css">font-family</code> property should be given a <strong>list</strong> of fonts, so the user's browser can try several options to find the &ldquo;best&rdquo; one available on their computer.</p>
+
+<p>That leads to long CSS rules like <code class="css">font-family: "Helvetica", "Arial", sans-serif;</code> and you <em>still</em> don't really know if their browser will have a font you like, or simply fall back to the generic font family at the end of the list.</p>
+
+<p>It would be much nicer if we could load a font into the user's browser the same way we load an image or stylesheet&hellip;</p>
+</section>
+
+
+<section id="loading">
+<h2>Loading Fonts</h2>
+
+<p>It actually is possible to load font with CSS. There are several online font repositories, most notably <a href="https://www.google.com/fonts">Google Fonts</a> that will help you. They will provide CSS links that you can insert to get the fonts you need.</p>
+
+<p>For example, I found a font <a href="https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Open+Sans:400,700">&ldquo;Open Sans&rdquo; in Google Fonts</a>. When I selected the versions of the font I wanted (normal, italic, bold, &hellip;), it gave me this stylesheet link:</p>
+
+{{ quoted_code('_sources/fontlink1.html') }}
+
+<p>The CSS magic they provide will make sure the user has that font available (if their browser isn't ancient or incapable of displaying fonts). Then we can use it in our stylesheets easily:</p>
+
+{{ quoted_code('_sources/fontuse1.css') }}
+
+<p>You should still include a generic font family, just in case something goes wrong. Also be aware of the size of the font download: you could make pages that are very slow to load by including many fonts.</p>
+
+<p>This Guide uses the <a href="https://www.google.com/fonts#ReviewPlace:refine/Collection:Source+Code+Pro|Source+Sans+Pro">Source Code Pro and Source Sans Pro fonts</a> from Google Fonts.</p>
+
+</section>
+
+
+{% endblock %}
