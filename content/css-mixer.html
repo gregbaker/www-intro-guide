@@ -1,0 +1,29 @@
+{% extends "sectionbase.html" %}
+
+{% block headextra %}
+  <script src="{{ jquery_url }}"></script>
+  <script src="https://code.jquery.com/ui/{{ jqueryui_version }}/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/{{ jqueryui_version }}/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="{{rellink}}assets/mixerstyle.css" />
+  <script src="{{rellink}}assets/mixerlogic.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<p>This is an interactive demo of the concepts in {{ xref('css-colour') }}. You can move the sliders to experiment with three-character RGB colour codes.</p>
+
+<section id="mixer">
+<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+
+<div id="red"></div>
+<div id="green"></div>
+<div id="blue"></div>
+ 
+<div id="colorcode">background-color: <span id="color"></span></div>
+
+</section>
+<p class="cite">
+Inspiration and much of the code here from <cite><a href="https://jqueryui.com/slider/#colorpicker">https://jqueryui.com/slider/#colorpicker</a></cite>.
+</p>
+
+{% endblock %}

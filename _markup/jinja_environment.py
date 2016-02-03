@@ -14,6 +14,7 @@ GLOBALS = {
     'raphael_url': 'https://bit.ly/raphael-212_js',
     'raphref_url': 'http://raphaeljs.com/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
+    'jqueryui_version': '1.11.4',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
@@ -67,6 +68,17 @@ def floatfigure(context, filebase, caption, figureclass=None, extension='png'):
         directory='floats')
 
 
+def _section_parts(sections):
+    for secparts in sections:
+        try:
+            sec_slug, sec_title = secparts
+            cls = None
+        except ValueError:
+            sec_slug, sec_title, cls = secparts
+        
+        yield (sec_slug, sec_title, cls)
+
+
 def contents():
     """
     Output the Table of Contents from the contents.json data.
@@ -93,11 +105,14 @@ def contents():
         sections = chapter.get('contents', [])
         if sections:
             res.append('<ol>')
-            for sec_slug, sec_title in sections:
+            for sec_slug, sec_title, cls in _section_parts(sections):
                 slug = '%s-%s' % (chap_slug, sec_slug)
                 wc = wordcount('content/%s.html' % (slug))
                 total_wc += wc
-                res.append('<li><a href="content/%s.html">%s</a> <span class="wc">(%i; %i)</span></li>\n' % (slug, sec_title, wc, total_wc))
+                clscode = ''
+                if cls:
+                    clscode = ' class="%s"' % (cls,)
+                res.append('<li%s><a href="content/%s.html">%s</a> <span class="wc">(%i; %i)</span></li>\n' % (clscode, slug, sec_title, wc, total_wc))
             res.append('</ol>')
 
         res.append('</li>\n')
@@ -123,9 +138,12 @@ def subcontents(context):
         sections = chapter.get('contents', [])
         if chap_slug == chapter_slug:
             res.append('<h2 id="contents">Contents</h2>')
-            res.append('<ol class="chapter-toc">')
-            for sec_slug, sec_title in sections:
-                res.append('<li><a href="%s-%s.html">%s</a></li>' % (chap_slug, sec_slug, sec_title))
+            res.append('<ol class="chapter-toc toc">')
+            for sec_slug, sec_title, cls in _section_parts(sections):
+                clscode = ''
+                if cls:
+                    clscode = ' class="%s"' % (cls,)
+                res.append('<li%s><a href="%s-%s.html">%s</a></li>' % (clscode, chap_slug, sec_slug, sec_title))
             res.append('</ol>')
 
     return ''.join(res)
@@ -151,7 +169,7 @@ def pagetitle(context):
         if chap_slug == basename:
             return chapter['chapter'][1]
         sections = chapter.get('contents', [])
-        for sec_slug, sec_title in sections:
+        for sec_slug, sec_title, cls in _section_parts(sections):
             if chap_slug + '-' + sec_slug == basename:
                 return sec_title
     
@@ -165,7 +183,7 @@ def _read_contents():
         chap_title = chapter['chapter'][1]
         contents[chap_slug] = chap_title
         sections = chapter.get('contents', [])
-        for sec_slug, sec_title in sections:
+        for sec_slug, sec_title, cls in _section_parts(sections):
             contents[chap_slug + '-' + sec_slug] = sec_title
     return contents
 

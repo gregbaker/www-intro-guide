@@ -237,6 +237,12 @@ ol.toc ol, ol.chapter-toc {
   font-weight: normal;
   list-style-type: lower-roman;
 }
+ol.toc li.extra {
+  list-style-type: none;
+}
+ol.toc li.extra:after {
+  content: " [extra optional content]"
+}
 ol.toc#preface>li, ol.toc#appendix>li {
   list-style-type: none;
   margin-bottom: 1em;

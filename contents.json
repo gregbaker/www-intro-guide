@@ -39,7 +39,8 @@
       ["colour", "Colours in CSS"],
       ["pages", "Styling Pages with CSS"],
       ["compatibility", "Browser Compatibilty"],
-      ["separate", "Separating Content and Appearance"]
+      ["separate", "Separating Content and Appearance"],
+      ["mixer", "Interactive Colour Mixer", "extra"]
     ]
   },
   {

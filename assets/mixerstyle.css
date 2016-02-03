@@ -1,0 +1,34 @@
+#red, #green, #blue {
+  width: 66%;
+  margin: 1em 2%;
+}
+#colorcode {
+  margin: 1em 2%;
+  text-align: center;
+  font-family: monospace;
+}
+#color {
+  font-size: 300%;
+}
+#swatch {
+  float: right;
+  width: 25%;
+  height: 10em;
+  margin-top: 0;
+  margin-right: 2%;
+  background-image: none;
+}
+#red .ui-slider-range { background: #ef2929; }
+#red .ui-slider-handle { border-color: #ef2929; }
+#green .ui-slider-range { background: #8ae234; }
+#green .ui-slider-handle { border-color: #8ae234; }
+#blue .ui-slider-range { background: #729fcf; }
+#blue .ui-slider-handle { border-color: #729fcf; }
+
+section#mixer {
+  margin: 4em 2em;
+}
+p.cite {
+  clear: both;
+  margin-top: 5em;
+}
