@@ -39,9 +39,10 @@ $(function() {
       e.preventDefault();
     }
     $( ".slider" ).each( function(i, s) {
-      var slider = $(s);
-      var v = slider.slider("value");
-      slider.slider("value", v+change);
+      var slide = $(s);
+      var v = slide.slider("value");
+      console.log(v, change);
+      slide.slider("value", v+change);
     });
   });
 });
