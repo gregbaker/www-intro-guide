@@ -16,7 +16,7 @@
 <section id="jquery">
 <h2>jQuery</h2>
 
-<p><dfn id="jquery-dfn" data-term="jQuery">JQuery</dfn> is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">more than half</a> of the most-visited web sites). It makes several common tasks easier for the programmer: manipulating the HTML page, using events, animation.</p>
+<p><dfn id="jquery-dfn" data-term="jQuery">JQuery</dfn> is a very common JavaScript library (used on <a href="http://trends.builtwith.com/javascript/jQuery">a majority</a> of the most-visited web sites). It makes several common tasks easier for the programmer: manipulating the HTML page, using events, animation.</p>
 
 <p>We start by including the jQuery library, in the same way we include any other JavaScript code in the page: by using the <code class="html">&lt;script&gt;</code> element and indicating its URL.</p>
 
@@ -58,15 +58,24 @@
 
 <aside>The <code class="js">jQuery</code> function can also be called <dfn id="dollar"><code class="js">$</code></dfn>, so <code class="js">jQuery('p')</code> and <code class="js">$('p')</code> are synonymous. We'll use <code class="js">jQuery</code> here, since it looks more like other function names.</aside>
 
-<p class="draft">I should put this somewhere... where?</p>
-{{ quoted_code('_sources/jquery1.js') }}
-
 <p>Notice that we didn't use the <code class="html">onclick</code> attribute in HTML here, but connected the logic to the HTML with jQuery. This puts all of the logic in the JavaScript file where it belongs, and leaves only content in the HTML. It also prevents repetition, since we can modify all of the pharagras at once, instead of having to say something for each <code class="html">&lt;p&gt;</code> on the page.
 We will continue to do things this way, and you should as well.</p>
 
 <p>Have another look at this <a href="{{rellink}}files/jquery-first.html">first page with jQuery</a>, and the <a href="{{rellink}}files/jquery-event.js">JavaScript code it uses</a>. Make sure you see how the behaviour unfolds: when the page is loaded, the <code class="js">setup</code> function is called to hook up the other events; it connects the <code class="js">say_hello</code> function to the click event on all of the paragraphs; when you click a paragraph <code class="js">say_hello</code> is called and does something you can actually see.</p>
 
 <p>This might not be the most exciting behaviour you have ever seen on a web page, but we have <em>something</em> working. We will explore a few more things we can do with jQuery in the next section, {{ xref('js-jquerymore') }}.</p>
+</section>
+
+<section id="naming">
+<h2>Naming jQuery Objects</h2>
+
+<p>This jQuery code is actually equivalent to the above: you can take each part and put it in a variable if you want, but it's not always necessary.</p>
+
+{{ quoted_code('_sources/jquery1.js') }}
+
+<p>The last two lines here were done in one line the the example above. This code takes the <code class="js">jQuery(document)</code> object and stores it in a variable <code class="js">jquery_doc</code>, and <em>then</em> uses the object's <code class="js">ready</code> function.</p>
+
+<p>If you prefer this style, then you're welcome to store and name some all of your intermediate objects, but it becomes tedious. The point for now is that something like <code class="js">jQuery('p')</code> is just a JavaScript object: it can be stored in a variable, or can have its <code class="js">.click</code> function called, or both. There's nothing magical about the code <code class="js">jQuery('p')&ZeroWidthSpace;.click(say_hello)</code>: it's just doing a couple of things in one line.</p>
 
 </section>
 
