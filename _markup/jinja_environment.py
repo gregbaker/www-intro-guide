@@ -12,7 +12,7 @@ GLOBALS = {
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
     'jquery_url': 'https://code.jquery.com/jquery-2.2.0.min.js',
     'raphael_url': 'https://bit.ly/raphael-212_js',
-    'raphref_url': 'http://raphaeljs.com/reference.html', # see also raph_ref_url() below
+    'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
     'copyright_year': '2015&ndash;2016',
