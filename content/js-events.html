@@ -21,7 +21,28 @@
 <p>We will continue to work with the jQuery style: it keeps the behaviour stuff isolated in the JavaScript file where it belongs, instead of mixing it in the HTML. (There are also <a href="http://stackoverflow.com/a/12627478">a few other reasons</a> it's better, but we won't discuss them here.)</p>
 </section>
 
+<section id="others">
+<h2>Other Events</h2>
 
+<p>There are several other events that we can access with jQuery.</p>
+
+<p>For example, the <code class="js">.mouseenter</code> and <code class="js">.mouseleave</code>  functions can be used to call a function when the use moves their mouse cursor over/away from an element. A more complete example of using these:</p>
+
+{{ quoted_code('_sources/event2.js') }}
+
+<p>It's worth noting that these events aren't very meaningful for a touch device (phone or tablet). You need to be a little bit careful and think about whether or not your users can actually <em>do</em> the things required to trigger important events.</p>
+
+<p>There are even more event types than are accessible this way in jQuery. In fact, the functions we have seen like <code class="js">.click</code> and <code class="js">.mouseenter</code> are actually shortcuts for the <code class="js">.on</code> function. These two lines of code are exactly equivalent:</p>
+
+{{ quoted_code('_sources/event3.js') }}
+
+<p>You can use <code class="js">.on</code> to connect some other event types like this:</p>
+
+{{ quoted_code('_sources/event4.js') }}
+
+<p>You probably won't have to use this technique for this course, but it's worth remembering that there's more interaction potential out there.</p>
+
+</section>
 
 <section id="eg">
 <h2>Example</h2>
