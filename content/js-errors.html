@@ -2,7 +2,39 @@
 
 {% block content %}
 
-<p class="draft">Some common problems people have: strings not in quotes; referring to variable before assignment; wrong syntax around jQuery().foo() idiom; ...</p>
-<p class="draft">Introduce alert() or console.log() to inspect what's happening.</p>
+
+<section id="correct">
+<h2>Step 1: What's my code supposed to do?</h2>
+
+<p>If you have any hope of getting your code to work, you'd better know what you expect it to do in order to get the right results.</p>
+
+<p>If you don't know what you want your code to do, take your hands away from the keyboard and figure it out. There's no hope if you don't have a plan for how to get your result.</p>
+
+<p>Ask yourself how the computer can get to the result you want: what steps need to be taken? What needs to happen? What do you need to do with the results?</p>
+
+<p>Once you have that clear for yourself, you can start to figure out why the code you have written isn't doing that.</p>
+
+</section>
+
+
+
+<section id="inspecting">
+<h2>Step 2: What's my code doing?</h2>
+
+<p class="draft">Introduce alert() or console.log() to inspect what's happening. What's the different from the above?</p>
 <p class="draft">Also, devel tools in browser to see what's up.</p>
+
+<p>Assuming you know what you <em>want</em> your code to do, you can start asking where things diverge.</p>
+
+
+</section>
+
+
+<section id="common">
+<h2>Common Mistakes</h2>
+
+<p class="draft">Some common problems people have: strings not in quotes; referring to variable before assignment; wrong syntax around jQuery().foo() idiom; ...</p>
+
+</section>
+
 {% endblock %}
