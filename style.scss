@@ -13,6 +13,10 @@ $block-indent-small: 1.5em;
 
 @charset "UTF-8";
 
+* { /* Meyer's reset doesn't catch this */
+  text-decoration: none;
+}
+
 body {
   font-family: $main-font;
   line-height: 1.5em;
@@ -21,9 +25,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
   @media #{$xs-screen} {
     text-align: left;
   }
@@ -104,6 +105,9 @@ dfn {
   font-style: italic;
   font-weight: bold;
 }
+a:link, a:visited, a:active {
+  text-decoration: underline;
+}
 blockquote {
   margin: 1em $block-indent;
   @media #{$sm-screen} {
@@ -121,7 +125,7 @@ code.file, code.url {
   font-weight: normal;
 }
 abbr[title] {
-    border-bottom: 1px dotted;
+  border-bottom: 1px dotted;
 }
 
 dt {
@@ -228,6 +232,9 @@ blockquote footer:before {
 .draft {
   color: #0b0;
   font-style: italic;
+}
+.draft::before {
+  content: "TODO: ";
 }
 .optionalnote {
   font-style: italic;
