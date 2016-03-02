@@ -3,19 +3,11 @@
 {% block content %}
 
 
-<section id="more-mod">
-<h2>More Ways to Modify the Page</h2>
-
-<p class="draft">revisit <code class="js">.html()</code>. Introduce <code class="js">.attr()</code>, <code class="js">.animate()</code>, <code class="js">.append()</code></p>
-
-</section>
-
-
 
 <section id="dollar">
-<h2>jQuery Shortcut</h2>
+<h2>jQuery $ Shortcut</h2>
 
-<p id="jquery-dollar">In jQuery code written by others, you may have seen the <code class="js" data-term="$">$</code> a lot. It's time we explained that, and maybe save ourselves a few keystrokes along the way&hellip;</p>
+<p id="jq-dollar">In jQuery code written by others, you may have seen the <code class="js dfn" data-term="$">$</code> a lot. It's time we explained that, and maybe save ourselves a few keystrokes along the way&hellip;</p>
 
 <p>When you imported the jQuery library, it creates the <code class="js">jQuery</code> function that we have used a lot (first in {{ xref('js-jquerymore') }}). When you use jQuery, it also creates a shortcut for <code class="js">jQuery</code> named <code class="js">$</code>.</p>
 
@@ -26,6 +18,74 @@
 <p>Whether you use <code class="js">jQuery</code> or <code class="js">$</code> is up to you. We will use <code class="js">$</code> in examples from now on: it's shorter to type, and a more common in jQuery code.</p>
 
 </section>
+
+
+<section id="more-mod">
+<h2>More Ways to Modify the Page</h2>
+
+<p>We have seen <code class="js">.html()</code> as a way to modify the contents of a page. We can use it to change the HTML that is inside an element:</p>
+
+{{ quoted_code('_sources/modify1.js') }}
+
+<p>There are other ways we can modify the page with JavaScript and jQuery. They are used in similar ways, but deserve a little explanation.</p>
+
+<section id="attr">
+<h3><code class="js dfn">.attr()</code></h3>
+<p>The <code class="js">.attr()</code> function can be used to change attributes on an element. For example, suppose we wanted to change the class of an element from whatever it was before to <code class="html">class="active"</code>.</p>
+
+{{ quoted_code('_sources/modify2.js') }}
+
+<p>After this code runs, the browser will display as if the tag contained <code class="html">class="active"</code> in the actual HTML: if you have some CSS that makes that class look different, the appearance of the page will change.</p>
+
+<p>This could also be used to change the source of an image:</p>
+{{ quoted_code('_sources/modify3.js') }}
+
+</section>
+
+<section id="append">
+<h3><code class="js dfn">.append()</code></h3>
+
+<p>The <code class="js">.append()</code> function will add content at the end of an element. For example, if we have a <code class="html">&lt;section id="expanding"&gt;</code> on our page, we can add a new paragraph at the end of the section like this:</p>
+
+{{ quoted_code('_sources/modify4.js') }}
+
+</section>
+
+<section id="css">
+<h3><code class="js dfn">.css()</code></h3>
+
+<p>You can specifically modify the style if an element with the  <code class="js">.css()</code> function.</p>
+
+<p id="object">We have to specify the collection of CSS changes that we want to be applied to the element, which we will do with a JavaScript <dfn>object</dfn>. For example,</p>
+
+{{ quoted_code('_sources/modify5.js') }}
+
+<p>Here, the <code class="js">newstyle</code> variable is assigned a JavaScript object. The object in <code class="js">newstyle</code> contains <code class="js">color</code>: a variable holding a string <code class="js">'#f60'</code>.</p>
+
+<p>We didn't really have to use the variable <code class="js">newstyle</code>: we could have written the object directly inline where we need it. This style is more common for jQuery code, but you are welcome to use either.</p>
+{{ quoted_code('_sources/modify5a.js') }}
+</section>
+
+<section id="animate">
+<h3><code class="js dfn">.animate()</code></h3>
+
+<p>The <code class="js">.animate()</code> function works like <code class="js">.css()</code>, but will animate from the current style to the new ones given.</p>
+
+<p>For example, this code will change the element's font size and left margin from the current value (as the page was before this code ran) to the values given:</p>
+
+{{ quoted_code('_sources/modify6.js') }}
+
+<p>The animation will take 2 seconds (2000 milliseconds).</p>
+
+<p>The <code class="js">.animate()</code> function can only animate CSS properties that are &ldquo;numeric&rdquo;. For example, it can animate <code class="css">border-width</code> from <code class="css">1px</code> to <code class="css">1em</code>, but <strong>cannot</strong> animate <code class="css">font-weight</code> from normal to bold, or colour values.</p>
+
+<aside>There are extensions to jQuery that can animate colours, but stock jQuery can't.</aside>
+
+</section>
+
+</section>
+
+
 
 
 <section id="anonymous-func">

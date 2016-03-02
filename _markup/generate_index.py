@@ -64,6 +64,10 @@ def get_id(elt, fname):
             elt = elt.previousSibling
             while elt.nodeType != elt.ELEMENT_NODE or elt.tagName != 'dt':
                 elt = elt.previousSibling
+        elif elt.tagName in ['h2', 'h3']:
+            # special case headings: assume they're first child of a <section>
+            depth -= 1
+            elt = elt.parentNode
         else:
             elt = elt.parentNode
         depth += 1
