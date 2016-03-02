@@ -1,8 +1,8 @@
 show_result = function() {
-  typed = jQuery('#something').val();
-  jQuery('#result').html('You typed this: ' + typed);
+  typed = $('#something').val();
+  $('#result').html('You typed this: ' + typed);
 }
 setup = function() {
-  jQuery('#resultbutton').click(show_result);
+  $('#resultbutton').click(show_result);
 }
-jQuery(document).ready(setup);
+$(document).ready(setup);

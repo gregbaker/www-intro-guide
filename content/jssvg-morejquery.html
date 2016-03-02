@@ -2,6 +2,40 @@
 
 {% block content %}
 
-<p class="draft">Anonymous function syntax and some examples where it makes code look nicer. The $ alias.</p>
+
+<section id="more-mod">
+<h2>More Ways to Modify the Page</h2>
+
+<p class="draft">revisit <code class="js">.html()</code>. Introduce <code class="js">.attr()</code>, <code class="js">.animate()</code>, <code class="js">.append()</code></p>
+
+</section>
+
+
+
+<section id="dollar">
+<h2>jQuery Shortcut</h2>
+
+<p id="jquery-dollar">In jQuery code written by others, you may have seen the <code class="js" data-term="$">$</code> a lot. It's time we explained that, and maybe save ourselves a few keystrokes along the way&hellip;</p>
+
+<p>When you imported the jQuery library, it creates the <code class="js">jQuery</code> function that we have used a lot (first in {{ xref('js-jquerymore') }}). When you use jQuery, it also creates a shortcut for <code class="js">jQuery</code> named <code class="js">$</code>.</p>
+
+<p>In JavaScript, <code class="js">$</code> is just a variable name, just like <code class="js">count</code> or <code class="js">length</code>: it just look funny. The jQuery library uses <code class="js">$</code> to mean <em>exactly</em> the same thing as <code class="js">jQuery</code>. That means that the pairs here do exactly the same thing, just spelled differently:</p>
+
+{{ quoted_code('_sources/jquery-dollar.js') }}
+
+<p>Whether you use <code class="js">jQuery</code> or <code class="js">$</code> is up to you. We will use <code class="js">$</code> in examples from now on: it's shorter to type, and a more common in jQuery code.</p>
+
+</section>
+
+
+<section id="anonymous-func">
+<h2>Anonymous Functions</h2>
+
+<p class="draft">Anonymous function syntax. Is it worth it?</p>
+
+</section>
+
+
+
 
 {% endblock %}
