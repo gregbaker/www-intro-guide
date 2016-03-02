@@ -11,9 +11,10 @@ BITMAP_FIGURES = $(wildcard figures/*.png) $(wildcard floats/*.png) \
                  $(wildcard figures/*.jpg) $(wildcard floats/*.jpg)
 FIGURES = \
     $(SVG_FIGURES) \
-    $(patsubst %.svg, %.svgz, $(SVG_FIGURES)) \
     $(patsubst %.svg, %.png, $(SVG_FIGURES)) \
     $(BITMAP_FIGURES)
+
+    #$(patsubst %.svg, %.svgz, $(SVG_FIGURES)) \
 
 DIRECTORIES = assets assign content figures files floats
 GENERATED_PAGES = term_index.html

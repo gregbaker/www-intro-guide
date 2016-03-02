@@ -8,6 +8,9 @@ def image_size(imgpath):
     if imgpath.endswith('.svg'):
         # gm can't process SVG, but we already converted to PNG anyway
         imgpath = imgpath[:-4] + '.png'
+    if imgpath.endswith('.svgz'):
+        # gm can't process SVG, but we already converted to PNG anyway
+        imgpath = imgpath[:-5] + '.png'
 
     cmd = subprocess.Popen(
             ['gm', 'identify', imgpath],
