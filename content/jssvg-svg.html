@@ -2,5 +2,35 @@
 
 {% block content %}
 
-<p class="draft">Things we can do with SVG images. More examples of programming concepts.</p>
+<section id="dynamic">
+<h2>Dynamically Modifying SVG</h2>
+
+<p>Since we can now use JavaScript code to modify SVG images, we can do that work anywhere we want in our code. In particular, we can draw things as the result of a user event, the same way we have modified the HTML page in the past.</p>
+
+<p>For example, we can include a <code class="html">&lt;button></code> on our page, along with the empty container for an SVG image:</p>
+
+{{ quoted_code('_sources/dynamic-page.html') }}
+
+<p>Then in our <code class="js">setup</code> function, we can create {{raph}} paper object and connect the button's click event. We'll use the <code class="js">paper</code> variable later in another function.</p>
+
+{{ quoted_code('_sources/dynamic1.js') }}
+
+<p>Finally, we can respond to the button click, and use a variable so we draw something slightly different each time.</p>
+
+{{ quoted_code('_sources/dynamic2.js') }}
+
+<p>The variable <code class="js">radius</code> starts at 20 and decreases by 3 each time the function <code class="js">more</code> runs.</p>
+
+<p>You can <a href="{{rellink}}files/dynamic-page.html">test that page</a> if you want: a circle should be drawn each time you click the button. Here's what it looked like for me after a few clicks:</p>
+
+{{ figure('dynamic-result', 'Dynamic SVG after a few button clicks', extension='png', referenced=False) }}
+
+<p>The point here is that you can draw on the paper object when it is first created (probably in your <code class="js">setup</code>) function, but also any other time you have JavaScript code running, such as in response to a user event. This will let us create pages where we dynamically create images for the user.</p>
+
+</section>
+
+<section id="curves">
+<h2>Lines and Curves</h2>
+</section>
+
 {% endblock %}
