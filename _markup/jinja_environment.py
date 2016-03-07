@@ -255,8 +255,17 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(text))
     return res.encode('utf8')
 
-def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
-    content = codecs.open(filename, encoding='utf-8').read()
+def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line_start=None, line_end=None, dedent=0):
+
+    lines = codecs.open(filename, encoding='utf-8').readlines()
+    if line_end:
+        lines = lines[:line_end]
+    if line_start:
+        lines = lines[line_start-1:]
+    if dedent:
+        lines = [(l[dedent:] if l[:dedent] == ' '*dedent else l) for l in lines]
+    content = ''.join(lines)
+
     if not codeclass:
         _, ext = os.path.splitext(filename)
         codeclass = ext[1:]
@@ -264,6 +273,9 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None):
         figid = ident
     else:
         figid = 'code-' + os.path.splitext(os.path.split(filename)[-1])[0]
+    
+    if line_start:
+        figid = figid + '-' + str(line_start)
     
     content = process_jinja(content).rstrip()
 
