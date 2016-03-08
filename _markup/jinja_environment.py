@@ -10,7 +10,7 @@ from img_process import img_width_height
 GLOBALS = {
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'https://code.jquery.com/jquery-2.2.0.min.js',
+    'jquery_url': 'https://code.jquery.com/jquery-2.2.1.min.js',
     'raphael_url': 'https://bit.ly/raphael-212_js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
