@@ -32,7 +32,7 @@
 <section id="paths">
 <h2>Paths: Lines and Curves</h2>
 
-<p>It's possible to draw lines and curves in images with the <code class="js">paper.path()</code> function, but the way needs some explanation. The <code class="js">paper.path()</code> takes one argument: an SVG <dfn>path string</dfn> which is a very compact way to specify a bunch of information about curves and lines.</p>
+<p id="path-string">It's possible to draw lines and curves in images with the <code class="js">paper.path()</code> function, but the way needs some explanation. The <code class="js">paper.path()</code> takes one argument: an SVG <dfn>path string</dfn> which is a very compact way to specify a bunch of information about curves and lines.</p>
 
 <section id="lines">
 <h3>Lines</h3>
@@ -107,7 +107,7 @@
 
 <aside>Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG Path tutorial</a> covers the same ideas, with more details and examples.</aside>
 
-<p>The curves drawn by the <code class="js">T</code> and <code class="js">Q</code> (and <code class="js">C</code> and <code class="js">S</code> not described here) are <dfn>B&eacute;zier curves</dfn>. If words like &ldquo;interpolation&rdquo; and  &ldquo;quadratic&rdquo; don't immediately frighten you, see the <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Wikipedia B&eacute;zier curve page</a>. The way they're drawn isn't <em>too</em> mathematically-difficult and it will give you a better idea of what the control points are for.</p>
+<p id="bezier">The curves drawn by the <code class="js">T</code> and <code class="js">Q</code> (and <code class="js">C</code> and <code class="js">S</code> not described here) are <dfn>B&eacute;zier curves</dfn>. If words like &ldquo;interpolation&rdquo; and  &ldquo;quadratic&rdquo; don't immediately frighten you, see the <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Wikipedia B&eacute;zier curve page</a>. The way they're drawn isn't <em>too</em> mathematically-difficult and it will give you a better idea of what the control points are for.</p>
 </section>
 
 
