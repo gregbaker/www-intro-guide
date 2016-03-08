@@ -1,1 +1,1 @@
-$('img#changeme').attr('src', 'other_img.png');
+$('img#changeme').attr('src', 'other_img.png')

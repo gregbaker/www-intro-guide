@@ -1,1 +1,1 @@
-$('#changeme').attr('class', 'active');
+$('#changeme').attr('class', 'active')

@@ -1,4 +1,4 @@
 setup = function() {
   ...
 }
-jQuery(document).ready(setup);
+jQuery(document).ready(setup)

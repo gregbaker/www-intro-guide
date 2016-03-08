@@ -1,3 +1,3 @@
 say_hello = function() {
-  alert('Hello world!');
-};
+  alert('Hello world!')
+}
