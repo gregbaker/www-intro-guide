@@ -29,14 +29,18 @@
 
 </section>
 
-<section id="curves">
-<h2>Lines and Curves</h2>
+<section id="paths">
+<h2>Paths: Lines and Curves</h2>
 
 <p>It's possible to draw lines and curves in images with the <code class="js">paper.path()</code> function, but the way needs some explanation. The <code class="js">paper.path()</code> takes one argument: an SVG <dfn>path string</dfn> which is a very compact way to specify a bunch of information about curves and lines.</p>
 
+<section id="lines">
+<h3>Lines</h3>
+
+
 <p>We can start by creating our paper and drawing a simple line from (50,20) to (390,30) like this:</p>
 
-{{ quoted_code('files/paths.js', line_start=12, line_end=15, dedent=2) }}
+{{ quoted_code('files/paths.js', line_start=2, line_end=5, dedent=2) }}
 
 <p>The path string here is <code class="js">'M50,20 L390,30'</code> which says &ldquo;move (<code class="js">M</code>) to the point (50,20) and draw a straight line (<code class="js">L</code>) to (390,30).</p>
 
@@ -46,32 +50,71 @@
 
 <p>Several of these can be combined to make a multi-segment line:</p>
 
-{{ quoted_code('files/paths.js', line_start=17, line_end=18, dedent=2) }}
+{{ quoted_code('files/paths.js', line_start=7, line_end=8, dedent=2) }}
 
 <p>This path starts at (50,40) and has straight line segments from there to (260,10), then (280,40), and finally (390,40). It is green and labelled &ldquo;p2&rdquo; <a href="#fig-paths.result">below</a>.
 </p>
 
 <p>You can see that the path string is made up of several &ldquo;commands&rdquo; that need a point: &ldquo;move to (50,40)&rdquo; is written <code class="js">'M50,40'</code> and &ldquo;draw a line to (260,10)&rdquo; is written <code class="js">'L260,10'</code>. The path string is a series of these commands that will be used to draw the path.</p>
 
-<p class="draft">needs to be finished. Until then, here's the rest of the code that generates the paths below.</p>
+<p>The <code class="js">Z</code> command in a path string means &ldquo;close the path&rdquo; or to draw a straght line back to the starting point.  This example starts with two striaght line segments (just like before) and ends by closing the path to make a triangle:</p>
 
-{{ quoted_code('files/paths.js', line_start=19, line_end=38, dedent=2) }}
+{{ quoted_code('files/paths.js', line_start=10, line_end=11, dedent=2) }}
+
+<p>It is blue and labelled &ldquo;p3&rdquo; below.</p>
+
+</section>
+
+<section id="curves">
+<h3>Curves</h3>
+
+<aside>Memorizing all of the details here and being able to draw curves off the top of your head isn't realistic. If you can draw straight lines without looking anything up and understand the curve examples, you're probably in good shape.</aside>
 
 
+<p>There are more options for drawing curves: there are more ways to draw curves and more parameters for how they might look. </p>
 
 
+<p>Probably the easiest way to draw a curved line is to use the &ldquo;curve through&rdquo; command <code class="js">T</code> which draws a curve (of some shape) through the points you choose. This draws a curve startin at (50,80), through (150,80) and (150,100), ending at (390,80):</p>
 
+{{ quoted_code('files/paths.js', line_start=13, line_end=16, dedent=2) }}
 
+<p>It is labelled &ldquo;p4&rdquo; below and drawn in orange. small circles have been added at the points (150,80) and (150,100) so you can more easily see the points we required the curve to hit.</p>
 
+<p>It can be hard to work with the <code class="js">T</code> command since you don't get much control over the way the curve is drawn, only the points it passes through. We can use the <code class="js">Q</code> command to get more control: it requires <strong>two</strong> point as arguments: the &ldquo;control point&rdquo; and the destination.</p>
 
+<p id="control-pt">The destination point is the same as the other lines and curves: the place we'll end up. The <dfn>control point</dfn> is a point that &ldquo;pulls&rdquo; the curve toward it. For example, this draws a curve from (50,120) to (150,120) with (150,180) as the control point:</p>
 
+{{ quoted_code('files/paths.js', line_start=18, line_end=20, dedent=2) }}
 
+<p>Again, a little circle is drawn beside &ldquo;p5&rdquo; (purple) so you can see the control point.</p>
 
-<aside>Remembering all of the details here and being able to draw curves off the top of your head isn't realistic. If you can draw straight lines without looking anything up, you're probably in good shape.</aside>
+<p>The curve &ldquo;p6&rdquo; (yellow) has endpoints spaced the same distance apart, but the control point is further away. This makes the curve more sharp:</p>
+
+{{ quoted_code('files/paths.js', line_start=22, line_end=24, dedent=2) }}
+
+<p>You can combine all of these commands in a single path, making complex shapes:</p>
+
+{{ quoted_code('files/paths.js', line_start=26, line_end=28, dedent=2) }}
+
 
 <p>After all of that, here's the resulting SVG that was drawn:</p>
 
 {{ figure('paths-result', 'Result of path experiments', extension='svg', referenced=False) }}
+
+<p>You can also <a href="{{rellink}}files/path-page.html">view the page</a> with that JavaScript and the resulting SVG.</p>
+
+
+
+<aside>Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths">SVG Path tutorial</a> covers the same ideas, with more details and examples.</aside>
+
+<p>The curves drawn by the <code class="js">T</code> and <code class="js">Q</code> (and <code class="js">C</code> and <code class="js">S</code> not described here) are <dfn>B&eacute;zier curves</dfn>. If words like &ldquo;interpolation&rdquo; and  &ldquo;quadratic&rdquo; don't immediately frighten you, see the <a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve">Wikipedia B&eacute;zier curve page</a>. The way they're drawn isn't <em>too</em> mathematically-difficult and it will give you a better idea of what the control points are for.</p>
+</section>
+
+
+
+<p class="draft">More examples would be awesome here.</p>
+
+
 
 </section>
 
