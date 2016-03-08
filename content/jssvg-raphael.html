@@ -30,11 +30,11 @@
 <p>Let's look more closely at the contents of the <code class="js">setup</code> function that is doing the work:</p>
 
 <dl>
-<dt id="paper"><code class="js">paper = Raphael('container', 50, 50);</code></dt>
+<dt id="paper"><code class="js">paper = Raphael('container', 50, 50)</code></dt>
 <dd>This creates a {{raph}} SVG object inside the thing with <code class="html">id="container"</code> that is 50 pixels wide, and 50 pixels high. We store it in a variable <code class="js">paper</code> because {{raph}} calls the thing you draw on a <dfn data-term="paper ({{raph}})">paper</dfn>.</dd>
-<dt id="circle"><code class="js">circ = paper.circle(25, 25, 24);</code></dt>
+<dt id="circle"><code class="js">circ = paper.circle(25, 25, 24)</code></dt>
 <dd>A paper object contains a function <code class="js dfn" data-term=".circle()">circle</code> that draws a circle on it. This line creates a circle with centre at point (25, 25) and radius 24. We'll put the circle object into the variable <code class="js">circ</code> because we need to change some of its properties in the next line.</dd>
-<dt id="attr"><code class="js">circ.attr(&hellip;);</code></dt>
+<dt id="attr"><code class="js">circ.attr(&hellip;)</code></dt>
 <dd>Every SVG shape object in {{raph}} contains the <code class="js dfn" data-term=".attr()">attr</code> method that can be used to change various attributes of the shape. The argument that you give to <code class="js">attr</code> is an object with the properties you want to shape to have. In this case, we want to manipulate the circle to make it look more like our example.</dd>
 <dt><code class="js">{ 'fill': '#f00', &hellip; }</code></dt>
 <dd>This JavaScript object describes the appearance of the shape, almost as if they were CSS rules for the shape. The first one  (<code class="js">'fill'</code>) sets the colour <em>inside</em> the shape to red. The others in this example set the outline colour and thickness.</dd>

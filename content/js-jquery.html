@@ -38,13 +38,13 @@
 <dt><code class="js">say_hello = function() { &hellip; }</code></dt>
 <dd><p>Just like before, this creates a function named <code class="js">say_hello</code>. Also like before, this function can be called with <code class="js">say_hello()</code> to run the code inside the <code class="js">{&nbsp;&hellip;&nbsp;}</code>.</p></dd>
 
-<dt><code class="js">alert('Hello world!');</code></dt>
+<dt><code class="js">alert('Hello world!')</code></dt>
 <dd><p>This one line is the code that runs when the <code class="js">say_hello</code> function is called. As before, it pops up an alert window with the phrase &ldquo;Hello world!&rdquo;.</p></dd>
 
 <dt><code class="js">setup = function() { &hellip; }</code></dt>
 <dd><p>We are defining this function to do the work of setting up the JavaScript behaviour on the page (thus the name &ldquo;setup&rdquo;). It will be called after the browser loads the page (because we'll trigger that in the next lines of code).</p></dd>
 
-<dt><code class="js">jQuery('p').click(say_hello);</code></dt>
+<dt><code class="js">jQuery('p').click(say_hello)</code></dt>
 <dd><p>The <code class="js">jQuery</code> function is used to select some part(s) of the page. The function call <code class="js">jQuery('p')</code> selects <em>every <code class="html">&lt;p&gt;</code> element on the page</em>.</p>
 <p id="click">Following with <code class="js dfn" data-term=".click()">.click(&hellip;)</code> sets the behaviour we want when those elements are clicked: in this case, we give it the <code class="js">say_hello</code> function. (We don't want to call the function right now, so we don't say <code class="js">say_hello()</code>. We just want to give jQuery the function <strong>it</strong> should call later, so we just give it the variable that holds it.)</p>
 </dd>
