@@ -290,6 +290,15 @@ span.codetype {
   font-size: 75%;
   font-weight: normal;
 }
+ul#index {
+  text-align: left;
+  -moz-columns: 18em;
+  -webkit-columns: 18em;
+  columns: 18em;
+  column-gap: 1.5em;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+}
 
 div.syntaxhighlighter {
   clear: both;
