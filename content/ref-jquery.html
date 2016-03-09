@@ -6,6 +6,109 @@
 
 <p>For more details, see the <a href="http://api.jquery.com/">jQuery Reference</a>.</p>
 
-<p class="draft">quick summary of jQuery functions we have seen</p>
+
+<section id="top">
+<h2>Top-Level jQuery Functions</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="jquery">
+    <th scope="row"><code class="js">jQuery('p')</code></th>
+    <td>A jQuery object representing all <code class="html">&lt;p&gt;</code>.</td>
+  </tr>
+  <tr id="dollar">
+    <th scope="row"><code class="js">$('p')</code></th>
+    <td>Exactly the same as <code class="js">jQuery('p')</code>.</td>
+  </tr>
+  <tr id="byid">
+    <th scope="row"><code class="js">$('#thing')</code></th>
+    <td>jQuery object representing the element with <code class="html">id="thing"</code>.</td>
+  </tr>
+  <tr id="document">
+    <th scope="row"><code class="js">$(document)</code></th>
+    <td>jQuery object representing the whole HTML page.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+<section id="jq-objects">
+<h2>jQuery Object Functions</h2>
+
+<section id="events">
+<h3>Event Handling</h3>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="click">
+    <th scope="row"><code class="js">$(&hellip;).click(handler)</code></th>
+    <td>When the selected element(s) are clicked, call <code class="js">handler()</code>.</td>
+  </tr>
+  <tr id="ready">
+    <th scope="row"><code class="js">$(&hellip;).ready(handler)</code></th>
+    <td>When the selected element(s) are fully loaded, call <code class="js">handler()</code>. Usually applied to <code class="js">$(document)</code>.</td>
+  </tr>
+  <tr id="mouseenter">
+    <th scope="row"><code class="js">$(&hellip;).mouseenter(handler)</code></th>
+    <td>When one of the selected element(s) has the mouse cursor move over it, call <code class="js">handler()</code>.</td>
+  </tr>
+  <tr id="mouseleave">
+    <th scope="row"><code class="js">$(&hellip;).mouseleave(handler)</code></th>
+    <td>When one of the selected element(s) has the mouse cursor move away from it, call <code class="js">handler()</code>.</td>
+  </tr>
+  <tr id="on-click">
+    <th scope="row"><code class="js">$(&hellip;).on('click', handler)</code></th>
+    <td>Exactly the same as <code class="js">$(&hellip;).click(handler)</code>.</td>
+  </tr>
+  <tr id="on-touchstart">
+    <th scope="row"><code class="js">$(&hellip;).on('touchstart', handler)</code></th>
+    <td>Attach a <code class="js">handler()</code> callback to the &ldquo;touchstart&rdquo; event.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+<section id="modify">
+<h3>Modifying the Page</h3>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+
+  <tr id="html">
+    <th scope="row"><code class="js">$(&hellip;).html('Hello')</code></th>
+    <td>Set the content of the selected element(s) to <code class="html">Hello</code>.</td>
+  </tr>
+  <tr id="attr">
+    <th scope="row"><code class="js">$(&hellip;).attr('class', 'nice')</code></th>
+    <td>Set the <code class="html">class="nice"</code> on the selected element(s).</td>
+  </tr>
+  <tr id="append">
+    <th scope="row"><code class="js">$(&hellip;).append('&lt;p&gt;Hi&lt;/p&gt;')</code></th>
+    <td>Add a paragraph to the end of the selected element(s).</td>
+  </tr>
+  <tr id="css">
+    <th scope="row"><code class="js">$(&hellip;).css({'color': '#f00'})</code></th>
+    <td>Change CSS properties of the selected element(s).</td>
+  </tr>
+  <tr id="animate">
+    <th scope="row"><code class="js">$(&hellip;).animate({'width': '8em'}, 2000)</code></th>
+    <td>Animate CSS properties of the selected element(s) from current value to the ones given, over 2 seconds.</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+
+</section>
 
 {% endblock %}
