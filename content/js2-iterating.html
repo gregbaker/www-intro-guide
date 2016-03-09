@@ -1,5 +1,82 @@
 {% extends "sectionbase.html" %}
 
 {% block content %}
-<p class="draft">jQuery .each() method as our only iteration construct.</p>
+
+<p>By now, we have many tools to let us do stuff with JavaScript: change with jQuery, add to the page with jQuery, draw and animate shapes with {{raph}}. The problem is that we have to write code to every change separately.</p>
+
+<p>We want the programming language to help us: let us express the things we need to do as concisely as possible. We also need to be able to repeat pieces of code some number of times (that we might not know exactly when writing the code).</p>
+
+<p id="iteration">The <dfn>iteration</dfn> (or <dfn>repetition</dfn> or <dfn>looping</dfn>) structures that we'll learn here will help us do just that: repeatedly execute a piece of code.</p>
+
+
+<section id="for">
+<h2>The <code class="js">for</code> Loop</h2>
+
+<p id="forloop">The <dfn>for loop</dfn> in most programming languages (including JavaScript) is used when you have a &ldquo;definite&rdquo; number of times to iterate: you know at the start of the loop that you want to repeat 10 times (or <code class="js">n</code> times with a value in a variable).</p>
+
+<p>Repeating 10 times is done by basically asking JavaScript to count from 1 to 10 (or 0 to 9 or something). The syntax for the <code class="js">for</code> loop in JavaScript is a little ugly: there's a lot of punctuation. On the bright side, it's a very common idiom and will always look the same.</p>
+
+<p>This code will count from 1 to 10, and add a paragraph to the <code class="html">id="example1"</code> element on the page each time it counts:</p>
+
+{{ quoted_code('files/for-loop.js', line_start=2, line_end=4, dedent=2) }}
+
+<p>Here's what's happening there:</p>
+
+<dl>
+<dt><code class="js">for ( &hellip; ) { &hellip; }</code></dt>
+<dd>This is the basic structure of the <code class="js">for</code> loop. The stuff in the <code class="js">( &hellip; )</code> controls the loop, and the <code class="js">{ &hellip; }</code> is the code that repeats.</dd>
+
+<dt><code class="js">(&hellip;; &hellip;; &hellip;)</code></dt>
+<dd>There are three pieces that control the loop: where to start, the condition to keep going, and how to count.</dd>
+
+<dt><code class="js">step = 1</code></dt>
+<dd>This is how the loop starts: by setting the variable <code class="js">step</code> to one.</dd>
+
+<dt><code class="js">step &lt;= 10</code></dt>
+<dd>The loop will continue as long as this condition is true: <code class="js">step</code> is less than or equal to 10. That is, we will count up to 10.</dd>
+
+<dt id="increment"><code class="js">step += 1</code></dt>
+<dd>This is an instruction about how to count. The <code class="js dfn">+=</code> means &ldquo;add to the variable&rdquo;, so we're counting by ones here. This code is equivalent to <code class="js">step = step + 1</code>. You may also see this written <code class="js dfn" data-term="++">step++</code> which means &ldquo;add one&rdquo;.</dd>
+
+<dt id="loop-body"><code class="js">{ &hellip; }</code></dt>
+<dd>This is the <dfn>loop body</dfn>. This code will run with the variable <code class="js">step</code> equal to 1, then to 2, 3, 4, &hellip; 10.</dd>
+</dl>
+
+<p>The result: the three lines of code will add 10 paragraphs to the page.</p>
+
+<p>Realistically, this loop will always look the same, except you can change the variable name (from <code class="js">step</code> to anything descriptive); change the start/end value for the loop (<code class="js">1</code> and <code class="js">10</code> in the example, but can be anything); change the body of the loop to do the actual work you need to do.</p>
+
+<section id="for2">
+<h3>Another Example</h3>
+
+<p>Here's another example. In this code, we're counting from 1 to 6, and actually using the value in the counter variable <code class="js">n</code> as part of the paragraph.</p>
+
+{{ quoted_code('files/for-loop.js', line_start=6, line_end=8, dedent=2) }}
+
+<p>The code in the loop body here does some work to create the string that is appended. It joins the string <code class="js">'&lt;p&gt;Paragraph&nbsp;#'</code> with the value in the variable <code class="js">n</code> and the string <code class="js">'&lt;/p&gt;'</code>. The result is that it will add these paragraphs to the page:</p>
+
+{{ quoted_code('_sources/for-result.html') }}
+</section>
+
+<section id="for-raphael">
+<h3>With {{raph}}</h3>
+
+<p>We can do anything we want in the body of the <code class="js">for</code> loop. In this example, we will draw some shapes using {{raph}}.</p>
+
+<p>We'll start by creating the paper object outside of the <code class="js">for</code> loop (because we only need one of them, not twelve) and creating some variables that we'll need inside the loop (since they're the same each time, there's no need to recreate them many times). Then each time around the loop, we'll draw two things:</p>
+
+{{ quoted_code('files/for-loop.js', line_start=10, line_end=26, dedent=2) }}
+
+<p>In the loop, we first draw a circle, calculating its position and radius based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>. The result is this:</p>
+
+{{ figure('for-raph', 'Result of for-loop and '+raph, extension='svg', referenced=False) }}
+
+<p>In some ways, this might be where programming starts to pay off: finally we can have the computer do work for us, rather than having to give every instruction very manually. Particular when we pair with {{raph}}, we can get interesting results in relatively little code.</p>
+
+</section>
+
+
+
+</section>
+
 {% endblock %}

@@ -78,12 +78,12 @@
   {
     "chapter": ["js2", "Working with JavaScript and jQuery"],
     "contents": [
+      ["iterating", "Iteration: Repeating Code"],
       ["forms", "Working with Forms"],
       ["conditional", "Making Decisions"],
       ["objects", "Objects and Arrays"],
       ["selectors", "jQuery Selectors"],
-      ["manipulate", "Manipulating Pages"],
-      ["iterating", "Iterating Over Elements"]
+      ["manipulate", "Manipulating Pages"]
     ]
   },
   {
