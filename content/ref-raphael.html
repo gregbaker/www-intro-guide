@@ -2,9 +2,10 @@
 
 {% block content %}
 
+<p>This is not intended to be a definitive list of {{raph}} features, or even all of the details of these features, just a quick reminder of the specific things we have seen in the course.</p>
+
 <p>For more details, see the <a href="{{ raphref_url }}">{{raph}} Reference</a> and a <a href="http://cancerbero.mbarreneche.com/raphaeltut/">{{raph}} Tutorial</a>.</p>
 
-<!--
 <section id="top">
 <h2>Top-Level {{raph}} Functions</h2>
 
@@ -15,7 +16,7 @@
   <tbody>
   <tr id="raphael">
     <th scope="row"><code class="js">p = Raphael('fig', 400,&nbsp;200)</code></th>
-    <td>Create a 400&times;200 SVG image in the element with <code class="html">id="fig"</code>, and return a {{raph}} paper object.</td>
+    <td>Create a 400&times;200 SVG image (and {{raph}} paper object) in the element with <code class="html">id="fig"</code>.</td>
   </tr>
   </tbody>
 </table>
@@ -34,21 +35,77 @@
     <th scope="row"><code class="js">p.circle(50, 80, 15)</code></th>
     <td>Draw a circle centred at (50,80), with radius 15.</td>
   </tr>
+  <tr id="ellipse">
+    <th scope="row"><code class="js">p.ellipse(50, 80, 10, 20)</code></th>
+    <td>Draw an ellipse centred at (50,80), with horizontal-radius 10 and vertical-radius 20.</td>
+  </tr>
   <tr id="line">
     <th scope="row"><code class="js">p.path('M10,20 L50,120 L80,40')</code></th>
     <td>Draw lines from (10,20) to (50,120) to (80,40).</td>
   </tr>
   <tr id="close-path">
-    <th scope="row"><code class="js">p.path('M10,20 L50,120 L80,40 Z')</code></th>
+    <th scope="row"><code class="js">p.path('M10,20 L50,120 L80,40&nbsp;Z')</code></th>
     <td>Draw lines between the given points, and return to the start.</td>
   </tr>
   <tr id="smooth-curve">
     <th scope="row"><code class="js">p.path('M10,20 T50,120 T80,40')</code></th>
     <td>Draw a smooth curve from (10,20) to (50,120) to (80,40).</td>
   </tr>
+  <tr id="quad-bezier">
+    <th scope="row"><code class="js">p.path('M10,20 Q60,180&nbsp;50,120')</code></th>
+    <td>Draw a curve from (10,20) to (50,120) with (60,180) as the control point.</td>
+  </tr>
+  <tr id="rect">
+    <th scope="row"><code class="js">p.rect(80, 25, 18, 40)</code></th>
+    <td>Draw a rectangle with top-left corner at (80,25), width 18, height 40.</td>
+  </tr>
+  <tr id="text">
+    <th scope="row"><code class="js">p.text(40, 100, 'Hello&nbsp;world')</code></th>
+    <td>Draw the text centred at (40,100).</td>
+  </tr>
   </tbody>
 </table>
 </section>
--->
+
+
+<section id="elements">
+<h2>Element Objects</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="animate">
+    <th scope="row"><code class="js">e.animate(attribs, 2000)</code></th>
+    <td>Animate from the element's current attributes to the given ones in 2&nbsp;seconds.</td>
+  </tr>
+  <tr id="attr">
+    <th scope="row"><code class="js">e.attr(attribs)</code></th>
+    <td>Change the element's attributes to the given ones.</td>
+  </tr>
+  <tr id="click">
+    <th scope="row"><code class="js">e.click(handler)</code></th>
+    <td>When the element is clicked, call <code class="js">handler()</code>.</td>
+  </tr>
+  <tr id="rotate">
+    <th scope="row"><code class="js">e.rotate(30)</code></th>
+    <td>Rotate the element 30&deg; clockwise around its centre.</td>
+  </tr>
+  <tr id="scale">
+    <th scope="row"><code class="js">e.scale(1.5)</code></th>
+    <td>Scale the element to 150% its original size.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+<section id="attributes">
+<h2>Element Attributes</h2>
+
+<p class="draft">common attributes we can set</p>
+</section>
+
 
 {% endblock %}
