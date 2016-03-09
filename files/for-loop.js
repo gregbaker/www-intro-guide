@@ -17,7 +17,7 @@ setup = function() {
     'stroke-width': '1.5'
   }
   for (count = 1; count <= 12; count += 1) {
-    c = paper.circle(100, 40 + count*5, count*7)
+    c = paper.circle(10 + count*14, 20 + count*12, 6)
     c.attr(circle_attrs)
     r = paper.rect(250, 100, 40, 40)
     r.attr(rect_attrs)

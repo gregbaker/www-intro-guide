@@ -67,9 +67,11 @@
 
 {{ quoted_code('files/for-loop.js', line_start=10, line_end=26, dedent=2) }}
 
-<p>In the loop, we first draw a circle, calculating its position and radius based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>. The result is this:</p>
+<p>In the loop, we first draw a circle, calculating its position based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>. The result is this:</p>
 
 {{ figure('for-raph', 'Result of for-loop and '+raph, extension='svg', referenced=False) }}
+
+<p>You can also look at <a href="{{rellink}}files/for-loop.html">the page with all of these examples</a> to see exactly how they work.</p>
 
 <p>In some ways, this might be where programming starts to pay off: finally we can have the computer do work for us, rather than having to give every instruction very manually. Particular when we pair with {{raph}}, we can get interesting results in relatively little code.</p>
 
