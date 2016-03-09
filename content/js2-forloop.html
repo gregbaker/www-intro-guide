@@ -67,7 +67,9 @@
 
 {{ quoted_code('files/for-loop.js', line_start=10, line_end=26, dedent=2) }}
 
-<p>In the loop, we first draw a circle, calculating its position based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>. The result is this:</p>
+<p>In the loop, we first draw a circle, calculating its position based on the loop counter <code class="js">count</code>. Then we draw a rectangle, with rotation and scaling calculated from <code class="js">count</code>.</p>
+
+<p>In this loop, we started counting from 0 to 11 (instead of 1 to 12). I found the calculations easier to think about that way, but the loop runs 12 times either way. The result is this:</p>
 
 {{ figure('for-raph', 'Result of for-loop and '+raph, extension='svg', referenced=False) }}
 
