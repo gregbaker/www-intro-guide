@@ -184,9 +184,18 @@ th {
   border: 1px solid #999;
   margin: 0 2px;
 }
+th[scope=row] {
+  background-color: #fff;
+}
+td {
+  border: 1px solid #ddd;
+}
 th, td {
   padding: 0.1em 0.5em;
   text-align: center;
+}
+table.quickref {
+  width: 100%;
 }
 aside {
   width: $float-width;

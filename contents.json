@@ -105,12 +105,22 @@
   {
     "chapter": ["sw", "Software"],
     "appendix": true
- },
+  },
   {
     "chapter": ["tech", "Technical Instructions"],
     "contents": [
       ["upload", "Uploading Files"],
       ["devtools", "Browser Developer Tools"]
+    ],
+    "appendix": true
+  },
+  {
+    "chapter": ["ref", "Quick Reference"],
+    "contents": [
+      ["html", "HTML Quick Reference"],
+      ["css", "CSS Quick Reference"],
+      ["jquery", "jQuery Quick Reference"],
+      ["raphael", "Rapha&euml;l Quick Reference"]
     ],
     "appendix": true
   },
