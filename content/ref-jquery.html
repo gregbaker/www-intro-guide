@@ -8,7 +8,9 @@
 
 
 <section id="top">
-<h2>Top-Level jQuery Functions</h2>
+<h2>Top-Level Function</h2>
+
+<p>Each of these returns a jQuery object representing some elements on the page.</p>
 
 <table class="quickref">
   <thead>
@@ -25,11 +27,11 @@
   </tr>
   <tr id="byid">
     <th scope="row"><code class="js">$('#thing')</code></th>
-    <td>jQuery object representing the element with <code class="html">id="thing"</code>.</td>
+    <td>A jQuery object representing the element with <code class="html">id="thing"</code>.</td>
   </tr>
   <tr id="document">
     <th scope="row"><code class="js">$(document)</code></th>
-    <td>jQuery object representing the whole HTML page.</td>
+    <td>A jQuery object representing the whole HTML page.</td>
   </tr>
   </tbody>
 </table>
@@ -39,8 +41,35 @@
 <section id="jq-objects">
 <h2>jQuery Object Functions</h2>
 
+<section id="obj-obj">
+<h3>Filtering jQuery Objects</h3>
+
+<p>These take a jQuery object and refine the selection, giving back a new jQuery object.</p>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="first">
+    <th scope="row"><code class="js">$(&hellip;).first()</code></th>
+    <td>A jQuery object representing the first of the selected element(s).</td>
+  </tr>
+  <tr id="last">
+    <th scope="row"><code class="js">$(&hellip;).last()</code></th>
+    <td>A jQuery object representing the last of the selected element(s).</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+</section>
+
+
 <section id="events">
 <h3>Event Handling</h3>
+
+<p>Each of these attaches a function to an event on everything in a jQuery object.</p>
 
 <table class="quickref">
   <thead>
@@ -77,6 +106,8 @@
 
 <section id="modify">
 <h3>Modifying the Page</h3>
+
+<p>Each of these modifies the element(s) in the jQuery object.</p>
 
 <table class="quickref">
   <thead>
