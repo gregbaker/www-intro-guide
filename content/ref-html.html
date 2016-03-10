@@ -8,4 +8,191 @@
 
 <p class="draft">quick summary of HTML tags we have seen</p>
 
+<section id="document">
+<h2>Document Structure Tags</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Opening Tag</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="html">
+    <th scope="row"><code class="html">&lt;html&gt;</code></th>
+    <td>The &ldquo;document tag&rdquo; for HTML documents.</td>
+  </tr>
+  <tr id="head">
+    <th scope="row"><code class="html">&lt;head&gt;</code></th>
+    <td>Holds the meta-information about the page.</td>
+  </tr>
+  <tr id="title">
+    <th scope="row"><code class="html">&lt;title&gt;</code></th>
+    <td>The main page title: tab title and bookmark.</td>
+  </tr>
+  <tr id="meta">
+    <th scope="row"><code class="html">&lt;meta charset="UTF-8" /&gt;</code></th>
+    <td>Information about how characters are encoded.</td>
+  </tr>
+  <tr id="body">
+    <th scope="row"><code class="html">&lt;body&gt;</code></th>
+    <td>Content for the main browser pane.</td>
+  </tr>
+  <tr id="link">
+    <th scope="row"><code class="html">&lt;link rel="stylesheet" href="&hellip;" /&gt;</code></th>
+    <td>Link stylesheet from URL in <code class="html">href</code>.</td>
+  </tr>
+  <tr id="script">
+    <th scope="row"><code class="html">&lt;script src="&hellip;"&gt;&lt;/script&gt;</code></th>
+    <td>Link JavaScript code from URL in <code class="html">src</code>.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+<section id="block">
+<h2>Block/Sectioning Tags</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Opening Tag</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="section">
+    <th scope="row"><code class="html">&lt;section&gt;</code></th>
+    <td>Section/subsection of the page: containing a heading (<code class="html">&lt;h2&gt;</code> or <code class="html">&lt;h3&gt;</code>) and content.</td>
+  </tr>
+  <tr id="h1">
+    <th scope="row"><code class="html">&lt;h1&gt;</code></th>
+    <td>Level 1 heading: probably one, same as <code class="html">&lt;title&gt;</code>.</td>
+  </tr>
+  <tr id="h2">
+    <th scope="row"><code class="html">&lt;h2&gt;</code></th>
+    <td>Level 2 heading: for sections of the page.</td>
+  </tr>
+  <tr id="h3">
+    <th scope="row"><code class="html">&lt;h3&gt;</code></th>
+    <td>Level 3 heading: for sub-sections of the page.</td>
+  </tr>
+  <tr id="p">
+    <th scope="row"><code class="html">&lt;p&gt;</code></th>
+    <td>A paragraph.</td>
+  </tr>
+  <tr id="ul">
+    <th scope="row"><code class="html">&lt;ul&gt;</code></th>
+    <td>Unordered list: contains only <code class="html">&lt;li&gt;</code>.</td>
+  </tr>
+  <tr id="ol">
+    <th scope="row"><code class="html">&lt;ol&gt;</code></th>
+    <td>Ordered list: contains only <code class="html">&lt;li&gt;</code>.</td>
+  </tr>
+  <tr id="li">
+    <th scope="row"><code class="html">&lt;li&gt;</code></th>
+    <td>List item: must go in a list element.</td>
+  </tr>
+  <tr id="dl">
+    <th scope="row"><code class="html">&lt;dl&gt;</code></th>
+    <td>List of definitions: contains only <code class="html">&lt;dt&gt;</code> and <code class="html">&lt;dd&gt;</code>, probably in pairs.</td>
+  </tr>
+  <tr id="dt">
+    <th scope="row"><code class="html">&lt;dt&gt;</code></th>
+    <td>Term being defined: must be in <code class="html">&lt;dl&gt;</code>.</td>
+  </tr>
+  <tr id="dd">
+    <th scope="row"><code class="html">&lt;dd&gt;</code></th>
+    <td>Definition of last <code class="html">&lt;dt&gt;</code>: must be in <code class="html">&lt;dl&gt;</code>.</td>
+  </tr>
+  <tr id="figure">
+    <th scope="row"><code class="html">&lt;figure&gt;</code></th>
+    <td>A figure, probably with a <code class="html">&lt;figcaption&gt;</code>.</td>
+  </tr>
+  <tr id="figcaption">
+    <th scope="row"><code class="html">&lt;figcaption&gt;</code></th>
+    <td>The caption for a figure: must be in <code class="html">&lt;figure&gt;</code>.</td>
+  </tr>
+  <tr id="address">
+    <th scope="row"><code class="html">&lt;address&gt;</code></th>
+    <td>Contact information for the author.</td>
+  </tr>
+  <tr id="div">
+    <th scope="row"><code class="html">&lt;div&gt;</code></th>
+    <td>Generic block-level tag: must have meaningful <code class="html">class</code>/<code class="html">id</code>.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+<section id="inline">
+<h2>Inline Tags</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Opening Tag</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="a">
+    <th scope="row"><code class="html">&lt;a href="&hellip;"&gt;</code></th>
+    <td>A link to the URL in <code class="html">href</code>.</td>
+  </tr>
+  <tr id="abbr">
+    <th scope="row"><code class="html">&lt;abbr title="&hellip;"&gt;</code></th>
+    <td>An abbreviation, with full term in <code class="html">title</code>.</td>
+  </tr>
+  <tr id="cite">
+    <th scope="row"><code class="html">&lt;cite&gt;</code></th>
+    <td>A citation: reference to another work.</td>
+  </tr>
+  <tr id="code">
+    <th scope="row"><code class="html">&lt;code&gt;</code></th>
+    <td>An example/fragment of computer code.</td>
+  </tr>
+  <tr id="dfn">
+    <th scope="row"><code class="html">&lt;dfn&gt;</code></th>
+    <td>Newly-defined term.</td>
+  </tr>
+  <tr id="em">
+    <th scope="row"><code class="html">&lt;em&gt;</code></th>
+    <td>Emphasized text.</td>
+  </tr>
+  <tr id="img">
+    <th scope="row"><code class="html">&lt;img src="&hellip;" alt="&hellip;" /&gt;</code></th>
+    <td>Image inserted from URL in <code class="html">src</code> and alternate text in <code class="html">alt</code>.</td>
+  </tr>
+  <tr id="q">
+    <th scope="row"><code class="html">&lt;q&gt;</code></th>
+    <td>An inline quotation.</td>
+  </tr>
+  <tr id="span">
+    <th scope="row"><code class="html">&lt;span&gt;</code></th>
+    <td>Generic inline tag: must have meaningful <code class="html">class</code>/<code class="html">id</code>.</td>
+  </tr>
+  <tr id="strong">
+    <th scope="row"><code class="html">&lt;strong&gt;</code></th>
+    <td>Strongly emphasized text.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+
+<section id="forms">
+<h2>Forms</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Tag/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="button">
+    <th scope="row"><code class="html">&lt;button&gt;Go&lt;/button&gt;</code></th>
+    <td>A clickable button.</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+
+
+
+
 {% endblock %}
