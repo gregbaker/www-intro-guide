@@ -113,26 +113,29 @@
   <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
   </thead>
   <tbody>
-
-  <tr id="html">
-    <th scope="row"><code class="js">$(&hellip;).html('Hello')</code></th>
-    <td>Set the content of the selected element(s) to <code class="html">Hello</code>.</td>
+  <tr id="append">
+    <th scope="row"><code class="js">$(&hellip;).append('&lt;p&gt;Hi&lt;/p&gt;')</code></th>
+    <td>Add a paragraph to the end of the selected element(s).</td>
+  </tr>
+  <tr id="animate">
+    <th scope="row"><code class="js">$(&hellip;).animate({'width': '8em'}, 2000)</code></th>
+    <td>Animate CSS properties of the selected element(s) from current value to the ones given, over 2 seconds.</td>
   </tr>
   <tr id="attr">
     <th scope="row"><code class="js">$(&hellip;).attr('class', 'nice')</code></th>
     <td>Set the <code class="html">class="nice"</code> on the selected element(s).</td>
   </tr>
-  <tr id="append">
-    <th scope="row"><code class="js">$(&hellip;).append('&lt;p&gt;Hi&lt;/p&gt;')</code></th>
-    <td>Add a paragraph to the end of the selected element(s).</td>
-  </tr>
   <tr id="css">
     <th scope="row"><code class="js">$(&hellip;).css({'color': '#f00'})</code></th>
     <td>Change CSS properties of the selected element(s).</td>
   </tr>
-  <tr id="animate">
-    <th scope="row"><code class="js">$(&hellip;).animate({'width': '8em'}, 2000)</code></th>
-    <td>Animate CSS properties of the selected element(s) from current value to the ones given, over 2 seconds.</td>
+  <tr id="html">
+    <th scope="row"><code class="js">$(&hellip;).html('Hello')</code></th>
+    <td>Set the content of the selected element(s) to <code class="html">Hello</code>.</td>
+  </tr>
+  <tr id="remove">
+    <th scope="row"><code class="js">$(&hellip;).remove()</code></th>
+    <td>Remove the selected element(s) from the page.</td>
   </tr>
   </tbody>
 </table>
