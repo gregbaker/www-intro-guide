@@ -1,0 +1,61 @@
+{% extends "sectionbase.html" %}
+
+{% block content %}
+
+<p>We have been working with variables in several different ways in JavaScript. This seems like a good time to revisit some of the ideas, now that there are more examples to work with.</p>
+
+<p>There aren't really any new ideas being introduced here, but there may be some details you missed when you saw the concepts for the first time.</p>
+
+<p>First, remember that variables (including functions) can be named whatever you want (as long as it's letters, digits, and underscores). When naming your variables, try to be as descriptive as possible.</p>
+
+<p>For example, we have been naming the {{raph}} SVG objects <code class="js">paper</code>, because the {{raph}} documentation calls them &ldquo;paper&rdquo; objects, and it make some sense to be drawing on a &ldquo;paper&rdquo;. When drawing circles in {{ xref('jssvg-svg', fragment='dynamic') }}, we used a variable to store the radius of the circles, and called it <code class="js">radius</code>: again, this is a descriptive name that gives a really good hint how it's being used.</p>
+
+<section id="purpose">
+<h2>What Variables Are For</h2>
+
+<p>Whenever we're using a variable, the reason is always the same: to store some value so we can use it later.</p>
+
+<p>For example, the <code class="js">paper</code> objects were created (with the <code class="js">Raphael()</code> function), and then we had to use them many times because functions in the paper object are used to draw things in the SVG image.</p>
+
+<p id="element">When drawing shapes on the paper objects, we often store the resulting shape object (a {{raph}} <dfn>element object</dfn>) in a variable, because we need to use the <code class="js">.attr()</code> function in it later to change its appearance:</p>
+
+{{ quoted_code('files/raphael2.js', line_start=3, line_end=8, dedent=2) }}
+
+<p>If we didn't need to call <code class="js">.attr()</code> (because we like the default appearance, presumably), then we could have just called <code class="js">paper.ellipse(&hellip;)</code> and not used a variable for the result (but using a variable doesn't really hurt: it's just not necessary if we're not going to use it).</p>
+
+<p>When drawing circles in {{ xref('jssvg-svg', fragment='dynamic') }}, we needed to store the <code class="js">radius</code> so we could use it as the radius of a circle, and also change the value in the variable so it would be different the next time we used it.</p>
+
+<p>In the repeating animation in {{ xref('jssvg-animation') }}, we created the variable <code class="js">circ</code> in the <code class="js">setup</code> function. We didn't use it in <code class="js">setup</code>, but did use it in <code class="js">anim_right</code> and <code class="js">anim_left</code> where we needed to call <code class="js">.animate()</code> on it.</p>
+
+<p>In all of these cases, we needed to get the value we stored in the variable back later: either to calculate with it, or call a function in the object.</p>
+
+</section>
+
+<section id="values">
+<h2>Variable Values</h2>
+
+<p>There are basically two things you can do with variables: store values in them with a variable assignment statement (like <code class="js">var_name = 6</code>), and retrieve the stored value by referring to the variable by name.</p>
+
+<p>Remember that using a variable's name is just a way to refer to its value. For example, even though we wrote the first example here, the second would have been <em>exactly</em> the same.</p>
+
+{{ quoted_code('_sources/var-value.js') }}
+
+<p>In the first example, the object named <code class="js">newstyle</code> (which was named that because it seemed descriptive) was created holding an object and then used. In the second was just written where it was needed, without being assigned to a variable first.</p>
+
+<p>The result is the same. In the first example, the variable name gives a hint about what's happening and there is less stuff packed into one statement, which both make the code easier to read. We could also use <code class="js">newstyle</code> many times if we needed to. The one real drawback is that the second example requires less typing.</p>
+
+<p>The code in the Guide tends to put values is variables: I think it makes the code more readable. You're welcome to do either if it makes sense.</p>
+
+<p>Of course, if you need to modify a variable (like we did with <code class="js">radius</code>) then it <em>must</em> be in a variable so we can manipulate the stored value.</p>
+
+<p>This ability to substitute variable values in to the place they are used even extends to functions in JavaScript. These are also the same:</p>
+
+{{ quoted_code('_sources/anon-function.js') }}
+
+<p id="anon-func">It's possible to put the actual function definition directly in line as the argument to the <code class="js">ready()</code> function (or any other function where you need to give a function as the argument). This is an <dfn>anonymous function</dfn>: a function that doesn't have a name.</p>
+
+<p>Anonymous functions are actually more idiomatic JavaScript: that style is very common. I find it very difficult to read, and have avoided it in this Guide (and will continue to).</p>
+
+</section>
+
+{% endblock %}

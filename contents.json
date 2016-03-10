@@ -78,6 +78,7 @@
   {
     "chapter": ["js2", "Working with JavaScript"],
     "contents": [
+      ["variables", "Variables, Again"],
       ["forloop", "Iteration: the for-loop"],
       ["forms", "Working with Forms"],
       ["conditional", "Making Decisions"],
