@@ -81,7 +81,7 @@
       ["variables", "Variables, Again"],
       ["forloop", "Iteration: the for-loop"],
       ["strings", "Working with Strings"],
-      ["forms", "Working with Forms"],
+      ["forms", "HTML Forms"],
       ["conditional", "Making Decisions"],
       ["objects", "Objects and Arrays"],
       ["selectors", "jQuery Selectors"],

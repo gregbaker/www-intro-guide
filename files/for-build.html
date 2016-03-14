@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+<meta charset="UTF-8" />
+<script src="{{ jquery_url }}"></script>
+<script src="{{ raphael_url }}"></script>
+<script src="for-build.js"></script>
+<title>String Building Example</title>
+</head>
+<body>
+<h1>String Building Example</h1>
+
+<div id="container1"></div>
+
+<p>Here's the code that draws that image:</p>
+
+{{ quoted_code('files/for-build.js', line_start=18, line_end=25, dedent=2) }}
+
+
+<div id="container2"></div>
+<button>Re-Animate</button>
+
+<p>Here's the code that draws (and animates) that image:</p>
+
+{{ quoted_code('files/for-build.js', line_start=2, line_end=14, dedent=2) }}
+
+<p>Transform strings generated in the loop:</p>
+
+<blockquote><pre id="transforms"></pre></blockquote>
+
+</body>
+</html>

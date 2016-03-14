@@ -2,8 +2,82 @@
 
 {% block content %}
 
-<p class="draft">revisit dfn: seq of chars. Differnce between 3 and '3'. Building strings. Implicit conversion. As object: .length, .charAt()</p>
+<section id="review">
+<h2>String Review</h2>
 
-<p>We first saw strings in the section {{ xref('js-varfunc', fragment='types') }}.</p>
+<p>We first saw strings in the section {{ xref('js-varfunc', fragment='strings') }}. There we said that they represent text, and that when we want to write a literal string in our JavaScript code, it's wrapped in either single or double quotes: <code class="js">"I'm a string"</code>, <code class="js">'And so am I'</code>.</p>
+
+<p>It's important to understand (and notice) what parts of your code are a string like this, and what is other parts of the code. For example, the variables created in these two lines are <em>not the same</em>:</p>
+
+{{ quoted_code('_sources/string1.js') }}
+
+<p>The first variable holds a <strong>string</strong> with two characters: a digit <code class="js">1</code> followed by a digit <code class="js">2</code>. The second holds the <strong>number</strong> twelve (i.e. the next integer after eleven). Those two things look similar to us, but are treated differently in JavaScript calculations.</p>
+
+<p>We can see this difference more clearly if we do some operations on the values:</p>
+
+{{ quoted_code('_sources/string2.js') }}
+
+<p id="plus">The first line creates the variable <code class="js">c</code> holding the string <code class="js">'1234'</code>: when the <code class="js">+</code> is applied to strings, it joins them together (or <dfn data-term="concatenate">concatenates</dfn> them). The second line creates <code class="js">d</code> holding the number forty-six: <code class="js">+</code> applied to numbers does addition.</p>
+</section>
+
+<section id="building">
+<h2>Building Strings</h2>
+
+<p>We often need strings to pass along as arguments to functions, especially when doing CSS and SVG manipulations (with jQuery and {{raph}}). For example, we used <code class="js">.append()</code> in an example introducing {{ xref('js2-forloop', fragment='for', text='the <code class="js">for</code> loop') }}:</p>
+
+{{ quoted_code('files/for-loop.js', line_start=3, line_end=3, dedent=4) }}
+
+<p>The argument to <code class="js">.append()</code> is a string: the HTML code for the content to be inserted. If we want to have any control over these arguments (such as having them different each time around a <code class="js">for</code> loop), we need to build them as the code runs, as opposed to just typing in the string literally.</p>
+
+<p>If we have a variable holding a string (that's created somehow), we can join various pieces together to get the final string we want, something like this:</p>
+
+{{ quoted_code('_sources/build1.js') }}
+
+<p>That would create an object that we could use as an argument for jQuery <code class="js">.css()</code> with color value <code class="js">'#f50'</code>. In our code so far, we haven't had string variable, we have had numbers. For example, in the next example on {{ xref('js2-forloop', fragment='for2', text='the <code class="js">for</code> loop') }}, we did something a little different:</p>
+
+{{ quoted_code('files/for-loop.js', line_start=6, line_end=8, dedent=2) }}
+
+<p>Here, <code class="js">n</code> is a number (like all loop counters), but we added it to strings.</p>
+
+<p>When you try to add a string and a number together in JavaScript, the string is automatically converted to a number, and the strings are joined. That means that the three variables here will end up with <em>the same value</em> after the assignment:</p>
+
+{{ quoted_code('_sources/build2.js') }}
+
+<p>So in our example code above, the argument to <code class="js">.append()</code> was evaluated like this (for example, the third time around the loop when <code class="js">n</code> was 3):</p>
+
+{{ quoted_code('_sources/build3.js') }}
+
+<p>We can do the same thing with any number in JavaScript, so we can do some calculation before building the string. For example, it's often useful to be able to build attribute values for {{raph}}.</p>
+
+<p>The <code class="js">.scale()</code> and <code class="js">.rotate()</code> functions are convenient, but they won't let us animate either scaling or rotation. To do that. we need <code class="js">.animate()</code> and the <code class="js">'transform'</code> attribute.</p>
+
+<p>With <code class="js">'transform'</code>, we can give strings like <code class="js">'r30'</code> to indicate a rotation of 30&deg; or <code class="js">'s2'</code> to indicate scaling of two times. If we want to create several rectangles with different rotations, we can do something like this:</p>
+
+{{ quoted_code('files/for-build.js', line_start=18, line_end=25, dedent=2) }}
+
+<p>This draws six squares, rotated by 15&deg;, 30&deg;, 45&deg;, 60&deg;, 75&deg;, and 90&deg;. The result is this:</p>
+
+{{ figure('for-build-result', 'Result of transformed shapes', extension='svg', referenced=False) }}
+
+<p>For a complex example, we can recreate part of the image from {{ xref('js2-forloop', fragment='for-raphael', text='the last section') }} and animate it into existence while we're at it:</p>
+
+{{ quoted_code('files/for-build.js', line_start=2, line_end=14, dedent=2) }}
+
+<p>Instead of using <code class="js">.attr()</code>, this uses <code class="js">.animate()</code> to rotate and scale the squares as they are created. Have a look at <a href="{{rellink}}files/for-build.html">the page with both of these examples on it</a> to see the animation.</p>
+
+</section>
+
+
+<section id="object">
+<h2>Strings as Objects</h2>
+
+
+<p class="draft">.length, .charAt(), etc</p>
+
+
+
+</section>
+
+
 
 {% endblock %}
