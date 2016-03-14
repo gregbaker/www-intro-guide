@@ -255,7 +255,7 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(text))
     return res.encode('utf8')
 
-def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line_start=None, line_end=None, dedent=0):
+def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line_start=None, line_end=None, dedent=0, startswith=None):
 
     lines = codecs.open(filename, encoding='utf-8').readlines()
     if line_end:
@@ -265,6 +265,10 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line
     if dedent:
         lines = [(l[dedent:] if l[:dedent] == ' '*dedent else l) for l in lines]
     content = ''.join(lines)
+    
+    if startswith:
+        # assertion to catch line-number drift in partial quotes.
+        assert content.startswith(startswith), `content[:10]`
 
     if not codeclass:
         _, ext = os.path.splitext(filename)
