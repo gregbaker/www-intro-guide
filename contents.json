@@ -80,6 +80,7 @@
     "contents": [
       ["variables", "Variables, Again"],
       ["forloop", "Iteration: the for-loop"],
+      ["strings", "Working with Strings"],
       ["forms", "Working with Forms"],
       ["conditional", "Making Decisions"],
       ["objects", "Objects and Arrays"],
