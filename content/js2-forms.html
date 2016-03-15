@@ -3,24 +3,32 @@
 {% block content %}
 <p class="draft">The form tags, and how to use them to get user input and respond to that with jQuery.</p>
 
-<p>Programs are boring if they just do the same thing every time. We need to respond to things the user does to make things interesting. So far, we have one way to do this: respond to user actions by letting jQuery connect the actions to our functions.</p>
+<p>Programs are boring if they just do the same thing every time. We need to respond to things the user does to make things interesting. So far, we have one way to do this: respond to user actions (clicking buttons, or moving the mouse) with jQuery.</p>
 
 <p>That's good but limited: the user clicks on something or they don't. They move the cursor somewhere or they don't. We would like to get richer input from them.</p>
 
 <section id="formtags">
 <h2>HTML Forms</h2>
 
-<p id="forms">We can have the user give us more detailed input using the <dfn>form tags</dfn> in HTML, starting with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn" id="input">&lt;input&gt;</code></a>.</p>
+<p id="forms">We can have the user give us more detailed input using the <dfn>form tags</dfn> in HTML. We have already seen one of these <a href="{{ html_tag_ref_url('input') }}"><code class="js dfn">&lt;button&gt;</code></a>, where the text on the button is the contents of the element:</p>
 
-<aside>In previous versions of HTML, all inputs had to be inside a <a href="{{ html_tag_ref_url('form') }}"><code class="html dfn" id="formtag">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
+{{ quoted_code('_sources/form0.html') }}
 
-<p>The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
+<p>That looks like this on the page:</p>
+
+{{ figure('form0', 'Display of the button in a browser', referenced=False) }}
+
+<p>We really only did one thing with the buttons: used <code class="js">.click()</code> to attach a function to the click event on it.</p>
+
+<p>We can get richer input with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn" id="input">&lt;input&gt;</code></a>. The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
 
 {{ quoted_code('_sources/form1.html') }}
 
 <p>In the browser, that looks like this:</p>
 
 {{ figure('form1', 'Display of the form input in a browser', referenced=False) }}
+
+<aside>In previous versions of HTML, all inputs had to be inside a <a href="{{ html_tag_ref_url('form') }}"><code class="html dfn" id="formtag">&lt;form&gt;</code></a> element. That is not true in HTML5 the way we're using inputs.</aside>
 
 <p>There are other input types that you can use: radio buttons (select one of many options), checkboxes (check on or off), password input (like text, but characters aren't visible on-screen), and several more. For now, we will only use the text input and the &ldquo;button&rdquo; in the next section.</p>
 </section>
@@ -32,13 +40,13 @@
 
 <p>The easiest thing to do is find the <code class="html">&lt;input&gt;</code> with jQuery (probably selecting by <code class="html">id</code>) and using the jQuery object's <code class="js">.val()</code> method that will give you what the user typed.</p>
 
-<p>In the example above, we had an input with <code class="html">id="something"</code> so we can get the string the use typed with <code class="js">jQuery('#something').val()</code>.</p>
+<p>In the example above, we had an input with <code class="html">id="something"</code> so we can get the string the use typed with <code class="js">$('#something').val()</code>.</p>
 
 <p>Let's expand that into a more complete example. We can add a button input to the page so the user has something obvious to click to initiate an event:</p>
 
-{{ quoted_code('files/form2.html') }}
+{{ quoted_code('files/form2.html', line_start=9, line_end=11, startswith='<p>Type') }}
 
-<p>Then we can use this JavaScript code to manipulate the page based on what the user enters. When the button is clicked (<code class="js">jQuery('#resultbutton').click(&hellip;)</code>) we will (in <code class="js">show_result</code>) get what they typed and report it by filling in the content of the <code class="html">&lt;p id="result"&gt;</code>.</p>
+<p>When the button is clicked, we will (in <code class="js">show_result</code>) get what they typed and report it by filling in the content of the <code class="html">&lt;p id="result"&gt;</code>.</p>
 
 {{ quoted_code('files/handle-form.js') }}
 
@@ -46,9 +54,9 @@
 
 {{ figure('form2', 'Form example after clicking', referenced=False) }}
 
-<p>If you'd like to try it yourself, have a look at <a href="{{rellink}}files/form2.html">the page itself</a>.</p>
+<p>As before, <code class="js">$('#something')</code> gives us a jQuery object for the <code class="html">&lt;input &hellip; id="something" /&gt;</code>. The <code class="js">.val()</code> function in that object gives us the string <code class="js">'Okay I will.'</code> (in the example above). Once we have the string the user typed, we can use it any way we want.</p>
 
-<p>Have another look at the logic in that JavaScript and how it fits together make things work: <code class="js">setup</code> is called after the page loads and connects <code class="js">show_result</code> as the action to take when the button is clicked. When the button is clicked and <code class="js">show_result</code> is called, it gets the text that was typed (a string, into the variable <code class="js">typed</code>) and inserts text into the <code class="html">&lt;p id="result&gt;</code> so we can see the result.</p>
+<p>If you'd like to try it yourself, have a look at <a href="{{rellink}}files/form2.html">the page itself</a>.</p>
 
 </section>
 
