@@ -1,4 +1,4 @@
-var hex = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+var hex = '0123456789abcdef';
 var fontsz = 14;
 
 create_scale = function(id,  clr) {

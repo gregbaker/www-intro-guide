@@ -71,10 +71,31 @@
 <section id="object">
 <h2>Strings as Objects</h2>
 
+<p>Strings we have been using in JavaScript have the fundamental job of holding characters. They also behave as objects: they hold variables (including functions) that do useful things wit the contents of the string.</p>
 
-<p class="draft">.length, .charAt(), etc</p>
+<p>For example, every string contains a function <code class="js">.toLowerCase()</code> that gives back a copy of itself converted to entirely lowercase:</p>
 
+{{ quoted_code('_sources/string-methods2.js') }}
 
+<p>After this code, the variable <code class="js">greeting</code> contains <code class="js">'Hello World!'</code> and <code class="js">lower_greeting</code> contains <code class="js">'hello world!'</code>. The original string didn't get changed, but the function returned a copy of itself with uppercase letters converted to lowercase.</p>
+
+<p>Strings also contain a <code class="js">.charAt()</code> function that can be used to extract individual characters from a string (counting from zero). It is used like this:</p>
+
+{{ quoted_code('_sources/string-methods1.js') }}
+
+<p>After this code, the variable <code class="js">third</code> will contain the character <code class="js">'c'</code>: <code class="js">'a'</code> is character 0 in that string, <code class="js">'b'</code> is character 1, <code class="js">'c'</code> is character 2.</p>
+
+<p>We can do something a little more interesting: in {{ xref('css-colour') }}, we first saw the <code class="css">0</code> to <code class="css">f</code> scale for colour components. There are 16 possible values there, which we'll think of as 0 to 15.</p>
+
+<p>If we create the string <code class="js">'0123456789abcdef'</code>, then it has characters 0 to 15 that we can extract to create color codes <code class="css">#000</code> to <code class="css">#f00</code> like this:</p>
+
+{{ quoted_code('files/for-build-2.js', line_start=2, line_end=10, dedent=2, startswith='color_values = ') }}
+
+{{ figure('for-build-2-result', 'Result of generated colours', extension='svg', referenced=False) }}
+
+<p>You can also view <a href="{{rellink}}files/for-build-2.html">the page with this example</a>.</p>
+
+<p>We will be able to do more interesting things with string methods once we can get strings from the user in the next section&hellip;</p>
 
 </section>
 
