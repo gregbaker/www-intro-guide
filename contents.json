@@ -83,9 +83,7 @@
       ["strings", "Working with Strings"],
       ["forms", "HTML Forms"],
       ["conditional", "Making Decisions"],
-      ["objects", "Objects and Arrays"],
-      ["selectors", "jQuery Selectors"],
-      ["manipulate", "Manipulating Pages"]
+      ["objects", "Objects and Arrays"]
     ]
   },
   {
