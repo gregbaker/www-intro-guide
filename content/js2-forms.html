@@ -22,7 +22,7 @@
 
 <p id="control">We can get richer input with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn" id="input">&lt;input&gt;</code></a>. The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive <dfn data-term="control, form">control</dfn> onto the page.</p>
 
-<p>The <code class="html">type</code> attribute on <code class="html" id="input">&lt;input&gt;</code> indicates the kind of control to add to the page. Giving <code class="html dfn">type="text"</code> creates a one-line text input field. For example:</p>
+<p id="text">The <code class="html">type</code> attribute on <code class="html">&lt;input&gt;</code> indicates the kind of control to add to the page. Giving <code class="html dfn">type="text"</code> creates a one-line text input field. For example:</p>
 
 {{ quoted_code('_sources/form1.html') }}
 
@@ -90,7 +90,7 @@
 
 <aside id="widgets">The things <code class="js">&lt;input /&gt;</code> puts on the page are often called controls or <dfn>widgets</dfn>.</aside>
 
-<p>Using <code class="html dfn">type="password"</code> creates a control that works just like a text input, but where what the user types isn't visible on screen, so they can type a password or other information they wouldn't want visible to someone looking over their shoulder.</p>
+<p id="password">Using <code class="html dfn">type="password"</code> creates a control that works just like a text input, but where what the user types isn't visible on screen, so they can type a password or other information they wouldn't want visible to someone looking over their shoulder.</p>
 
 {{ quoted_code('_sources/widgets.html', line_start=16, line_end=16, startswith='Password:') }}
 
