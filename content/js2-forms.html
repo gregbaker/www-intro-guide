@@ -20,7 +20,9 @@
 
 <p>We really only did one thing with the buttons: used <code class="js">.click()</code> to attach a function to the click event on it.</p>
 
-<p>We can get richer input with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn" id="input">&lt;input&gt;</code></a>. The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive control onto the page. For example, this element creates a one-line text input field:</p>
+<p id="control">We can get richer input with <a href="{{ html_tag_ref_url('input') }}"><code class="html dfn" id="input">&lt;input&gt;</code></a>. The <code class="html">&lt;input&gt;</code> element is empty (so it ends right away like <code class="html">&lt;input &hellip; /&gt;</code>) and inserts an interactive <dfn data-term="control, form">control</dfn> onto the page.</p>
+
+<p>The <code class="html">type</code> attribute on <code class="html" id="input">&lt;input&gt;</code> indicates the kind of control to add to the page. Giving <code class="html dfn">type="text"</code> creates a one-line text input field. For example:</p>
 
 {{ quoted_code('_sources/form1.html') }}
 
@@ -77,9 +79,59 @@
 
 </section>
 
+</section>
 
+
+
+<section id="controls">
+<h2>Other Form Controls</h2>
+
+<p>The <code class="js">&lt;input /&gt;</code> tag can be used to create other types of controls as well. With all of these, you can use <code class="js">.val()</code> to retrieve the value, in a way similar to a <code class="html">type="text"</code> input.</p>
+
+<aside id="widgets">The things <code class="js">&lt;input /&gt;</code> puts on the page are often called controls or <dfn>widgets</dfn>.</aside>
+
+<p>Using <code class="html dfn">type="password"</code> creates a control that works just like a text input, but where what the user types isn't visible on screen, so they can type a password or other information they wouldn't want visible to someone looking over their shoulder.</p>
+
+{{ quoted_code('_sources/widgets.html', line_start=16, line_end=16, startswith='Password:') }}
+
+<p>It will look something like this. (These screenshots were taken in Windows&nbsp;7: the way the widgets look varies between operating systems, but they work the same.)</p>
+
+{{ figure('widgets1', 'A password input, with a few characters entered', referenced=False) }}
+
+<p>Other than its on-screen appearance, it works exactly the same as <code class="html">type="text"</code>: looking at <code class="js">$('#pw').val()</code> will get the string the user typed.</p>
+
+
+
+<p id="textarea">If you want to do text input where the user has space to enter more text, you can use the <code class="html dfn">&lt;textarea&gt;</code> tag. You can specify the number of rows and columns (lines and width), and initial text as the contents (or leave it empty for none):</p>
+
+{{ quoted_code('_sources/widgets.html', line_start=39, line_end=41, startswith='Tell me more:') }}
+
+<p>It will display like this:</p>
+
+{{ figure('widgets3', 'A text area control', referenced=False) }}
+
+<p>As with the <code class="html">&lt;input type="text"&gt;</code>, you can get the string the user typed with <code class="js">$('#t-area').val()</code>.</p>
+
+
+
+<p id="select">If you have a list of options that you'd like the user to be able to choose, you can use the <code class="html dfn">&lt;select&gt;</code> and <code class="html dfn">&lt;option&gt;</code> tags. The <code class="html">&lt;select&gt;</code> must be used to enclose several <code class="html">&lt;option&gt;</code>s (like <code class="html">&lt;ul&gt;</code> contains <code class="html">&lt;li&gt;</code>s):</p>
+
+{{ quoted_code('_sources/widgets.html', line_start=31, line_end=35, startswith='Choose one:') }}
+
+<p>It will look like this on the page when the user clicks it to make a choice:</p>
+
+{{ figure('widgets2', 'A select control, clicked to select', referenced=False) }}
+
+<p>This time when you use <code class="js">$('#seldemo').val()</code>, you will get the value explicitly given in the <code class="html">&lt;option&gt;</code> tag. In this example, it will be either the string <code class="js">'a'</code> or <code class="js">'b'</code> or <code class="js">'c'</code>.</p>
+
+
+
+<p>There are several other types for <code class="html">&lt;input&gt;</code>, and other tags that can be used to create form controls. Some of them work a little differently, and some aren't supported as well by browsers. We won't be using others in this course, and you can find all of the details in the <a href="{{ htmlref_url }}#Forms">HTML Reference</a>.</p>
 
 </section>
+
+
+
 
 
 {% endblock %}
