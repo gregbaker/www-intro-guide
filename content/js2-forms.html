@@ -56,7 +56,26 @@
 
 <p>If you'd like to try it yourself, have a look at <a href="{{rellink}}files/form2.html">the page itself</a>.</p>
 
+<section id="another">
+<h3>Another Example</h3>
 
+<p>This time, let's use some form controls and {{raph}}: instead of using jQuery to add the text to the page, we'll add it to an SVG.</p>
+
+<p>We will start with a container for the SVG, and the form controls:</p>
+
+{{ quoted_code('files/form-raph.html', line_start=13, line_end=17, startswith='<div id="container">') }}
+
+<p>We can then use jQuery <code class="js">.val()</code> to retrieve the text. The {{raph}} <code class="js">.text()</code> function will add it to an SVG. We can also treat it like a string: get its length and use that number to calculate the size of a bar chart-like box.</p>
+
+{{ quoted_code('files/form-raph.js') }}
+
+<p>Here, the variable <code class="js">y</code> ensures that each time the function <code class="js">add</code> runs, it draws the text and rectangle further down. The function adds two things: the text itself, and a rectangle with width proportionate to the length of the string. The page will look something like this after a few clicks:</p>
+
+{{ figure('form-raph', 'Form + SVG after a four entries', referenced=False) }}
+
+<p>You can <a href="{{rellink}}files/form-raph.html">try out the example</a> yourself too.</p>
+
+</section>
 
 
 
