@@ -25,16 +25,38 @@ It also means the anonymous function definition syntax is there ready to go when
 But I'm not using the inline anonymous function right away either, instead starting with:
 
 ```javascript
-handle_click = function(){...};
-$('#foo').click(handle_click);
+handle_click = function(){...}
+$('#foo').click(handle_click)
 ```
 
 This keeps the amount of stuff happening in one statement to a minimum, so it's easier to explain and digest. It also keeps the way functions get defined consistent while we're opening that door.
 
-Finally, I haven't actually used the jQuery `$` as above. This is speculative, but I think spelling it `jQuery` is easier since it looks like other function names.
+I didn't start with the jQuery `$` as above. I think spelling it `jQuery` is easier since it looks like other function names.
 
 ```javascript
-handle_click = function(){...};
-jQuery('#foo').click(handle_click);
+handle_click = function(){...}
+jQuery('#foo').click(handle_click)
 ```
 
+Similarly, I have generally erred on the side of putting something in a variable where it saves doing two or three things in one line.
+
+```javascript
+angle = ...
+trans = 'r' + angle
+attribs = {
+  'transform': trans
+}
+shape.animate(attribs, 1000)
+```
+
+The equivalence `jQuery === $` is introduced later for brevity and comprehensibility of other jQuery code.
+
+### Anti-Styles
+
+There are a few notable JavaScript styles used in this Guide that are definitely not considered best practices. Each of these is done deliberately to minimize the amount of syntax and complication introduced.
+
+* statements do not end with `;`
+* `var` is not introduced: all variables are global
+* type coercion is allowed to happen: explicit conversions and `===` are not introduced.
+
+In each case, if this was a full course in programming, I would certainly take the opposite position. As it is, with only about 6 weeks of programming time, my emphasis was on getting familiar with the way logic fits together to create behaviour. Extra syntax or concepts were purged mercilessly, even at the expense of creating non-strict or non-lint-clean code.
