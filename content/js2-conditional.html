@@ -10,22 +10,38 @@
 
 {{ quoted_code('files/select-if.html', line_start=16, line_end=20, startswith='<select id="direction">') }}
 
-<p>We will need to do something different depending on the user's selection: either up (a smaller <code class="js">y</code> value) or down (a larger <code class="js">y</code>).</p>
+<p>We will need to do something different depending on the user's selection: either up (probably a smaller <code class="js">y</code> value) or down (a larger <code class="js">y</code>).</p>
 
 
 <section id="if">
-<h2>The <code class="js">if</code>-Statement</h2>
+<h2>The <code class="js">if</code> Statement</h2>
 
+<p id="if-stmt">We can use the <code class="js dfn">if</code> statement in JavaScript to make decisions about what code to run, depending on the situation we're in. The basic decision we make with the <code class="js">if</code> is &ldquo;should this block of code run or not?&rdquo;</p>
 
+<p>Suppose we have a value <code class="js">count</code> that is something the user entered (in a <code class="html">&lt;input /&gt;</code>). We want to decide if they have entered a number too large for what we're doing. The code will be something like this:</p>
 
+{{ quoted_code('_sources/if1.js') }}
+
+<p>Here are the part of the <code class="js">if</code> statement's structure:</p>
+
+<dl>
+<dt><code class="js">if ( &hellip; ) { &hellip; }</code></dt>
+<dd>This is the basic structure of the <code class="js">if</code> statement. The <code class="js">( &hellip; )</code> controls the behaviour, and the <code class="js">{ &hellip; }</code> is the conditional code.</dd>
+<dt id="condition"><code class="js">( &hellip; )</code></dt>
+<dd>This is the <dfn>condition</dfn> of the <code class="js">if</code>. It is an expression that evaluates to either true or false.</dd>
+<dt id="body"><code class="js">{ &hellip; }</code></dt>
+<dd>This is the <dfn>body</dfn> of the <code class="js">if</code>. This code runs only when the condition evaluated to true.</dd>
+</dl>
+
+<p>The condition can be any expression that results in a true or false result. There are several ways to get a true/false, but we will only worry about comparisons. Here are the comparison operators that we can use:</p>
 
 
 <figure id="comparison-table">
 <table>
 <thead><tr><th scope="col">Comparison</th><th scope="col">Meaning</th><th scope="col">Example is&hellip;</th></tr></thead>
 <tbody>
-<tr><td><code class="js">4 == 9</code></td><td>is equal to</td><td>false</td></tr>
-<tr><td><code class="js">4 != 9</code></td><td>is not equal to</td><td>true</td></tr>
+<tr><td><code class="js">23 == 3</code></td><td>is equal to</td><td>false</td></tr>
+<tr><td><code class="js">23 != 3</code></td><td>is not equal to</td><td>true</td></tr>
 <tr><td><code class="js">4 &lt; 9</code></td><td>less than</td><td>true</td></tr>
 <tr><td><code class="js">4 &gt; 9</code></td><td>greater than</td><td>false</td></tr>
 <tr><td><code class="js">8 &lt;= 6</code></td><td>less than or equal</td><td>false</td></tr>
@@ -35,6 +51,19 @@
 <figcaption>JavaScript comparison operators</figcaption>
 </figure>
 
+<p>As you can see, the example above used a greater-than comparison: the code in the <code class="js">{ &hellip; }</code> will only run if the variable <code class="js">count</code> was holding a value greater than 100.</p>
+
+<section id="example">
+<h2>Example</h2>
+
+<p>We can now return to the example with the <code class="html">&lt;select&gt;</code> above. In this case, we know that <code class="js">$('#direction')&ZeroWidthSpace;.val()</code> will get us the string <code class="js">'up'</code> or <code class="js">'down'</code>.</p>
+
+<p>We can use that string, and a comparison, to set a variable appropriately to what we want to do:</p>
+
+{{ quoted_code('files/select-if.js', line_start=1, line_end=14, startswith='move = function', dedent=0) }}
+
+
+</section>
 
 
 </section>
