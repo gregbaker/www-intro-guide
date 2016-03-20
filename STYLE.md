@@ -31,13 +31,6 @@ $('#foo').click(handle_click)
 
 This keeps the amount of stuff happening in one statement to a minimum, so it's easier to explain and digest. It also keeps the way functions get defined consistent while we're opening that door.
 
-I didn't start with the jQuery `$` as above. I think spelling it `jQuery` is easier since it looks like other function names.
-
-```javascript
-handle_click = function(){...}
-jQuery('#foo').click(handle_click)
-```
-
 Similarly, I have generally erred on the side of putting something in a variable where it saves doing two or three things in one line.
 
 ```javascript
@@ -47,6 +40,13 @@ attribs = {
   'transform': trans
 }
 shape.animate(attribs, 1000)
+```
+
+I didn't start with the jQuery `$`. I think spelling it `jQuery` is easier since it looks like other function names.
+
+```javascript
+handle_click = function(){...}
+jQuery('#foo').click(handle_click)
 ```
 
 The equivalence `jQuery === $` is introduced later for brevity and comprehensibility of other jQuery code.
