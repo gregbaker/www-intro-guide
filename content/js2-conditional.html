@@ -4,4 +4,40 @@
 
 <p class="draft">Boolean expressions; <code>if</code> and <code>else</code></p>
 
+<p>We need one last way to control the way our code executes: we need to be able to make decisions based on something the user enters (or some value we calculate, or the time of day, or &hellip;).</p>
+
+<p>As an example, let's imagine we want to present the user with a choice of which direction to move a shape in a SVG image:</p>
+
+{{ quoted_code('files/select-if.html', line_start=16, line_end=20, startswith='<select id="direction">') }}
+
+<p>We will need to do something different depending on the user's selection: either up (a smaller <code class="js">y</code> value) or down (a larger <code class="js">y</code>).</p>
+
+
+<section id="if">
+<h2>The <code class="js">if</code>-Statement</h2>
+
+
+
+
+
+<figure id="comparison-table">
+<table>
+<thead><tr><th scope="col">Comparison</th><th scope="col">Meaning</th><th scope="col">Example is&hellip;</th></tr></thead>
+<tbody>
+<tr><td><code class="js">4 == 9</code></td><td>is equal to</td><td>false</td></tr>
+<tr><td><code class="js">4 != 9</code></td><td>is not equal to</td><td>true</td></tr>
+<tr><td><code class="js">4 &lt; 9</code></td><td>less than</td><td>true</td></tr>
+<tr><td><code class="js">4 &gt; 9</code></td><td>greater than</td><td>false</td></tr>
+<tr><td><code class="js">8 &lt;= 6</code></td><td>less than or equal</td><td>false</td></tr>
+<tr><td><code class="js">8 &gt;= 6</code></td><td>greater than or equal</td><td>true</td></tr>
+</tbody>
+</table>
+<figcaption>JavaScript comparison operators</figcaption>
+</figure>
+
+
+
+</section>
+
+
 {% endblock %}
