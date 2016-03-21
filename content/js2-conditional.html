@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<p class="draft">Boolean expressions; <code>if</code> and <code>else</code></p>
-
 <p>We need one last way to control the way our code executes: we need to be able to make decisions based on something the user enters (or some value we calculate, or the time of day, or &hellip;).</p>
 
 <p>As an example, let's imagine we want to present the user with a choice of which direction to move a shape in a SVG image:</p>
@@ -33,6 +31,9 @@
 <dd>This is the <dfn>body</dfn> of the <code class="js">if</code>. This code runs only when the condition evaluated to true.</dd>
 </dl>
 
+<section id="condition">
+<h2>Conditionals</h2>
+
 <p>The condition can be any expression that results in a true or false result. There are several ways to get a true/false, but we will only worry about comparisons. Here are the comparison operators that we can use:</p>
 
 
@@ -53,8 +54,16 @@
 
 <p>As you can see, the example above used a greater-than comparison: the code in the <code class="js">{ &hellip; }</code> will only run if the variable <code class="js">count</code> was holding a value greater than 100.</p>
 
-<section id="example">
-<h2>Example</h2>
+<p>The same conditional expressions were used in the <code class="js">for</code> loop to express when the loop should continue. In this example, we keep going as long as the condition <code class="js">n &lt;= 6</code> is true:</p>
+
+{{ quoted_code('files/for-loop.js', line_start=6, line_end=6, dedent=2, startswith='for (n') }}
+
+<p>As this loop ran, the condition would have evaluated to true for <code class="js">n</code> as 1, 2, 3, 4, 5, 6, but false for 7: that is where the loop stopped.</p>
+</section>
+
+
+<section id="example1">
+<h3>Example</h3>
 
 <p>We can now return to the example with the <code class="html">&lt;select&gt;</code> above. In this case, we know that <code class="js">$('#direction')&ZeroWidthSpace;.val()</code> will get us the string <code class="js">'up'</code> or <code class="js">'down'</code>.</p>
 
@@ -62,11 +71,64 @@
 
 {{ quoted_code('files/select-if.js', line_start=1, line_end=14, startswith='move = function', dedent=0) }}
 
+<p>The two <code class="js">if</code> statements here check that the selected direction is <code class="js">'up'</code> and <code class="js">'down'</code>, respectively. Because of the way the <code class="html">&lt;select&gt;</code> is written, we know that one of them will run its body. In the <code class="js">if</code> body, the code sets the <code class="js">trans</code> variable so it can be used below.</p>
+
+<p>You can try <a href="{{rellink}}files/select-if.html">this example</a>. When playing with it, you may notice that clicking &ldquo;Move&rdquo; multiple times doesn't move the circle more up or down. We can fix that and clean up our code a little more in the next topic&hellip;</p>
+</section>
+
+
+<section id="else">
+<h2>Adding <code class="js">else</code></h2>
+
+<p>The above code was a little clumsy. We did this:</p>
+
+{{ quoted_code('_sources/select-if-condensed.js') }}
+
+<p>The hope was that <code class="js">dir</code> would be one of <code class="js">'up'</code> or <code class="js">'down'</code>. But in that case, there wasn't any point to the second condition: if it wasn't <code class="js">'up'</code>, it must have been <code class="js">'down'</code>.</p>
+
+<p>We could also run into problems with this code if we added a third option to the <code class="html">&lt;select&gt;</code>: we could fall through all of the <code class="js">if</code>s without ever setting the variable <code class="js">trans</code>. That would have broken the rest of the code.</p>
+
+<p>What we need is a way to express &ldquo;do <em>this</em> if the condition is true, but <em>that</em> if it isn't&rdquo;. The <code class="js">else</code> which can be added to an <code class="js">if</code> lets us do exactly that: code that will run if the condition is <strong>false</strong>.</p>
+
+{{ quoted_code('_sources/select-else-condensed.js') }}
+
+<p>The code in the second <code class="js">{ &hellip; }</code> will run if <code class="js">dir</code> is anything besides <code class="js">'up'</code></p>
+
+<section id="example2">
+<h3>Example</h3>
+
+<p>We can return to our example to clean up the code with an <code class="js">else</code> and fix the behaviour to be nicer.</p>
+
+<p>The problem with the behaviour was that the {{raph}} <code class="js">'transform'</code> is relative to the shape's <em>original</em> position, not where it is now. So, if we animate up multiple times, we ask to animate from (0,-20) to (0,-20), which has no effect.</p>
+
+<p>We can instead keep track of the <code class="js">y</code> value where we would like the circle to be, and adjust that accordingly. The variable <code class="js">y</code> here keeps track of the desired vertical position. We change it as the user asks and animate to the new position:</p>
+
+{{ quoted_code('files/select-if2.js', line_start=1, line_end=14, startswith='y = 0', dedent=0) }}
+
+<p>You can try the <a href="{{rellink}}files/select-if2.html">fixed example</a> with this behaviour.</p>
+
+
+</section>
+</section>
+
+
+<section id="another">
+<h2>Another Example</h2>
+
+<p>In this example, our goal is to imitate the behaviour of the jQuery <code class="js">.toggle()</code> function which alternately makes content appear and disappear. We will create a button: the first time it's clicked, any content with <code class="html">class="optional"</code> should disappear; when it's clicked again, it should reappear.</p>
+
+<p>In order to do this, we need to keep track of the current status: is the content visible or not? We will need a variable for that, and we will need to maintain its value so we know what to do next time.</p>
+
+{{ quoted_code('files/toggle-if.js', line_start=1, line_end=10, startswith='visible = ', dedent=0) }}
+
+<p>Each path through the <code class="js">if</code>/<code class="js">else</code> here does two things: set the CSS <code class="css">display</code> property, and set the <code class="js">visible</code> variable so we know the current state of the page. This variable is used to make sure we do the opposite action next time.</p>
+
+<p>As always, you can <a href="{{rellink}}files/toggle-if.html">see this example working</a>.</p>
+
 
 </section>
 
 
-</section>
 
 
 {% endblock %}

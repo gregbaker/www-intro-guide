@@ -1,14 +1,14 @@
+y = 0
 move = function() {
   dir = $('#direction').val()
   if ( dir == 'up' ) {
-    trans = 't0,-20'
-  }
-  if ( dir == 'down' ) {
-    trans = 't0,20'
+    y = y - 20
+  } else {
+    y = y + 20
   }
   
   attr = {
-	'transform': trans
+	'transform': 't0,' + y
   }
   shape.animate(attr, 500)
 }
