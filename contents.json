@@ -82,8 +82,7 @@
       ["forloop", "Iteration: the for-loop"],
       ["strings", "Working with Strings"],
       ["forms", "HTML Forms"],
-      ["conditional", "Making Decisions"],
-      ["objects", "Objects and Arrays"]
+      ["conditional", "Making Decisions"]
     ]
   },
   {
