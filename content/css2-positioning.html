@@ -13,15 +13,63 @@
 <section id="float">
 <h2>The <code class="css">float</code> Property</h2>
 
+<p>The easiest way to move content is the <a href="{{ css_prop_ref_url('float') }}" id="float-property"><code class="css dfn">float</code> property</a>. It will take content and move it to the left or right sides of the page.</p>
+
+<aside>Asides like this are floated to the right in this Guide's CSS.</aside>
+
+<p>When floated content moves, whatever content follows it will move up, and flow around it. That means that the floated content will move to the side of the page, and other text will avoid overlapping with it.</p>
+
+<p>As an example of <code class="css">float</code> (and later CSS properties in this topic), we will use an HTML page structured like this:</p>
+
+{{ quoted_code('_sources/position-condensed.html', startswith='<section id="p1">') }}
+
+<p>To illustrate how <code class="css">float</code> works, we will apply this CSS:</p>
+
+{{ quoted_code('files/position1.css', line_start=4, startswith='#happy') }}
+
+<p>The resulting page will look like this:</p>
+
+{{ figure('position1', 'Page with float applied', referenced=False) }}
+
+<p>You can see <a href="{{rellink}}files/position.html?style=1">this example</a> in your browser if you like. You can </p>
+
+<p>As you can see, the <code class="html">&lt;figure&gt;</code> is moved to the right of the page, and text that comes after it avoids overlapping it, but below the figure, it extends back to the right side of the page.</p>
+
+<p>Also note: the vertical position of the figure hasn't changed: it is immediately below the first <code class="html">&lt;h2&gt;</code>, where you'd expect it. It only moved to the right. The following paragraph moved up and had its lines re-wrapped.</p>
+
 </section>
 
 <section id="clear">
 <h2>The <code class="css">clear</code> Property</h2>
 
+<p>When floating some content like that, it's common to not necessarily know exactly what will follow. If you have a large floating block, it may be difficult to predict how it will interact with the content that follows.</p>
+
+<p>In the above example, you can see that the second section starts while the floating content is still to its right. It would be unusual to start another section of the page while the content from the previous section is still there: it would be nice to move the following content down below the floating figure.</p>
+
+<p>The <a href="{{ css_prop_ref_url('clear') }}" id="clear-property"><code class="css dfn">clear</code> property</a> does just this: it tells the browser that you want to move a piece of content <em>down</em> until there is nothing floating beside it: either to the left, right, or both sides.</p>
+
+<p>To solve the problem of starting a new section with content floating content still beside it, we can do something like this in CSS:</p>
+
+{{ quoted_code('files/position2.css', line_start=4, startswith='#happy') }}
+
+<p>It will look like this in the browser, with the following <code class="html">&lt;section&gt;</code> moved down until there is nothing floating on either its left or right:</p>
+
+{{ figure('position2', 'Page with float and clear applied', referenced=False) }}
+
+<p>We could have also specified <code class="css">clear: right</code> in this case, since there is nothing floating on the left. It's probably more complete to specify <code class="css">both</code>: we wouldn't want to start a section with anything floating on the left if we did that later on some other page.</p>
+
 </section>
+
 
 <section id="position">
 <h2>The <code class="css">position</code> Property</h2>
+
+<p>The <a href="{{ css_prop_ref_url('position') }}" id="position-property"><code class="css dfn">position</code> property</a>.</p>
+
+</section>
+
+<section id="difficult">
+<h2>Positioning Difficulties</h2>
 
 </section>
 

@@ -15,7 +15,7 @@ change_style = function () {
   n = $('#style').val()
   $('#demostyle').attr({'href': 'position' + n + '.css'})
   $('div#css-code blockquote').hide()
-  $('#code-position'+n).show()
+  $('div#css-code blockquote#code-position'+n).show()
 }
 
 change_width = function () {

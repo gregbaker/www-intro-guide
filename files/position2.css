@@ -4,6 +4,6 @@ figure {
 #happy {
   float: right;
 }
-h2 {
-  clear: right;
+section {
+  clear: both;
 }
