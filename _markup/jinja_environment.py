@@ -298,9 +298,9 @@ def css_dt(prop):
 def raph_ref_url(obj, meth):
     return GLOBALS['raphref_url'] + '#%s.%s' % (obj, meth)
 
-def timing(semester, week):
+def timing(semester, week, note=''):
     """Timing note for lecture notes"""
-    return '<aside class="timing t%s">%s end of week %i</aside>' % (semester, semester, week)
+    return '<aside class="timing t%s">%s end of week %i. %s</aside>' % (semester, semester, week, note)
 
 @contextfilter
 def markdown(context, value):
