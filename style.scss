@@ -53,6 +53,19 @@ h3 {
   text-align: left;
 }
 
+a:link, a:visited, a:active {
+  text-decoration: underline;
+}
+a:link {
+  color: #22f;
+}
+a:visited {
+  color: #629;
+}
+a:active {
+  color: #f22;
+}
+
 div.guide {
   font-weight: normal;
   text-align: center;
@@ -109,9 +122,6 @@ strong {
 dfn {
   font-style: italic;
   font-weight: bold;
-}
-a:link, a:visited, a:active {
-  text-decoration: underline;
 }
 blockquote {
   margin: 1em $block-indent;

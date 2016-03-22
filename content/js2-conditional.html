@@ -30,8 +30,10 @@
 <dt id="body"><code class="js">{ &hellip; }</code></dt>
 <dd>This is the <dfn>body</dfn> of the <code class="js">if</code>. This code runs only when the condition evaluated to true.</dd>
 </dl>
+</section>
 
-<section id="condition">
+
+<section id="conditionals">
 <h2>Conditionals</h2>
 
 <p>The condition can be any expression that results in a true or false result. There are several ways to get a true/false, but we will only worry about comparisons. Here are the comparison operators that we can use:</p>
@@ -59,7 +61,6 @@
 {{ quoted_code('files/for-loop.js', line_start=6, line_end=6, dedent=2, startswith='for (n') }}
 
 <p>As this loop ran, the condition would have evaluated to true for <code class="js">n</code> as 1, 2, 3, 4, 5, 6, but false for 7: that is where the loop stopped.</p>
-</section>
 
 
 <section id="example1">
@@ -74,6 +75,7 @@
 <p>The two <code class="js">if</code> statements here check that the selected direction is <code class="js">'up'</code> and <code class="js">'down'</code>, respectively. Because of the way the <code class="html">&lt;select&gt;</code> is written, we know that one of them will run its body. In the <code class="js">if</code> body, the code sets the <code class="js">trans</code> variable so it can be used below.</p>
 
 <p>You can try <a href="{{rellink}}files/select-if.html">this example</a>. When playing with it, you may notice that clicking &ldquo;Move&rdquo; multiple times doesn't move the circle more up or down. We can fix that and clean up our code a little more in the next topic&hellip;</p>
+</section>
 </section>
 
 
@@ -106,8 +108,6 @@
 {{ quoted_code('files/select-if2.js', line_start=1, line_end=14, startswith='y = 0', dedent=0) }}
 
 <p>You can try the <a href="{{rellink}}files/select-if2.html">fixed example</a> with this behaviour.</p>
-
-
 </section>
 </section>
 

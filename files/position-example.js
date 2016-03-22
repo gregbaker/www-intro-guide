@@ -10,6 +10,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+
 change_style = function () {
   n = $('#style').val()
   $('#demostyle').attr({'href': 'position' + n + '.css'})
