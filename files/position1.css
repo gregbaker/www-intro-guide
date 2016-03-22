@@ -1,12 +1,6 @@
-body {
-  width: 500px;
-  border: 1px solid black;
-  padding: 2em 1em;
-}
 figure {
   margin: 0.5em;
 }
 #happy {
   float: right;
 }
-

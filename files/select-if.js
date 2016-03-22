@@ -8,7 +8,7 @@ move = function() {
   }
   
   attr = {
-	'transform': trans
+    'transform': trans
   }
   shape.animate(attr, 500)
 }
