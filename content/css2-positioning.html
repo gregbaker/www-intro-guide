@@ -8,8 +8,6 @@
 
 <p>Things become more interesting when you start moving stuff around the page.</p>
 
-<p class="draft">The <a href="{{rellink}}files/position.html">example</a> being used</p>
-
 <section id="float">
 <h2>The <code class="css">float</code> Property</h2>
 
@@ -34,6 +32,8 @@
 <p>You can see <a href="{{rellink}}files/position.html?style=1">this example</a> in your browser if you like. You can </p>
 
 <p>As you can see, the <code class="html">&lt;figure&gt;</code> is moved to the right of the page, and text that comes after it avoids overlapping it, but below the figure, it extends back to the right side of the page.</p>
+
+<aside>For another intro: <a href="https://css-tricks.com/all-about-floats/">All About Floats</a></aside>
 
 <p>Also note: the vertical position of the figure hasn't changed: it is immediately below the first <code class="html">&lt;h2&gt;</code>, where you'd expect it. It only moved to the right. The following paragraph moved up and had its lines re-wrapped.</p>
 
@@ -65,6 +65,14 @@
 <h2>The <code class="css">position</code> Property</h2>
 
 <p>The <a href="{{ css_prop_ref_url('position') }}" id="position-property"><code class="css dfn">position</code> property</a>.</p>
+
+
+{{ figure('position3', 'Page with positioning gone wrong', referenced=False) }}
+
+{{ figure('position4', 'Page with positioning and transparency', referenced=False) }}
+
+{{ figure('position5', 'Page with positioning and careful sizing', referenced=False) }}
+
 
 </section>
 

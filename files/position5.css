@@ -1,0 +1,16 @@
+#happy {
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+#happy img {
+  display: block;
+  margin: 0 auto;
+  width: 3em;
+  height: 3em;
+}
+main>section:first-child {
+  margin-top: 4em;
+}
