@@ -25,6 +25,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
+  background-color: #fff;
+  color: #333;
   @media #{$xs-screen} {
     text-align: left;
   }
