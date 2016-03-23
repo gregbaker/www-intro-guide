@@ -2,15 +2,13 @@
 
 {% block content %}
 
-<p class="draft">We have been making HTML by hand. It can also be made by a program. Demonstrate with a simple nodejs example. Ask them to imagine that except bigger. That's how the web really works.</p>
-
 <p>Throughout this course, we have been creating HTML with a text editor and saving <code class="file">.html</code> files. When these are put on a web server, they are then sent as-is to web browsers. In this case, the job of the web server is very simple: find the file and send it out.</p>
 
 <p>But if you think about many web sites you visit, this method of creating web pages can't be the whole story. On Facebook, your news feed changes each time you load it: nobody is sitting there typing HTML to update it for you. When you search on Google, you might be searching for something nobody has ever searched for before, so there's no way the results can be pre-prepared.</p>
 
-<p>For these sites (and many others), the HTML that is sent from the server to your browser must be generated when you request it. There is a program on the web server that can look at your request (what you searched for, or who you are logged in as, or where you are requesting from, or any other condition) and create an HTML page specifically for that request.</p>
+<p>For these sites (and many others), the HTML that is sent from the server to your browser must be generated <em>when you request it</em>. There is a program on the web server that can look at your request (what you searched for, or who you are logged in as, or where you are requesting from, or any other condition) and create an HTML page specifically for that request.</p>
 
-<p id="static-dynamic">Web pages that are the same for every request (and are probably stored in <code class="file">.html</code> files on the server) are called <dfn>static web pages</dfn>. Web pages that are created as they are requested are called <dfn>dynamic web pages</dfn>.</p>
+<p id="static-dynamic">Web pages that come from <code class="file">.html</code> files on the server are called <dfn>static web pages</dfn>. Web pages that are created as they are requested are called <dfn>dynamic web pages</dfn>.</p>
 
 <p id="server-client">Writing programs to create dynamic pages is <dfn>server-side programming</dfn> since the programs run on the web server. The programming we have been doing in JavaScript, where the programs run in the user's web browser, is called <dfn>client-side programming</dfn>.</p>
 
@@ -25,9 +23,19 @@
 <section id="node">
 <h2>Server-Side JavaScript</h2>
 
-<p class="draft">explain this toy example. How is it different from jQuery manipulation of the HTML?</p>
+<p>Dynamic web pages can be created using any programming language (as long at it can run on the web server). Because of that, there are a lot more choices than for client-side programming which must be done in JavaScript. Server-side programs are often written in Python, Ruby, PHP, or C#. JavaScript is also a common choice though, since most web developers already know it.</p>
+
+<p>Here is a short example server-side program in JavaScript:</p>
 
 {{ quoted_code('files/node_sample.js') }}
+
+<p>The details aren't important, but you can probably see that the <code class="js">res.write()</code> function is being used to create HTML code. This HTML is what will be sent from the server to the browser.</p>
+
+<p>The difference between this and modifying web pages with JavaScript and jQuery on the client-side is that the web browser doesn't need to know how the HTML was generated: it just display the HTML exactly like it would if it was in a <code class="file">.html</code> file.</p>
+
+<p>Server-side code can also access information in a database or other source, which won't be available in the user's web browser. This makes dynamically-generated web pages much more powerful than static pages, since the full range of programming tools are available.</p>
+
+<p>There is probably no actual programming lesson here: creating dynamic pages on the web server is a very different programming problem that we won't be able to explore in this course.</p>
 
 </section>
 
