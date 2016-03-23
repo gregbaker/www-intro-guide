@@ -22,9 +22,9 @@ def image_size(imgpath):
     h = int(match.group(2))
     return w,h
 
-def img_width_height(imgpath):
+def img_width_height(imgpath, scale=1.0):
     wh = image_size(imgpath)
     if not wh:
         return ''
     w, h = wh
-    return 'width="%i" height="%i"' % (w, h)
+    return 'width="%i" height="%i"' % (w*scale, h*scale)

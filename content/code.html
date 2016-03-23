@@ -5,24 +5,31 @@
 <section id="html">
 <h2>HTML Page Skeleton</h2>
 <p>This code is a good place to start for a basic HTML5 page:</p>
+
 {{ quoted_code('_sources/emptypage2.html') }}
+
 </section>
 
 <section id="css">
 <h2>Basic CSS</h2>
-<p>You may not want these styles, but it's at least a little bit of a start for a stylesheet.</p>
-{{ quoted_code('_sources/css-template.css') }}
+<p>You may not want these styles, but it's at least a little bit of a start for a stylesheet.&nbsp;<a href="{{rellink}}references.html#css-template">*</a></p>
+
+{{ quoted_code('files/css-template.css') }}
+
+<p>I also tend to add <code class="css">font-family: "Helvetica", sans-serif</code>, because I like sans-serif fonts a little more.</p>
 </section>
 
 <section id="js">
 <h2>JavaScript</h2>
 <p>As we start working with JavaScript, we will add the jQuery library and our own JavaScript code by adding elements like this to our HTML pages' <code class="html">&lt;head&gt;</code>:</p>
 {{ quoted_code('_sources/script-both.html') }}
+
 <p>And later add the {{ raph }} library as well:</p>
 {{ quoted_code('_sources/script-raph.html') }}
 
 <p>The JavaScript code we create will likely start with a <code class="js">setup</code> function that connects events after the page is loaded:</p>
 {{ quoted_code('_sources/js-skel.js') }}
+
 </section>
 
 {% endblock %}

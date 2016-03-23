@@ -89,8 +89,8 @@
     "chapter": ["css2", "More CSS"],
     "contents": [
       ["positioning", "Positioning in CSS"],
-      ["frameworks", "CSS Frameworks"],
-      ["responsive", "Responsive Design"]
+      ["responsive", "Responsive Design"],
+      ["frameworks", "CSS Frameworks"]
     ]
   },
   {

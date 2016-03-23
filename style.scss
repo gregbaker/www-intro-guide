@@ -4,8 +4,8 @@ $sm-screen: "(max-width: 768px)";
 $md-screen: "(max-width: 992px)";
 $lg-screen: "(max-width: 1200px)";
 
-$main-font: 'Source Sans Pro', 'Helvetica', sans-serif;
-$code-font: 'Source Code Pro', 'Courier New', monospace;
+$main-font: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+$code-font: 'Source Code Pro', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New', 'Courier', monospace;
 $float-width: 160px;
 $float-width-small: 100px;
 $block-indent: 2.5em;
@@ -18,15 +18,14 @@ $block-indent-small: 1.5em;
 }
 
 body {
-  font-family: $main-font;
-  line-height: 1.5em;
-  padding: 1em 0.5em;
   max-width: 50em;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: justify;
+  line-height: 1.4;
+  margin: 0.5em auto;
+  padding: 0.5em;
   background-color: #fff;
   color: #333;
+  font-family: $main-font;
+  text-align: justify;
   @media #{$xs-screen} {
     text-align: left;
   }
@@ -129,11 +128,10 @@ blockquote {
     margin: 1em 0 1em $block-indent-small;
   }
 }
-pre {
+pre, code, pre.code {
   font-family: $code-font;
 }
 code, pre.code {
-  font-family: $code-font;
   font-weight: bold;
 }
 code.file, code.url {
@@ -328,6 +326,6 @@ div.syntaxhighlighter {
 .syntaxhighlighter table caption,
 .syntaxhighlighter textarea {
   font-family: $code-font !important;
-  line-height: 1.2em !important;
+  line-height: 1.2 !important;
   padding: 1px 0 !important
 }

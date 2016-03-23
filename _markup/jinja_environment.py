@@ -16,6 +16,7 @@ GLOBALS = {
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
+    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
@@ -35,7 +36,7 @@ def get_context(infile):
 figure_template = Template("""<figure id="fig-{{ filebase }}" class="{{ figureclass }}"><img src="{{rellink}}{{ imgpath }}" alt="{{ caption }}" {{widthheight}} />{% if caption %}<figcaption>{{ caption }}{{ reference_link }}</figcaption>{% endif %}</figure>""")
 
 @contextfunction
-def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True):
+def figure(context, filebase, caption, figureclass='block', extension='png', directory='figures', referenced=True, scale=1.0):
     """
     Output the markup for an image figure
     """
@@ -45,7 +46,7 @@ def figure(context, filebase, caption, figureclass='block', extension='png', dir
         reference_link = ''
     
     imgpath = '%s/%s.%s' % (directory, filebase, extension)
-    wh = img_width_height(imgpath)
+    wh = img_width_height(imgpath, scale=scale)
         
     context = {
         'rellink': context['rellink'],
@@ -227,7 +228,8 @@ def include_output(name, cls=''):
     return u'<blockquote class="output %s">%s</blockquote>' % (cls, text)
 
 def check_line_len(filename, text):
-    maxlen = max(len(line.rstrip()) for line in text.splitlines())
+    maxlen = max(len(line.rstrip()) for line in text.splitlines() if 'bootstrapcdn' not in line)
+    # throws up hands on bootstrap CDN URL
     if maxlen > 70:
         sys.stderr.write("%s has long lines (%i chars)." % (filename, maxlen))
 

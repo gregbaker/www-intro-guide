@@ -4,17 +4,68 @@
 
 <p class="draft">Devices have different sized screens. Browser windows get resized. What do we do about that?</p>
 
+<p>One of the difficult things about designing for the web is that we don't get to really control the way our content is viewed: the user's web browser is responsible for processing our HTML, CSS, and JavaScript.</p>
+
+<p id="responsive">When designing web pages, you should try to create <dfn data-term="responsive design">responsive designs</dfn>. That is, make sure your pages are nicely readable on a wide variety of devices.</p>
+
+
 <section id="sizes">
 <h2>Device Sizes</h2>
 
-<p class="draft">example of a page (from an earlier section?) screenshot in different browsers with very different display. What we can do about that.</p>
+<p>Recall the page from {{ xref('css2-positioning', fragment='position') }} that used <code class="css">position: absolute</code>. We showed this screenshot of the page (scaled for comparison with the later screenshots):</p>
 
+{{ figure('position3', 'Page with positioning', referenced=False, scale=0.5) }}
+
+<p>But if you were working with the same stylesheet, that's probably not exactly what the page would look like: your screen is probably larger than that. (The screenshots here are taken in quite small browser windows, sot hey are readable.) Your view of the same page would have been more like this, a screenshot from a (not particularly large) desktop display:</p>
+
+{{ figure('position3-wide', 'Page with positioning: desktop screen', referenced=False, scale=0.5) }}
+
+<p>This page <strong>looks perfectly fine with that window size</strong>. When working on the page, it would be very easy to look at it an conclude that everything fits together with no overlap. Unfortunately, that would only be true with that window size (or in this case, anything larger).</p>
+
+<p>On a phone, the same page would look something like this, again depending on the exact screen size. The overlap is even worse.</p>
+
+{{ figure('position3-small', 'Page with positioning: phone-sized window', referenced=False, scale=0.5) }}
+
+<p>Many beginners to web design make the mistake of only looking at their pages on their own screen, and never test on larger or smaller screens. Be careful not to fall into his trap.</p>
+
+<p>Since most people create web pages on desktop computer or laptops, larger screens aren't usually the problem: they are working on a large screen already. Here are some ways that every web developer should test their pages:</p>
+
+<ul>
+<li>Resize your browser window: not everybody has the same screen, or keeps their browser maximized.</li>
+<li>Shrink your browser window to a phone-like size to see how the elements of your page fit with smaller space. Even better: actually try the page on a smartphone.</li>
+<li>Try the largest browser window you can (and scale the page with <kbd>ctrl-minus</kbd>/<kbd>⌘-minus</kbd> and <kbd>ctrl-plus</kbd>/<kbd>⌘-plus</kbd> to get an even wider range), to make sure things are still readable.</li>
+</ul>
+
+<p>One common problem on larger screens is long lines: lines of text that extend all the way across a large display are very difficult to read. It may be wise to start with CSS like this, to help keep things readable:</p>
+
+{{ quoted_code('files/css-template.css') }}
+
+<p>This makes sure lines aren't too long (up to <code class="css">40em</code>, depending on device width) and that lines have a reasonable spacing (<code class="css">line-height</code>) to keep even that width easily readable. The third line sets a <code class="css">1em</code> margin on the top and bottom, and an automatically-maximum margin on the left and right: that centres the text. Finally, the dark-grey text colour is common advice to slightly reduce the contrast to make text more readable.</p>
+
+<p>The style for this Guide includes most of the above, except with maximum line length <code class="css">50em</code> to create enough width for code examples.</p>
+
+</section>
+
+
+<section id="mobile">
+<h2>Being Mobile-Friendly</h2>
+
+<p>Making your pages look good on small-screen mobile browsers isn't always easy. In part, this is because mobile browsers are trying to outsmart you: they might get a beautiful mobile-friendly design, or they might have to display a desktop-only site as best they can, and have to detect which situation they're in.</p>
+
+<p>You have to take one small step to tell mobile browsers you know what you're doing. Add this to the <code class="html">&lt;head&gt;</code> of your pages:</p>
+
+{{ quoted_code('_sources/viewport.html') }}
+
+<p>The details aren't important, only that this line tells mobile browsers that your page can be displayed nicely on small screens, and that you'll take responsibility for having a responsive design.</p>
+
+<p>That, combined with the the basic CSS above, will make a page that is readable on any device. Design decisions you make after that might break on different browser sizes, but at least things have started well.</p>
 
 </section>
 
 
 <section id="media">
 <h2>Media Selectors</h2>
+
 </section>
 <section id="example">
 <h2>Example</h2>
