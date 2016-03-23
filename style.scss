@@ -169,7 +169,8 @@ figcaption {
 figure.block>img {
   border: 1px dashed #ccc;
   padding: 0.25em;
-  max-width: 100%
+  max-width: 100%;
+  height: auto;
 }
 figure.floating, aside {
   float: right;
