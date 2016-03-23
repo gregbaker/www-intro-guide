@@ -68,6 +68,10 @@ def get_id(elt, fname):
             # special case headings: assume they're first child of a <section>
             depth -= 1
             elt = elt.parentNode
+        elif elt.tagName == 'a':
+            # special case links: the add a unimportant level of depth
+            depth -= 1
+            elt = elt.parentNode
         else:
             elt = elt.parentNode
         depth += 1
