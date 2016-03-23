@@ -2,16 +2,14 @@
 
 {% block content %}
 
-<p class="draft">Using CSS to move things around the page: float, clear, position.</p>
-
 <p>Most of the work we have done with CSS is fairly simple: changing fonts, colours, spacing, and borders. All of those changes are useful and necessary, but not the <em>hard</em> part of CSS.</p>
 
 <p>Things become more interesting when you start moving stuff around the page.</p>
 
 <section id="float">
-<h2>The <code class="css">float</code> Property</h2>
+<h2>The <code class="css dfn">float</code> Property</h2>
 
-<p>The easiest way to move content is the <a href="{{ css_prop_ref_url('float') }}" id="float-property"><code class="css dfn">float</code> property</a>. It will take content and move it to the left or right sides of the page.</p>
+<p>The easiest way to move content is the <a href="{{ css_prop_ref_url('float') }}" id="float-property"><code class="css">float</code> property</a>. It will take content and move it to the left or right sides of the page.</p>
 
 <aside>Asides like this are floated to the right in this Guide's CSS.</aside>
 
@@ -33,20 +31,20 @@
 
 <p>As you can see, the <code class="html">&lt;figure&gt;</code> is moved to the right of the page, and text that comes after it avoids overlapping it, but below the figure, it extends back to the right side of the page.</p>
 
-<aside>For another intro: <a href="https://css-tricks.com/all-about-floats/">All About Floats</a></aside>
+<aside>More <code class="css">float</code> intros: <a href="https://css-tricks.com/all-about-floats/">All About Floats</a>, <a href="https://www.smashingmagazine.com/2007/05/css-float-theory-things-you-should-know/">CSS Float Theory</a></aside>
 
 <p>Also note: the vertical position of the figure hasn't changed: it is immediately below the first <code class="html">&lt;h2&gt;</code>, where you'd expect it. It only moved to the right. The following paragraph moved up and had its lines re-wrapped.</p>
 
 </section>
 
 <section id="clear">
-<h2>The <code class="css">clear</code> Property</h2>
+<h2>The <code class="css dfn">clear</code> Property</h2>
 
 <p>When floating some content like that, it's common to not necessarily know exactly what will follow. If you have a large floating block, it may be difficult to predict how it will interact with the content that follows.</p>
 
 <p>In the above example, you can see that the second section starts while the floating content is still to its right. It would be unusual to start another section of the page while the content from the previous section is still there: it would be nice to move the following content down below the floating figure.</p>
 
-<p>The <a href="{{ css_prop_ref_url('clear') }}" id="clear-property"><code class="css dfn">clear</code> property</a> does just this: it tells the browser that you want to move a piece of content <em>down</em> until there is nothing floating beside it: either to the left, right, or both sides.</p>
+<p>The <a href="{{ css_prop_ref_url('clear') }}"><code class="css">clear</code> property</a> does just this: it tells the browser that you want to move a piece of content <em>down</em> until there is nothing floating beside it: either to the left, right, or both sides.</p>
 
 <p>To solve the problem of starting a new section with content floating content still beside it, we can do something like this in CSS:</p>
 
@@ -56,29 +54,65 @@
 
 {{ figure('position2', 'Page with float and clear applied', referenced=False) }}
 
-<p>We could have also specified <code class="css">clear: right</code> in this case, since there is nothing floating on the left. It's probably more complete to specify <code class="css">both</code>: we wouldn't want to start a section with anything floating on the left if we did that later on some other page.</p>
+<p>We could have also specified <code class="css">clear: right</code> in this case, since there is nothing floating on the left. It's probably more complete to specify <code class="css">both</code>: we wouldn't want to start a section with anything floating on the left if we did that later on some other page. You can experiment with <a href="{{rellink}}files/position.html?style=2">this example</a> as well.</p>
+
+<p>The <code class="css">float</code> and <code class="css">clear</code> properties are good at what they do. There are, however,  many visual design ideas that you could want to implement which are very difficult to map onto float operations. In those cases, we need to reach for a more powerful tool&hellip;</p>
 
 </section>
 
 
 <section id="position">
-<h2>The <code class="css">position</code> Property</h2>
+<h2>The <code class="css dfn">position</code> Property</h2>
 
-<p>The <a href="{{ css_prop_ref_url('position') }}" id="position-property"><code class="css dfn">position</code> property</a>.</p>
+<p>The <a href="{{ css_prop_ref_url('position') }}"><code class="css">position</code> property</a> is both more powerful and more dangerous than <code class="css">float</code> and <code class="css">clear</code>.</p>
 
+<p id="move">Setting <code class="css">position: absolute</code> on an element lets you use the CSS properties <code class="css dfn">top</code>, <code class="css dfn">bottom</code>, <code class="css dfn">left</code>, and <code class="css dfn">right</code> to move the element around the page to exactly where you want it.</p>
+
+<p>This sounds easy. For example, we can move the image to the top-right of the page like this:</p>
+
+{{ quoted_code('files/position3.css', line_start=4, startswith='#happy') }}
+
+<p>That will display like this. You can experiment with <a href="{{rellink}}files/position.html?style=3">this example</a> and the following ones as well.</p>
 
 {{ figure('position3', 'Page with positioning gone wrong', referenced=False) }}
 
+<p>You can see the problem with <code class="css">position</code>: as soon as you start positioning content, it is taken out of the normal flow of content on the page and will overlap other content. This is something you have to be <strong>very</strong> aware of when using <code class="css">position</code>: you need to think of all of the possible ways your content can overlap on different devices and window sizes.</p>
+
+<p>There are still some ways absolute positioning can be useful. For example, we could allow overlap, but make it look okay with <a href="{{ css_prop_ref_url('opacity') }}" id="opacity"><code class="css dfn">opacity</code></a> to make the content translucent.</p>
+
+{{ quoted_code('files/position4.css', line_start=4, startswith='#happy') }}
+
+<p>The negative <a href="{{ css_prop_ref_url('z-index') }}" id="z-index"><code class="css dfn">z-index</code></a> value moves the figure <em>behind</em> the other content. That seems reasonable: we can allow content to overlap, but it's okay because of the other styling done to it:</p>
+
 {{ figure('position4', 'Page with positioning and transparency', referenced=False) }}
+
+<p>Another good use of absolute positioning: moving content around when you know <em>exactly</em> how much space you have to work with. For example, here we will move the figure up to the top of the page: this technique might be useful for a menu or page header (with page title, logo, and menu).</p>
+
+{{ quoted_code('files/position5.css', line_start=1, startswith='#happy') }}
+
+<p>Here, the figure is at the top of the page, taking its entire width. The image (only content in it) is sized it's exactly <code class="css">3em</code> high.</p>
 
 {{ figure('position5', 'Page with positioning and careful sizing', referenced=False) }}
 
+<p>There will be no overlap as long as we make sure the following content has a top margin <code class="css">3em</code> or larger. Selecting that first <code class="html">&lt;section&gt;</code> was tricky because of the way the HTML was structured, but it does express the intention here.</p>
+
+<p>There are other values that can be given to <code class="css">position</code>. The default is <code class="css">static</code>. Using <code class="css">position: relative</code> works like <code class="css">static</code> but you can adjust the position of the element relative to where it would have naturally been.</p>
+
+<p>Setting <code class="css">position: fixed</code> is like <code class="css">absolute</code>, but relative to the window: fixed things won't move as the user scrolls. There is even more opportunity for unwanted content overlap that way.</p>
+
+<p>The position you give (with <code class="css">top</code>, <code class="css">left</code>, etc) for an absolutely positioned element is usually relative to the entire page: the top of the entire page, left of the page, etc. This is not true if any element that contains the positioned one is itself positioned. This trick has been used on the <a href="{{rellink}}files/position.html">the example</a> page to get things floating/positioned within the example: the <code class="html">&lt;main&gt;</code> has <code class="css">position: relative</code> applied, not to move it but to make it contain floated/positioned thing within it.</p>
 
 </section>
+
+
 
 <section id="difficult">
 <h2>Positioning Difficulties</h2>
 
+<p class="draft">This is all kind of pain and you don't want to do it. Segue to CSS frameworks.</p>
+
 </section>
+
+
 
 {% endblock %}
