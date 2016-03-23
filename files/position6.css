@@ -12,10 +12,7 @@ on a smartphone.
 @media (max-width: 480px) {
   #happy {
     float: none;
-  }
-  #happy img {
-    display: block;
-    margin: 0 auto;    
+    text-align: center;
   }
 }
 @media print {

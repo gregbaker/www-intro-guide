@@ -4,10 +4,9 @@
   left: 0;
   width: 100%;
   margin: 0;
+  text-align: center;
 }
 #happy img {
-  display: block;
-  margin: 0 auto;
   width: 3em;
   height: 3em;
 }

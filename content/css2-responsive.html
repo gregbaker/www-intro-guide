@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<p class="draft">Devices have different sized screens. Browser windows get resized. What do we do about that?</p>
-
 <p>One of the difficult things about designing for the web is that we don't get to really control the way our content is viewed: the user's web browser is responsible for processing our HTML, CSS, and JavaScript.</p>
 
 <p id="responsive">When designing web pages, you should try to create <dfn data-term="responsive design">responsive designs</dfn>. That is, make sure your pages are nicely readable on a wide variety of devices.</p>
@@ -78,11 +76,11 @@
 
 {{ figure('position1-small', 'Page with float: phone-sized window', referenced=False, scale=0.5) }}
 
-<p>In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media selectors</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
+<p id="media-sel">In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media selectors</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
 
 <p>For example, we can say that if the screen is smaller than 480 pixels (a common dividing line for phone-like screens: tablets and computer displays are typically larger than that), we don't want to float the figure, but want to style it differently:</p>
 
-{{ quoted_code('files/position6.css', line_start=9, line_end=20, startswith='#happy') }}
+{{ quoted_code('files/position6.css', line_start=9, line_end=17, startswith='#happy') }}
 
 <p>In larger browser windows, the page will look as above. On a phone-sized screen, it will now look like this:</p>
 
@@ -92,7 +90,7 @@
 
 <p>It's also possible to modify your style for other situations. For example, you might decide that if pages are being printed, you don't want the figures to display at all. This expresses that:</p>
 
-{{ quoted_code('files/position6.css', line_start=21,startswith='@media print') }}
+{{ quoted_code('files/position6.css', line_start=18, startswith='@media print') }}
 
 <p>If you do a &ldquo;Print Preview&rdquo; on that <a href="{{rellink}}files/position.html?style=6">same example</a>, you shouldn't see the image (but should see it in all cases for on-screen browsing).</p>
 
