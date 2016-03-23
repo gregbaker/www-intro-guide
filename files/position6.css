@@ -1,0 +1,27 @@
+figure {
+  margin: 0.5em;
+}
+/*
+NOTE: the media selector won't work with the demo's JS width selector,
+since the max-width is still large. Resize your browser window or try
+on a smartphone.
+*/
+#happy {
+  float: right;
+}
+@media (max-width: 480px) {
+  #happy {
+    float: none;
+  }
+  #happy img {
+    display: block;
+    margin: 0 auto;    
+  }
+}
+@media print {
+  figure {
+    display: none;
+  }
+}
+
+

@@ -1,0 +1,9 @@
+body {
+  text-align: justify;
+}
+@media (max-width: 480px) {
+  body {
+    text-align: left;
+  }
+}
+

@@ -36,7 +36,7 @@
 <li>Try the largest browser window you can (and scale the page with <kbd>ctrl-minus</kbd>/<kbd>⌘-minus</kbd> and <kbd>ctrl-plus</kbd>/<kbd>⌘-plus</kbd> to get an even wider range), to make sure things are still readable.</li>
 </ul>
 
-<p>One common problem on larger screens is long lines: lines of text that extend all the way across a large display are very difficult to read. It may be wise to start with CSS like this, to help keep things readable:</p>
+<p>One common problem on larger screens is long lines: lines of text that extend all the way across a large display are very difficult to read. It may be wise to start with CSS like this, to help keep things readable:&nbsp;<a href="{{rellink}}references.html#css-template">*</a></p>
 
 {{ quoted_code('files/css-template.css') }}
 
@@ -66,10 +66,44 @@
 <section id="media">
 <h2>Media Selectors</h2>
 
+<p>It's often possible to adapt your design to different screen sizes by just testing on different windows sizes and tweaking your HTML. If you can do this, it's probably easiest.</p>
+
+<p>Situations can arise where you need a page to look very different on smaller screens: the way things were arranged make sense on larger screens, but not on smaller ones. This is especially true if you have elements arranged beside one another with <code class="css">float</code> or <code class="css">position</code>.</p>
+
+<p>For example, consider our first example with the <code class="css">float</code> property. It looked okay in the screenshot (if we ignore the float-beside-heading problem for now):</p>
+
+{{ figure('position1', 'Page with float applied', referenced=False, scale=0.5) }}
+
+<p>But if we look at the same page on a phone-sized window, the paragraph beside the floating figure is a little too narrow (or certainly would be if the figure was much larger):</p>
+
+{{ figure('position1-small', 'Page with float: phone-sized window', referenced=False, scale=0.5) }}
+
+<p>In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media selectors</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
+
+<p>For example, we can say that if the screen is smaller than 480 pixels (a common dividing line for phone-like screens: tablets and computer displays are typically larger than that), we don't want to float the figure, but want to style it differently:</p>
+
+{{ quoted_code('files/position6.css', line_start=9, line_end=20, startswith='#happy') }}
+
+<p>In larger browser windows, the page will look as above. On a phone-sized screen, it will now look like this:</p>
+
+{{ figure('position6-small', 'Page with media selector: phone-sized window', referenced=False, scale=0.5) }}
+
+<p>You can <a href="{{rellink}}files/position.html?style=6">try this example</a>: the size selector on the page won't trigger the media query if the window size is still large. You'll have to resize your browser window to see the change.</p>
+
+<p>It's also possible to modify your style for other situations. For example, you might decide that if pages are being printed, you don't want the figures to display at all. This expresses that:</p>
+
+{{ quoted_code('files/position6.css', line_start=21,startswith='@media print') }}
+
+<p>If you do a &ldquo;Print Preview&rdquo; on that <a href="{{rellink}}files/position.html?style=6">same example</a>, you shouldn't see the image (but should see it in all cases for on-screen browsing).</p>
+
+<p>Another example: the text of this Guide is usually <a href="https://en.wikipedia.org/wiki/Typographic_alignment#Justified">full justified</a>. That doesn't look great on a small screens since the spaces between words become very large. The CSS for the Guide includes this:</p>
+
+{{ quoted_code('_sources/media-justify.css') }}
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#width">media selectors</a> in CSS give you a lot of power to adapt your design to different situations, both screen sizes and other considerations. They require you to actually <em>think</em> about those situations, which is often the hard part.</p>
+
 </section>
-<section id="example">
-<h2>Example</h2>
-</section>
+
 
 
 {% endblock %}
