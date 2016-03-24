@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% block title %}{{ pagetitle() }}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700%7CSource+Sans+Pro:400,400italic,700,700italic" />
   <link rel="stylesheet" href="{{rellink}}assets/reset.css" />
   <link rel="stylesheet" href="{{rellink}}assets/shCore.css" />
@@ -13,8 +13,8 @@
   <script src="{{rellink}}assets/shBrushXml-custom.js"></script>
   <script src="{{rellink}}assets/shBrushCss.js"></script>
   <script src="{{rellink}}assets/shBrushJScript.js"></script>
-  <script src="{{rellink}}assets/guide_setup.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />{% block headextra %}{% endblock %}
+  <script src="{{rellink}}assets/guide_setup.js"></script>{% block headextra %}{% endblock %}
+  <title>{% block title %}{{ pagetitle() }}{% endblock %}</title>
 </head>
 <body>
 <header>
