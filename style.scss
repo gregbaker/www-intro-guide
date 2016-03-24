@@ -20,7 +20,7 @@ $block-indent-small: 1.5em;
 body {
   max-width: 50em;
   line-height: 1.4;
-  margin: 0.72em auto;
+  margin: 0.75em auto;
   padding: 0.25em;
   background-color: #fff;
   color: #333;
@@ -153,7 +153,7 @@ blockquote {
     margin: 1em 0 1em $block-indent-small;
   }
 }
-pre, code, pre.code {
+pre, code {
   font-family: $code-font;
 }
 code, pre.code {
