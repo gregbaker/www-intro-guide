@@ -62,7 +62,7 @@
 
 
 <section id="media">
-<h2>Media Selectors</h2>
+<h2>Media Queries</h2>
 
 <p>It's often possible to adapt your design to different screen sizes by just testing on different windows sizes and tweaking your HTML. If you can do this, it's probably easiest.</p>
 
@@ -76,7 +76,7 @@
 
 {{ figure('position1-small', 'Page with float: phone-sized window', referenced=False, scale=0.5) }}
 
-<p id="media-sel">In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media selectors</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
+<p id="media-sel">In this case, we might want to completely change the way the figure is positioned on small screens. We can use CSS <dfn>media queries</dfn> to do this. They give us a way to express &ldquo;on a smaller screen, do this&hellip;&rdquo; in our style.</p>
 
 <p>For example, we can say that if the screen is smaller than 480 pixels (a common dividing line for phone-like screens: tablets and computer displays are typically larger than that), we don't want to float the figure, but want to style it differently:</p>
 
@@ -84,7 +84,7 @@
 
 <p>In larger browser windows, the page will look as above. On a phone-sized screen, it will now look like this:</p>
 
-{{ figure('position6-small', 'Page with media selector: phone-sized window', referenced=False, scale=0.5) }}
+{{ figure('position6-small', 'Page with media query: phone-sized window', referenced=False, scale=0.5) }}
 
 <p>You can <a href="{{rellink}}files/position.html?style=6">try this example</a>: the size selector on the page won't trigger the media query if the window size is still large. You'll have to resize your browser window to see the change.</p>
 
@@ -98,7 +98,7 @@
 
 {{ quoted_code('_sources/media-justify.css') }}
 
-<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#width">media selectors</a> in CSS give you a lot of power to adapt your design to different situations, both screen sizes and other considerations. They require you to actually <em>think</em> about those situations, which is often the hard part.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#width">media queries</a> in CSS give you a lot of power to adapt your design to different situations, both screen sizes and other considerations. They require you to actually <em>think</em> about those situations, which is often the hard part.</p>
 
 </section>
 
