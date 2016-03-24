@@ -1,0 +1,17 @@
+/* this isnt' actually referenced anywhere, because I couldn't think of the right place. */
+body {
+  max-width: 40em;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 0.5em;
+  color: #333;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+h1, h2, h3 {
+  line-height: 1.2;
+}
+@media print {
+  body {
+    line-height: 1.4;
+  }
+}

@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<p class="draft">What was this course actually for?</p>
-
 <p>If you were asked what this course was about and answered &ldquo;web pages&rdquo;, that wouldn't be a bad answer. Part marks for that.</p>
 
 <p id="frontend">The goal of the course has been to introduce you to <a href="https://en.wikipedia.org/wiki/Front_end_development"><dfn>front-end development</dfn></a> (or <dfn>front-end web development</dfn> or <dfn>client-side development</dfn>), and to introduce some basic ideas from computer science along the way.</p>
@@ -20,17 +18,24 @@
 
 <p>By now, you should be well-acquainted with HTML. It's the language that we have used to describe our content, giving as much some meaning. It can then and can be interpreted by the browser (or by Google, or some other tool). Once we have our content, we can change its appearance with CSS or behaviour with JavaScript.</p>
 
+<p>Conceptually, HTML isn't very difficult: describe documents. There is some subtlety in choosing the right tags to match the meaning of your content, and the right tag layout to make things easy to style later. Getting these (especially the second) right take some experience, but hopefully things are mostly straightforward.</p>
+
 </section>
 
 <section id="css">
 <h3>CSS</h3>
 
-<p></p>
+<p class="draft">this.</p>
 
 </section>
 
 <section id="js">
 <h3>JavaScript</h3>
+
+<p class="draft">this.</p>
+
+<p>It's important to note that what we have done in this course is a very minimal introduction to programming and to JavaScript. There are several important aspects of programming that we have missed, and a few things we have done the easy way instead of the &ldquo;right&rdquo; way.</p>
+
 </section>
 
 </section>
@@ -42,20 +47,39 @@
 <section id="graphics">
 <h3>Graphics</h3>
 
-<p>When creating web pages,</p>
+<p>When creating web pages, you're almost certainly going to be using graphics of some kind. Our images were the first time we did anything on our page that could cause them to be large in terms of file size and download time: that needed some attention.</p>
+
+<p>We saw that there are several ways to represent images for web pages (and in computers in general). The choice of method (vector or bitmap) and format (SVG, PNG, JPEG) can have a huge impact on the file size and image quality. Choices of details (colour depth and compression) of how the files are saved also has a big impact.</p>
+
+<p>The goal was the same in each case: represent the image we have with the highest possible quality and lowest possible file size. Sometimes there is a tradeoff between the two.</p>
 
 </section>
 
 <section id="jquery-raph">
 <h3>jQuery and {{raph}}</h3>
 
-<p>These two JavaScript libraries were integrated into the JavaScript introduction. They shouldn't be considered the main focus though: they were ways to use JavaScript in interesting ways, and gave us fun things to do when learning the programming details.</p>
+<p>These two JavaScript libraries were integrated into the JavaScript introduction. They shouldn't be considered the main focus though: they let us use JavaScript in interesting ways, and gave us fun things to do when learning the programming details.</p>
 
-<p>The primary goal with JavaScript was learning programming concepts: how to create functions, write loops and conditionals, and how to control the flow of our programs. The jQuery and {{raph}}libraries motivated this.</p>
+<p>The primary goal with JavaScript was learning programming concepts: how to create functions, write loops and conditionals, and how to control the flow of our programs. The jQuery and {{raph}} libraries motivated this.</p>
+
+<p>That doesn't mean that these libraries weren't important to the course, or that they aren't useful skills to have, just that you shouldn't lose sight of the big ideas of programming.</p>
+
+</section>
+
+</section>
+
+<section id="missing">
+<h2>The Missing Topics</h2>
+
+<p>Of course, there are countless topics that <em>could</em> have been covered in this course, but there is only so much time in the semester.</p>
+
+<p>There was much more to be said about how HTTP carries information between the client and server. Server-side programming (or back-end development) could be a course on its own. In some ways, web development brushes up against mobile app development, but that can also be a course worth of material by itself.</p>
+
+<p>Perhaps most notably, this Guide didn't cover any aspects of <a href="https://en.wikipedia.org/wiki/Graphic_design">graphic design</a>. A front-end web developer certainly should have some deisgn skill, but it's not a common topic in computer science, so it was left out of this Guide. Other disciplines will be much more skilled at covering the topic (and other authors much better at introducing it).</p>
 
 </section>
 
 
-</section>
+<p class="draft">Does this course have anything to do with jobs? Or the rest of CS?</p>
 
 {% endblock %}
