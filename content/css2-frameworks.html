@@ -3,6 +3,26 @@
 {% block content %}
 <p class="draft">Positioning sucks, so let's go shopping. CSS frameworks: why they're good and why they're bad. Introduce a couple of them and point out goods and bads.</p>
 
+<p>The more page layout you do with CSS, the more you're likely to run into things that are either difficult to do with CSS, or just tricky. We saw some basic techinques in {{ xref('css2-positioning') }}: these techniques are fairly straightforward, but it can be difficult to get them just right, or to predict how different parts of your style will interact with each other.</p>
+
+<p>This is particularly a problem if the content of the pages changes (or if your style gets applied to newly created content that you didn't get to look at when creating the CSS). It can also be challenging to get a layout right on a wide variety of devices, as we saw in {{ xref('css2-responsive') }}.</p>
+
+<p>The jQuery and {{raph}} libraries helped us do things with JavaScript that would have been difficult to do on our own. In some sense, we're having the same problem with CSS and will look for the same solution: some pre-made code that solves common problems and can help us get things working more easily.</p>
+
+<p>The CSS resets introduced in {{ xref('css-compatibility', fragment='reset') }} and font loaders from {{ xref('css-fonts') }} do some of this: they are pre-packaged CSS code that help deal with common problems. Those are both fairly limited in scope however: they do one thing only but do it well.</p>
+
+
+<section id="frameworks">
+<h2>Frameworks</h2>
+
+
+</section>
+
+<section id="bootstrap">
+<h2>Bootstrap</h2>
+
 {{ quoted_code('files/bootstrap-demo.html', line_start=1) }}
+
+</section>
 
 {% endblock %}
