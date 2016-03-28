@@ -1,7 +1,6 @@
 {% extends "sectionbase.html" %}
 
 {% block content %}
-<p class="draft">Positioning sucks, so let's go shopping. CSS frameworks: why they're good and why they're bad. Introduce a couple of them and point out goods and bads.</p>
 
 <p>The more page layout you do with CSS, the more you're likely to run into things that are either difficult to do with CSS, or just tricky. We saw some basic techinques in {{ xref('css2-positioning') }}: these techniques are fairly straightforward, but it can be difficult to get them just right, or to predict how different parts of your style will interact with each other.</p>
 
@@ -11,17 +10,76 @@
 
 <p>The CSS resets introduced in {{ xref('css-compatibility', fragment='reset') }} and font loaders from {{ xref('css-fonts') }} do some of this: they are pre-packaged CSS code that help deal with common problems. Those are both fairly limited in scope however: they do one thing only but do it well.</p>
 
-
-<section id="frameworks">
-<h2>Frameworks</h2>
+<p id="css-framework"><dfn>CSS frameworks</dfn> are are pre-prepared stylesheet code (often including JavaScript code as well) that can be used to help with a wide variety of common styling problems. If you are creating a new site, you may find them very useful to get started creating a modern responsive site.</p>
 
 
-</section>
 
 <section id="bootstrap">
 <h2>Bootstrap</h2>
 
-{{ quoted_code('files/bootstrap-demo.html', line_start=1) }}
+<p id="bootstr">The most popular CSS framework is <a href="https://getbootstrap.com/"><dfn>Bootstrap</dfn></a>. It provides many useful CSS utilities. It starts with a nicer default CSS, and then gives you classes that you can apply to elements to use other features as you need them. You can load it and add your own stylesheet to customize parts as you like:</p>
+
+{{ quoted_code('files/bootstrap-demo.html', line_start=6, line_end=7, startswith='<link rel="stylesheet"') }}
+
+<section id="grid">
+<h3>Columns and the Grid</h3>
+
+<p>One of the most powerful features is &ldquo;columns&rdquo;. Your page is automatically divided up into 12 columns. In you page, you can create content that takes up any number of these columns. For example, to create a menu that takes up the left quarter of the page (3 out of 12 columns), and main content that uses the rest, simply add <code class="html">&lt;div&gt;</code>s with appropriate classes:</p>
+
+{{ quoted_code('_sources/bootstrap0-condensed.html') }}
+
+<p>You can also have the column contents take up different amounts of space, depending on the window size. This makes it easy to do both positioning and responsive layout.</p>
+
+<p>In order to make this easy, Bootstrap gives four window sizes: extra-small (<code class="html">xs</code>, roughly phone-sized), small (<code class="html">sm</code>, small tablet-sized), medium (<code class="html">md</code>, large tablet or small desktop), large (<code class="html">lg</code>, desktop screen). Each of these is part of several classes that are modified in the Bootstrap stylesheet.</p>
+
+<p>For example, we might have some content that we want arranged in three columns on desktop screens, two columns on smaller tablet screens, and in one column (simply stacked vertically) on phone screens. That translates to each piece of content being 4 of 12 columns on medium (and larger) screens; 6 of 12 on small screens, and 12 of 12 on extra-small screens.</p>
+
+{{ quoted_code('_sources/bootstrap-condensed.html') }}
+
+<p>You can <a href="{{rellink}}files/bootstrap-demo.html">try this demo page</a> for yourself: resize the browser window to see how it will behave on differently sized devices. On &ldquo;medium&rdquo; or larger screens, which should include all desktops and larger tablets, it will look like this:</p>
+
+{{ figure('bootstrap-col-md', 'Bootstrap columns on a &ldquo;medium&rdquo; screen', referenced=False, scale=0.5) }}
+
+<p>Since the blocks are set to take up four columns (class <code class="html">col-md-4)</code> on those sizes, three of them can fit horizontally.</p>
+
+<p>On &ldquo;small&rdquo; screens, the class <code class="html">col-sm-6</code> indicates that they shold take up six of the twelve columns, so two of them fit and the third wraps:</p>
+
+{{ figure('bootstrap-col-sm', 'Bootstrap columns on a &ldquo;small&rdquo; screen', referenced=False, scale=0.5) }}
+
+<p>On &ldquo;extra-small&rdquo; screens, each block takes up all 12 columns (class <code class="html">col-xs-12)</code>, so they stack vertically:</p>
+
+{{ figure('bootstrap-col-xs', 'Bootstrap columns on a &ldquo;extra-small&rdquo; screen', referenced=False, scale=0.5) }}
+
+<p>You can see in that screenshot that the <code class="html">&lt;figure class="hidden-xs-down"&gt;</code> has disappeared. That class indicates that the content should be hidden on extra-small devices (and smaller, but visible on other sizes).</p>
+</section>
+
+<section id="other">
+<h3>Other Styling</h3>
+
+<p>Bootstrap contains many other style options: it restyles several HTML elements by default so they look a little nicer. It also provides a collection of other classes that can be used to control your pages' appearance without having to write the CSS yourself.</p>
+
+<p>There are a few more examples on the <a href="{{rellink}}files/bootstrap-demo.html">Bootstrap demo page</a>, but we won't go into details here.</p>
+
+</section>
+
+<section id="drawbacks">
+<h2>Drawbacks</h2>
+
+<p>CSS frameworks are generally very useful: they make positioning much easier than fighting with <code class="css">float</code> and <code class="css">position</code> yourself. They are used on many modern web sites for exactly this reason.</p>
+
+<p>The biggest drawback is that many web sites use them. Have another look at the <a href="{{rellink}}files/bootstrap-demo.html">Bootstrap demo page</a>: does it look familiar? Because so many sites use Bootstrap, its default styles start to look very generic.</p>
+
+<p>When working with a CSS framework like Bootstrap, don't forget that you can still override some of its styles with your own. For example, the &ldquo;Jumbotron&rdquo; that's at the top of the example page has this CSS (in part) in the Bootstrap CSS:</p>
+
+{{ quoted_code('_sources/bootstrap-override-0.css') }}
+
+<p>In your own stylesheet, you can override some of that to customize the look to your own tastes, and make it look different that every other Bootstrap site:</p>
+
+{{ quoted_code('_sources/bootstrap-override-1.css') }}
+
+<p>The lesson here is really: remember that the CSS framework is just a stylesheet like any other. You don't have to forget everything you know about CSS when you start using it.</p>
+
+</section>
 
 </section>
 

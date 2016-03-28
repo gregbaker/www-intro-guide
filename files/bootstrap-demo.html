@@ -1,15 +1,63 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head> 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="stylesheet" href="{{ bootstrap_base }}css/bootstrap.min.css" />
-<link rel="stylesheet" href="{{ bootstrap_base }}css/bootstrap-theme.min.css" />
-<script src="{{ jquery_url }}"></script>
-<script src="{{ bootstrap_base }}js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap-changes.css" />
 <title>Bootstrap Demo</title>
 </head> 
-<body> 
- 
+<body>
+
+<div class="container">
+  <header class="jumbotron">
+    <h1>Bootstrap Demo</h1>
+    <p>This is a Bootstrap &ldquo;jumbotron&rdquo;!</p> 
+  </header>
+</div>
+
+<div class="container">
+  <h2>Columns</h2>
+  <p>This is an example of responsive columns. Try it with your browser at different sizes.</p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <h3>First Column</h3>
+    <p>This is the first column in the example. The way its arranged
+    on the page will depend on the window size.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <h3>Second Column</h3>
+    <p>This is the second column in the example. The way its arranged
+    on the page will depend on the window size.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <h3>Column #3</h3>
+    <p>This is the third column in the example.</p>
+    <figure class="hidden-xs-down">
+    <img src="happy.png" alt="a happy face" />
+    </figure>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Other Style Examples</h2>
+  
+  <p>There are nicer default styles for things like <code>&lt;blockquote&gt;</code>:</p>
+  <blockquote>
+  <p>When I invented the web, I didn't have to ask anyone's permission.</p>
+  <footer>Tim Berners-Lee, <cite>Net Neutrality: This is Serious</cite></footer>
+  </blockquote>
+  
+  <p>Here is a definition list, <code>&lt;dl&gt;</code>:</p>
+  <dl>
+  <dt>Up</dt>
+  <dd>The direction away from the centre of the Earth.</dd>
+  <dt>Down</dt>
+  <dd>The opposite of &ldquo;up&rdquo;.</dd>
+  </dl>
+</div>
+
+
 </body>
 </html>
