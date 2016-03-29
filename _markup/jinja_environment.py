@@ -16,7 +16,7 @@ GLOBALS = {
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
-    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/',
+    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte

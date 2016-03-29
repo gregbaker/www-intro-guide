@@ -16,9 +16,34 @@
   </header>
 </div>
 
-<div class="container">
-  <h2>Columns</h2>
-  <p>This is an example of responsive columns. Try it with your browser at different sizes.</p>
+<section class="container" id="grid">
+  <h2>Basic Grid Example</h2>
+  <div class="row">
+    <nav class="col-xs-3">
+      <ul>
+      <li><a href="#page1">Page 1</a></li>
+      <li><a href="#page2">Page 2</a></li>
+      <li><a href="#page3">Page 3</a></li>
+      <li><a href="#page4">Page 4</a></li>
+      </ul>
+    </nav>
+    <main class="col-xs-9">
+      <p>
+      This would be the main content of the page, beside the navigation menu.
+      This would be the main content of the page, beside the navigation menu.
+      This would be the main content of the page, beside the navigation menu.
+      This would be the main content of the page, beside the navigation menu.
+      This would be the main content of the page, beside the navigation menu.
+      This would be the main content of the page, beside the navigation menu.
+      </p>
+      <p>In this example, the menu is a <code class="html">&lt;nav class="col-xs-3"&gt;</code> and this block is a <code class="html">&lt;main class="col-xs-9"&gt;</code></p>
+    </main>
+  </div>
+</section>
+
+<section class="container" id="grid-responsive">
+  <h2>Responsive Grid Example</h2>
+  <p>This is an example of responsive columns. Try it with your browser at different sizes. Each &ldquo;column&rdquo; has <code class="html">class="col-xs-12 col-sm-6 col-md-4"</code>.</p>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
     <h3>First Column</h3>
@@ -38,9 +63,9 @@
     </figure>
     </div>
   </div>
-</div>
+</section>
 
-<div class="container">
+<section class="container" id="other-style">
   <h2>Other Style Examples</h2>
   
   <p>There are nicer styles for things like <code>&lt;blockquote&gt;</code>:</p>
@@ -56,7 +81,7 @@
   <dt>Down</dt>
   <dd>The opposite of &ldquo;up&rdquo;.</dd>
   </dl>
-</div>
+</section>
 
 
 </body>

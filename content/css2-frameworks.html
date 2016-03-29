@@ -17,16 +17,18 @@
 <section id="bootstrap">
 <h2>Bootstrap</h2>
 
-<p id="bootstr">The most popular CSS framework is <a href="https://getbootstrap.com/"><dfn>Bootstrap</dfn></a>. It provides many useful CSS utilities. It starts with a nicer default CSS, and then gives you classes that you can apply to elements to use other features as you need them. You can load it and add your own stylesheet to customize parts as you like:</p>
+<p id="bootstr">The most popular CSS framework is <a href="https://getbootstrap.com/"><dfn>Bootstrap</dfn></a>, which was originally created at Twitter for their site. It provides many useful CSS utilities. It starts with a nicer default CSS, and then gives you classes that you can apply to elements to use other features as you need them. You can load it and add your own stylesheet to customize parts as you like:</p>
 
 {{ quoted_code('files/bootstrap-demo.html', line_start=6, line_end=7, startswith='<link rel="stylesheet"') }}
 
 <section id="grid">
 <h3>Columns and the Grid</h3>
 
-<p>One of the most powerful features is &ldquo;columns&rdquo;. Your page is automatically divided up into 12 columns. In you page, you can create content that takes up any number of these columns. For example, to create a menu that takes up the left quarter of the page (3 out of 12 columns), and main content that uses the rest, simply add <code class="html">&lt;div&gt;</code>s with appropriate classes:</p>
+<p>One of the most powerful features is &ldquo;columns&rdquo;. Your page is automatically divided up into 12 columns. In you page, you can create content that takes up any number of these columns. For example, to create a menu that takes up the left quarter of the page (3 out of 12 columns), and main content that uses the rest, simply add appropriate classes (and <code class="html">&lt;div&gt;</code>s if necessary):</p>
 
 {{ quoted_code('_sources/bootstrap0-condensed.html') }}
+
+<aside>It is common to use <code class="html">&lt;div&gt;</code> for all of the structural elements around Bootstrap. You can also use more semantically-meaningful tags.</aside>
 
 <p>You can also have the column contents take up different amounts of space, depending on the window size. This makes it easy to do both positioning and responsive layout.</p>
 
