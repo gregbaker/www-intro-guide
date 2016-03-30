@@ -34,8 +34,8 @@
 {{ quoted_code('_sources/error1.js') }}
 
 <p>You would then <em>hope</em> that after loading the pack and clicking to trigger the event, you would see something like this in the console:</p>
-
-{{ figure('console1', 'Simple HTML page with no stylesheet', referenced=False) }}
+d
+{{ figure('console1', 'Dev tools console after producing some logs', referenced=False) }}
 
 <p>By adding these log outputs, you have learned something: maybe the <code class="js">setup</code> function never ran and you need to figure out why; maybe <code class="js">something_click</code> didn't run because the event wasn't connected property; maybe it ran but didn't have the desired outcome. In any case, you have narrowed down where to look for the problem.</p>
 
