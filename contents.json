@@ -95,8 +95,8 @@
   {
     "chapter": ["epilogue", "Epilogue"],
     "contents": [
-      ["bits", "Bits and Transmitting Information"],
       ["serverside", "Server-side Programming"],
+      ["bits", "Bits and Transmitting Information"],
       ["opensource", "Open Source Software"],
       ["context", "Course Context and Summary"]
     ]

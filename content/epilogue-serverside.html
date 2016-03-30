@@ -4,6 +4,8 @@
 
 <p>Throughout this course, we have been creating HTML with a text editor and saving <code class="file">.html</code> files. When these are put on a web server, they are then sent as-is to web browsers. In this case, the job of the web server is very simple: find the file and send it out.</p>
 
+<p>We have been able to modify the HTML page with code we have written, but that was all JavaScript code that runs in the web browser. There was never any change in the HTML sent from the server to the browser.</p>
+
 <p>But if you think about many web sites you visit, this method of creating web pages can't be the whole story. On Facebook, your news feed changes each time you load it: nobody is sitting there typing HTML to update it for you. When you search on Google, you might be searching for something nobody has ever searched for before, so there's no way the results can be pre-prepared.</p>
 
 <p>For these sites (and many others), the HTML that is sent from the server to your browser must be generated <em>when you request it</em>. There is a program on the web server that can look at your request (what you searched for, or who you are logged in as, or where you are requesting from, or any other condition) and create an HTML page specifically for that request.</p>
@@ -18,7 +20,7 @@
 
 <p>First, the web server needs to be configured to actually run a program to generate a response (instead of just finding a file on disk). This is often the biggest barrier to exploring server-side programming: you need a web server and need to set it up appropriately. This isn't terribly difficult or expensive, but it can be a challenge for beginners.</p>
 
-<p>Second, you need to be able to write programs that generate the HTTP response for the user. This mostly means creating HTML with your code. Exactly how that is done depends on the page you need to create: it will probably involve reading information from a database, or collecting information from some other source.</p>
+<p>Second, you need to be able to write programs that generate the HTTP response for the user. This generally means creating HTML with your code. Exactly how that is done depends on the page you need to create: it will probably involve reading information from a database, or collecting information from some other source.</p>
 
 <section id="node">
 <h2>Server-Side JavaScript</h2>

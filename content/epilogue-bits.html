@@ -42,11 +42,17 @@
 
 <p>Something we have stored and transmitted frequently are characters: HTML, CSS, and JavaScript are all just characters stored in a text file. These have been sent from server to client for all of our pages.</p>
 
-<p id="charenc">In order for this to happen, characters must be encoded as bits (using a <dfn>character encoding</dfn>). As long as the client and server agree on this encoding, everything will work. If they don't, the characters won't be received correctly.</p>
+<p>In order for this to happen, characters must be encoded as bits. As long as the client and server agree on this encoding, everything will work. If they don't, the characters won't be received correctly.</p>
 
 <p>For example, <a href="http://www.hanselman.com/blog/WhyTheAskObamaTweetWasGarbledOnScreenKnowYourUTF8UnicodeASCIIAndANSIDecodingMrPresident.aspx">a tweet</a> that was received by Obama during a campaign event contained the work &ldquo;that&rsquo;s&rdquo;. The fifth character there isn't the apostrophe character that is on your keyboard; it is a <a href="http://unicode-table.com/en/2019/">right single quote</a> character.</p>
 
 <p>That was encoded (properly) by the sender and Twitter, but decoded incorrectly by the display software where it became &ldquo;thatâ€™s&rdquo;. This is a very easy mistake to make as a programmer or author, but very annoying for users when it happens (although most of us won't be on TV when it happens).</p>
+
+<p id="charset">In order to have everything work, first we need to decide on a <dfn>character set</dfn>: a list of all possible characters, and they need to be numbered. The <dfn>Unicode</dfn> character set defines characters for all written languages, as we saw in {{ xref('html-charref') }}.</p>
+
+<p>For example, in Unicode &ldquo;A&rdquo; is character number 65, and &ldquo;&#8364;&rdquo; is 8364 (so you can produce &#8364; in HTML with <code class="html">&amp;#8364;</code>). Unicode lists about 120,000 characters.</p>
+
+<p id="charenc">Then we need to decide on a <dfn>character encoding</dfn>: a way to encode the character numbers into bits. There are several character encodings for Unicode. The choice for web pages is easy: use <dfn>UTF-8</dfn>.</p>
 
 <p>The <code class="html">&lt;meta charset="UTF-8" /&gt;</code> element we have been including on every page indicates that the document uses the <a href="http://en.wikipedia.org/wiki/UTF-8">UTF-8 encoding of Unicode</a>, and specifying it explicitly ensure that the web browser will decode everything properly. This is the character encoding that should be used for all documents on the Web.</p>
 
