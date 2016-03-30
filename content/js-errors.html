@@ -21,11 +21,29 @@
 <section id="inspecting">
 <h2>Step 2: What's my code doing?</h2>
 
-<p class="draft">Introduce alert() or console.log() to inspect what's happening. What's the different from the above?</p>
-<p class="draft">Also, devel tools in browser to see what's up.</p>
+<p>Assuming you know what you <em>want</em> your code to do, you can start asking where things diverge. In order to do that, you need to be able to look at see what's happening in your code.</p>
 
-<p>Assuming you know what you <em>want</em> your code to do, you can start asking where things diverge.</p>
+<p>First, if your code doesn't seem to be doing <em>anything</em>, then you may have an error in your code that's preventing the browser from running it. The &ldquo;Console&rdquo; tab of your browser's developer tools will show you any errors with your code. (See {{ xref('tech-devtools') }} for more info on the developer tools.). You'll see a description of the error, and the line number in the console.</p>
 
+<p>The easiest way to start diagnosing problems with your logic is the <code class="js">alert()</code> function, which we have already seen. You can insert an <code class="js">alert()</code> to confirm that a particular function is running when you expect. Since you can see the alert window and message, you know that line of code ran.</p>
+
+<p>Having a lot of alerts popping up can make it difficult to work with your page, even for debugging. A cleaner alternative is the <code class="js">console.log()</code> function. This takes whatever you give it as an argument and displays it in the &ldquo;Console&rdquo; tab.</p>
+
+<p>For example, if you are trying to connect a click event but can't tell if your code is running, you can add a couple of <code class="js">console.log()</code> calls like this.</p>
+
+{{ quoted_code('_sources/error1.js') }}
+
+<p>You would then <em>hope</em> that after loading the pack and clicking to trigger the event, you would see something like this in the console:</p>
+
+{{ figure('console1', 'Simple HTML page with no stylesheet', referenced=False) }}
+
+<p>By adding these log outputs, you have learned something: maybe the <code class="js">setup</code> function never ran and you need to figure out why; maybe <code class="js">something_click</code> didn't run because the event wasn't connected property; maybe it ran but didn't have the desired outcome. In any case, you have narrowed down where to look for the problem.</p>
+
+<p>If you're unsure on the value of a variable at a certain point, you can log their values as well to see if they are what you expect:</p>
+
+{{ quoted_code('_sources/error2.js') }}
+
+<p>You can use these tools (like these examples or other ways) to figure out where the difference is between your expectations and what's actually happening in your code.</p>
 
 </section>
 
