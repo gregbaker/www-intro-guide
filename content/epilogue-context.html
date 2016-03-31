@@ -64,6 +64,14 @@
 
 <p>That doesn't mean that these libraries weren't important to the course, or that they aren't useful skills to have, just that you shouldn't lose sight of the big ideas of programming.</p>
 
+<p>When you're working on programs, remember to keep track of the <em>type</em> of the object you have. Different types of objects have different functions inside them that you can use.</p>
+
+<p>Using <code class="js">$(&hellip;)</code> (or <code class="js">jQuery(&hellip;)</code> if you prefer) gives you a jQuery object with functions like <code class="js">.click()</code>, <code class="js">.ready()</code>, <code class="js">.append()</code>, and <code class="js">.css()</code>.</p>
+
+<p>When you use <code class="js">shape = paper.&hellip;()</code> to draw on a {{raph}} paper, you get a {{raph}} shape object. Those have functions including <code class="js">.attr()</code>, <code class="js">.animate()</code>, <code class="js">.click()</code>, <code class="js">.rotate()</code>, and <code class="js">.scale()</code>.</p>
+
+<p>As you can see, there's a lot of overlap between the two, because they're doing somewhat similar jobs: manipulating HTML elements vs manipulating SVG elements. If you aren't careful with what kind of objects you're dealing with, and the differences between them, it's easy to get confused.</p>
+
 </section>
 
 </section>
