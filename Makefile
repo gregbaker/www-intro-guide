@@ -16,7 +16,7 @@ FIGURES = \
 
     #$(patsubst %.svg, %.svgz, $(SVG_FIGURES)) \
 
-DIRECTORIES = assets assign content figures files floats
+DIRECTORIES = assets content figures files floats
 GENERATED_PAGES = term_index.html
 STYLES = style.css
 ASSETS = $(filter-out %~, $(wildcard assets/*) $(wildcard files/*))
@@ -32,7 +32,7 @@ SITE_DIRECTORIES = _site $(foreach d, $(DIRECTORIES), _site/$(d))
 POLISHED_SITE_DIRECTORIES = _polished_site $(foreach d, $(DIRECTORIES), _polished_site/$(d))
 
 # extra dependencies to make sure we rebuild HTML files when necessary
-LAYOUTS = _layouts/base.html _layouts/chapterbase.html _layouts/sectionbase.html _layouts/assignbase.html _layouts/appendixbase.html contents.json _markup/jinja_environment.py
+LAYOUTS = _layouts/base.html _layouts/chapterbase.html _layouts/sectionbase.html _layouts/appendixbase.html contents.json _markup/jinja_environment.py
 
 
 build: site
@@ -43,7 +43,7 @@ build: site
 _site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
 	python _markup/generate_index.py $@ $(SITE_PAGES)
 
-_site/%.html: %.html $(LAYOUTS) _site/assign _site/content
+_site/%.html: %.html $(LAYOUTS) _site/content
 	python _markup/jinja.py $< $@
 
 _site/figures/%.svg: figures/%.svg _site/figures
