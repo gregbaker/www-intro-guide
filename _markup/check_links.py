@@ -96,7 +96,9 @@ def save_content_cache(contents):
 def check_all_links(infiles):
     links = collect_all_links(infiles)
     contents = get_content_cache()
+    errors = 0
     for url, frag in links:
+        # fetch URL
         if url in contents:
             data, status = contents[url]
         else:
@@ -104,21 +106,27 @@ def check_all_links(infiles):
             contents[url] = (data, status)
 
         if status != 200:
-            print url, status, len(data)
+            print 'bad link %s (status %s)' % (url, status)
+            errors += 1
 
+        # inspect fragments
         if not frag:
-            # fetched without error: good enough with no fragment.
-            continue
-        
-        # TODO: check fragments
-        if ('id="%s"' % frag) in data:
-            # page contains the requested fragment as an id=""s
-            continue
-        print url, frag
-        #print `data`
+            # no fragment: we're good.
+            pass
+
+        elif ('id="%s"' % frag) in data:
+            # page contains the requested fragment as an id=""
+            pass
+
+        else:
+            print 'bad fragment %s in %s' % (frag, url)
+            errors += 1
 
     save_content_cache(contents)
+    return errors
 
 
 if __name__ == '__main__':
-    check_all_links(sys.argv[1:])
+    errors = check_all_links(sys.argv[1:])
+    if errors > 0:
+        sys.exit(1)

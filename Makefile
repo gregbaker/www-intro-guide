@@ -127,6 +127,9 @@ validate-remote: validate $(foreach f, $(VALIDATE_DEPS), $(f)-validate-remote)
 %-validate-remote: %
 	python _markup/w3c-validator.py $<
 
+check-links: $(SITE_DEPS)
+	python _markup/check_links.py _site/content/*.html _site/files/*.html
+
 clean:
 	rm -rf _site _polished_site _figure_build/*.jpeg _figure_build/*.png .link_cache.json
 	find . -name "*~" -exec rm {} \;
