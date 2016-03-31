@@ -5,3 +5,4 @@ _polished_site
 .sass-cache
 .idea
 .vagrant
+.link_cache.json

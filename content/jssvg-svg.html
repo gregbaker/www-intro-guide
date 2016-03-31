@@ -43,7 +43,7 @@
 
 <p>The path string here is <code class="js">'M50,20 L390,30'</code> which says &ldquo;move (<code class="js">M</code>) to the point (50,20) and draw a straight line (<code class="js">L</code>) to (390,30).</p>
 
-<p>If you'd like to see the result (along with the other paths drawn here), see the <a href="#fig-paths.result">figure below</a>. This line is red (as you should be able to guess from the <code class="js">.attr()</code> call, with apologies to any colour-blind readers), and is labelled &ldquo;p1&rdquo;.</p>
+<p>If you'd like to see the result (along with the other paths drawn here), see the <a href="#fig-paths-result">figure below</a>. This line is red (as you should be able to guess from the <code class="js">.attr()</code> call, with apologies to any colour-blind readers), and is labelled &ldquo;p1&rdquo;.</p>
 
 <p>Remember that (0,0) is in the upper-left, so the &ldquo;start&rdquo; of the line at (50,20) is the left end, and (390,30) is the right (and slightly lower) end.</p>
 
@@ -51,7 +51,7 @@
 
 {{ quoted_code('files/paths.js', line_start=7, line_end=8, dedent=2) }}
 
-<p>This path starts at (50,40) and has straight line segments from there to (260,10), then (280,40), and finally (390,40). It is green and labelled &ldquo;p2&rdquo; <a href="#fig-paths.result">below</a>.
+<p>This path starts at (50,40) and has straight line segments from there to (260,10), then (280,40), and finally (390,40). It is green and labelled &ldquo;p2&rdquo; <a href="#fig-paths-result">below</a>.
 </p>
 
 <p>You can see that the path string is made up of several &ldquo;commands&rdquo; that need a point: &ldquo;move to (50,40)&rdquo; is written <code class="js">'M50,40'</code> and &ldquo;draw a line to (260,10)&rdquo; is written <code class="js">'L260,10'</code>. The path string is a series of these commands that will be used to draw the path.</p>
