@@ -10,10 +10,9 @@ anim_left = function() {
   }
   circ.animate(new_attr, 1000, 'linear', anim_right)
 }
-
 setup = function() {
-  paper = Raphael('container', 200, 200)
-  circ = paper.circle(50, 100, 30)
+  paper = Raphael('container', 200, 100)
+  circ = paper.circle(50, 50, 30)
   anim_right()
 }
 $(document).ready(setup)

@@ -4,15 +4,83 @@
 
 <p class="draft">write this</p>
 
-<p>Recall the {{ xref('jssvg-morejquery', fragment='animate', text='jQuery <code class="js">.animate()</code> function') }}. Similar.</p>
+<p>Recall the {{ xref('jssvg-morejquery', fragment='animate', text='jQuery <code class="js">.animate()</code> function') }}. We used it to animate the CSS properties of a page element to new values.</p>
 
-<p><a href="{{rellink}}files/animate1.html">Example animation</a></p>
+<p>With jQuery, we could set CSS properties immediately with <code class="js">.css()</code> and animate them with <code class="js">.animate()</code>.</p>
 
-{{ quoted_code('files/animate1.js') }}
+<p>When working with {{raph}}, the shape objects (rectangles, circles, etc) all have an <code class="js">.animate()</code> function that can animate the <em>attributes</em> the shape has.</p>
 
-<p><a href="{{rellink}}files/animate2.html">Example repeating animation</a></p>
+<p>Notice the difference: in jQuery we're working with CSS properties and the functions are called <code class="js">.css()</code> and <code class="js">.animate()</code>. With {{raph}}, we're working on the shapes' attributes and the functions are <code class="js">.attr()</code> and <code class="js">.animate()</code>.</p>
+
+<p>With that difference aside, the way we can work with them is very similar. We used this example of animating <strong>in jQuery</strong>:</p>
+
+{{ quoted_code('_sources/modify6.js') }}
+
+<p>In {{raph}}, we can set the shape's attributes initially, and them animate to new attributes in two seconds like this:</p>
+
+{{ quoted_code('_sources/animate0.js') }}
+
+<p>If we have a variable referring to the shape (<code class="js">rect</code> in that example), we can perform the animation any time, such as later when the user clicks something.</p>
+
+<p id="transform">One of the most useful attributes to animate with {{raph}} is the element's transformation. A <dfn>transform string</dfn> is used to specify the transformation. You can specify commands: <code class="js">t</code> for translation (moving), <code class="js">r</code> for rotation, <code class="js">s</code> for scaling. For example, this will rotate a shape by 180&deg; in five seconds:</p>
+
+{{ quoted_code('_sources/transform1.js') }}
+
+<p>This will move an element 100 units right and 200 down, while scaling to 3 times its original size:</p>
+
+{{ quoted_code('_sources/transform2.js') }}
+
+<p>These transformations can be applied with <code class="js">.attr()</code> or <code class="js">.animate()</code>.</p>
+
+
+<section id="click-example">
+<h2>Example 1: User-Initiated Animation</h2>
+
+<p>In our first example, we will perform two different animations on a square when the user clicks buttons. The first will be to change the square's size, and move it to the right:</p>
+
+{{ quoted_code('files/animate1.js', line_start=1, line_end=8, startswith='slide = function()') }}
+
+<p>Second will be to rotate the square:</p>
+
+{{ quoted_code('files/animate1.js', line_start=9, line_end=18, startswith='spin = function()') }}
+
+<p>The code here resets the rotation to 0&deg; each time because the transformation <code class="js">'r360'</code> is <strong>relative to the shape's starting position</strong>. That is, if we didn't have <code class="js">sq.attr(initial)</code> there, the animation would only appear to work once. The second time, the square would already be rotated 360&deg;, so wouldn't move any further.</p>
+
+<p>You can <a href="{{rellink}}files/animate1.html">try these animations</a>.</p>
+
+
+
+</section>
+
+<section id="repeating-example">
+<h2>Example 2: Repeating Animation</h2>
+
+<p>In this example, we will create a repeating animation by using two more arguments to <code class="js">.animate()</code> that are optional but let us do more.</p>
+
+<p>There are actually four possible arguments we can use:</p>
+
+{{ quoted_code('_sources/animate-args.js') }}
+
+<p>The first two are what we have already seen: the new attributes and animation time. The third is the &ldquo;easing formula&rdquo; that we will leave as the default, <code class="js">'linear'</code>.</p>
+
+<p>The last argument there is a function that will be called when the animation <strong>is over</strong>. We can use that to start another animation as the first one finishes. </p>
+
+<p>The strategy here will be to move a shape to the right (in <code class="js">anim_right</code>). When that's done, we'll move it back to the left (with <code class="js">anim_left</code>). When that's over, we'll call (in <code class="js">anim_right</code>) again, and so on.</p>
 
 {{ quoted_code('files/animate2.js') }}
+
+<p>We had to call the function <code class="js">anim_right</code> in <code class="js">setup</code> so the animation starts when the page loads.</p>
+
+<p>Have a look at the <a href="{{rellink}}files/animate2.html">example repeating animation</a> to see this code working.</p>
+</section>
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
