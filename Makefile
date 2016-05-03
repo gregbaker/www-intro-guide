@@ -114,8 +114,8 @@ polished-site: validate $(POLISHED_SITE_DEPS)
 
 upload-draft: polished-site
 	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/cs/165-draft/
-upload-1161: polished-site
-	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/165/1161-d1/guide/
+upload-1164: polished-site
+	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/165/1164-d1/guide/
 
 watch:
 	watch -n 1 make
