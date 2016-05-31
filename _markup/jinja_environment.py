@@ -11,7 +11,7 @@ GLOBALS = {
     'copyright_year': '2015&ndash;2016',
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'https://code.jquery.com/jquery-2.2.2.min.js',
+    'jquery_url': 'https://code.jquery.com/jquery-2.2.4.min.js',
     'raphael_url': 'https://bit.ly/raphael-212_js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
@@ -167,6 +167,8 @@ def pagetitle(context):
         return 'References and Sources'
     elif basename == 'copyright':
         return 'Copyright Information'
+    elif basename == 'lynda':
+        return 'Lynda.com Help'
     elif basename == 'intro':
         return 'Course Introduction'
     
@@ -297,6 +299,25 @@ def css_dt(prop):
     # avoid repetition on css-properties.html
     return '<dt id="%s"><a href="%s"><code class="css dfn">%s</code></a></dt>' % (prop, css_prop_ref_url(prop), prop)
 
+
+@contextfunction
+def lynda_course(*args, **kwargs):
+    """
+    Return markup for a lynda.com course link.
+    """
+    return lynda_video(*args, kind='course', **kwargs)
+
+@contextfunction
+def lynda_video(context, path, title, description=None, kind='video'):
+    """
+    Return markup for a lynda.com video link.
+    """
+    markup = '<aside class="lynda">Lynda.com %s: <a class="lynda" href="https://www.lynda.com%s" data-path="%s">%s</a>. <span class="help">[<a href="%slynda.html">Lynda.com help</a>]</span> ' % (kind, path, path, title, context['rellink'],)
+    if description:
+        markup += description
+    markup += '</aside>'
+    return markup
+
 def raph_ref_url(obj, meth):
     return GLOBALS['raphref_url'] + '#%s.%s' % (obj, meth)
 
@@ -337,6 +358,8 @@ environment.globals['html_tag_ref_url'] = html_tag_ref_url
 environment.globals['css_prop_ref_url'] = css_prop_ref_url
 environment.globals['css_dt'] = css_dt
 environment.globals['raph_ref_url'] = raph_ref_url
+environment.globals['lynda_course'] = lynda_course
+environment.globals['lynda_video'] = lynda_video
 environment.globals['timing'] = timing
 environment.globals['crumbsep'] = ' &rarr; '
 environment.globals.update(GLOBALS)
