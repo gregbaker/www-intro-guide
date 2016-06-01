@@ -249,6 +249,14 @@ aside {
     max-width: $float-width-small;
   }
 }
+aside.lynda {
+  border-width: 2px;
+}
+aside span.help {
+  font-size: 75%;
+  font-style: italic;
+}
+
 blockquote pre {
   line-height: 1em;
 }
@@ -314,9 +322,6 @@ span.term {
 span.codetype {
   font-size: 75%;
   font-weight: normal;
-}
-aside span.help {
-  font-size: 75%;
 }
 ul#index {
   text-align: left;
