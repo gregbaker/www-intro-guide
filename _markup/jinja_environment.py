@@ -11,8 +11,8 @@ GLOBALS = {
     'copyright_year': '2015&ndash;2016',
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'https://code.jquery.com/jquery-2.2.4.min.js',
-    'raphael_url': 'https://bit.ly/raphael-212_js',
+    'jquery_url': 'https://code.jquery.com/jquery-3.0.0.min.js',
+    'raphael_url': 'https://bit.ly/raphael-220_js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
