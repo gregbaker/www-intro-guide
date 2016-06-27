@@ -6,6 +6,168 @@
 
 <p>For more details, see the <a href="{{ cssref_url }}">CSS Reference</a>.</p>
 
-<p class="draft">quick summary of CSS properties we have seen</p>
+
+
+
+<section id="selector">
+<h2>Selectors</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Selector Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="type">
+    <th scope="row"><code class="css">h1</code></th>
+    <td>Select all <code class="html">&lt;h1&gt;</code> elements (even if they have a <code class="html">class</code> or <code class="html">id</code>).</td>
+  </tr>
+  <tr id="class">
+    <th scope="row"><code class="css">.important</code></th>
+    <td>Select any element with <code class="html">class="important"</code>.</td>
+  </tr>
+  <tr id="type-class">
+    <th scope="row"><code class="css">p.important</code></th>
+    <td>Select all elements <code class="html">&lt;p class="important"&gt;</code>.</td>
+  </tr>
+  <tr id="id">
+    <th scope="row"><code class="css">#first</code></th>
+    <td>Select an element with <code class="html">id="first"</code>.</td>
+  </tr>
+  <tr id="type-id">
+    <th scope="row"><code class="css">p#first</code></th>
+    <td>Select an elements <code class="html">&lt;p id="first"&gt;</code>.</td>
+  </tr>
+  <tr id="link">
+    <th scope="row"><code class="css">a:link</code>, <code class="css">a:visited</code>, <code class="css">a:active</code></th>
+    <td>Select the states of a link: unvisited, visited, currently-clicked.</td>
+  </tr>
+  </tbody>
+  <tr id="child">
+    <th scope="row"><code class="css">ul&gt;li</code></th>
+    <td>Select <code class="html">&lt;li&gt;</code> that are <em>immediate children</em> of a <code class="html">&lt;ul&gt;</code> (not deeper nested).</td>
+  </tr>
+  <tr id="descendant">
+    <th scope="row"><code class="css">ul&nbsp;li</code></th>
+    <td>Select <code class="html">&lt;li&gt;</code> that are <em>anywhere inside</em> of a <code class="html">&lt;ul&gt;</code> (may be deeply nested).</td>
+  </tr>
+</table>
+</section>
+
+
+
+<section id="property">
+<h2>Properties</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Property</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="text-align">
+    <th scope="row"><code class="css">text-align</code></th>
+    <td>How should text (or other inline content) be placed  on the line: left, right, centred, or full-justified?</td>
+  </tr>
+  <tr id="font-style">
+    <th scope="row"><code class="css">font-style</code></th>
+    <td>Should text be italic or not (or oblique)?</td>
+  </tr>
+  <tr id="font-weight">
+    <th scope="row"><code class="css">font-weight</code></th>
+    <td>Should the text be bold or not (or how bold, if the font supports it)?</td>
+  </tr>
+  <tr id="font-size">
+    <th scope="row"><code class="css">font-size</code></th>
+    <td>How large should the text be?</td>
+  </tr>
+  <tr id="color">
+    <th scope="row"><code class="css">color</code></th>
+    <td>Sets the colour of the element (the typically the text).</td>
+  </tr>
+  <tr id="background-color">
+    <th scope="row"><code class="css">background-color</code></th>
+    <td>Sets the background colour for the element.</td>
+  </tr>
+  <tr id="line-height">
+    <th scope="row"><code class="css">line-height</code></th>
+    <td>The height of a line of text, used to control the kerning.</td>
+  </tr>
+  <tr id="font-family">
+    <th scope="row"><code class="css">font-family</code></th>
+    <td>What font should be used for the text? List of fonts to try which <strong>must</strong> end with one of the five generic families.</td>
+  </tr>
+  <tr id="border-style">
+    <th scope="row"><code class="css">border-style</code></th>
+    <td>What kind of line should be used for the border. Default is <code class="css">none</code>, so must be set if you want a border.</td>
+  </tr>
+  <tr id="border-width">
+    <th scope="row"><code class="css">border-width</code></th>
+    <td>How wide should the border be?</td>
+  </tr>
+  <tr id="border-color">
+    <th scope="row"><code class="css">border-color</code></th>
+    <td>What colour should the border be?</td>
+  </tr>
+  <tr id="border">
+    <th scope="row"><code class="css">border</code></th>
+    <td>A shorthand for the border properties: can give any of a style, width, or colour, separated by spaces. Can also set the left, right, top, bottom separately.</td>
+  </tr>
+  <tr id="padding">
+    <th scope="row"><code class="css">padding</code></th>
+    <td>Space around the element <em>inside</em> the border, and covered by the background. Can also set the left, right, top, bottom separately.</td>
+  </tr>
+  <tr id="margin">
+    <th scope="row"><code class="css">margin</code></th>
+    <td>Space around the element <em>outside</em> the border, and not covered by the background. Can also set the left, right, top, bottom separately.</td>
+  </tr>
+  <tr id="list-style-type">
+    <th scope="row"><code class="css">list-style-type</code></th>
+    <td>What kind of bullet/numbering should be used for list items?</td>
+  </tr>
+  <tr id="float">
+    <th scope="row"><code class="css">float</code></th>
+    <td>Move the element to the left/right of the page and let other content flow around it.</td>
+  </tr>
+  <tr id="clear">
+    <th scope="row"><code class="css">clear</code></th>
+    <td>Move content down past any content floating to the right/left/either.</td>
+  </tr>
+  <tr id="position">
+    <th scope="row"><code class="css">position</code></th>
+    <td>Change the positioning method for the element so you can move it precisely. Can easily cause overlapping content, or break things on different-sized browsers.</td>
+  </tr>
+  <tr id="top-bottom-left-right">
+    <th scope="row"><code class="css">top</code>, <code class="css">bottom</code>, <code class="css">left</code>, <code class="css">right</code></th>
+    <td>Used to control the position of an element with absolute/relative positioning.</td>
+  </tr>
+  <tr id="opacity">
+    <th scope="row"><code class="css">opacity</code></th>
+    <td>How opaque/transparent should the element be?</td>
+  </tr>
+  <tr id="width-height">
+    <th scope="row"><code class="css">width</code>, <code class="css">height</code></th>
+    <td>Used to control the size of the content.</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+
+
+
+<section id="media">
+<h2>Media Queries</h2>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Query</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+      
+  </tbody>
+</table>
+</section>
+
+
+
 
 {% endblock %}
