@@ -17,6 +17,7 @@ GLOBALS = {
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.11.4',
     'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/',
+    'coursys_url': 'https://coursys.cs.sfu.ca/',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte

@@ -1,6 +1,151 @@
 {% extends "appendixbase.html" %}
 
 {% block content %}
-<p class="draft">Introductory material for CODE offerings. Need CODE's expectations for this.</p>
 
+<p>Welcome to CMPT 165, Introduction to the Internet and the World Wide Web. The major topics of this course will be:</p>
+
+<ul>
+<li>Markup and HTML</li>
+<li>CSS Stylesheets</li>
+<li>JavaScript Programming</li>
+<li>Web Graphics </li>
+</ul>
+
+<section id="outcomes">
+<h2>Learning Outcomes</h2>
+<p>At the end of this course, students should be able to&hellip;</p>
+
+<ul>
+<li>Explain how information is transmitted on the Internet.</li>
+<li>Use HTML to create web pages.</li>
+<li>Use CSS to style HTML content.</li>
+<li>Select a appropriate graphics file formats for use in web pages.</li>
+<li>Use JavaScript in a web page to modify the page and its behaviour, and to interact with the user.</li>
+</ul>
+</section>
+
+
+<section id="online">
+<h2>Course Web Resources</h2>
+
+<p>This course will use <a href="{{ coursys_url }}">CourSys</a> as its primary online presence. You will find due date there, can submit assignments, and check your grades.</p>
+
+<p>The course home page will contain assignment descriptions and other details. You should also find a link to the course home page in <a href="{{ coursys_url }}">CourSys</a>. You may also check the list of <a href="https://courses.cs.sfu.ca/browse/pages/cmpt">CMPT course web sites</a> for your section's home page.</p>
+
+</section>
+
+
+
+
+<section id="resources">
+<h2>Learning Resources</h2>
+
+<p>This Study Guide is the primary resource for this course. There is no required textbook or readings beyond the Guide.</p>
+
+<p>Online references for HTML, CSS, and JavaScript libraries will be used frequently, and will be introduced during the course. You can find link at the bottom of <a href="{{indexlink}}#links">the Guide front page</a>.</p>
+
+<p>There are links to other materials in the Guide as they are relevant. In particular, there are links to video lessons and courses from Lynda.com throughout the Guide. SFU students have free access to Lynda.com and the materials there related to this course  are of excellent quality. See the <a href="{{rellink}}lynda.html">Lynda.com help page</a> for details on accessing them.</p>
+</section>
+
+<section id="sw">
+<h2>Software</h2>
+
+<p>All of the software you need for this course is freely available online. You can find links and a few instructions on the <a href="{{rellink}}content/sw.html">Guide's Software page</a>.</p>
+
+<p>Any computer should be acceptable for the course. You will need Internet access. A tablet computer may be usable if you have a physical keyboard, but a traditional PC is probably easier to work with.</p>
+</section>
+
+<section id="deliverables">
+<h2>Deliverables</h2>
+
+<p>There will be two groups of things you hand in during the semester: exercises and assignments.</p>
+
+<p id="exer">The 12 weekly <dfn>exercises</dfn> are intended to be relatively short. They are designed to keep you up to date on the material, and to force you to practice the core ideas.</p>
+
+<p id="assign">The four <dfn>assignments</dfn> are larger and intended to integrate the ideas in the course up to that point.</p>
+
+<p id="mt">There will be a <dfn>midterm exam</dfn> in week 7 or 8 of the semester. It will cover material up to the end of the &ldquo;Stylesheets&rdquo; topic, as well as the corresponding assignments and exercises. (See the <a href="#schedule">schedule</a> below.)</p>
+
+<p id="final">The <dfn>final exam</dfn> will be three hours and cumulative (i.e. cover all of the course material, including what was covered on the midterm).</p>
+</section>
+
+
+<section id="grading">
+<h2>Grading</h2>
+
+<p>The weighting of each component will be:</p>
+<ul>
+    <li>Weekly Exercises: 12% (12 × 1%)</li>
+    <li>Assignments: 18% (4 × 4.5%)</li>
+    <li>Midterm Exam: 20%</li>
+    <li>Final Exam: 50%</li>
+</ul>
+
+<p>Late penalties will be:</p>
+<ul>
+    <li>For exercises, 25% for the first 2 days; 100% after that.</li>
+    <li>For assignments, 20%/day.</li>
+</ul>
+
+<p>In order to pass this course, students are expected to demonstrate that they have learned the fundamental concepts of the course topics. In practice, that means that you are expected to receive an average pass on both the semester work (exercises + assignments) and exams (midterm + final).</p>
+
+</section>
+
+<section id="schedule">
+<h2>Schedule</h2>
+
+<p>The <strong>exact due dates will be posted in <a href="{{ coursys_url }}">CourSys</a></strong>. Please check there: they may vary from the approximate schedule here.</p>
+
+<p>Here is roughly how the sections in this Guide will fit into the semester:</p>
+
+<figure>
+<table class="display">
+    <thead>
+        <tr><th scope="col">Topic</th><th scope="col">Week(s)</th><th scope="col">Activities</th></tr>
+    </thead>
+    <tbody>
+        <tr><th scope="row">Internet and the World Wide Web</th><td>1</td><td>&mdash;</td></tr>
+        <tr><th scope="row">Markup and HTML</th><td>2&ndash;3</td><td>Exercises 1,&nbsp;2</td></tr>
+        <tr><th scope="row">Stylesheets</th><td>3&ndash;5</td><td>Exercises&nbsp;3, 4,&nbsp;5; Assignments 1,&nbsp;2</td></tr>
+        <tr><th scope="row">JavaScript Introduction</th><td>5&ndash;7</td><td>Exercises 6,&nbsp;7; Assignment&nbsp;3</td></tr>
+        <tr><th scope="row">Graphics</th><td>7</td><td>&mdash;</td></tr>
+        <tr><th scope="row">&mdash;</th><td>7 or 8</td><td>Midterm Exam</td></tr>
+        <tr><th scope="row">JavaScript and Graphics</th><td>8&ndash;9</td><td>Exercise&nbsp;8</td></tr>
+        <tr><th scope="row">Working with JavaScript</th><td>9&ndash;11</td><td>Exercises&nbsp;9, 10,&nbsp;11; Assignment&nbsp;4</td></tr>
+        <tr><th scope="row">More CSS</th><td>12</td><td>Exercise&nbsp;12</td></tr>
+        <tr><th scope="row">Epilogue</th><td>13</td><td>&mdash;</td></tr>
+        <tr><th scope="row">&mdash;</th><td>14 or 15</td><td>Final Exam</td></tr>
+    </tbody>
+</table>
+<figcaption>Approximate course schedule</figcaption>
+</figure>
+
+<p>Generally speaking, the weekly exercises cover the material from the previous week. For example, exercise 5 addresses material from week 5, but is due in week 6.</p>
+
+<p>Because the assignments are larger, they are due further after the corresponding material. This is intended to give you time to complete the corresponding exercises, and fully learn the material while completing the assignment.</p>
+
+</section>
+
+
+
+<section id="honesty">
+<h2>Academic Honesty</h2>
+
+<p>Again, your instructor may clarify his/her expectation around academic honesty. In general, your work in this course should meet <a href="http://www.sfu.ca/policies/gazette/student/s10-01.html">SFU's Code of Academic Integrity and Good Conduct</a>.</p>
+
+<p>In short: work should be completed by the person who submits it. Any work that is independent work of the submitter should be clearly cited to make its source clear.</p>
+
+<p>The instructor may use, or require students to submit assignments to, an automated service that will check for plagiarism.</p>
+
+<p>Some examples of unacceptable behaviour:</p>
+
+<ul>
+<li>Handing in assignments/exercises that are not 100% your own work (in design, implementation, wording, etc.), without proper citation.</li>
+<li>Using another student's work as a template or reference for completing your own work.</li>
+<li>Using any unpermitted resources during an exam.</li>
+<li>Looking at, or attempting to look at, another student's paper during an exam.</li>
+<li>Submitting work that has been submitted before, for any course at any institution.</li>
+</ul>
+
+</section>
 {% endblock %}

@@ -138,6 +138,9 @@ def find_elements(elt):
 def find_terms(infiles):
     contents = _read_contents()
     for f in infiles:
+        if '/intro' in f:
+            # don't index introduction material
+            continue
         assert f.startswith('_site/')
         link = f[6:]
         doc = html5lib.parse(open(f).read(), treebuilder="dom")
