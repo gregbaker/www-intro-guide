@@ -284,6 +284,9 @@ blockquote p:first-child {
 .optionalnote {
   font-style: italic;
 }
+.nobr {
+  white-space: nowrap;
+}
 
 ol.toc {
   font-weight: bold;

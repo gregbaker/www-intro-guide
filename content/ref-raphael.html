@@ -110,7 +110,39 @@
 <section id="attributes">
 <h2>Element Attributes</h2>
 
-<p class="draft">common attributes we can set</p>
+<p>These can be set with the <code class="js">e.attr(&hellip;)</code> function.</p>
+
+<table class="quickref">
+  <thead>
+  <tr><th scope="col">Function/Example</th><th scope="col">Description</th></tr>
+  </thead>
+  <tbody>
+  <tr id="fill">
+    <th scope="row"><code class="js">e.attr({'fill': '#f70'})</code></th>
+    <td>Set the fill colour for the shape.</td>
+  </tr>
+  <tr id="fonts">
+    <th scope="row"><code class="js">e.attr({<span class="nobr">'font-family':</span> <span class="nobr">'sans-serif',</span> <span class="nobr">'font-size':</span> '20px', <span class="nobr">'font-weight':</span> 'bold'})</code></th>
+    <td>Set properties of the font of a text element. Each works like the corresponding CSS property.</td>
+  </tr>
+  <tr id="stroke">
+    <th scope="row"><code class="js">e.attr(<span class="nobr">{'stroke':</span> '#000'})</code></th>
+    <td>Set the colour of the stroke (outline).</td>
+  </tr>
+  <tr id="stroke-width">
+    <th scope="row"><code class="js">e.attr({<span class="nobr">'stroke-width':</span> '3'})</code></th>
+    <td>Width of the stroke (outline).</td>
+  </tr>
+  <tr id="stroke-dasharray">
+    <th scope="row"><code class="js">e.attr(<span class="nobr">{'stroke-dasharray':</span> '-'})</code></th>
+    <td>Make the stroke (outline) dashed (or dotted, etc).</td>
+  </tr>
+  <tr id="transform">
+    <th scope="row"><code class="js">e.attr({'transform': 'r30s2'})</code></th>
+    <td>Transform the element, in this case by rotating 30&deg; and scaling 2 times.</td>
+  </tr>
+  </tbody>
+</table>
 </section>
 
 
