@@ -16,7 +16,7 @@ GLOBALS = {
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.12.0',
-    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/',
+    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/',
     'coursys_url': 'https://coursys.cs.sfu.ca/',
 }
 
