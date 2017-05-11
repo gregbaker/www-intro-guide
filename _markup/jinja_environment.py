@@ -11,12 +11,12 @@ GLOBALS = {
     'copyright_year': '2015&ndash;2016',
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'http://cmpt165.csil.sfu.ca/js/jquery-3.1.1.js',
+    'jquery_url': 'http://cmpt165.csil.sfu.ca/js/jquery-3.2.1.js',
     'raphael_url': 'http://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
-    'jqueryui_version': '1.12.0',
-    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/',
+    'jqueryui_version': '1.12.1',
+    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/',
     'coursys_url': 'https://coursys.cs.sfu.ca/',
 }
 
