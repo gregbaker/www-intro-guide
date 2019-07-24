@@ -1,9 +1,5 @@
 [
   {
-    "chapter": ["intro-dist", "Introduction: SFU Distance Education offerings"],
-    "preface": true
-  },
-  {
     "chapter": ["intro-oc", "Introduction: SFU On-Campus offerings"],
     "preface": true
   },

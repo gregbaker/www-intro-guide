@@ -68,7 +68,7 @@ _site/floats/%.jpg: floats/%.jpg _site/floats
 	gm convert -resize 160x240 $< $@
 
 _site/%.css: %.scss
-	sass --scss --style expanded $< $@
+	sass --style expanded $< $@
 
 _site/assets/%: assets/% _site/assets
 	cp $< $@

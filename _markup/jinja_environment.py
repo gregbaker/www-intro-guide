@@ -8,16 +8,16 @@ from collections import OrderedDict
 from img_process import img_width_height
 
 GLOBALS = {
-    'copyright_year': '2015&ndash;2016',
+    'copyright_year': '2015&ndash;2019',
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'http://cmpt165.csil.sfu.ca/js/jquery-3.2.1.js',
-    'raphael_url': 'http://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js',
+    'jquery_url': 'https://cmpt165.csil.sfu.ca/js/jquery-3.4.1.js',
+    'raphael_url': 'https://cmpt165.csil.sfu.ca/js/raphael-2.2.8.js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
     'jqueryui_version': '1.12.1',
-    'bootstrap_base': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/',
-    'coursys_url': 'https://coursys.cs.sfu.ca/',
+    'bootstrap_base': 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/',
+    'coursys_url': 'https://coursys.sfu.ca/',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
