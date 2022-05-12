@@ -19,17 +19,17 @@ def html5_validate(infiles):
         parser = html5lib.HTMLParser(tree=html5lib.treebuilders.getTreeBuilder("dom"))
         tree = parser.parse(html)
         if parser.errors:
-            print '=' * 70
-            print "Validation error in %s." % (infile)
-            print parser.errors
+            print('=' * 70)
+            print("Validation error in %s." % (infile))
+            print(parser.errors)
             sys.exit(1)
         
         ids = all_ids(tree.documentElement)
         if len(ids) != len(set(ids)):
             repeats = [i for i,n in collections.Counter(ids).items() if n>1]
-            print '=' * 70
-            print "Repeated id in %s." % (infile)
-            print repeats
+            print('=' * 70)
+            print("Repeated id in %s." % (infile))
+            print(repeats)
             sys.exit(1)
             
 

@@ -1,7 +1,7 @@
 import os, subprocess
 import re
 
-gm_output = re.compile(r'^.* (\d+)x(\d+)\+0\+0 .*$')
+gm_output = re.compile(rb'^.* (\d+)x(\d+)\+0\+0 .*$')
 
 def image_size(imgpath):
     imgpath = os.path.join('_site', imgpath)

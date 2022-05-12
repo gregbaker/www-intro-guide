@@ -41,10 +41,10 @@ build: site
 # rules to build in _site
 
 _site/term_index.html: $(SITE_PAGES) _markup/generate_index.py
-	python _markup/generate_index.py $@ $(SITE_PAGES)
+	python3 _markup/generate_index.py $@ $(SITE_PAGES)
 
 _site/%.html: %.html $(LAYOUTS) _site/content
-	python _markup/jinja.py $< $@
+	python3 _markup/jinja.py $< $@
 
 _site/figures/%.svg: figures/%.svg _site/figures
 	cp $< $@
@@ -53,7 +53,7 @@ _site/figures/%.svgz: _site/figures/%.svg _site/figures
 	gzip -c < $< > $@
 
 _site/figures/%.png: figures/%.svg
-	inkscape -y 255 -b "#fff" -d 90 -e $@ $<
+	inkscape -y 255 -b "#fff" -d 90 -o $@ $<
 
 _site/figures/%.png: figures/%.png
 	cp $< $@
@@ -74,11 +74,11 @@ _site/assets/%: assets/% _site/assets
 	cp $< $@
 
 _site/files/%.html: files/%.html _site/files
-	python _markup/jinja.py $< $@
+	python3 _markup/jinja.py $< $@
 _site/files/%.css: files/%.css _site/files
-	python _markup/rstrip.py $< $@
+	python3 _markup/rstrip.py $< $@
 _site/files/%.js: files/%.js _site/files
-	python _markup/rstrip.py $< $@
+	python3 _markup/rstrip.py $< $@
 
 _site/files/%: files/% _site/files
 	cp $< $@
@@ -113,22 +113,22 @@ polished-site: validate $(POLISHED_SITE_DEPS)
 
 
 upload-draft: polished-site
-	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/cs/165-draft/
+	rsync -aP --delete _polished_site/* ggbaker@rcga-linux-ts1.dc.sfu.ca:web/cs/165-draft/
 upload: polished-site
-	rsync -aP --delete _polished_site/* ggbaker@rcg-linux-ts1.rcg.sfu.ca:web/165common/study-guide/
+	rsync -aP --delete _polished_site/* ggbaker@rcga-linux-ts1.dc.sfu.ca:web/165common/study-guide/
 
 watch:
 	watch -n 1 make
 
 validate: $(VALIDATE_DEPS)
-	python _markup/validate.py $(VALIDATE_DEPS)
+	python3 _markup/validate.py $(VALIDATE_DEPS)
 
 validate-remote: validate $(foreach f, $(VALIDATE_DEPS), $(f)-validate-remote)
 %-validate-remote: %
-	python _markup/w3c-validator.py $<
+	python3 _markup/w3c-validator.py $<
 
 check-links: $(SITE_DEPS)
-	python _markup/check_links.py _site/content/*.html _site/files/*.html
+	python3 _markup/check_links.py _site/content/*.html _site/files/*.html
 
 clean:
 	rm -rf _site _polished_site _figure_build/*.jpeg _figure_build/*.png .link_cache.json

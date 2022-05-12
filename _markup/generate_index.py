@@ -4,7 +4,7 @@ import sys
 import html5lib
 import itertools
 from jinja_environment import _read_contents, basename, process_jinja
-from cgi import escape
+from html import escape
 
 TEMPLATE_START = """{% extends "appendixbase.html" %}
 {% block title %}Index of Terms{% endblock %}
@@ -50,14 +50,14 @@ def extract_text(elt):
     elif elt.nodeType == elt.ELEMENT_NODE:
         return ''.join(extract_text(e) for e in elt.childNodes)
     else:
-        raise ValueError, "unknown node type %i" % (elt.nodeType)
+        raise ValueError("unknown node type %i" % (elt.nodeType))
 
 def get_id(elt, fname):
     depth = 0
     origelt = elt
     while not elt.hasAttribute('id'):
         if elt.tagName == 'section':
-            raise ValueError, '<section> without id in %s' % (fname)
+            raise ValueError('<section> without id in %s' % (fname))
 
         if elt.tagName == 'dd':
             # special case id-finder for stuff in a <dd>: link to the <dt>

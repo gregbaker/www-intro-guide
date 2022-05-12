@@ -29,11 +29,11 @@ def count_words(elt, in_counted=False):
     elif elt.nodeType == elt.ELEMENT_NODE:
         return ''.join(extract_text(e) for e in elt.childNodes)
     else:
-        raise ValueError, "unknown node type %i" % (elt.nodeType)
+        raise ValueError("unknown node type %i" % (elt.nodeType))
 
 def wordcount(infile):
     doc = html5lib.parse(open(infile).read(), treebuilder="dom")
     return count_words(doc.documentElement)
         
 if __name__ == '__main__':
-    print wordcount(sys.argv[1])
+    print(wordcount(sys.argv[1]))

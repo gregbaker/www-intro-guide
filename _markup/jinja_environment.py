@@ -1,6 +1,6 @@
 from jinja2 import Environment, FileSystemLoader, Template, Markup, \
     contextfilter, contextfunction
-from cgi import escape
+from html import escape
 import json
 import os.path
 import codecs, sys
@@ -11,18 +11,18 @@ GLOBALS = {
     'copyright_year': '2015&ndash;2019',
     'htmlref_url': 'https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5/HTML5_element_list', # see also html_tag_ref_url() below
     'cssref_url': 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference', # see also css_prop_ref_url() below
-    'jquery_url': 'https://cmpt165.csil.sfu.ca/js/jquery-3.4.1.js',
-    'raphael_url': 'https://cmpt165.csil.sfu.ca/js/raphael-2.2.8.js',
+    'jquery_url': 'https://code.jquery.com/jquery-3.6.0.min.js',
+    'raphael_url': 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js',
     'raphref_url': 'http://dmitrybaranovskiy.github.io/raphael/reference.html', # see also raph_ref_url() below
     'raph': 'Rapha&euml;l',
-    'jqueryui_version': '1.12.1',
+    'jqueryui_version': '1.13.1',
     'bootstrap_base': 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/',
     'coursys_url': 'https://coursys.sfu.ca/',
 }
 
 # https://stackoverflow.com/questions/5040532/python-ascii-codec-cant-decode-byte
-reload(sys)
-sys.setdefaultencoding('utf-8')
+#reload(sys)
+#sys.setdefaultencoding('utf-8')
 
 def get_context(infile):
     depth = infile.count('/')
@@ -258,7 +258,7 @@ def block_code(content, ident=None, codeclass='html', syntaxhighlight=True):
     text = content.rstrip()
     check_line_len(ident, text)
     res = u'<blockquote%s>\n<pre class="%s">%s</pre>\n</blockquote>' % (figid, preclass, escape(text))
-    return res.encode('utf8')
+    return res
 
 def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line_start=None, line_end=None, dedent=0, startswith=None):
 
@@ -273,7 +273,7 @@ def quoted_code(filename, codeclass=None, syntaxhighlight=True, ident=None, line
     
     if startswith:
         # assertion to catch line-number drift in partial quotes.
-        assert content.startswith(startswith), `content[:10]`
+        assert content.startswith(startswith), repr(content[:10])
 
     if not codeclass:
         _, ext = os.path.splitext(filename)

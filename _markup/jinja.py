@@ -8,7 +8,7 @@ def jinja_process(infile, outfile):
     context = get_context(infile)
     output = template.render(context).rstrip()
     
-    with file(outfile, 'wb') as fh:
+    with open(outfile, 'w', encoding='utf=8') as fh:
         fh.write(output)
 
 
