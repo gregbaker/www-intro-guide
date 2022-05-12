@@ -8,6 +8,13 @@ Or you can use [VirtualBox](https://www.virtualbox.org/) and [Vagrant](http://ww
 
 Run the command `make`. Open the file `_site/index.html`.
 
+## Building with Docker
+
+```sh
+docker run www-intro ls
+docker run -v $(pwd):/code www-intro
+```
+
 ## Viewing Drafts
 
 I am regularly uploading the Guide as I work on it to [http://www.cs.sfu.ca/~ggbaker/165-draft/](http://www.cs.sfu.ca/~ggbaker/165-draft/) (temporarly location). If you just want to see what's in here, that will be easier than building the whole thing.
